@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-09-19T08:22:09.290Z</updated>
+  <updated>2023-09-19T11:34:38.722Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>HDLBits Solutions</title>
     <link href="http://example.com/2023/10/01/NotesOfHdlbits/"/>
     <id>http://example.com/2023/10/01/NotesOfHdlbits/</id>
-    <published>2023-10-01T00:00:00.000Z</published>
-    <updated>2023-09-19T08:22:09.290Z</updated>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-19T11:34:38.722Z</updated>
     
     
     <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
@@ -31,25 +31,44 @@
     
     
     
+    <category term="IC" scheme="http://example.com/tags/IC/"/>
+    
   </entry>
   
   <entry>
-    <title>上线网站</title>
-    <link href="http://example.com/2023/09/19/%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99/"/>
-    <id>http://example.com/2023/09/19/%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99/</id>
-    <published>2023-09-19T09:27:59.000Z</published>
-    <updated>2023-09-19T10:43:30.152Z</updated>
+    <title>Climb over that fucking Wall</title>
+    <link href="http://example.com/2023/10/01/Climb-over-that-fucking-Wall/"/>
+    <id>http://example.com/2023/10/01/Climb-over-that-fucking-Wall/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-19T11:33:41.491Z</updated>
     
     
-      
-      
+    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Others" scheme="http://example.com/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Deploy your website</title>
+    <link href="http://example.com/2023/10/01/%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99/"/>
+    <id>http://example.com/2023/10/01/%E4%B8%8A%E7%BA%BF%E7%BD%91%E7%AB%99/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-19T11:59:51.010Z</updated>
+    
+    
     <summary type="html">&lt;h3&gt;摘要&lt;/h3&gt;
 
-&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法</summary>
-      
+&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。&lt;/p&gt;
+&lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="Web" scheme="http://example.com/tags/Web/"/>
     
   </entry>
   
