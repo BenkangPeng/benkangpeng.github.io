@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Benkang Peng</title>
+  
+  <subtitle>Personal Blog</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-09-19T08:22:09.290Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Benkang Peng</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HDLBits Solutions</title>
+    <link href="http://example.com/2023/10/01/NotesOfHdlbits/"/>
+    <id>http://example.com/2023/10/01/NotesOfHdlbits/</id>
+    <published>2023-10-01T00:00:00.000Z</published>
+    <updated>2023-09-19T08:22:09.290Z</updated>
+    
+    
+    <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;The solutions and my notes of &lt;a href=&quot;[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)&quot;&gt;HDLBits&lt;/a&gt; are written in this document .&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Typora语法</title>
+    <link href="http://example.com/2023/09/18/Typora%E8%AF%AD%E6%B3%95/"/>
+    <id>http://example.com/2023/09/18/Typora%E8%AF%AD%E6%B3%95/</id>
+    <published>2023-09-18T03:00:04.000Z</published>
+    <updated>2023-09-18T07:28:21.619Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="软件使用" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章 网站搭建流程</title>
+    <link href="http://example.com/2023/09/18/Hello%20Hexo-NEXT/"/>
+    <id>http://example.com/2023/09/18/Hello%20Hexo-NEXT/</id>
+    <published>2023-09-18T00:31:59.000Z</published>
+    <updated>2023-09-18T07:22:18.387Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;</summary>
+      
+    
+    
+    
+    
+    <category term="Web开发" scheme="http://example.com/tags/Web%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/09/18/hello-world/"/>
+    <id>http://example.com/2023/09/18/hello-world/</id>
+    <published>2023-09-18T00:27:52.828Z</published>
+    <updated>2023-09-18T00:27:52.828Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
