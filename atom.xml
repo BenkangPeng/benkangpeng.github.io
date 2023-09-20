@@ -3,11 +3,11 @@
   <title>Benkang Peng</title>
   
   <subtitle>Personal Blog</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2023-09-19T12:48:47.726Z</updated>
-  <id>http://example.com/</id>
+  <link href="http://benkangpeng.github.io/"/>
+  <updated>2023-09-20T03:40:40.223Z</updated>
+  <id>http://benkangpeng.github.io/</id>
   
   <author>
     <name>Benkang Peng</name>
@@ -18,15 +18,13 @@
   
   <entry>
     <title>Deploy your website</title>
-    <link href="http://example.com/2023/10/01/Deploy-your-website/"/>
-    <id>http://example.com/2023/10/01/Deploy-your-website/</id>
+    <link href="http://benkangpeng.github.io/2023/10/01/Deploy-your-website/"/>
+    <id>http://benkangpeng.github.io/2023/10/01/Deploy-your-website/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-19T12:48:47.726Z</updated>
+    <updated>2023-09-20T03:40:40.223Z</updated>
     
     
-    <summary type="html">&lt;h3&gt;摘要&lt;/h3&gt;
-
-&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。&lt;/p&gt;
 &lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
     
     
@@ -35,11 +33,28 @@
   </entry>
   
   <entry>
-    <title>HDLBits Solutions</title>
-    <link href="http://example.com/2023/10/01/NotesOfHdlbits/"/>
-    <id>http://example.com/2023/10/01/NotesOfHdlbits/</id>
+    <title>Climb over that fucking Wall</title>
+    <link href="http://benkangpeng.github.io/2023/10/01/Climb-over-that-fucking-Wall/"/>
+    <id>http://benkangpeng.github.io/2023/10/01/Climb-over-that-fucking-Wall/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-19T11:34:38.722Z</updated>
+    <updated>2023-09-20T03:40:40.226Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Others" scheme="http://benkangpeng.github.io/tags/Others/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDLBits Solutions</title>
+    <link href="http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/"/>
+    <id>http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-20T03:40:40.227Z</updated>
     
     
     <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
@@ -49,33 +64,48 @@
     
     
     
-    <category term="IC" scheme="http://example.com/tags/IC/"/>
+    <category term="IC" scheme="http://benkangpeng.github.io/tags/IC/"/>
     
   </entry>
   
   <entry>
-    <title>Climb over that fucking Wall</title>
-    <link href="http://example.com/2023/10/01/Climb-over-that-fucking-Wall/"/>
-    <id>http://example.com/2023/10/01/Climb-over-that-fucking-Wall/</id>
+    <title>解决文章目录点击不跳转的问题</title>
+    <link href="http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-19T11:33:41.491Z</updated>
+    <updated>2023-09-20T03:41:32.094Z</updated>
     
     
-    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! &lt;/p&gt;</summary>
+    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p style = &quot;color : green&quot;&gt;网页文章目录罢工了？&lt;/p&gt;
+
+&lt;p&gt;今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的&lt;a href = &quot;https://github.com/theme-next/hexo-theme-next/pull/1540/files&quot;&gt;Issue&lt;/a&gt; , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：&lt;strong&gt;Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。&lt;/strong&gt; &lt;strong&gt;将h标签写的标题改成markdown语法即可，即&lt;code&gt;&amp;lt;h3&amp;gt;摘要&amp;lt;/h3&amp;gt;&lt;/code&gt;改成&lt;code&gt;### 摘要&lt;/code&gt;&lt;/strong&gt; &lt;/p&gt;</summary>
     
     
     
     
-    <category term="Others" scheme="http://example.com/tags/Others/"/>
+  </entry>
+  
+  <entry>
+    <title>Customized Website Article Link</title>
+    <link href="http://benkangpeng.github.io/2023/09/20/Customized-Website-Article-Link/"/>
+    <id>http://benkangpeng.github.io/2023/09/20/Customized-Website-Article-Link/</id>
+    <published>2023-09-20T03:21:12.000Z</published>
+    <updated>2023-09-20T03:41:55.601Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
     
   </entry>
   
   <entry>
     <title>Instruction Of Typora</title>
-    <link href="http://example.com/2023/09/18/Instruction-Of-Typora/"/>
-    <id>http://example.com/2023/09/18/Instruction-Of-Typora/</id>
+    <link href="http://benkangpeng.github.io/2023/09/18/Instruction-Of-Typora/"/>
+    <id>http://benkangpeng.github.io/2023/09/18/Instruction-Of-Typora/</id>
     <published>2023-09-18T03:00:04.000Z</published>
-    <updated>2023-09-19T12:18:21.307Z</updated>
+    <updated>2023-09-20T03:40:40.231Z</updated>
     
     
     <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
@@ -83,36 +113,36 @@
     
     
     
-    <category term="软件使用" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <category term="软件使用" scheme="http://benkangpeng.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title>第一篇文章 网站搭建流程</title>
-    <link href="http://example.com/2023/09/18/Hello%20Hexo-NEXT/"/>
-    <id>http://example.com/2023/09/18/Hello%20Hexo-NEXT/</id>
+    <link href="http://benkangpeng.github.io/2023/09/18/Hello%20Hexo-NEXT/"/>
+    <id>http://benkangpeng.github.io/2023/09/18/Hello%20Hexo-NEXT/</id>
     <published>2023-09-18T00:31:59.000Z</published>
-    <updated>2023-09-18T07:22:18.387Z</updated>
+    <updated>2023-09-20T03:40:40.225Z</updated>
     
     
       
       
-    <summary type="html">&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;</summary>
+    <summary type="html">&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token </summary>
       
     
     
     
     
-    <category term="Web开发" scheme="http://example.com/tags/Web%E5%BC%80%E5%8F%91/"/>
+    <category term="Web开发" scheme="http://benkangpeng.github.io/tags/Web%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2023/09/18/hello-world/"/>
-    <id>http://example.com/2023/09/18/hello-world/</id>
+    <link href="http://benkangpeng.github.io/2023/09/18/hello-world/"/>
+    <id>http://benkangpeng.github.io/2023/09/18/hello-world/</id>
     <published>2023-09-18T00:27:52.828Z</published>
-    <updated>2023-09-18T00:27:52.828Z</updated>
+    <updated>2023-09-20T03:40:40.230Z</updated>
     
     
       
