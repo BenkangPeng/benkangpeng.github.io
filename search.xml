@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Climb over that fucking Wall</title>
-    <url>/posts/dc741c57</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
-
-<span id="more"></span>
-
-<p>Here are somes ways to climbing over this fucking wall :</p>
-<ul>
-<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
-</li>
-<li><p>To be continue ……</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Others</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Customized Website Article Link</title>
-    <url>/posts/4bc5178d</url>
+    <url>/posts/4bc5178d/</url>
     <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
 <span id="more"></span>
 
@@ -34,7 +15,7 @@
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> <span class="token punctuation">:</span>year/<span class="token punctuation">:</span>month/<span class="token punctuation">:</span>day/<span class="token punctuation">:</span>title/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>into</strong>(You can choose one of two ways below :)</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>or</strong></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -65,32 +46,27 @@ rep <span class="token punctuation">-</span><span class="token punctuation">-</s
 ]]></content>
   </entry>
   <entry>
-    <title>第一篇文章 网站搭建流程</title>
-    <url>/posts/6bd716de</url>
-    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <title>Climb over that fucking Wall</title>
+    <url>/posts/dc741c57/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
 
+<span id="more"></span>
 
-
-<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
+<p>Here are somes ways to climbing over this fucking wall :</p>
+<ul>
+<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
+</li>
+<li><p>To be continue ……</p>
+</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>Web开发</tag>
+        <tag>Others</tag>
       </tags>
   </entry>
   <entry>
     <title>HDLBits Solutions</title>
-    <url>/posts/4ff0bc03</url>
+    <url>/posts/4ff0bc03/</url>
     <content><![CDATA[<h3>Abstract</h3>
 
 <p>The solutions and my notes of <a href="[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)">HDLBits</a> are written in this document .</p>
@@ -612,8 +588,140 @@ rep <span class="token punctuation">-</span><span class="token punctuation">-</s
       </tags>
   </entry>
   <entry>
+    <title>Deploy your website</title>
+    <url>/posts/f1f00c7b/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。</p>
+<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
+<span id="more"></span>
+
+<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
+<li><p><strong>注册GitHub、新建仓库</strong></p>
+<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
+</li>
+<li><p><strong>生成ssh-key</strong></p>
+<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
+<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
+<p><strong>尝试本机与Github通信</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>若显示以上结果，则表明通信成功。</p>
+</li>
+<li><p>修改<code>Hexo</code> 配置文件</p>
+<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
+<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
+</li>
+<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>将文件上传到<code>Github</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
+hexo g  <span class="token comment"># hexo generate</span>
+hexo d  <span class="token comment"># hexo deploy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
+<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
+</li>
+<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
+</li>
+</ul>
+<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
+<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
+<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
+</li>
+<li><p><strong>新建仓库</strong></p>
+<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
+</li>
+<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
+<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>SSH-key填入Gitee</strong></p>
+<p>点头像→设置→SSH公钥</p>
+</li>
+<li><p><strong>第一次通信</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
+</blockquote>
+<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
+</li>
+<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
+  <span class="token comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>部署、上传到Gitee</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
+</li>
+<li><p><strong>将仓库设置为Gitee Pages</strong></p>
+<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
+<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
+<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
+</li>
+<li><p><strong>大功告成</strong></p>
+<p><a href="https:\\benkangpeng.gitee.io"></a></p>
+</li>
+</ul>
+<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>第一篇文章 网站搭建流程</title>
+    <url>/posts/6bd716de/</url>
+    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
+]]></content>
+      <tags>
+        <tag>Web开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175</url>
+    <url>/posts/bfc69175/</url>
     <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
 
 <span id="more"></span>
@@ -775,7 +883,7 @@ $
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/4a17b156</url>
+    <url>/posts/4a17b156/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -793,7 +901,7 @@ $
   </entry>
   <entry>
     <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9</url>
+    <url>/posts/6e206cd9/</url>
     <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
 
 <p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
@@ -843,114 +951,6 @@ $
 <p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
 </li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Deploy your website</title>
-    <url>/posts/f1f00c7b</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。</p>
-<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
-<span id="more"></span>
-
-<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
-<li><p><strong>注册GitHub、新建仓库</strong></p>
-<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
-</li>
-<li><p><strong>生成ssh-key</strong></p>
-<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
-ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
-<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
-<p><strong>尝试本机与Github通信</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<p>若显示以上结果，则表明通信成功。</p>
-</li>
-<li><p>修改<code>Hexo</code> 配置文件</p>
-<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
-<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
-</li>
-<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>将文件上传到<code>Github</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo g  <span class="token comment"># hexo generate</span>
-hexo d  <span class="token comment"># hexo deploy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
-<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
-</li>
-<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
-</li>
-</ul>
-<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
-<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
-<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
-</li>
-<li><p><strong>新建仓库</strong></p>
-<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
-</li>
-<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
-<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
-ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>SSH-key填入Gitee</strong></p>
-<p>点头像→设置→SSH公钥</p>
-</li>
-<li><p><strong>第一次通信</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
-</blockquote>
-<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
-</li>
-<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
-  <span class="token comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span>
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>部署、上传到Gitee</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
-</li>
-<li><p><strong>将仓库设置为Gitee Pages</strong></p>
-<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
-<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
-<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
-</li>
-<li><p><strong>大功告成</strong></p>
-<p><a href="https:\\benkangpeng.gitee.io"></a></p>
-</li>
-</ul>
-<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
 ]]></content>
   </entry>
 </search>
