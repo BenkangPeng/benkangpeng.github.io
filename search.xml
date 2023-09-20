@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Climb over that fucking Wall</title>
+    <url>/posts/dc741c57/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
+
+<span id="more"></span>
+
+<p>Here are somes ways to climbing over this fucking wall :</p>
+<ul>
+<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
+</li>
+<li><p>To be continue ……</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Others</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Customized Website Article Link</title>
     <url>/posts/4bc5178d/</url>
     <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
@@ -19,6 +38,9 @@
 
 <p><strong>or</strong></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong style = "color = red ">Be careful : </strong> </p>
+<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
 </li>
 <li><p><strong>Add the codes below in the end of file <code>config.yml</code></strong></p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># abbrlink config</span>
@@ -40,28 +62,220 @@
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">alg <span class="token punctuation">-</span><span class="token punctuation">-</span> Algorithm (currently support crc16 and crc32<span class="token punctuation">,</span> which crc16 is default)
 rep <span class="token punctuation">-</span><span class="token punctuation">-</span> Represent (the generated link could be presented in hex or dec value)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
+<li><p><strong>Final Nagging</strong></p>
+<ul>
+<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
+<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
+</ul>
+<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
+</li>
 <li><p><strong>That’s all .</strong></p>
 </li>
 </ul>
 ]]></content>
   </entry>
   <entry>
-    <title>Climb over that fucking Wall</title>
-    <url>/posts/dc741c57/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
+    <title>Hello World</title>
+    <url>/posts/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
 
 <span id="more"></span>
 
-<p>Here are somes ways to climbing over this fucking wall :</p>
-<ul>
-<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none"># 大标题  （ Ctrl + 1 ） 
+## 第二号标题 （ Ctrl + 2 ) 
+### 第三号标题  
+一直可以到第六号标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">语法 ： &gt; 引用内容  
+例如输入下列语句：
+&gt; 心志要坚，意趣要乐。  
+输出结果为<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">就如平常一样输入序号就行了，此后换行就会自动排序。  
+格式 ：1. 第一点        
+2. 第二点
+3. * 空圆
+   - 方形
+* 实圆<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
 </li>
-<li><p>To be continue ……</p>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+- [ ] 未完成任务    - [x] 已完成任务
+可点击任务点完成任务  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式  
+​&#96;&#96;&#96;language
+代码段
+​&#96;&#96;&#96;  
+其实后面那三个顿号电脑会自动显示的（注意是顿号，  
+英文输入法下的Esc下边那个键）  
+代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   
+要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  
+设计一个这样的文本格式，  
+当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  
+代码语句的输入  
+格式 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; Reverse Bits Ordering
+module top_module(
+    input [99:0] in ,
+    output [99:0] out 
+) ;
+    genvar i ;
+    generate
+        for(i &#x3D; 0 ; i &lt; 100 ; i++) begin : generate_name
+            assign out[i] &#x3D; in [99 - i] ;
+        end
+    endgenerate
+endmodule<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><pre class="line-numbers language-none"><code class="language-none">$ 单行输入 $
+$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 &#x3D;  \begin&#123;vmatrix&#125;
+\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
+\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
+\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
+\end&#123;vmatrix&#125;  
+$
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">| A  | B |
+| C  | D |
+| E  | F |  
+点击表格内有功能选择<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+--- 
+或者 
+*** 
+例如 
+我是分割线 
+
+---
+
+我是分割线 
+
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+输入[toc]再回车就行了 （table of content) 
+就会生成一个目录，点击相应标记即可跳转 
+例如 
+[toc] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+[给链接起个名字](写上具体网址)
+[知乎](https:&#x2F;&#x2F;www.zhihu.com&#x2F;) 注意用英文输入法下的括号  
+在markdown文件中按住Ctrl键同时点击网址即可直接打开<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式  
+![起个名字](存储位置) 
+例如 
+![思维导图](D:\desktop\Typora.png) 
+当然啦，直接把图片拖过来复制一下不香吗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
 </li>
 </ul>
 ]]></content>
       <tags>
-        <tag>Others</tag>
+        <tag>软件使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇文章 网站搭建流程</title>
+    <url>/posts/6bd716de/</url>
+    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
+]]></content>
+      <tags>
+        <tag>Web开发</tag>
       </tags>
   </entry>
   <entry>
@@ -621,7 +835,7 @@ ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="tok
 <p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
   <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
 <p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
@@ -693,210 +907,6 @@ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </li>
 </ul>
 <h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>第一篇文章 网站搭建流程</title>
-    <url>/posts/6bd716de/</url>
-    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
-]]></content>
-      <tags>
-        <tag>Web开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none"># 大标题  （ Ctrl + 1 ） 
-## 第二号标题 （ Ctrl + 2 ) 
-### 第三号标题  
-一直可以到第六号标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">语法 ： &gt; 引用内容  
-例如输入下列语句：
-&gt; 心志要坚，意趣要乐。  
-输出结果为<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">就如平常一样输入序号就行了，此后换行就会自动排序。  
-格式 ：1. 第一点        
-2. 第二点
-3. * 空圆
-   - 方形
-* 实圆<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-- [ ] 未完成任务    - [x] 已完成任务
-可点击任务点完成任务  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式  
-​&#96;&#96;&#96;language
-代码段
-​&#96;&#96;&#96;  
-其实后面那三个顿号电脑会自动显示的（注意是顿号，  
-英文输入法下的Esc下边那个键）  
-代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   
-要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  
-设计一个这样的文本格式，  
-当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  
-代码语句的输入  
-格式 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; Reverse Bits Ordering
-module top_module(
-    input [99:0] in ,
-    output [99:0] out 
-) ;
-    genvar i ;
-    generate
-        for(i &#x3D; 0 ; i &lt; 100 ; i++) begin : generate_name
-            assign out[i] &#x3D; in [99 - i] ;
-        end
-    endgenerate
-endmodule<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><pre class="line-numbers language-none"><code class="language-none">$ 单行输入 $
-$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 &#x3D;  \begin&#123;vmatrix&#125;
-\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
-\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
-\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
-\end&#123;vmatrix&#125;  
-$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">| A  | B |
-| C  | D |
-| E  | F |  
-点击表格内有功能选择<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
---- 
-或者 
-*** 
-例如 
-我是分割线 
-
----
-
-我是分割线 
-
-***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-输入[toc]再回车就行了 （table of content) 
-就会生成一个目录，点击相应标记即可跳转 
-例如 
-[toc] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-[给链接起个名字](写上具体网址)
-[知乎](https:&#x2F;&#x2F;www.zhihu.com&#x2F;) 注意用英文输入法下的括号  
-在markdown文件中按住Ctrl键同时点击网址即可直接打开<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式  
-![起个名字](存储位置) 
-例如 
-![思维导图](D:\desktop\Typora.png) 
-当然啦，直接把图片拖过来复制一下不香吗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>软件使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/posts/4a17b156/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
