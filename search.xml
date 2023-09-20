@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Customized Website Article Link</title>
-    <url>/2023/09/20/Customized-Website-Article-Link/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
-<span id="more"></span>
-
-<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ul>
-<li><p>Add plugin to Hexo :</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--saveve</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>Modify <code>config.yml</code></p>
-<p>You can choose one of two ways below :</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>or</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>Add the codes below in the end of file <code>config.yml</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># abbrlink config</span>
-<span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
-  <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc32      <span class="token comment">#support crc16(default) and crc32</span>
-  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex        <span class="token comment">#support dec(default) and hex</span>
-  <span class="token key atrule">drafts</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment">#(true)Process draft,(false)Do not process draft. false(default) </span>
-  <span class="token comment"># Generate categories from directory-tree</span>
-  <span class="token comment"># depth: the max_depth of directory-tree you want to generate, should > 0</span>
-  <span class="token key atrule">auto_category</span><span class="token punctuation">:</span>
-     <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#true(default)</span>
-     <span class="token key atrule">depth</span><span class="token punctuation">:</span>        <span class="token comment">#3(default)</span>
-     <span class="token key atrule">over_write</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
-  <span class="token key atrule">auto_title</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto title, it can auto fill the title by path</span>
-  <span class="token key atrule">auto_date</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto date, it can auto fill the date by time today</span>
-  <span class="token key atrule">force</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">alg <span class="token punctuation">-</span><span class="token punctuation">-</span> Algorithm (currently support crc16 and crc32<span class="token punctuation">,</span> which crc16 is default)
-rep <span class="token punctuation">-</span><span class="token punctuation">-</span> Represent (the generated link could be presented in hex or dec value)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>That’s all .</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Deploy your website</title>
     <url>/2023/10/01/Deploy-your-website/</url>
     <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。</p>
@@ -148,6 +106,145 @@ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </li>
 </ul>
 <h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>第一篇文章 网站搭建流程</title>
+    <url>/2023/09/18/Hello%20Hexo-NEXT/</url>
+    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
+]]></content>
+      <tags>
+        <tag>Web开发</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Customized Website Article Link</title>
+    <url>/2023/09/20/Customized-Website-Article-Link/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
+<span id="more"></span>
+
+<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ul>
+<li><p>Add plugin to Hexo :</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>Modify <code>config.yml</code></p>
+<p>You can choose one of two ways below :</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>or</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>Add the codes below in the end of file <code>config.yml</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># abbrlink config</span>
+<span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
+  <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc32      <span class="token comment">#support crc16(default) and crc32</span>
+  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex        <span class="token comment">#support dec(default) and hex</span>
+  <span class="token key atrule">drafts</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment">#(true)Process draft,(false)Do not process draft. false(default) </span>
+  <span class="token comment"># Generate categories from directory-tree</span>
+  <span class="token comment"># depth: the max_depth of directory-tree you want to generate, should > 0</span>
+  <span class="token key atrule">auto_category</span><span class="token punctuation">:</span>
+     <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#true(default)</span>
+     <span class="token key atrule">depth</span><span class="token punctuation">:</span>        <span class="token comment">#3(default)</span>
+     <span class="token key atrule">over_write</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
+  <span class="token key atrule">auto_title</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto title, it can auto fill the title by path</span>
+  <span class="token key atrule">auto_date</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto date, it can auto fill the date by time today</span>
+  <span class="token key atrule">force</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">alg <span class="token punctuation">-</span><span class="token punctuation">-</span> Algorithm (currently support crc16 and crc32<span class="token punctuation">,</span> which crc16 is default)
+rep <span class="token punctuation">-</span><span class="token punctuation">-</span> Represent (the generated link could be presented in hex or dec value)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>That’s all .</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Climb over that fucking Wall</title>
+    <url>/2023/10/01/Climb-over-that-fucking-Wall/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
+
+<span id="more"></span>
+
+<p>Here are somes ways to climbing over this fucking wall :</p>
+<ul>
+<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
+</li>
+<li><p>To be continue ……</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Others</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><p>Bug复现</p>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<pre class="line-numbers language-none"><code class="language-none">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><p><strong>开发者模式Debug</strong></p>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Quick Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		Quick Start
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+</li>
+<li><p><strong>问题分析</strong></p>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>官方的摘要：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">###</span> 摘要</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+</li>
+<li><p><strong>解决方案</strong></p>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -310,25 +407,6 @@ $
 ]]></content>
       <tags>
         <tag>软件使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Climb over that fucking Wall</title>
-    <url>/2023/10/01/Climb-over-that-fucking-Wall/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
-
-<span id="more"></span>
-
-<p>Here are somes ways to climbing over this fucking wall :</p>
-<ul>
-<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
-</li>
-<li><p>To be continue ……</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Others</tag>
       </tags>
   </entry>
   <entry>
@@ -870,84 +948,6 @@ $
 ]]></content>
       <tags>
         <tag>IC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><p>Bug复现</p>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<pre class="line-numbers language-none"><code class="language-none">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><p><strong>开发者模式Debug</strong></p>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Quick Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		Quick Start
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-</li>
-<li><p><strong>问题分析</strong></p>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>官方的摘要：</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">###</span> 摘要</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-</li>
-<li><p><strong>解决方案</strong></p>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>第一篇文章 网站搭建流程</title>
-    <url>/2023/09/18/Hello%20Hexo-NEXT/</url>
-    <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    std<span class="token double-colon punctuation">::</span>ostringstream <span class="token function">oss</span><span class="token punctuation">(</span><span class="token string">"Ico-En Green Tea"</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    oss <span class="token operator">&lt;&lt;</span> <span class="token string">"16.9 Ounces"</span> <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> oss<span class="token punctuation">.</span><span class="token function">str</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Why so slow"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl <span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="搭建流程"><a href="#搭建流程" class="headerlink" title="搭建流程"></a>搭建流程</h3><p>aaaaaaaaaaaaaaaa</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>bbbbbbbbbbbbbbb</p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>aaaaaaaaaaaaaaaaaaa</p>
-]]></content>
-      <tags>
-        <tag>Web开发</tag>
       </tags>
   </entry>
 </search>

@@ -50,6 +50,23 @@
   </entry>
   
   <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <link href="http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-20T03:41:32.094Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p style = &quot;color : green&quot;&gt;网页文章目录罢工了？&lt;/p&gt;
+
+&lt;p&gt;今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的&lt;a href = &quot;https://github.com/theme-next/hexo-theme-next/pull/1540/files&quot;&gt;Issue&lt;/a&gt; , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：&lt;strong&gt;Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。&lt;/strong&gt; &lt;strong&gt;将h标签写的标题改成markdown语法即可，即&lt;code&gt;&amp;lt;h3&amp;gt;摘要&amp;lt;/h3&amp;gt;&lt;/code&gt;改成&lt;code&gt;### 摘要&lt;/code&gt;&lt;/strong&gt; &lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>HDLBits Solutions</title>
     <link href="http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/"/>
     <id>http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/</id>
@@ -69,28 +86,11 @@
   </entry>
   
   <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <link href="http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://benkangpeng.github.io/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T03:41:32.094Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p style = &quot;color : green&quot;&gt;网页文章目录罢工了？&lt;/p&gt;
-
-&lt;p&gt;今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的&lt;a href = &quot;https://github.com/theme-next/hexo-theme-next/pull/1540/files&quot;&gt;Issue&lt;/a&gt; , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：&lt;strong&gt;Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。&lt;/strong&gt; &lt;strong&gt;将h标签写的标题改成markdown语法即可，即&lt;code&gt;&amp;lt;h3&amp;gt;摘要&amp;lt;/h3&amp;gt;&lt;/code&gt;改成&lt;code&gt;### 摘要&lt;/code&gt;&lt;/strong&gt; &lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Customized Website Article Link</title>
     <link href="http://benkangpeng.github.io/2023/09/20/Customized-Website-Article-Link/"/>
     <id>http://benkangpeng.github.io/2023/09/20/Customized-Website-Article-Link/</id>
-    <published>2023-09-20T03:21:12.000Z</published>
-    <updated>2023-09-20T03:41:55.601Z</updated>
+    <published>2023-09-20T03:21:12.802Z</published>
+    <updated>2023-09-20T03:58:59.053Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
