@@ -1,116 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Deploy your website</title>
-    <url>/2023/10/01/Deploy-your-website/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。</p>
-<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
+    <title>Climb over that fucking Wall</title>
+    <url>/posts/dc741c57</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
+
 <span id="more"></span>
 
-<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
-<li><p><strong>注册GitHub、新建仓库</strong></p>
-<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
+<p>Here are somes ways to climbing over this fucking wall :</p>
+<ul>
+<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
 </li>
-<li><p><strong>生成ssh-key</strong></p>
-<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
-ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
-<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
-<p><strong>尝试本机与Github通信</strong>：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<p>若显示以上结果，则表明通信成功。</p>
-</li>
-<li><p>修改<code>Hexo</code> 配置文件</p>
-<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
-<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
-</li>
-<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>将文件上传到<code>Github</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
-hexo g  <span class="token comment"># hexo generate</span>
-hexo d  <span class="token comment"># hexo deploy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
-<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
-</li>
-<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
+<li><p>To be continue ……</p>
 </li>
 </ul>
-<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
-<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
-<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
-</li>
-<li><p><strong>新建仓库</strong></p>
-<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
-</li>
-<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
-<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
-ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+]]></content>
+      <tags>
+        <tag>Others</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Customized Website Article Link</title>
+    <url>/posts/4bc5178d</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
+<span id="more"></span>
 
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ul>
+<li><p><strong>Add plugin to Hexo :</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p><strong>SSH-key填入Gitee</strong></p>
-<p>点头像→设置→SSH公钥</p>
-</li>
-<li><p><strong>第一次通信</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<li><p><strong>Modify <code>config.yml</code></strong></p>
+<p><strong>Change the origin code</strong> </p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> <span class="token punctuation">:</span>year/<span class="token punctuation">:</span>month/<span class="token punctuation">:</span>day/<span class="token punctuation">:</span>title/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<blockquote>
-<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
-</blockquote>
-<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
-</li>
-<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
-  <span class="token comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span>
-  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><strong>部署、上传到Gitee</strong></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
-hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>into</strong>(You can choose one of two ways below :)</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
+<p><strong>or</strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p><strong>将仓库设置为Gitee Pages</strong></p>
-<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
-<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
-<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
+<li><p><strong>Add the codes below in the end of file <code>config.yml</code></strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># abbrlink config</span>
+<span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
+  <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc32      <span class="token comment">#support crc16(default) and crc32</span>
+  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex        <span class="token comment">#support dec(default) and hex</span>
+  <span class="token key atrule">drafts</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment">#(true)Process draft,(false)Do not process draft. false(default) </span>
+  <span class="token comment"># Generate categories from directory-tree</span>
+  <span class="token comment"># depth: the max_depth of directory-tree you want to generate, should > 0</span>
+  <span class="token key atrule">auto_category</span><span class="token punctuation">:</span>
+     <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#true(default)</span>
+     <span class="token key atrule">depth</span><span class="token punctuation">:</span>        <span class="token comment">#3(default)</span>
+     <span class="token key atrule">over_write</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
+  <span class="token key atrule">auto_title</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto title, it can auto fill the title by path</span>
+  <span class="token key atrule">auto_date</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto date, it can auto fill the date by time today</span>
+  <span class="token key atrule">force</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">alg <span class="token punctuation">-</span><span class="token punctuation">-</span> Algorithm (currently support crc16 and crc32<span class="token punctuation">,</span> which crc16 is default)
+rep <span class="token punctuation">-</span><span class="token punctuation">-</span> Represent (the generated link could be presented in hex or dec value)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p><strong>大功告成</strong></p>
-<p><a href="https:\\benkangpeng.gitee.io"></a></p>
+<li><p><strong>That’s all .</strong></p>
 </li>
 </ul>
-<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>第一篇文章 网站搭建流程</title>
-    <url>/2023/09/18/Hello%20Hexo-NEXT/</url>
+    <url>/posts/6bd716de</url>
     <content><![CDATA[<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sstream></span></span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -133,303 +89,8 @@ hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       </tags>
   </entry>
   <entry>
-    <title>Customized Website Article Link</title>
-    <url>/2023/09/20/Customized-Website-Article-Link/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
-<span id="more"></span>
-
-<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ul>
-<li><p>Add plugin to Hexo :</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>Modify <code>config.yml</code></p>
-<p>You can choose one of two ways below :</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>abbrlink<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>or</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>addrlink.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>Add the codes below in the end of file <code>config.yml</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># abbrlink config</span>
-<span class="token key atrule">abbrlink</span><span class="token punctuation">:</span>
-  <span class="token key atrule">alg</span><span class="token punctuation">:</span> crc32      <span class="token comment">#support crc16(default) and crc32</span>
-  <span class="token key atrule">rep</span><span class="token punctuation">:</span> hex        <span class="token comment">#support dec(default) and hex</span>
-  <span class="token key atrule">drafts</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment">#(true)Process draft,(false)Do not process draft. false(default) </span>
-  <span class="token comment"># Generate categories from directory-tree</span>
-  <span class="token comment"># depth: the max_depth of directory-tree you want to generate, should > 0</span>
-  <span class="token key atrule">auto_category</span><span class="token punctuation">:</span>
-     <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment">#true(default)</span>
-     <span class="token key atrule">depth</span><span class="token punctuation">:</span>        <span class="token comment">#3(default)</span>
-     <span class="token key atrule">over_write</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> 
-  <span class="token key atrule">auto_title</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto title, it can auto fill the title by path</span>
-  <span class="token key atrule">auto_date</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable auto date, it can auto fill the date by time today</span>
-  <span class="token key atrule">force</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">alg <span class="token punctuation">-</span><span class="token punctuation">-</span> Algorithm (currently support crc16 and crc32<span class="token punctuation">,</span> which crc16 is default)
-rep <span class="token punctuation">-</span><span class="token punctuation">-</span> Represent (the generated link could be presented in hex or dec value)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>That’s all .</p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Climb over that fucking Wall</title>
-    <url>/2023/10/01/Climb-over-that-fucking-Wall/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! </p>
-
-<span id="more"></span>
-
-<p>Here are somes ways to climbing over this fucking wall :</p>
-<ul>
-<li><p><a href="https://www.dogfight360.com/blog/475/">UsbEAm Hosts Editor</a>  <a href="https://pan.baidu.com/s/18awv4M7vkCqaCol60qkyeg?pwd=w8qs">download</a> But just in some special sites , like GitHub </p>
-</li>
-<li><p>To be continue ……</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Others</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><p>Bug复现</p>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<pre class="line-numbers language-none"><code class="language-none">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><p><strong>开发者模式Debug</strong></p>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Quick Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-		Quick Start
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-</li>
-<li><p><strong>问题分析</strong></p>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>官方的摘要：</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">###</span> 摘要</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-</li>
-<li><p><strong>解决方案</strong></p>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Instruction Of Typora</title>
-    <url>/2023/09/18/Instruction-Of-Typora/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none"># 大标题  （ Ctrl + 1 ） 
-## 第二号标题 （ Ctrl + 2 ) 
-### 第三号标题  
-一直可以到第六号标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">语法 ： &gt; 引用内容  
-例如输入下列语句：
-&gt; 心志要坚，意趣要乐。  
-输出结果为<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">就如平常一样输入序号就行了，此后换行就会自动排序。  
-格式 ：1. 第一点        
-2. 第二点
-3. * 空圆
-   - 方形
-* 实圆<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-- [ ] 未完成任务    - [x] 已完成任务
-可点击任务点完成任务  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式  
-​&#96;&#96;&#96;language
-代码段
-​&#96;&#96;&#96;  
-其实后面那三个顿号电脑会自动显示的（注意是顿号，  
-英文输入法下的Esc下边那个键）  
-代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   
-要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  
-设计一个这样的文本格式，  
-当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  
-代码语句的输入  
-格式 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; Reverse Bits Ordering
-module top_module(
-    input [99:0] in ,
-    output [99:0] out 
-) ;
-    genvar i ;
-    generate
-        for(i &#x3D; 0 ; i &lt; 100 ; i++) begin : generate_name
-            assign out[i] &#x3D; in [99 - i] ;
-        end
-    endgenerate
-endmodule<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><pre class="line-numbers language-none"><code class="language-none">$ 单行输入 $
-$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 &#x3D;  \begin&#123;vmatrix&#125;
-\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
-\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
-\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
-\end&#123;vmatrix&#125;  
-$
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">| A  | B |
-| C  | D |
-| E  | F |  
-点击表格内有功能选择<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
---- 
-或者 
-*** 
-例如 
-我是分割线 
-
----
-
-我是分割线 
-
-***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-输入[toc]再回车就行了 （table of content) 
-就会生成一个目录，点击相应标记即可跳转 
-例如 
-[toc] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式 
-[给链接起个名字](写上具体网址)
-[知乎](https:&#x2F;&#x2F;www.zhihu.com&#x2F;) 注意用英文输入法下的括号  
-在markdown文件中按住Ctrl键同时点击网址即可直接打开<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<pre class="line-numbers language-none"><code class="language-none">格式  
-![起个名字](存储位置) 
-例如 
-![思维导图](D:\desktop\Typora.png) 
-当然啦，直接把图片拖过来复制一下不香吗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>软件使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/09/18/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>HDLBits Solutions</title>
-    <url>/2023/10/01/NotesOfHdlbits/</url>
+    <url>/posts/4ff0bc03</url>
     <content><![CDATA[<h3>Abstract</h3>
 
 <p>The solutions and my notes of <a href="[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)">HDLBits</a> are written in this document .</p>
@@ -949,5 +610,347 @@ $
       <tags>
         <tag>IC</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
+
+<span id="more"></span>
+
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none"># 大标题  （ Ctrl + 1 ） 
+## 第二号标题 （ Ctrl + 2 ) 
+### 第三号标题  
+一直可以到第六号标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">语法 ： &gt; 引用内容  
+例如输入下列语句：
+&gt; 心志要坚，意趣要乐。  
+输出结果为<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">就如平常一样输入序号就行了，此后换行就会自动排序。  
+格式 ：1. 第一点        
+2. 第二点
+3. * 空圆
+   - 方形
+* 实圆<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+- [ ] 未完成任务    - [x] 已完成任务
+可点击任务点完成任务  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式  
+​&#96;&#96;&#96;language
+代码段
+​&#96;&#96;&#96;  
+其实后面那三个顿号电脑会自动显示的（注意是顿号，  
+英文输入法下的Esc下边那个键）  
+代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   
+要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  
+设计一个这样的文本格式，  
+当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  
+代码语句的输入  
+格式 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; Reverse Bits Ordering
+module top_module(
+    input [99:0] in ,
+    output [99:0] out 
+) ;
+    genvar i ;
+    generate
+        for(i &#x3D; 0 ; i &lt; 100 ; i++) begin : generate_name
+            assign out[i] &#x3D; in [99 - i] ;
+        end
+    endgenerate
+endmodule<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><pre class="line-numbers language-none"><code class="language-none">$ 单行输入 $
+$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 &#x3D;  \begin&#123;vmatrix&#125;
+\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\
+\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\
+\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\
+\end&#123;vmatrix&#125;  
+$
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">| A  | B |
+| C  | D |
+| E  | F |  
+点击表格内有功能选择<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+--- 
+或者 
+*** 
+例如 
+我是分割线 
+
+---
+
+我是分割线 
+
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+输入[toc]再回车就行了 （table of content) 
+就会生成一个目录，点击相应标记即可跳转 
+例如 
+[toc] <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式 
+[给链接起个名字](写上具体网址)
+[知乎](https:&#x2F;&#x2F;www.zhihu.com&#x2F;) 注意用英文输入法下的括号  
+在markdown文件中按住Ctrl键同时点击网址即可直接打开<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<pre class="line-numbers language-none"><code class="language-none">格式  
+![起个名字](存储位置) 
+例如 
+![思维导图](D:\desktop\Typora.png) 
+当然啦，直接把图片拖过来复制一下不香吗<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>软件使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/posts/4a17b156</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><p>Bug复现</p>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<pre class="line-numbers language-none"><code class="language-none">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><p><strong>开发者模式Debug</strong></p>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-link<span class="token punctuation">"</span></span> <span class="token attr-name">href</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-number<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>1.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> <span class="token punctuation">"</span>nav-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Quick Start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick-Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#Quick-Start<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>headerlink<span class="token punctuation">"</span></span> <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Quick Start<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		Quick Start
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+</li>
+<li><p><strong>问题分析</strong></p>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>摘要<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>官方的摘要：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">###</span> 摘要</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+</li>
+<li><p><strong>解决方案</strong></p>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Deploy your website</title>
+    <url>/posts/f1f00c7b</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。</p>
+<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
+<span id="more"></span>
+
+<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
+<li><p><strong>注册GitHub、新建仓库</strong></p>
+<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
+</li>
+<li><p><strong>生成ssh-key</strong></p>
+<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
+<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
+<p><strong>尝试本机与Github通信</strong>：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@github.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>若显示以上结果，则表明通信成功。</p>
+</li>
+<li><p>修改<code>Hexo</code> 配置文件</p>
+<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.github.io.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
+<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
+</li>
+<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog <span class="token punctuation">(</span>master<span class="token punctuation">)</span>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>将文件上传到<code>Github</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean
+hexo g  <span class="token comment"># hexo generate</span>
+hexo d  <span class="token comment"># hexo deploy</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
+<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
+</li>
+<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
+</li>
+</ul>
+<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
+<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
+<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
+</li>
+<li><p><strong>新建仓库</strong></p>
+<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
+</li>
+<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
+<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.name <span class="token string">"benkangpeng"</span>
+<span class="token function">git</span> config <span class="token parameter variable">--global</span> user.email <span class="token string">"benkangpeng@163.com"</span>
+ssh-keygen <span class="token parameter variable">-t</span> rsa <span class="token parameter variable">-C</span> <span class="token string">"benkangpeng@163.com"</span>  <span class="token comment"># 之后三次回车</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>SSH-key填入Gitee</strong></p>
+<p>点头像→设置→SSH公钥</p>
+</li>
+<li><p><strong>第一次通信</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token parameter variable">-T</span> git@gitee.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
+</blockquote>
+<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
+</li>
+<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">deploy</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">'git'</span>
+  <span class="token comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span>
+  <span class="token key atrule">repository</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//gitee.com/benkangpeng/benkangpeng.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><strong>部署、上传到Gitee</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo g
+hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
+</li>
+<li><p><strong>将仓库设置为Gitee Pages</strong></p>
+<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
+<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
+<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
+</li>
+<li><p><strong>大功告成</strong></p>
+<p><a href="https:\\benkangpeng.gitee.io"></a></p>
+</li>
+</ul>
+<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
+]]></content>
   </entry>
 </search>

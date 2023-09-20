@@ -23,7 +23,7 @@
     <meta name="description" content="Abstract  The solutions and my notes of HDLBits are written in this document .">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDLBits Solutions">
-<meta property="og:url" content="http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/index.html">
+<meta property="og:url" content="http://benkangpeng.github.io/posts/4ff0bc03">
 <meta property="og:site_name" content="Benkang Peng">
 <meta property="og:description" content="Abstract  The solutions and my notes of HDLBits are written in this document .">
 <meta property="og:locale" content="en_US">
@@ -34,11 +34,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/">
+<link rel="canonical" href="http://benkangpeng.github.io/posts/4ff0bc03">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/","path":"2023/10/01/NotesOfHdlbits/","title":"HDLBits Solutions"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://benkangpeng.github.io/posts/4ff0bc03","path":"posts/4ff0bc03","title":"HDLBits Solutions"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>HDLBits Solutions | Benkang Peng</title>
@@ -197,7 +197,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://benkangpeng.github.io/2023/10/01/NotesOfHdlbits/">
+    <link itemprop="mainEntityOfPage" href="http://benkangpeng.github.io/posts/4ff0bc03">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/GithubProfile.jpg">
@@ -798,13 +798,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/09/20/Customized-Website-Article-Link/" rel="prev" title="Customized Website Article Link">
-                  <i class="fa fa-angle-left"></i> Customized Website Article Link
+                <a href="/posts/6e206cd9" rel="prev" title="解决文章目录点击不跳转的问题">
+                  <i class="fa fa-angle-left"></i> 解决文章目录点击不跳转的问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/10/01/%E8%A7%A3%E5%86%B3%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%E7%82%B9%E5%87%BB%E4%B8%8D%E8%B7%B3%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/" rel="next" title="解决文章目录点击不跳转的问题">
-                  解决文章目录点击不跳转的问题 <i class="fa fa-angle-right"></i>
+                <a href="/posts/dc741c57" rel="next" title="Climb over that fucking Wall">
+                  Climb over that fucking Wall <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
