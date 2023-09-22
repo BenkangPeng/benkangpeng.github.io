@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-09-20T03:40:40.226Z</updated>
+  <updated>2023-09-20T10:17:16.596Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,28 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Climb over that fucking Wall</title>
-    <link href="http://benkangpeng.github.io/posts/dc741c57/"/>
-    <id>http://benkangpeng.github.io/posts/dc741c57/</id>
-    <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T03:40:40.226Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;As we all know , here is a fucking wall which really prevents us from knowing the truth and learning advanced knowledge ! &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Others" scheme="http://benkangpeng.github.io/tags/Others/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Customized Website Article Link</title>
     <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
     <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T05:33:19.044Z</updated>
+    <updated>2023-09-20T10:17:16.596Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
@@ -134,24 +117,6 @@
     
     
     <category term="Web开发" scheme="http://benkangpeng.github.io/tags/Web%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://benkangpeng.github.io/posts/4a17b156/"/>
-    <id>http://benkangpeng.github.io/posts/4a17b156/</id>
-    <published>2023-09-18T00:27:52.828Z</published>
-    <updated>2023-09-20T03:40:40.230Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
     
   </entry>
   
