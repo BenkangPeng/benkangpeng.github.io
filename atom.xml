@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Benkang Peng</title>
   
-  <subtitle>Personal Blog</subtitle>
+  <subtitle>Personal Website</subtitle>
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-09-20T10:17:16.596Z</updated>
+  <updated>2023-09-24T12:26:30.651Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,17 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Deploy your website</title>
+    <link href="http://benkangpeng.github.io/posts/f1f00c7b/"/>
+    <id>http://benkangpeng.github.io/posts/f1f00c7b/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-24T12:26:30.651Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:&lt;a href=&quot;https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;Here&lt;/a&gt;)。&lt;/p&gt;
+&lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Customized Website Article Link</title>
     <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
     <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T10:17:16.596Z</updated>
+    <updated>2023-09-24T12:24:19.973Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
     
   </entry>
   
@@ -51,27 +71,11 @@
   </entry>
   
   <entry>
-    <title>Deploy your website</title>
-    <link href="http://benkangpeng.github.io/posts/f1f00c7b/"/>
-    <id>http://benkangpeng.github.io/posts/f1f00c7b/</id>
-    <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T05:35:35.115Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解)。&lt;/p&gt;
-&lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>解决文章目录点击不跳转的问题</title>
     <link href="http://benkangpeng.github.io/posts/6e206cd9/"/>
     <id>http://benkangpeng.github.io/posts/6e206cd9/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-20T04:15:39.010Z</updated>
+    <updated>2023-09-24T12:24:40.539Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p style = &quot;color : green&quot;&gt;网页文章目录罢工了？&lt;/p&gt;
@@ -81,14 +85,16 @@
     
     
     
+    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
+    
   </entry>
   
   <entry>
     <title>Instruction Of Typora</title>
     <link href="http://benkangpeng.github.io/posts/bfc69175/"/>
     <id>http://benkangpeng.github.io/posts/bfc69175/</id>
-    <published>2023-09-18T03:00:04.000Z</published>
-    <updated>2023-09-20T03:40:40.231Z</updated>
+    <published>2023-10-01T03:00:04.000Z</published>
+    <updated>2023-09-24T03:03:13.356Z</updated>
     
     
     <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
@@ -101,22 +107,22 @@
   </entry>
   
   <entry>
-    <title>第一篇文章 网站搭建流程</title>
-    <link href="http://benkangpeng.github.io/posts/6bd716de/"/>
-    <id>http://benkangpeng.github.io/posts/6bd716de/</id>
-    <published>2023-09-18T00:31:59.000Z</published>
-    <updated>2023-09-20T03:40:40.225Z</updated>
+    <title>Hello Hexo-NexT</title>
+    <link href="http://benkangpeng.github.io/posts/b3bdf13b/"/>
+    <id>http://benkangpeng.github.io/posts/b3bdf13b/</id>
+    <published>2023-10-01T02:05:28.000Z</published>
+    <updated>2023-09-24T16:12:17.911Z</updated>
     
     
-      
-      
-    <summary type="html">&lt;pre class=&quot;line-numbers language-cpp&quot; data-language=&quot;cpp&quot;&gt;&lt;code class=&quot;language-cpp&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token </summary>
-      
+    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;&lt;strong style=&quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt;Hello Hexo and NexT !&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong style = &quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt; Hexo and NexT yyds ! &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;基于Hexo和NexT主题，我的第一个个人网站诞生啦！&lt;/p&gt;
+&lt;p&gt;这篇文章记录了建立网站的点点滴滴，并持续更新我对心肝宝贝&lt;a href=&quot;https://benkangpeng.github.io/&quot;&gt;My Website&lt;/a&gt;的持续美化、修缮。&lt;/p&gt;</summary>
     
     
     
     
-    <category term="Web开发" scheme="http://benkangpeng.github.io/tags/Web%E5%BC%80%E5%8F%91/"/>
+    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
     
   </entry>
   
