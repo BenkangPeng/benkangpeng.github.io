@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Deploy your website</title>
+    <url>/posts/f1f00c7b/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:<a href="https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">Here</a>)。</p>
+<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
+<span id="more"></span>
+
+<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
+<li><p><strong>注册GitHub、新建仓库</strong></p>
+<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
+</li>
+<li><p><strong>生成ssh-key</strong></p>
+<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
+<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
+<p><strong>尝试本机与Github通信</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>若显示以上结果，则表明通信成功。</p>
+</li>
+<li><p>修改<code>Hexo</code> 配置文件</p>
+<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
+<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
+</li>
+<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog (master)</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将文件上传到<code>Github</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g  # hexo generate</span><br><span class="line">hexo d  # hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
+<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
+</li>
+<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
+</li>
+</ul>
+<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
+<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
+<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
+</li>
+<li><p><strong>新建仓库</strong></p>
+<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
+</li>
+<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
+<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>SSH-key填入Gitee</strong></p>
+<p>点头像→设置→SSH公钥</p>
+</li>
+<li><p><strong>第一次通信</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
+</blockquote>
+<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
+</li>
+<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://gitee.com/benkangpeng/benkangpeng.git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>部署、上传到Gitee</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
+</li>
+<li><p><strong>将仓库设置为Gitee Pages</strong></p>
+<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
+<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
+<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
+</li>
+<li><p><strong>大功告成</strong></p>
+<p><a href="https:\\benkangpeng.gitee.io"></a></p>
+</li>
+</ul>
+<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Customized Website Article Link</title>
     <url>/posts/4bc5178d/</url>
     <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
@@ -142,104 +240,6 @@
 ]]></content>
       <tags>
         <tag>软件使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deploy your website</title>
-    <url>/posts/f1f00c7b/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:<a href="https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">Here</a>)。</p>
-<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
-<span id="more"></span>
-
-<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
-<li><p><strong>注册GitHub、新建仓库</strong></p>
-<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
-</li>
-<li><p><strong>生成ssh-key</strong></p>
-<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
-<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
-<p><strong>尝试本机与Github通信</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<p>若显示以上结果，则表明通信成功。</p>
-</li>
-<li><p>修改<code>Hexo</code> 配置文件</p>
-<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
-<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
-</li>
-<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog (master)</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将文件上传到<code>Github</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g  # hexo generate</span><br><span class="line">hexo d  # hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
-<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
-</li>
-<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
-</li>
-</ul>
-<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
-<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
-<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
-</li>
-<li><p><strong>新建仓库</strong></p>
-<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
-</li>
-<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
-<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>SSH-key填入Gitee</strong></p>
-<p>点头像→设置→SSH公钥</p>
-</li>
-<li><p><strong>第一次通信</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
-</blockquote>
-<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
-</li>
-<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://gitee.com/benkangpeng/benkangpeng.git</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>部署、上传到Gitee</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
-</li>
-<li><p><strong>将仓库设置为Gitee Pages</strong></p>
-<p>进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
-<p>进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
-<p><del>据说强制HTTPS网站要安全一些，没学计算机网络的憨憨不懂</del></p>
-</li>
-<li><p><strong>大功告成</strong></p>
-<p><a href="https:\\benkangpeng.gitee.io"></a></p>
-</li>
-</ul>
-<h3 id="参考资料-详细视频"><a href="#参考资料-详细视频" class="headerlink" title="参考资料(详细视频)"></a>参考资料(详细视频)</h3><p>感谢大佬：<a href="https://www.bilibili.com/video/BV1ts4y1f7Gu/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">超详细！0成本搭建个人网站！！【建议收藏】_哔哩哔哩_bilibili</a></p>
-]]></content>
-      <tags>
-        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
