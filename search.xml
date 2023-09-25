@@ -99,52 +99,31 @@
       </tags>
   </entry>
   <entry>
-    <title>Customized Website Article Link</title>
-    <url>/posts/4bc5178d/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
-<span id="more"></span>
-
-<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ol>
-<li><strong>Add plugin to Hexo :</strong></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>Modify <code>config.yml</code></strong></li>
-</ol>
-<p><strong>Change the origin code</strong> </p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>into</strong>(You can choose one of two ways below :)</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>or</strong></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:addrlink.html</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color = red ">Be careful : </strong> </p>
-<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
-<ol start="3">
-<li><strong>Add the codes below in the end of file <code>config.yml</code></strong></li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span></span><br></pre></td></tr></table></figure>
-
-<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>Final Nagging</strong></li>
-</ol>
-<ul>
-<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
-<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
-</ul>
-<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
-<ul>
-<li><strong>That’s all .</strong></li>
-</ul>
-]]></content>
+    <title>Collecting commonly used websites</title>
+    <url>/posts/7c22bd6a/</url>
+    <content><![CDATA[<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hackway</p><p>计算机专业学习路线</p>
+<a href="https://hackway.org/docs/cs/intro"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>cs-self-learning</p><p>CS自学指南</p>
+<a href="https://csdiy.wiki"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>编程指北</p><p>计算机学习路线</p>
+<a href="https://csguide.cn/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
+<a href="chat.zhille.io"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello 算法</p><p>算法学习入门教程</p>
+<a href="https://www.hello-algo.com/"></a>
+</div></div>]]></content>
       <tags>
-        <tag>Web</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
@@ -239,7 +218,7 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>软件使用</tag>
+        <tag>Software</tag>
       </tags>
   </entry>
   <entry>
@@ -415,6 +394,102 @@
       </tags>
   </entry>
   <entry>
+    <title>Customized Website Article Link</title>
+    <url>/posts/4bc5178d/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
+<span id="more"></span>
+
+<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ol>
+<li><strong>Add plugin to Hexo :</strong></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>Modify <code>config.yml</code></strong></li>
+</ol>
+<p><strong>Change the origin code</strong> </p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>into</strong>(You can choose one of two ways below :)</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>or</strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:addrlink.html</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color = red ">Be careful : </strong> </p>
+<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
+<ol start="3">
+<li><strong>Add the codes below in the end of file <code>config.yml</code></strong></li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span></span><br></pre></td></tr></table></figure>
+
+<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>Final Nagging</strong></li>
+</ol>
+<ul>
+<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
+<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
+</ul>
+<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
+<ul>
+<li><strong>That’s all .</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><p>Bug复现</p>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><p><strong>开发者模式Debug</strong></p>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+</li>
+<li><p><strong>问题分析</strong></p>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+</li>
+<li><p><strong>解决方案</strong></p>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello Hexo-NexT</title>
     <url>/posts/b3bdf13b/</url>
     <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p><strong style="color : rgb(128,109,158) ; font-size : 24px">Hello Hexo and NexT !</strong></p>
@@ -537,7 +612,7 @@
 <ul>
 <li>Edit the <code>_config.next.yml</code> to display <code>Other</code> in menu</li>
 </ul>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">Other:</span> <span class="string">/other/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-hand-o-right</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">Other:</span> <span class="string">/other/index.html</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-external-link</span></span><br></pre></td></tr></table></figure>
 
 <p>Find the name of  font-awesome icons from <a href="https://fontawesome.dashgame.com/">Font Awesome</a></p>
 <ul>
@@ -551,7 +626,7 @@
 <p>We can write something in <code>index.html</code> , which will keep its style and not be rendered by hexo .</p>
 <h4 id="Read-more"><a href="#Read-more" class="headerlink" title="Read more"></a>Read more</h4><p>It’s a common need to show some part of article in home page and a <code>Read more</code> button to view more .</p>
 <p>The best way is : Use <code>&lt;!-- more --&gt;</code> in the article to break the article manually .</p>
-<h3 id="Post-Wordcount"><a href="#Post-Wordcount" class="headerlink" title="Post Wordcount"></a>Post Wordcount</h3><p>Install plugin <code>hexo-word-counter</code> :</p>
+<h4 id="Post-Wordcount"><a href="#Post-Wordcount" class="headerlink" title="Post Wordcount"></a>Post Wordcount</h4><p>Install plugin <code>hexo-word-counter</code> :</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install hexo-word-counter</span></span><br></pre></td></tr></table></figure>
 
 <p>Edit <code>_config.yml</code>:</p>
@@ -573,53 +648,86 @@
 <h4 id="GitHub-Banner"><a href="#GitHub-Banner" class="headerlink" title="GitHub Banner"></a>GitHub Banner</h4><p>NexT provide <code>Follow me on GitHub</code> banner on the right-top corner .</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line"><span class="attr">github_banner:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">permalink:</span> <span class="string">https://github.com/benkangpeng</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
 
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
 
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><p>Bug复现</p>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<h3 id="Tag-Plugin"><a href="#Tag-Plugin" class="headerlink" title="Tag Plugin"></a>Tag Plugin</h3><h4 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h4><p>NexT provide the tag plugin <code>button</code> , which can jump to corresponding link .</p>
 <ul>
-<li><p><strong>开发者模式Debug</strong></p>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><strong>Usage</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% button url , text , icon[class] , [title] %&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% btn url, text, icon [class], [title] %&#125;</span><br></pre></td></tr></table></figure>
 
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-</li>
-<li><p><strong>问题分析</strong></p>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-</li>
-<li><p><strong>解决方案</strong></p>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+<ul>
+<li><ul>
+<li><code>url</code> : Absolute or relative path to URL.</li>
+<li><code>text</code> : Button text. Required if no icon specified.</li>
+<li><code>icon</code> : Font Awesome icon name. Required if no text specified.</li>
+<li><code>[class]</code> : <em>Optional parameter.</em> Font Awesome class(es): <code>fa-fw</code> | <code>fa-lg</code> | <code>fa-2x</code> | <code>fa-3x</code> | <code>fa-4x</code> | <code>fa-5x</code></li>
+<li><code>[title]</code> : <em>Optional parameter.</em> Tooltip at mouseover.</li>
+</ul>
 </li>
 </ul>
+<p>eg.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% btn # , Text , home , mouseover %&#125;&#123;% btn # , Superpowers , fa fa-external-link , mouseon %&#125;</span><br></pre></td></tr></table></figure>
+
+<a class="btn" href="# " title="mouseover"><i class="fa fa-home"></i>Text</a><a class="btn" href="# " title="mouseon"><i class="fa-superpowers"></i>Superpowers</a>
+
+<div style = "display : flex ; align-items : center ; justify-content: center;"><a class="btn" href="https://github.com" title="GitHub"><i class="fab fa-github fa-fw fa-lg"></i>GitHub</a></div>
+
+<ul>
+<li><strong>We can also use <code>Button</code> inside text , for example :</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">For search engineer , I prefer &#123;% btn https://cn.bing.com , Bing , fa fa-search , Bing %&#125; instead of &#123;% btn https://baidu.com , Baidu , fa fa-bomb , Baidu %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>For search engineer , I prefer <a class="btn" href="https://cn.bing.com " title="Bing"><i class="fa fa-search"></i>Bing</a> instead of <a class="btn" href="https://baidu.com " title="Baidu"><i class="fa fa-bomb"></i>Baidu</a>.</p>
+<ul>
+<li><p><strong>Button margin</strong></p>
+<p>Well , maybe this feature is useful for me to build a aggregation of commonly used website .</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div style = &quot;display : flex ; align-items : center ; justify-content : center&quot;&gt;</span><br><span class="line">		&lt;div&gt;&#123;% btn #,, heading %&#125;&#123;% btn #,, fab fa-edge %&#125;&#123;% btn #,, times %&#125;&#123;% btn #,, circle-notch %&#125;&lt;/div&gt;</span><br><span class="line">		&lt;div&gt;&#123;% btn #,, italic %&#125;&#123;% btn #,, fab fa-scribd %&#125;&lt;/div&gt;</span><br><span class="line">		&lt;div&gt;&#123;% btn #,, fab fa-google %&#125;&#123;% btn #,, fab fa-chrome %&#125;&#123;% btn #,, fab fa-opera %&#125;&#123;% btn #,, gem</span><br><span class="line">			fa-rotate-270 %&#125;&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<div style = "display : flex ; align-items : center ; justify-content : center">
+        <div><a class="btn" href="#"><i class="fa fa-heading"></i></a><a class="btn" href="#"><i class="fab fa-edge"></i></a><a class="btn" href="#"><i class="fa fa-times"></i></a><a class="btn" href="#"><i class="fa fa-circle-notch"></i></a></div>
+        <div><a class="btn" href="#"><i class="fa fa-italic"></i></a><a class="btn" href="#"><i class="fab fa-scribd"></i></a></div>
+        <div><a class="btn" href="#"><i class="fab fa-google"></i></a><a class="btn" href="#"><i class="fab fa-chrome"></i></a><a class="btn" href="#"><i class="fab fa-opera"></i></a><a class="btn" href="#"><i class="fa fa-gem fa-rotate-270"></i></a></div>
+    </div>
+
+
+
+<h4 id="Group-Pictures"><a href="#Group-Pictures" class="headerlink" title="Group Pictures"></a>Group Pictures</h4><p><code>Group Pictures</code> is also an awesome plugin ! Maybe I will use <code>group picture</code> to build my photo repo .</p>
+<ul>
+<li>Usage</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% gp [number]-[layout] %&#125;</span><br><span class="line">&#123;% endgp %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>[number]</code> : optional . Total number of pictures .</p>
+<p><code>[layout]</code> : optional . The index of the layout, which can be obtained according to the figure below. For example, if you want to apply the second layout to 4 pictures, then use .</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture 4-2 %&#125;&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://theme-next.js.org/images/group-picture-1.png" alt="group-picture-1.png"></div><div class="group-picture-column"><img src="https://theme-next.js.org/images/group-picture-2.png" alt="group-picture-2.png"></div></div></div>
+
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div></div>
+
+<div class="note info"><p>It’s recommended to enable <code>fancybox</code> before using <code>group pictures</code> .</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</div>
+
+
+
+<h4 id="Link-Grid"><a href="#Link-Grid" class="headerlink" title="Link Grid"></a>Link Grid</h4><p><code>Link Grid</code> is simple to <code>group pictures</code> , which may be called “Group Links” . It may be really awesome to code a page containing some commonly used links by <code>link grid</code> , I think .</p>
+<ul>
+<li>Usage</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% lg [image] [delimiter] [comment] %&#125;</span><br><span class="line">&#123;% endlg %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>[image]</code> : Optional parameter. Default image URL.<br><code>[delimiter]</code> : Optional parameter. If the optional delimiter parameter is given, it is interpreted as the delimiter of items in each line.<br><code>[comment]</code> : Optional parameter. If the optional comment parameter is given, it is interpreted as the symbol to comment out a line.</p>
+<p><code>&#123;% lg [image]  %&#125;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% lg %&#125;</span><br><span class="line">Theme NexT | https://theme-next.js.org/ | Stay Simple. Stay NexT. | https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg</span><br><span class="line">Theme NexT | https://theme-next.js.org/ | Stay Simple. Stay NexT. | https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg</span><br><span class="line">Theme NexT | https://theme-next.js.org/ | Stay Simple. Stay NexT. | https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg</span><br><span class="line">Theme NexT | https://theme-next.js.org/ | Stay Simple. Stay NexT. | https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg</span><br><span class="line">&#123;% endlg %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Well , maybe I get in trouble …… I can’t add the code above here , otherwise there are many bugs after running <code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> .  But in other file , such as <code>External-link</code> in menu ,  it works .I can’t solve this problem ……</p>
 ]]></content>
       <tags>
         <tag>Web</tag>

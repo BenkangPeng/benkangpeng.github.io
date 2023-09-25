@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-09-24T12:26:30.651Z</updated>
+  <updated>2023-09-25T03:20:24.354Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -21,28 +21,11 @@
     <link href="http://benkangpeng.github.io/posts/f1f00c7b/"/>
     <id>http://benkangpeng.github.io/posts/f1f00c7b/</id>
     <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-24T12:26:30.651Z</updated>
+    <updated>2023-09-25T03:20:24.354Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:&lt;a href=&quot;https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;Here&lt;/a&gt;)。&lt;/p&gt;
 &lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Customized Website Article Link</title>
-    <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
-    <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
-    <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-24T12:24:19.973Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
@@ -71,6 +54,23 @@
   </entry>
   
   <entry>
+    <title>Customized Website Article Link</title>
+    <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
+    <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
+    <published>2023-10-01T07:00:00.000Z</published>
+    <updated>2023-09-25T09:12:23.714Z</updated>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决文章目录点击不跳转的问题</title>
     <link href="http://benkangpeng.github.io/posts/6e206cd9/"/>
     <id>http://benkangpeng.github.io/posts/6e206cd9/</id>
@@ -94,7 +94,7 @@
     <link href="http://benkangpeng.github.io/posts/bfc69175/"/>
     <id>http://benkangpeng.github.io/posts/bfc69175/</id>
     <published>2023-10-01T03:00:04.000Z</published>
-    <updated>2023-09-24T03:03:13.356Z</updated>
+    <updated>2023-09-25T02:31:11.081Z</updated>
     
     
     <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
@@ -102,7 +102,7 @@
     
     
     
-    <category term="软件使用" scheme="http://benkangpeng.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <category term="Software" scheme="http://benkangpeng.github.io/tags/Software/"/>
     
   </entry>
   
@@ -111,7 +111,7 @@
     <link href="http://benkangpeng.github.io/posts/b3bdf13b/"/>
     <id>http://benkangpeng.github.io/posts/b3bdf13b/</id>
     <published>2023-10-01T02:05:28.000Z</published>
-    <updated>2023-09-24T16:26:37.427Z</updated>
+    <updated>2023-09-25T10:03:56.297Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;&lt;strong style=&quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt;Hello Hexo and NexT !&lt;/strong&gt;&lt;/p&gt;
@@ -123,6 +123,27 @@
     
     
     <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Collecting commonly used websites</title>
+    <link href="http://benkangpeng.github.io/posts/7c22bd6a/"/>
+    <id>http://benkangpeng.github.io/posts/7c22bd6a/</id>
+    <published>2023-09-25T08:50:11.000Z</published>
+    <updated>2023-09-25T10:04:13.978Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;div class=&quot;link-grid&quot;&gt;&lt;div class=&quot;link-grid-container&quot;&gt;
+&lt;object class=&quot;link-grid-image&quot; data=&quot;https://pic.imgdb.cn/item/65115467c458853aef3</summary>
+      
+    
+    
+    
+    
+    <category term="tools" scheme="http://benkangpeng.github.io/tags/tools/"/>
     
   </entry>
   
