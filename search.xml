@@ -3,7 +3,7 @@
   <entry>
     <title>Collecting commonly used websites</title>
     <url>/posts/7c22bd6a/</url>
-    <content><![CDATA[<p><strong style="color : orange">Some commonly used websites . Edit</strong> </p>
+    <content><![CDATA[<p><strong style="color : orange">Some commonly used websites .</strong> </p>
 <span id="more"></span>
 
 <div class="link-grid"><div class="link-grid-container">
@@ -29,6 +29,150 @@
 </div></div>]]></content>
       <tags>
         <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><strong>Bug复现</strong></li>
+</ul>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
+
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><strong>开发者模式Debug</strong></li>
+</ul>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+<ul>
+<li><strong>问题分析</strong></li>
+</ul>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+<ul>
+<li><strong>解决方案</strong></li>
+</ul>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
+
+<span id="more"></span>
+
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Software</tag>
       </tags>
   </entry>
   <entry>
@@ -212,7 +356,7 @@
 
 <p>进入INFO中的端口<code>http://localhost:4000/</code>即可看到hexo博客框架:</p>
 <div style = "display : flex ; align-items : center ; justify-content: center;">
-    <img data-src="https://pic.imgdb.cn/item/650fe8a2c458853aef63bf52.jpg" alt = "hexo初始网页.jpg" style = "width : 80% ">
+    <img src="https://pic.imgdb.cn/item/650fe8a2c458853aef63bf52.jpg" alt = "hexo初始网页.jpg" style = "width : 80% ">
 </div>
 * **写文章**
 
@@ -396,9 +540,9 @@
 <p><code>[layout]</code> : optional . The index of the layout, which can be obtained according to the figure below. For example, if you want to apply the second layout to 4 pictures, then use .</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% grouppicture 4-2 %&#125;&#123;% endgrouppicture %&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://theme-next.js.org/images/group-picture-1.png" alt="group-picture-1.png"></div><div class="group-picture-column"><img data-src="https://theme-next.js.org/images/group-picture-2.png" alt="group-picture-2.png"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://theme-next.js.org/images/group-picture-1.png" alt="group-picture-1.png"></div><div class="group-picture-column"><img src="https://theme-next.js.org/images/group-picture-2.png" alt="group-picture-2.png"></div></div></div>
 
-<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img data-src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img data-src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img data-src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div></div>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div><div class="group-picture-row"><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div><div class="group-picture-column"><img src="https://pic.imgdb.cn/item/65113dadc458853aef1da094.jpg" alt="NEXT.jpg"></div></div></div>
 
 <div class="note info"><p>It’s recommended to enable <code>fancybox</code> before using <code>group pictures</code> .</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
@@ -517,11 +661,15 @@
 <h4 id="Lazyload"><a href="#Lazyload" class="headerlink" title="Lazyload"></a>Lazyload</h4><p>It delays loading of images in long web pages. Images outside of viewport will not be loaded before user scrolls to them. </p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h4><p>NexT provide the animation behavoir . But for me , it’s unnecessary , and I can close animation function to speed my website .</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">motion:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">async:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="comment"># All available transition variants: https://theme-next.js.org/animate/</span></span><br><span class="line">    <span class="attr">menu_item:</span> <span class="string">fadeInDown</span></span><br><span class="line">    <span class="attr">post_block:</span> <span class="string">fadeIn</span></span><br><span class="line">    <span class="attr">post_header:</span> <span class="string">fadeInDown</span></span><br><span class="line">    <span class="attr">post_body:</span> <span class="string">fadeInDown</span></span><br><span class="line">    <span class="attr">coll_header:</span> <span class="string">fadeInLeft</span></span><br><span class="line">    <span class="comment"># Only for Pisces | Gemini.</span></span><br><span class="line">    <span class="attr">sidebar:</span> <span class="string">fadeInUp</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="Quicklink"><a href="#Quicklink" class="headerlink" title="Quicklink"></a>Quicklink</h4><p><a href="https://github.com/GoogleChromeLabs/quicklink">Quicklink</a> is a JavaScript plugin that faster subsequent page-loads by prefetching in-viewport links during idle time. Chrome, Firefox, Edge are supported without polyfills.</p>
 <p>You can enable it by setting value <code>quicklink.enable</code> to <code>true</code> in NexT config file.</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">quicklink:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Home page and archive page can be controlled through home and archive options below.</span></span><br><span class="line">  <span class="comment"># This configuration item is independent of `enable`.</span></span><br><span class="line">  <span class="attr">home:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">archive:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">Me:</span> <span class="literal">true</span> <span class="comment"># &quot;Me&quot; is a menu item I add .</span></span><br><span class="line">  <span class="comment"># Default (true) will initialize quicklink after the load event fires.</span></span><br><span class="line">  <span class="attr">delay:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Custom a time in milliseconds by which the browser must execute prefetching.</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">3000</span></span><br><span class="line">  <span class="comment"># Default (true) will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).</span></span><br><span class="line">  <span class="attr">priority:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">quicklink:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Home page and archive page can be controlled through home and archive options below.</span></span><br><span class="line">  <span class="comment"># This configuration item is independent of `enable`.</span></span><br><span class="line">  <span class="attr">home:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">archive:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">Me:</span> <span class="literal">true</span> </span><br><span class="line">  <span class="comment"># &quot;Me&quot; is a menu item I add .</span></span><br><span class="line">  <span class="comment"># Default (true) will initialize quicklink after the load event fires.</span></span><br><span class="line">  <span class="attr">delay:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Custom a time in milliseconds by which the browser must execute prefetching.</span></span><br><span class="line">  <span class="attr">timeout:</span> <span class="number">3000</span></span><br><span class="line">  <span class="comment"># Default (true) will attempt to use the fetch() API if supported (rather than link[rel=prefetch]).</span></span><br><span class="line">  <span class="attr">priority:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="AddToAny"><a href="#AddToAny" class="headerlink" title="AddToAny"></a>AddToAny</h4><p>Share your artical to external patform by <code>AddToAny</code> .</p>
+<p>On my view , it’s useless ………</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># AddToAny Share. See: https://www.addtoany.com</span></span><br><span class="line"><span class="attr">addtoany:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">buttons:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">wechat</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">facebook</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">twitter</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Local-Search"><a href="#Local-Search" class="headerlink" title="Local Search"></a>Local Search</h4><p>Plugin <code>hexo-generator-searchdb</code> provide our website with a local search engineer .</p>
@@ -542,18 +690,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+<p><strong style="color : orange ; font-size : 30px">All right , it’s all about Hexo beautifying !</strong></p>
 ]]></content>
       <tags>
         <tag>Web</tag>
@@ -729,148 +866,6 @@
 ]]></content>
       <tags>
         <tag>IC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><p>Bug复现</p>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><p><strong>开发者模式Debug</strong></p>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-</li>
-<li><p><strong>问题分析</strong></p>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-</li>
-<li><p><strong>解决方案</strong></p>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img data-src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Software</tag>
       </tags>
   </entry>
 </search>
