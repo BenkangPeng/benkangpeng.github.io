@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-09-26T16:34:07.126Z</updated>
+  <updated>2023-10-20T14:24:54.163Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,19 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
+    <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
+    <published>2023-10-09T03:30:57.000Z</published>
+    <updated>2023-10-20T14:24:54.163Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Collecting commonly used websites</title>
     <link href="http://benkangpeng.github.io/posts/7c22bd6a/"/>
     <id>http://benkangpeng.github.io/posts/7c22bd6a/</id>
     <published>2023-10-01T13:00:00.000Z</published>
-    <updated>2023-09-26T16:34:07.126Z</updated>
+    <updated>2023-10-14T10:25:37.575Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;strong style=&quot;color : orange&quot;&gt;Some commonly used websites .&lt;/strong&gt; &lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;strong style=&quot;color : orange&quot;&gt;Some commonly used or valuable websites .&lt;/strong&gt; &lt;/p&gt;</summary>
     
     
     
     
-    <category term="tools" scheme="http://benkangpeng.github.io/tags/tools/"/>
+    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
     
   </entry>
   

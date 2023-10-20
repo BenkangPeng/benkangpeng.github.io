@@ -1,181 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Collecting commonly used websites</title>
-    <url>/posts/7c22bd6a/</url>
-    <content><![CDATA[<p><strong style="color : orange">Some commonly used websites .</strong> </p>
-<span id="more"></span>
-
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hackway</p><p>计算机专业学习路线</p>
-<a href="https://hackway.org/docs/cs/intro"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>cs-self-learning</p><p>CS自学指南</p>
-<a href="https://csdiy.wiki"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>编程指北</p><p>计算机学习路线</p>
-<a href="https://csguide.cn/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
-<a href="chat.zhille.io"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello 算法</p><p>算法学习入门教程</p>
-<a href="https://www.hello-algo.com/"></a>
-</div></div>]]></content>
-      <tags>
-        <tag>tools</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><strong>Bug复现</strong></li>
-</ul>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
-
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><strong>开发者模式Debug</strong></li>
-</ul>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-<ul>
-<li><strong>问题分析</strong></li>
-</ul>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-<ul>
-<li><strong>解决方案</strong></li>
-</ul>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Software</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Customized Website Article Link</title>
     <url>/posts/4bc5178d/</url>
     <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
@@ -222,6 +47,49 @@
 ]]></content>
       <tags>
         <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Collecting commonly used websites</title>
+    <url>/posts/7c22bd6a/</url>
+    <content><![CDATA[<p><strong style="color : orange">Some commonly used or valuable websites .</strong> </p>
+<span id="more"></span>
+
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hackway</p><p>计算机专业学习路线</p>
+<a href="https://hackway.org/docs/cs/intro"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>cs-self-learning</p><p>CS自学指南</p>
+<a href="https://csdiy.wiki"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>名校公开课程评价网</p><p>CS Courses</p>
+<a href="https://conanhujinming.github.io/comments-for-awesome-courses/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>CS公开课程学习群</p><p>一个QQ群</p>
+<a href="https://zhuanlan.zhihu.com/p/253232863"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>编程指北</p><p>计算机学习路线</p>
+<a href="https://csguide.cn/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
+<a href="chat.zhille.io"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello 算法</p><p>算法学习入门教程</p>
+<a href="https://www.hello-algo.com/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Brian (Bojie) Li (01.me)</p><p>https://01.me/</p>
+<a href="https://01.me/"></a>
+</div></div>]]></content>
+      <tags>
+        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -315,6 +183,408 @@
 ]]></content>
       <tags>
         <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDLBits Solutions</title>
+    <url>/posts/4ff0bc03/</url>
+    <content><![CDATA[<h3>Abstract</h3>
+
+<p>The solutions and my notes of <a href="[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)">HDLBits</a> are written in this document .</p>
+
+<span id="more"></span>
+
+<p>[TOC]</p>
+<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><h3 id="Getting-Started-1"><a href="#Getting-Started-1" class="headerlink" title="Getting Started"></a>Getting Started</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( <span class="keyword">output</span> one );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> one = <span class="number">1&#x27;b1</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Output-Zero"><a href="#Output-Zero" class="headerlink" title="Output Zero"></a>Output Zero</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( <span class="keyword">output</span> zero );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> zero = <span class="number">1&#x27;b0</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Verilog-Language"><a href="#Verilog-Language" class="headerlink" title="Verilog Language"></a>Verilog Language</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Simple-wire"><a href="#Simple-wire" class="headerlink" title="Simple wire"></a>Simple wire</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( <span class="keyword">input</span> in, <span class="keyword">output</span> out );</span><br><span class="line">	<span class="keyword">assign</span> out = in;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Four-wires"><a href="#Four-wires" class="headerlink" title="Four wires"></a>Four wires</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">	<span class="keyword">input</span> a,</span><br><span class="line">	<span class="keyword">input</span> b,</span><br><span class="line">	<span class="keyword">input</span> c,</span><br><span class="line">	<span class="keyword">output</span> w,</span><br><span class="line">	<span class="keyword">output</span> x,</span><br><span class="line">	<span class="keyword">output</span> y,</span><br><span class="line">	<span class="keyword">output</span> z  );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> w = a;</span><br><span class="line">	<span class="keyword">assign</span> x = b;</span><br><span class="line">	<span class="keyword">assign</span> y = b;</span><br><span class="line">	<span class="keyword">assign</span> z = c;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// If we&#x27;re certain about the width of each signal, using </span></span><br><span class="line">	<span class="comment">// the concatenation operator is equivalent and shorter:</span></span><br><span class="line">	<span class="comment">// assign &#123;w,x,y,z&#125; = &#123;a,b,b,c&#125;;</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Inverter"><a href="#Inverter" class="headerlink" title="Inverter"></a>Inverter</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">	<span class="keyword">input</span> in,</span><br><span class="line">	<span class="keyword">output</span> out</span><br><span class="line">);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> out = ~in;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="AND-gate"><a href="#AND-gate" class="headerlink" title="AND gate"></a>AND gate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">	<span class="keyword">assign</span> out = a &amp; b ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="NOR-gate"><a href="#NOR-gate" class="headerlink" title="NOR gate"></a>NOR gate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">    <span class="keyword">assign</span> out = ! (a | b) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="XNOR-gate"><a href="#XNOR-gate" class="headerlink" title="XNOR gate"></a>XNOR gate</h3><h3 id="Declaring-wires"><a href="#Declaring-wires" class="headerlink" title="Declaring wires"></a>Declaring wires</h3><h3 id="7458-chip"><a href="#7458-chip" class="headerlink" title="7458 chip"></a>7458 chip</h3><h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h3 id="Vectors-1"><a href="#Vectors-1" class="headerlink" title="Vectors"></a>Vectors</h3><h2 id="More-Verilog-Features"><a href="#More-Verilog-Features" class="headerlink" title="More Verilog Features"></a>More Verilog Features</h2><h3 id="Combinational-for-loop-Vector-reversal-2"><a href="#Combinational-for-loop-Vector-reversal-2" class="headerlink" title="*Combinational for-loop : Vector reversal 2"></a>*Combinational for-loop : Vector reversal 2</h3><blockquote>
+<p>Given a 100-bit input vector [99:0], reverse its bit ordering.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">// False Vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">assign</span> out[i] = in [<span class="number">99</span> - i] ;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Error (10170): Verilog HDL syntax error at top_module.v(6) near text: &quot;for&quot;;  expecting &quot;endmodule&quot;. </span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>为什么是这样的报错呢？显示在for循环那一行前缺少一个endmodule</p>
+<blockquote>
+<p>在module内部，只能<strong>声明输入</strong>、<strong>输出端口、内部信号以及使用连续赋值</strong>（<code>assign</code> 语句）来描述硬件电路的连续逻辑</p>
+</blockquote>
+<p>因此，<code>verilog</code>编译器认为，<code>for</code>循环前应该有一个<code>endmodule</code>以结束该<code>module</code>,此后才能开始<code>for-loop</code>的声明。</p>
+<p><strong>为什么Verilog规定Module内部不能声明for-loop?</strong></p>
+<blockquote>
+<p>当涉及到硬件描述语言（HDL）如Verilog时，有一些关键的设计原则和语法规则是不同于通用编程语言（如C、Python）的。</p>
+<p>Verilog 是为硬件设计而设计的，其目的是描述硬件电路的结构和行为，而不是传统意义上的“编程”。在硬件电路中，信号是在不同的时间步长上并行计算的，而不是按顺序执行的像在软件中一样。这导致了一些语法规则的不同。</p>
+<p>具体来说，以下是为什么在 Verilog 中不能直接将 <code>for</code> 循环放在模块内部的原因：</p>
+<ol>
+<li><strong>并行性：</strong> Verilog 中的代码被解释为电路，其中不同的信号在相同的时间步长上并行地计算。这与传统编程语言中的迭代循环不同，后者按顺序执行。在硬件电路中，不同的信号和逻辑是同时计算的，因此 <code>for</code> 循环的概念与硬件的并行性不一致。</li>
+<li><strong>延迟和时间问题：</strong> 在 Verilog 中，信号的传播和逻辑运算都需要考虑时间延迟。循环的迭代次数可能需要在编译时已知，但在硬件中，延迟可能会影响电路的行为。如果允许在模块内部使用 <code>for</code> 循环，编译器就需要处理如何在时间上正确地展开循环和处理延迟的问题。</li>
+</ol>
+<p>为了符合硬件的特性，Verilog 引入了生成语句（generate statements），允许在编译时生成不同的硬件结构，这包括使用 <code>for</code> 循环来生成多个类似的硬件逻辑。生成语句允许在不同的时间步长上并行生成硬件，而不会引入运行时的顺序问题。</p>
+</blockquote>
+<p>简单说就是：<code>for-loop</code>内不同层次(i &#x3D; 1 , 2 ,3 ……)，体现了顺序的先后，是软件编程的思维；而<code>verilog</code>中<code>assign</code>描述的各硬件是并行运行的，是硬件编程的思维；二者需要区分开来:smile:</p>
+<p>我们使用<code>generate</code>来实现(generate生成多个并行计算模块)：[generate介绍](<a href="https://zhuanlan.zhihu.com/p/107047600">Verilog中generate的使用 - 知乎 (zhihu.com)</a>)</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">genvar</span> i ;<span class="comment">//state a variable i </span></span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span> : generate_name</span><br><span class="line">            <span class="keyword">assign</span> out[i] = in [<span class="number">99</span> - i] ; <span class="comment">// type of out is wire</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<p>或者将<code>for-loop</code>写在<code>always</code>中：</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">$bits</span>(out) ; i++ ) <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">//$bits(signal)获取信号位长</span></span><br><span class="line">            out[i] = in [ <span class="built_in">$bits</span>(out) - <span class="number">1</span> - i ] ; </span><br><span class="line">            <span class="comment">//type of out is reg</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Combinational-for-loop-255-bit-population-count"><a href="#Combinational-for-loop-255-bit-population-count" class="headerlink" title="Combinational for-loop:255-bit population count"></a>Combinational for-loop:255-bit population count</h3><blockquote>
+<p>A “population count” circuit counts the number of ‘1’s in an input vector. Build a population count circuit for a 255-bit input vector.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">254</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] out );</span><br><span class="line">    <span class="keyword">always</span> @(*) <span class="keyword">begin</span></span><br><span class="line">       out = <span class="number">0</span> ;<span class="comment">//寄存器型变量在always块中初始化</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">255</span> ; i++) <span class="keyword">begin</span></span><br><span class="line">            out = out + in[i] ; </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Generate-for-loop-1000-bit-binary-adder-2"><a href="#Generate-for-loop-1000-bit-binary-adder-2" class="headerlink" title="Generate for-loop:1000-bit binary adder 2"></a>Generate for-loop:1000-bit binary adder 2</h3><blockquote>
+<p>Create a 100-bit binary ripple-carry adder by instantiating 100 <a href="https://hdlbits.01xz.net/wiki/Fadd">full adders</a>. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from <em>each</em> full adder in the ripple-carry adder. cout[99] is the final carry-out from the last full adder, and is the carry-out you usually see.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] sum );</span><br><span class="line">	<span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">genvar</span> i ;<span class="comment">//好像在for循环内声明genvar i 会报错</span></span><br><span class="line">        <span class="keyword">assign</span> sum[<span class="number">0</span>] = a[<span class="number">0</span>] ^ b[<span class="number">0</span>] ^ cin ;</span><br><span class="line">        <span class="keyword">assign</span> cout[<span class="number">0</span>] = a[<span class="number">0</span>] &amp; b[<span class="number">0</span>] | a[<span class="number">0</span>] &amp; cin | b[<span class="number">0</span>] &amp; cin ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">1</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span> : generate_name </span><br><span class="line">            <span class="keyword">assign</span> sum[i] = a[i] ^ b[i] ^ cout[i-<span class="number">1</span>] ;</span><br><span class="line">            <span class="keyword">assign</span> cout[i] = a[i] &amp; b[i] | a[i] &amp; cout[i-<span class="number">1</span>] | b[i] &amp; cout[i-<span class="number">1</span>] ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Generate-for-loop-100-digit-BCD-adder"><a href="#Generate-for-loop-100-digit-BCD-adder" class="headerlink" title="*Generate for-loop:100-digit BCD adder"></a>*Generate for-loop:100-digit BCD adder</h3><blockquote>
+<p>You are provided with a BCD one-digit adder named <code>bcd_fadd</code> that adds two BCD digits and carry-in, and produces a sum and carry-out.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">module bcd_fadd (</span><br><span class="line">    input [3:0] a,</span><br><span class="line">    input [3:0] b,</span><br><span class="line">    input     cin,</span><br><span class="line">    output   cout,</span><br><span class="line">    output [3:0] sum );</span><br></pre></td></tr></table></figure>
+
+<p>Instantiate 100 copies of <code>bcd_fadd</code> to create a 100-digit BCD ripple-carry adder. Your adder should add two 100-digit BCD numbers (packed into 400-bit vectors) and a carry-in to produce a 100-digit sum and carry out.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//False Verion </span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">399</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> cout,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">399</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">genvar</span> i , j ;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    <span class="keyword">assign</span> cout = temp_cout[<span class="number">99</span>] ;</span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        bcd_fadd U0( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin , temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>]) ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">7</span> , j = <span class="number">0</span>; i &lt; <span class="number">400</span> ;  i = i + <span class="number">4</span> , j++) <span class="keyword">begin</span> : name </span><br><span class="line">            bcd_fadd U1( a[i:i-<span class="number">3</span>] , b[i:i-<span class="number">3</span>] , temp_cout[j] , sum[i:i-<span class="number">3</span>]) ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>报错信息：Error (10170): Verilog HDL syntax error at top_module.v(12) near text: “,”;  expecting “;”</p>
+</blockquote>
+<p>没有查到相关信息(先留一个坑)，猜测：<code>for-loop</code>中不能有两个<code>genvar</code>,于是不能出现<code>,</code> ,提示你要用<code>;</code></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Right Verion </span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">399</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> cout,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">399</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">genvar</span> i ;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    <span class="keyword">assign</span> cout = temp_cout[<span class="number">99</span>] ;</span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        bcd_fadd U0( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin , temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>]) ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">7</span> ; i &lt; <span class="number">400</span> ;  i = i + <span class="number">4</span> ) <span class="keyword">begin</span> : name </span><br><span class="line">            bcd_fadd U1( a[i:i-<span class="number">3</span>] , b[i:i-<span class="number">3</span>] , temp_cout[(i + <span class="number">1</span>) / <span class="number">4</span> - <span class="number">2</span>] , temp_cout[(i + <span class="number">1</span>) / <span class="number">4</span> - <span class="number">1</span>] , sum[i:i-<span class="number">3</span>]) ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>此处实现一下<code>bcd_fadd</code></strong></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> bcd_fadd(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span> : <span class="number">0</span>] a , b ,</span><br><span class="line">    <span class="keyword">input</span> cin , </span><br><span class="line">    <span class="keyword">output</span> cout ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] sum</span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">4</span>:<span class="number">0</span>] temp ;</span><br><span class="line">    <span class="keyword">assign</span> temp = a + b + cin ;</span><br><span class="line">    <span class="keyword">assign</span> &#123;cout , sum&#125; = (temp&gt;<span class="number">9</span>) ? (temp+<span class="number">6</span>) : temp ; </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Circuits"><a href="#Circuits" class="headerlink" title="Circuits"></a>Circuits</h1><h2 id="Combinational-Logic"><a href="#Combinational-Logic" class="headerlink" title="Combinational Logic"></a>Combinational Logic</h2><h3 id="Basic-Gates"><a href="#Basic-Gates" class="headerlink" title="Basic Gates"></a>Basic Gates</h3><h4 id="Even-longer-vectors"><a href="#Even-longer-vectors" class="headerlink" title="Even longer vectors"></a>Even longer vectors</h4><blockquote>
+<p>See also the shorter version: <a href="https://hdlbits.01xz.net/wiki/gatesv">Gates and vectors</a>.</p>
+<p>You are given a 100-bit input vector in[99:0]. We want to know some relationships between each bit and its neighbour:</p>
+<ul>
+<li><strong>out_both</strong>: Each bit of this output vector should indicate whether <em>both</em> the corresponding input bit and its neighbour to the <strong>left</strong> are ‘1’. For example, <code>out_both[98]</code> should indicate if <code>in[98]</code> and <code>in[99]</code> are both 1. Since <code>in[99]</code> has no neighbour to the left, the answer is obvious so we don’t need to know <code>out_both[99]</code>.</li>
+<li><strong>out_any</strong>: Each bit of this output vector should indicate whether <em>any</em> of the corresponding input bit and its neighbour to the <strong>right</strong> are ‘1’. For example, <code>out_any[2]</code> should indicate if either <code>in[2]</code> or <code>in[1]</code> are 1. Since <code>in[0]</code> has no neighbour to the right, the answer is obvious so we don’t need to know <code>out_any[0]</code>.</li>
+<li><strong>out_different</strong>: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the <strong>left</strong>. For example, <code>out_different[98]</code> should indicate if <code>in[98]</code> is different from <code>in[99]</code>. For this part, treat the vector as wrapping around, so <code>in[99]</code>‘s neighbour to the left is <code>in[0]</code>.</li>
+</ul>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//My vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">98</span>:<span class="number">0</span>] out_both,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">1</span>] out_any,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out_different );</span><br><span class="line">    <span class="keyword">genvar</span> i ;</span><br><span class="line">	<span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">for</span>( i = <span class="number">0</span> ; i &lt; <span class="number">99</span> ; i++ ) <span class="keyword">begin</span> : generate_name</span><br><span class="line">            <span class="keyword">assign</span> out_both[i] = in[i] &amp; in[i+<span class="number">1</span>] ;</span><br><span class="line">            <span class="keyword">assign</span> out_any[i+<span class="number">1</span>]= in[i+<span class="number">1</span>] | in[i] ;</span><br><span class="line">            <span class="keyword">assign</span> out_different[i] = in[i] ^ in[i+<span class="number">1</span>] ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">assign</span> out_different[<span class="number">99</span>] = in[<span class="number">99</span>] ^ in[<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Offical vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">98</span>:<span class="number">0</span>] out_both,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">1</span>] out_any,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out_different );</span><br><span class="line">    <span class="keyword">assign</span> out_both = in[<span class="number">98</span>:<span class="number">0</span>] &amp; in[<span class="number">99</span>:<span class="number">1</span>] ;</span><br><span class="line">    <span class="keyword">assign</span> out_any  = in[<span class="number">99</span>:<span class="number">1</span>] | in[<span class="number">98</span>:<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">assign</span> out_different = in ^ &#123; in[<span class="number">0</span>] , in[<span class="number">99</span>:<span class="number">1</span>] &#125; ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Multiplexers"><a href="#Multiplexers" class="headerlink" title="Multiplexers"></a>Multiplexers</h3><h4 id="9-to-1-multiplexer"><a href="#9-to-1-multiplexer" class="headerlink" title="9-to-1 multiplexer"></a>9-to-1 multiplexer</h4><blockquote>
+<p>Create a 16-bit wide, 9-to-1 multiplexer. sel&#x3D;0 chooses a, sel&#x3D;1 chooses b, etc. For the unused cases (sel&#x3D;9 to 15), set all output bits to ‘1’.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Flase vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">15</span>:<span class="number">0</span>] a, b, c, d, e, f, g, h, i,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">15</span>:<span class="number">0</span>] out );</span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span> </span><br><span class="line">    <span class="keyword">case</span>(sel)</span><br><span class="line">        <span class="number">4&#x27;b0000</span> : out = a ;</span><br><span class="line">        <span class="number">4&#x27;b0001</span> : out = b ;</span><br><span class="line">        <span class="number">4&#x27;b0010</span> : out = c ;</span><br><span class="line">        <span class="number">4&#x27;b0011</span> : out = d ;</span><br><span class="line">        <span class="number">4&#x27;b0100</span> : out = e ;</span><br><span class="line">        <span class="number">4&#x27;b0101</span> : out = f ;</span><br><span class="line">        <span class="number">4&#x27;b0110</span> : out = g ;</span><br><span class="line">        <span class="number">4&#x27;b0111</span> : out = h ;</span><br><span class="line">        <span class="number">4&#x27;b1000</span> : out = i ;</span><br><span class="line">     	<span class="keyword">default</span> : out = <span class="number">16&#x27;hFFFF</span> ;<span class="comment">//十六进制应该为4&#x27;hFFFF</span></span><br><span class="line">        <span class="comment">//踩过的坑 ： out = 1 ; out = 0xFFFF ; out = 4&#x27;hFFFF</span></span><br><span class="line">        <span class="keyword">endcase</span></span><br><span class="line">    <span class="keyword">end</span>      </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="256-to-1-4-bit-multiplexer"><a href="#256-to-1-4-bit-multiplexer" class="headerlink" title="256-to-1 4-bit multiplexer"></a>256-to-1 4-bit multiplexer</h4><blockquote>
+<p>Create a 4-bit wide, 256-to-1 multiplexer. The 256 4-bit inputs are all packed into a single 1024-bit input vector. sel&#x3D;0 should select bits <code>in[3:0]</code>, sel&#x3D;1 selects bits <code>in[7:4]</code>, sel&#x3D;2 selects bits <code>in[11:8]</code>, etc.</p>
+</blockquote>
+<blockquote>
+<p>Hint</p>
+<ul>
+<li>With this many options, a case statement isn’t so useful.</li>
+<li>Vector indices can be variable, as long as the synthesizer can figure out that the width of the bits being selected is constant. It’s not always good at this. An error saying “… is not a constant” means it couldn’t prove that the select width is constant. In particular, <code>in[ sel*4+3 : sel*4 ]</code> does not work. &#x2F;&#x2F; verilog 索引不支持全为变量</li>
+<li>Bit slicing (“Indexed vector part select”, since Verilog-2001) has an even more compact syntax.</li>
+</ul>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">1023</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] out );</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">assign</span> out = in[sel * <span class="number">4</span> + <span class="number">3</span> : sel * <span class="number">4</span>] ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>error : sel is not a constant File ;</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//True</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">1023</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] out );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assign</span> out = in[sel * <span class="number">4</span>  +: <span class="number">4</span>] ;<span class="comment">//从sel*4向上四位</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Arithmetic-Circuits"><a href="#Arithmetic-Circuits" class="headerlink" title="Arithmetic Circuits"></a>Arithmetic Circuits</h3><h4 id="3-bit-binary-adder"><a href="#3-bit-binary-adder" class="headerlink" title="3-bit binary adder"></a>3-bit binary adder</h4><blockquote>
+<p>Now that you know how to build a <a href="https://hdlbits.01xz.net/wiki/Fadd">full adder</a>, make 3 instances of it to create a 3-bit binary ripple-carry adder. The adder adds two 3-bit numbers and a carry-in to produce a 3-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from <em>each</em> full adder in the ripple-carry adder. cout[2] is the final carry-out from the last full adder, and is the carry-out you usually see.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">2</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">2</span>:<span class="number">0</span>] cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">2</span>:<span class="number">0</span>] sum );</span><br><span class="line">    full_adder ripple_adder_1( a[<span class="number">0</span>] , b[<span class="number">0</span>] , cin , cout[<span class="number">0</span>] , sum[<span class="number">0</span>] ) ;</span><br><span class="line">    full_adder ripple_adder_2( a[<span class="number">1</span>] , b[<span class="number">1</span>] , cout[<span class="number">0</span>] , cout[<span class="number">1</span>] , sum[<span class="number">1</span>] ) ;</span><br><span class="line">    full_adder ripple_adder_3( a[<span class="number">2</span>] , b[<span class="number">2</span>] , cout[<span class="number">1</span>] , cout[<span class="number">2</span>] , sum[<span class="number">2</span>] ) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> full_adder(</span><br><span class="line">    <span class="keyword">input</span> a , b , cin , </span><br><span class="line">    <span class="keyword">output</span> cout , sum</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> cout= a &amp; b | a &amp; cin | b &amp; cin ;</span><br><span class="line">    <span class="keyword">assign</span> sum = a ^ b ^ cin ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Signed-addition-overflow"><a href="#Signed-addition-overflow" class="headerlink" title="Signed addition overflow"></a>Signed addition overflow</h4><blockquote>
+<p>Assume that you have two 8-bit 2’s complement numbers, a[7:0] and b[7:0]. These numbers are added to produce s[7:0]. Also compute whether a (signed) overflow has occurred.</p>
+</blockquote>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Flase vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">7</span>:<span class="number">0</span>] s,</span><br><span class="line">    <span class="keyword">output</span> overflow</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">assign</span> &#123; overflow , s &#125; = a + b ;</span><br><span class="line">    <span class="comment">//注意题中的signed overflow , 并不等于进位cout</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如何检测符号溢出(<strong>signed overflow</strong>) : 符号不同，相加不会溢出  ； 符号相同，可能溢出，需要设置检测。</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//True vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] a , b ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">7</span> : <span class="number">0</span>] s ,</span><br><span class="line">    <span class="keyword">output</span> overflow</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> s = a + b ;</span><br><span class="line">    <span class="keyword">assign</span> overflow = ( a[<span class="number">7</span>] == b[<span class="number">7</span>] ) ? (a[<span class="number">7</span>] ^ s[<span class="number">7</span>]) : <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="100-bit-binary-adder"><a href="#100-bit-binary-adder" class="headerlink" title="100-bit binary adder"></a>100-bit binary adder</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">	<span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] a,</span><br><span class="line">	<span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] b,</span><br><span class="line">	<span class="keyword">input</span> cin,</span><br><span class="line">	<span class="keyword">output</span> cout,</span><br><span class="line">	<span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] sum</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// The concatenation &#123;cout, sum&#125; is a 101-bit vector.</span></span><br><span class="line">	<span class="keyword">assign</span> &#123;cout, sum&#125; = a+b+cin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-digit-BCD-adder"><a href="#4-digit-BCD-adder" class="headerlink" title="4-digit BCD adder"></a>4-digit BCD adder</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">15</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">15</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">2</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    bcd_fadd U0 ( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin ,  temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>] ) ;</span><br><span class="line">    bcd_fadd U1 ( a[<span class="number">7</span>:<span class="number">4</span>] , b[<span class="number">7</span>:<span class="number">4</span>] , temp_cout[<span class="number">0</span>] ,  temp_cout[<span class="number">1</span>] , sum[<span class="number">7</span>:<span class="number">4</span>] ) ;</span><br><span class="line">    bcd_fadd U2 ( a[<span class="number">11</span>:<span class="number">8</span>] , b[<span class="number">11</span>:<span class="number">8</span>] , temp_cout[<span class="number">1</span>] ,  temp_cout[<span class="number">2</span>] , sum[<span class="number">11</span>:<span class="number">8</span>] ) ;</span><br><span class="line">    bcd_fadd U3 ( a[<span class="number">15</span>:<span class="number">12</span>] , b[<span class="number">15</span>:<span class="number">12</span>] , temp_cout[<span class="number">2</span>] ,  cout , sum[<span class="number">15</span>:<span class="number">12</span>] ) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Karnaugh-Map-to-Citcuit"><a href="#Karnaugh-Map-to-Citcuit" class="headerlink" title="Karnaugh Map to Citcuit"></a>Karnaugh Map to Citcuit</h3><h4 id="3-variable"><a href="#3-variable" class="headerlink" title="3-variable"></a>3-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">	<span class="keyword">input</span> a, </span><br><span class="line">	<span class="keyword">input</span> b,</span><br><span class="line">	<span class="keyword">input</span> c,</span><br><span class="line">	<span class="keyword">output</span> out</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// SOP form: Three prime implicants (1 term each), summed.</span></span><br><span class="line">	<span class="comment">// POS form: One prime implicant (of 3 terms)</span></span><br><span class="line">	<span class="comment">// In this particular case, the result is the same for both SOP and POS.</span></span><br><span class="line">    <span class="comment">// it&#x27;s easier by using SOP</span></span><br><span class="line">	<span class="keyword">assign</span> out = (a | b | c);</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-variable"><a href="#4-variable" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = (!b &amp; !c) | (!a &amp; !d) | (!a &amp; b &amp; c) | (a &amp; c &amp; d)  ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-variable-1"><a href="#4-variable-1" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = a | (!b &amp; c) ;</span><br><span class="line">    <span class="comment">//用0去算！f更简单</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-variable-2"><a href="#4-variable-2" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Stupid vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = (!a &amp; !b) &amp; (c ^ d) | (!a &amp; b) &amp; !(c ^ d) | a &amp; b &amp; (c ^ d) | (a &amp; !b) &amp; !(c ^ d);</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Wise vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">	<span class="keyword">assign</span> out = a ^ b ^ c ^ d ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>如果会奇偶校验便能一眼看出：<code>abcd</code>中有奇数个<code>1</code>，卡诺图为<code>1</code> .反之为<code>0</code>.</strong></p>
+<h4 id="Minimum-SOP-and-POS"><a href="#Minimum-SOP-and-POS" class="headerlink" title="Minimum SOP and POS"></a>Minimum SOP and POS</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out_sop,</span><br><span class="line">    <span class="keyword">output</span> out_pos</span><br><span class="line">); </span><br><span class="line">	<span class="keyword">assign</span> out_sop = c &amp; d | !a &amp; !b &amp; c ;</span><br><span class="line">    <span class="keyword">assign</span> out_pos = c &amp; (!a | b) &amp; (!b | d) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Karnaugh-map"><a href="#Karnaugh-map" class="headerlink" title="Karnaugh map"></a>Karnaugh map</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">4</span>:<span class="number">1</span>] x, </span><br><span class="line">    <span class="keyword">output</span> f );</span><br><span class="line">    <span class="keyword">assign</span> f = !x[<span class="number">1</span>] &amp; x[<span class="number">3</span>] | x[<span class="number">1</span>] &amp; x[<span class="number">2</span>] &amp; !x[<span class="number">3</span>] ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Karnaugh-map-1"><a href="#Karnaugh-map-1" class="headerlink" title="Karnaugh map"></a>Karnaugh map</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">4</span>:<span class="number">1</span>] x,</span><br><span class="line">    <span class="keyword">output</span> f</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">assign</span> f = (x[<span class="number">3</span>] | !x[<span class="number">4</span>]) &amp; (!x[<span class="number">2</span>] | x[<span class="number">3</span>] | x[<span class="number">4</span>]) &amp; (!x[<span class="number">1</span>] | x[<span class="number">2</span>] | !x[<span class="number">4</span>]) &amp; (!x[<span class="number">1</span>] | !x[<span class="number">2</span>] | x[<span class="number">4</span>]) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="K-map-implemented-with-a-multiplexer"><a href="#K-map-implemented-with-a-multiplexer" class="headerlink" title="K-map implemented with a multiplexer"></a>K-map implemented with a multiplexer</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">3</span>:<span class="number">0</span>] mux_in</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">case</span>( &#123; c , d &#125; )</span><br><span class="line">            <span class="number">2&#x27;b00</span> : mux_in = <span class="number">4&#x27;b0100</span> ;</span><br><span class="line">            <span class="number">2&#x27;b01</span> : mux_in = <span class="number">4&#x27;b0001</span> ;</span><br><span class="line">            <span class="number">2&#x27;b11</span> : mux_in = <span class="number">4&#x27;b1001</span> ;</span><br><span class="line">            <span class="number">2&#x27;b10</span> : mux_in = <span class="number">4&#x27;b0101</span> ;</span><br><span class="line">            <span class="keyword">default</span> : mux_in = <span class="number">4&#x27;b0000</span> ;</span><br><span class="line">        <span class="keyword">endcase</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>不完备 不一致 不可判定</p>
+]]></content>
+      <tags>
+        <tag>IC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><strong>Bug复现</strong></li>
+</ul>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
+
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><strong>开发者模式Debug</strong></li>
+</ul>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+<ul>
+<li><strong>问题分析</strong></li>
+</ul>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+<ul>
+<li><strong>解决方案</strong></li>
+</ul>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习笔记</title>
+    <url>/posts/a91eaa72/</url>
+    <content><![CDATA[<p>Git学习笔记 by 《<a href="https://git-scm.com/book/zh/v2">ProGit</a>》</p>
+<span id="more"></span>
+
+<h1 id="Git设计理念"><a href="#Git设计理念" class="headerlink" title="Git设计理念"></a>Git设计理念</h1><ul>
+<li><p><strong>Git直接记录快照，而非差异比较</strong></p>
+</li>
+<li><p>基于差异(Delta-based)** , 像CSV、Subversion、Perforce。它们如何建立新版本：在版本1的基础上，建立一个记录<code>版本2(新版本)</code>与&#96;&#96;版本1&#96;差异的文件，我们称其为$\Delta1$ .当我们需要读取版本2时，可以通过**$版本1 + \Delta1$** 计算得出版本2。</p>
+</li>
+<li><p>Git快照流<strong>，提交后，建立一个新的快照：对</strong>修改过的文件<strong>建立一个新的快照并保存其索引，对</strong>未修改的文件<strong>并不重新存储，而是只</strong>保留一个链接**指向旧文件</p>
+</li>
+</ul>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://git-scm.com/book/en/v2/images/deltas.png" alt="基于差异比较"></div><div class="group-picture-column"><img src="https://git-scm.com/book/en/v2/images/snapshots.png" alt="数据流-快照"></div></div></div>
+
+<h1 id="Git-基础"><a href="#Git-基础" class="headerlink" title="Git 基础"></a>Git 基础</h1><h2 id="Git工作状态"><a href="#Git工作状态" class="headerlink" title="Git工作状态"></a>Git工作状态</h2><p><strong>三种状态：</strong><code>已提交(committed)</code>、<code>已修改(modified)</code>、<code>已暂存(staged) </code>, 对应三个阶段：<code>工作区</code>、<code>暂存区</code>、<code>Git目录(仓库)</code>。</p>
+<div class="group-picture"><div class="group-picture-row"><div class="group-picture-column"><img src="https://git-scm.com/book/en/v2/images/areas.png" alt="Git三个阶段"></div><div class="group-picture-column"><img src="https://git-scm.com/book/en/v2/images/lifecycle.png" alt="文件状态变化周期"></div></div></div>
+
+<h2 id="Git配置"><a href="#Git配置" class="headerlink" title="Git配置"></a>Git配置</h2><p>安装Git后添加用户信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email benkangpeng@163.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /c/user/my_project</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git init <span class="comment"># 初始化git</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a>Git基本操作</h2><h3 id="获取mannul"><a href="#获取mannul" class="headerlink" title="获取mannul"></a>获取mannul</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git &lt;verb&gt; -h</span><br></pre></td></tr></table></figure>
+
+<p>ex :  <code>git add -h</code></p>
+<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /my_project/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git init</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化Git仓库，此时会在my_project文件夹中生成<code>.git</code>子目录用于存放版本控制文件。注意：<strong>此时还没对项目文件进行跟踪</strong> , 还需要<code>git add</code>跟踪所需文件。</p>
+<p>git add</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git *.c  <span class="comment"># 跟踪所有后缀为.c文件</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git README.md</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git add</code>内涵：</p>
+<p>要暂存这次更新，需要运行 <code>git add</code> 命令。 这是个<strong>多功能</strong>命令：①可以用它开始跟踪新文件，②或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。 将这个命令理解为“<u>精确地将内容添加到<strong>下一次提交</strong>中</u>”而不是“将一个文件添加到项目中”要更加合适。 </p>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>显示当前文件夹git状况。</p>
+<blockquote>
+<p>On branch master</p>
+<p>No commits yet</p>
+<p>Changes to be committed:<br>  (use “git rm –cached <file>…” to unstage)<br>        new file:   README.md</p>
+<p>Untracked files:<br>  (use “git add <file>…” to include in what will be committed)<br>        CONTRIBUTING.md</p>
+</blockquote>
+<p>如上显示的是，<code>README.md</code>已被跟踪，而<code>CONTRIBUTING.md</code>未被跟踪。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add CONTRIBUTING.md</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> `My project` &gt; README.md</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git status</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>On branch master</p>
+<p>No commits yet</p>
+<p>Changes to be committed:<br>  (use “git rm –cached <file>…” to unstage)<br>        new file:   CONTRIBUTING.md<br>        new file:   README.md</p>
+<p>Changes not staged for commit:<br>  (use “git add <file>…” to update what will be committed)<br>  (use “git restore <file>…” to discard changes in working directory)<br>        modified:   README.md</p>
+</blockquote>
+<ul>
+<li>此时<code>CONTRIBUTING.md</code>已经被跟踪</li>
+<li>提示有<code>待提交的修改</code> (changes to be committed) ,  <code>CONTRIBUTING.md</code>和<code>README.md</code>没有提交。(至于changes , 即<code>new file</code> , git将<code>创立文件</code>也视为<code>changes</code>)</li>
+<li><code>Changes not staged for commit</code> ： 我们刚才向<code>README,md</code>写入了<code>My project</code> , 但没有将新版本的<code>README.md</code>添加进入暂存区<code>stage</code> 。可执行操作<code>git add README.md</code></li>
+<li>上面这条再一次体现了<code>git add</code>的双重命令，或将其理解为<code>为文件提交(commit)做好预备</code></li>
+</ul>
+<h3 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h3><p>创建<code>.gitignore</code>文件忽略追踪</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">touch</span> .gitignore</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add .gitignore</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">You must add .gitignore into the staging area to make it work .</span></span><br></pre></td></tr></table></figure>
+
+<p>常见语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 忽略所有的 .a 文件</span><br><span class="line">*.a</span><br><span class="line"># 但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span><br><span class="line">!lib.a</span><br><span class="line"># 只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span><br><span class="line">/TODO</span><br><span class="line"># 忽略任何目录下名为 build 的文件夹</span><br><span class="line">build/</span><br><span class="line"># 忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span><br><span class="line">doc/*.txt</span><br><span class="line"># 忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><ul>
+<li><p><code>git diff</code> 查看<strong>同一</strong>文件<code>已暂存</code>与<code>未暂存</code>的两个版本的差异</p>
+<p>eg.  在<code>README.md</code>中添加一行<code>哈哈</code> ，no stage ,  使用命令查看:</p>
+</li>
+</ul>
+<blockquote>
+<p>$ git diff README.md<br>diff –git a&#x2F;README.md b&#x2F;README.md<br>index 6fcadd0..b2f8c83 100644<br>— a&#x2F;README.md<br>+++ b&#x2F;README.md<br>@@ -1 +1,3 @@<br>My project~<br>+<br>+哈哈<br>\ No newline at end of file</p>
+</blockquote>
+<ul>
+<li><code>git diff --staged</code> 查看<code>已暂存文件</code>与<code>最后一次提交文件</code>的差异.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git diff --staged README.md</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>每次准备提交前，先用 <code>git status</code> 看下，你所需要的文件是不是都<strong>已暂存</strong>起来了， 然后再运行提交命令 <code>git commit</code>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;the first commit&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>-m</code> : 添加提交信息message</p>
+</li>
+<li><p>“the first commit” : 提交的信息，区分每一次提交做了哪些大体的修改</p>
+</li>
+<li><p><code>git commit -a</code>跳过暂存区，直接将为暂存的文件commit .</p>
+</li>
+</ul>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><ul>
+<li>如果你想从磁盘根本删除<code>未暂存的文件</code>:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">rm</span> PROJECT.md</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从暂存区删除(取消跟踪)文件(仍保存在磁盘里）：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">rm</span> -f PROJECT.md <span class="comment">#-force , 强制删除</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h3><ul>
+<li><code>git mv</code> 移动文件 or 重命名文件。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">mv</span> Project.md PROJECT.md</span></span><br></pre></td></tr></table></figure>
+
+<p>上述命令相当于：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">mv</span> Project.md PROJECT.md</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">rm</span> Project.md <span class="comment"># 从暂存区移除Project.md</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add PROJECT.md <span class="comment"># 跟踪PROJECT.md</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><ul>
+<li><code>git log</code> 显示所有提交日志</li>
+<li><code>git log -2</code> 显示最近两条日志</li>
+<li><code>git log -p</code> 按补丁格式显示每个提交引入的差异</li>
+<li><code>git log --pretty=oneline</code>显示格式为一行</li>
+<li>此外还有一些参数过滤日志内容，例如<code>--since``--author</code>等，可查文档。</li>
+</ul>
+<h3 id="git-commit-–amend"><a href="#git-commit-–amend" class="headerlink" title="git commit –amend"></a>git commit –amend</h3><ul>
+<li>提交后发现上一次提交有些许瑕疵，例如message写错了、没有跟踪上某个文件 ，但又不想再一次提交，想覆盖上一次提交。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend -m <span class="string">&quot;the right message&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><ul>
+<li>强制重置(删除)某个commit, 例如<code>git reset --hard HEAD~1</code>删除上一次提交。</li>
+<li>取消暂存的文件，例如将<code>CONTRIBUTING.md</code>文件取出&#96;&#96;stageing area<code>,</code>git reset HEAD CONTRIBUTING.md&#96;</li>
+</ul>
+<h3 id="文件版本回溯"><a href="#文件版本回溯" class="headerlink" title="*文件版本回溯"></a>*文件版本回溯</h3><p>案例：<code>commit log</code>如下，自从<code>git clone</code>以来，我提交了<code>version 1</code>和<code>version2</code>.整个项目只有两个文件：<code>check.md</code>和<code>README.md</code>. 我现在想将<code>check.md</code>还原到<code>version 1</code>的状态，但<code>README.md</code>不用还原。(可以理解为我后知后觉意识到<code>version2</code>中对<code>check.md</code>的修改是错误的。)</p>
+<blockquote>
+<p>$ git log –pretty&#x3D;oneline<br>bc03ee1185c084b514ff44a9520ab5d29777b600 (HEAD) version2<br>3d44a28a78ffba2eab8d0718e34c3f7463cfa2a1 version 1<br>86d413d821c361c0245859fddd9c6258f698f16f (tag: v1.0, origin&#x2F;main, origin&#x2F;HEAD) colle<br>ct some ways to github<br>1bfa40c95f5b2a5a086421889e60321ef056fbc0 (tag: v0.1) the first commit by git push<br>a41ee579c6756e653d380b2e08426ea74f77841d (tag: v0.0) Create README.md</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git reset 3d44a  <span class="comment"># 3d44a是version1的效验码，没写完整</span></span></span><br><span class="line">Unstaged changes after reset:</span><br><span class="line">M       README.md</span><br><span class="line">M       check.md</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">到version1后,本地文件是没有发生变化的(仍是version2的snapshot),因此会提示`unstaged changes</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git status</span></span><br><span class="line">HEAD detached from 86d413d</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">        modified:   README.md</span><br><span class="line">        modified:   check.md</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如何恢复check.md，上面的信息也提示我们了“git restore &lt;file&gt;”</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git restore check.md &amp;&amp; git add README.md</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> --pretty=oneline</span></span><br><span class="line">3d44a28a78ffba2eab8d0718e34c3f7463cfa2a1 (HEAD) version 1</span><br><span class="line">86d413d821c361c0245859fddd9c6258f698f16f (tag: v1.0, origin/main, origin/HEAD) colle</span><br><span class="line">ct some ways to github</span><br><span class="line">1bfa40c95f5b2a5a086421889e60321ef056fbc0 (tag: v0.1) the first commit by git push</span><br><span class="line">a41ee579c6756e653d380b2e08426ea74f77841d (tag: v0.0) Create README.md</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">END</span></span><br></pre></td></tr></table></figure>
+
+<p><del>但以上做法删除了version2的提交信息。是否存在方法，只进行单个文件的版本回溯呢？现在还没解决……</del></p>
+<h3 id="单文件版本回溯"><a href="#单文件版本回溯" class="headerlink" title="*单文件版本回溯"></a>*单文件版本回溯</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> --pretty=oneline</span></span><br><span class="line">05bfc3c25ca3ee80247f3ec24b4936d2d7e7d2c1 (HEAD) version3</span><br><span class="line">245a8ddd0c2bfc01c2444930e2ed11b04320d354 version2</span><br><span class="line">3d44a28a78ffba2eab8d0718e34c3f7463cfa2a1 version 1</span><br><span class="line">86d413d821c361c0245859fddd9c6258f698f16f (tag: v1.0, origin/main, origin/HEAD) colle</span><br><span class="line">ct some ways to github</span><br><span class="line">1bfa40c95f5b2a5a086421889e60321ef056fbc0 (tag: v0.1) the first commit by git push</span><br><span class="line">a41ee579c6756e653d380b2e08426ea74f77841d (tag: v0.0) Create README.md</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<code>check.md</code>回溯到版本1，其他文件不变，<code>git checkout &lt;hash&gt; check.md</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout 3d44a28a check.md</span></span><br><span class="line">Updated 1 path from aab7394</span><br></pre></td></tr></table></figure>
+
+<h3 id="与远程仓库联动"><a href="#与远程仓库联动" class="headerlink" title="与远程仓库联动"></a>与远程仓库联动</h3><ul>
+<li><code>git remote add &lt;name&gt; &lt;url&gt;</code> 添加远程仓库，例如<code>git remote add getback https://github.com/BenkangPeng/GetBack.git</code> , 之后可用名称<code>getback</code>代替网址进行操作。类似于<code>C</code>里的<code>#define</code></li>
+<li><code>git remote -v</code>显示已添加的远程仓库, <code>git remote</code>简略显示。</li>
+<li><code>git remote rename name1 name2</code> 修改仓库<strong>代称</strong>，实际远程仓库(比如Github上的仓库）名称没被修改。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote add getback https://github.com/BenkangPeng/GetBack.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote -v</span></span><br><span class="line">getback https://github.com/BenkangPeng/GetBack.git (fetch)</span><br><span class="line">getback https://github.com/BenkangPeng/GetBack.git (push)</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote rename getback GetBack</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote</span></span><br><span class="line">GetBack</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>git fetch</code> 获取仓库的更新。例如，你在1年以前<code>clone</code>了仓库<code>A</code> , 但在过去一年内，仓库<code>A</code>其他开源贡献者提交了许多内容，甚至产生了分支，<code>git fetch &lt;url&gt;</code>将仓库<code>A</code>的这些更新数据下载到本地，但不会改变本地状态：<strong>不会自动合并分支或修改你当前的工作</strong>。当然你可以手动合并分支、更新本地仓库。</li>
+<li><code>git clone &lt;url&gt;</code>克隆仓库。将<code>&lt;url&gt;</code>对应的仓库克隆到本地，与<code>git fetch</code>不同的是，它将覆盖本地工作。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/BenkangPeng/GetBack.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> GetBack/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote -v</span></span><br><span class="line">origin  https://github.com/BenkangPeng/GetBack.git (fetch)</span><br><span class="line">origin  https://github.com/BenkangPeng/GetBack.git (push)</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">克隆完仓库后，git会自动创建一个origin的远程仓库，对应的就是克隆的仓库url</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">对GetBack进行修改……</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin main</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">将本地的main分支(主支)提交到远程仓库origin</span></span><br></pre></td></tr></table></figure>
+
+<p>关于<code>主分支</code> <code>master</code>改为<code>main</code>，还颇有意味。<a href="https://github.com/github/renaming">github&#x2F;renaming</a>        <a href="https://zhuanlan.zhihu.com/p/257179306">乐子 on 知乎</a></p>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><ul>
+<li><code>git tag -a &lt;v1.0&gt; -m &quot;version 1.0&quot;</code> 添加<code>annotated tag</code> , <code>git tag v1.0</code>添加<code>lightweight</code>标签。</li>
+<li><code>git tag</code>显示所有标签，<code>git show &lt;v1.0&gt; </code>显示某个标签信息</li>
+<li><code>git tag &lt;version&gt; &lt;verify code&gt;</code>为之前某一次<code>commit</code>补充<code>tag</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">log</span> --pretty=oneline</span></span><br><span class="line">dd0a36aec54a58a9f3427f5f33b1ee97802949b0 (HEAD -&gt; master, tag: v1.0) </span><br><span class="line">3d4057629e1e3515667c7e826817a9ab5a29f306 the second commit</span><br><span class="line">349775b9754e9113e549a9d734707bff38f2e3b4 the first commit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git tag v0.0 34977</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认情况下，<code>git push</code>不会顺带将每一个<code>commit</code> 的<code>tag</code>提交，需手动设置。<code>git push origin &lt;tagname&gt;</code>上传单个<code>tag</code>  ,  <code>git push origin --tags </code>推送所有<code>tags</code></li>
+<li><code>git tag -d &lt;tagname&gt;</code>删除标签，但不会删除远程仓库(&#96;&#96;remote<code>)的</code>tags<code> , 需用</code>git push origin –delete <tagname>&#96;</li>
+</ul>
+<h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch testing	<span class="comment">#创立分支testing</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout testing  <span class="comment">#切换到testing</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">以上两条命令可合并为 git checkout -b testing</span> </span><br><span class="line">Switched to branch &#x27;testing&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="keyword">do</span> some changes</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout main  <span class="comment">#回到主分支</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch <span class="comment">#显示所有分支</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>git merge &lt;branch&gt;</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">touch</span> polynorminal.cpp</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">edit polynorminal.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add polynorminal.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;touch a new .cpp file&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout -b AddFunc2</span></span><br><span class="line">Switched to a new branch &#x27;AddFunc2&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">edit polynorminal.cpp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -a -m <span class="string">&quot;have added the func2&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout main</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge AddFunc2</span></span><br><span class="line">Updating 87ba74e..869b2a7</span><br><span class="line">Fast-forward</span><br><span class="line"> polynorminal.cpp | 11 ++++++++++-</span><br><span class="line"> 1 file changed, 10 insertions(+), 1 deletion(-)</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>在<code>main</code>中合并分支时，可能出现合并冲突，这是因为分支中文件修改过大，<code>git</code>不知道如何将<code>main</code>与<code>branch</code>两个文件版本合并，此时需手动合并、修改文件，并<code>commit</code></p>
+</div>
+
+<ul>
+<li><code>git branch -d &lt;branch&gt;</code>删除分支（但不能删除未合并的分支）</li>
+<li><code>git branch --no-merged</code>查看未合并的分支</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -697,175 +967,98 @@
       </tags>
   </entry>
   <entry>
-    <title>HDLBits Solutions</title>
-    <url>/posts/4ff0bc03/</url>
-    <content><![CDATA[<h3>Abstract</h3>
-
-<p>The solutions and my notes of <a href="[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)">HDLBits</a> are written in this document .</p>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
 
 <span id="more"></span>
 
-<p>[TOC]</p>
-<h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><h3 id="Getting-Started-1"><a href="#Getting-Started-1" class="headerlink" title="Getting Started"></a>Getting Started</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( <span class="keyword">output</span> one );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> one = <span class="number">1&#x27;b1</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Output-Zero"><a href="#Output-Zero" class="headerlink" title="Output Zero"></a>Output Zero</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( <span class="keyword">output</span> zero );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> zero = <span class="number">1&#x27;b0</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Verilog-Language"><a href="#Verilog-Language" class="headerlink" title="Verilog Language"></a>Verilog Language</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><h3 id="Simple-wire"><a href="#Simple-wire" class="headerlink" title="Simple wire"></a>Simple wire</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( <span class="keyword">input</span> in, <span class="keyword">output</span> out );</span><br><span class="line">	<span class="keyword">assign</span> out = in;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Four-wires"><a href="#Four-wires" class="headerlink" title="Four wires"></a>Four wires</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">	<span class="keyword">input</span> a,</span><br><span class="line">	<span class="keyword">input</span> b,</span><br><span class="line">	<span class="keyword">input</span> c,</span><br><span class="line">	<span class="keyword">output</span> w,</span><br><span class="line">	<span class="keyword">output</span> x,</span><br><span class="line">	<span class="keyword">output</span> y,</span><br><span class="line">	<span class="keyword">output</span> z  );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> w = a;</span><br><span class="line">	<span class="keyword">assign</span> x = b;</span><br><span class="line">	<span class="keyword">assign</span> y = b;</span><br><span class="line">	<span class="keyword">assign</span> z = c;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// If we&#x27;re certain about the width of each signal, using </span></span><br><span class="line">	<span class="comment">// the concatenation operator is equivalent and shorter:</span></span><br><span class="line">	<span class="comment">// assign &#123;w,x,y,z&#125; = &#123;a,b,b,c&#125;;</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Inverter"><a href="#Inverter" class="headerlink" title="Inverter"></a>Inverter</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">	<span class="keyword">input</span> in,</span><br><span class="line">	<span class="keyword">output</span> out</span><br><span class="line">);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">assign</span> out = ~in;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="AND-gate"><a href="#AND-gate" class="headerlink" title="AND gate"></a>AND gate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">	<span class="keyword">assign</span> out = a &amp; b ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="NOR-gate"><a href="#NOR-gate" class="headerlink" title="NOR gate"></a>NOR gate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">    <span class="keyword">assign</span> out = ! (a | b) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="XNOR-gate"><a href="#XNOR-gate" class="headerlink" title="XNOR gate"></a>XNOR gate</h3><h3 id="Declaring-wires"><a href="#Declaring-wires" class="headerlink" title="Declaring wires"></a>Declaring wires</h3><h3 id="7458-chip"><a href="#7458-chip" class="headerlink" title="7458 chip"></a>7458 chip</h3><h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h3 id="Vectors-1"><a href="#Vectors-1" class="headerlink" title="Vectors"></a>Vectors</h3><h2 id="More-Verilog-Features"><a href="#More-Verilog-Features" class="headerlink" title="More Verilog Features"></a>More Verilog Features</h2><h3 id="Combinational-for-loop-Vector-reversal-2"><a href="#Combinational-for-loop-Vector-reversal-2" class="headerlink" title="*Combinational for-loop : Vector reversal 2"></a>*Combinational for-loop : Vector reversal 2</h3><blockquote>
-<p>Given a 100-bit input vector [99:0], reverse its bit ordering.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">// False Vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">assign</span> out[i] = in [<span class="number">99</span> - i] ;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
 <blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Error (10170): Verilog HDL syntax error at top_module.v(6) near text: &quot;for&quot;;  expecting &quot;endmodule&quot;. </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>为什么是这样的报错呢？显示在for循环那一行前缺少一个endmodule</p>
-<blockquote>
-<p>在module内部，只能<strong>声明输入</strong>、<strong>输出端口、内部信号以及使用连续赋值</strong>（<code>assign</code> 语句）来描述硬件电路的连续逻辑</p>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>因此，<code>verilog</code>编译器认为，<code>for</code>循环前应该有一个<code>endmodule</code>以结束该<code>module</code>,此后才能开始<code>for-loop</code>的声明。</p>
-<p><strong>为什么Verilog规定Module内部不能声明for-loop?</strong></p>
 <blockquote>
-<p>当涉及到硬件描述语言（HDL）如Verilog时，有一些关键的设计原则和语法规则是不同于通用编程语言（如C、Python）的。</p>
-<p>Verilog 是为硬件设计而设计的，其目的是描述硬件电路的结构和行为，而不是传统意义上的“编程”。在硬件电路中，信号是在不同的时间步长上并行计算的，而不是按顺序执行的像在软件中一样。这导致了一些语法规则的不同。</p>
-<p>具体来说，以下是为什么在 Verilog 中不能直接将 <code>for</code> 循环放在模块内部的原因：</p>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
+</blockquote>
 <ol>
-<li><strong>并行性：</strong> Verilog 中的代码被解释为电路，其中不同的信号在相同的时间步长上并行地计算。这与传统编程语言中的迭代循环不同，后者按顺序执行。在硬件电路中，不同的信号和逻辑是同时计算的，因此 <code>for</code> 循环的概念与硬件的并行性不一致。</li>
-<li><strong>延迟和时间问题：</strong> 在 Verilog 中，信号的传播和逻辑运算都需要考虑时间延迟。循环的迭代次数可能需要在编译时已知，但在硬件中，延迟可能会影响电路的行为。如果允许在模块内部使用 <code>for</code> 循环，编译器就需要处理如何在时间上正确地展开循环和处理延迟的问题。</li>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
 </ol>
-<p>为了符合硬件的特性，Verilog 引入了生成语句（generate statements），允许在编译时生成不同的硬件结构，这包括使用 <code>for</code> 循环来生成多个类似的硬件逻辑。生成语句允许在不同的时间步长上并行生成硬件，而不会引入运行时的顺序问题。</p>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>简单说就是：<code>for-loop</code>内不同层次(i &#x3D; 1 , 2 ,3 ……)，体现了顺序的先后，是软件编程的思维；而<code>verilog</code>中<code>assign</code>描述的各硬件是并行运行的，是硬件编程的思维；二者需要区分开来:smile:</p>
-<p>我们使用<code>generate</code>来实现(generate生成多个并行计算模块)：[generate介绍](<a href="https://zhuanlan.zhihu.com/p/107047600">Verilog中generate的使用 - 知乎 (zhihu.com)</a>)</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">genvar</span> i ;<span class="comment">//state a variable i </span></span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span> : generate_name</span><br><span class="line">            <span class="keyword">assign</span> out[i] = in [<span class="number">99</span> - i] ; <span class="comment">// type of out is wire</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p>或者将<code>for-loop</code>写在<code>always</code>中：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in ,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] out </span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">$bits</span>(out) ; i++ ) <span class="keyword">begin</span></span><br><span class="line">            <span class="comment">//$bits(signal)获取信号位长</span></span><br><span class="line">            out[i] = in [ <span class="built_in">$bits</span>(out) - <span class="number">1</span> - i ] ; </span><br><span class="line">            <span class="comment">//type of out is reg</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Combinational-for-loop-255-bit-population-count"><a href="#Combinational-for-loop-255-bit-population-count" class="headerlink" title="Combinational for-loop:255-bit population count"></a>Combinational for-loop:255-bit population count</h3><blockquote>
-<p>A “population count” circuit counts the number of ‘1’s in an input vector. Build a population count circuit for a 255-bit input vector.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">254</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] out );</span><br><span class="line">    <span class="keyword">always</span> @(*) <span class="keyword">begin</span></span><br><span class="line">       out = <span class="number">0</span> ;<span class="comment">//寄存器型变量在always块中初始化</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">255</span> ; i++) <span class="keyword">begin</span></span><br><span class="line">            out = out + in[i] ; </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Generate-for-loop-1000-bit-binary-adder-2"><a href="#Generate-for-loop-1000-bit-binary-adder-2" class="headerlink" title="Generate for-loop:1000-bit binary adder 2"></a>Generate for-loop:1000-bit binary adder 2</h3><blockquote>
-<p>Create a 100-bit binary ripple-carry adder by instantiating 100 <a href="https://hdlbits.01xz.net/wiki/Fadd">full adders</a>. The adder adds two 100-bit numbers and a carry-in to produce a 100-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from <em>each</em> full adder in the ripple-carry adder. cout[99] is the final carry-out from the last full adder, and is the carry-out you usually see.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] sum );</span><br><span class="line">	<span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">genvar</span> i ;<span class="comment">//好像在for循环内声明genvar i 会报错</span></span><br><span class="line">        <span class="keyword">assign</span> sum[<span class="number">0</span>] = a[<span class="number">0</span>] ^ b[<span class="number">0</span>] ^ cin ;</span><br><span class="line">        <span class="keyword">assign</span> cout[<span class="number">0</span>] = a[<span class="number">0</span>] &amp; b[<span class="number">0</span>] | a[<span class="number">0</span>] &amp; cin | b[<span class="number">0</span>] &amp; cin ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">1</span> ; i &lt; <span class="number">100</span> ; i++) <span class="keyword">begin</span> : generate_name </span><br><span class="line">            <span class="keyword">assign</span> sum[i] = a[i] ^ b[i] ^ cout[i-<span class="number">1</span>] ;</span><br><span class="line">            <span class="keyword">assign</span> cout[i] = a[i] &amp; b[i] | a[i] &amp; cout[i-<span class="number">1</span>] | b[i] &amp; cout[i-<span class="number">1</span>] ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Generate-for-loop-100-digit-BCD-adder"><a href="#Generate-for-loop-100-digit-BCD-adder" class="headerlink" title="*Generate for-loop:100-digit BCD adder"></a>*Generate for-loop:100-digit BCD adder</h3><blockquote>
-<p>You are provided with a BCD one-digit adder named <code>bcd_fadd</code> that adds two BCD digits and carry-in, and produces a sum and carry-out.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">module bcd_fadd (</span><br><span class="line">    input [3:0] a,</span><br><span class="line">    input [3:0] b,</span><br><span class="line">    input     cin,</span><br><span class="line">    output   cout,</span><br><span class="line">    output [3:0] sum );</span><br></pre></td></tr></table></figure>
-
-<p>Instantiate 100 copies of <code>bcd_fadd</code> to create a 100-digit BCD ripple-carry adder. Your adder should add two 100-digit BCD numbers (packed into 400-bit vectors) and a carry-in to produce a 100-digit sum and carry out.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//False Verion </span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">399</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> cout,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">399</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">genvar</span> i , j ;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    <span class="keyword">assign</span> cout = temp_cout[<span class="number">99</span>] ;</span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        bcd_fadd U0( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin , temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>]) ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">7</span> , j = <span class="number">0</span>; i &lt; <span class="number">400</span> ;  i = i + <span class="number">4</span> , j++) <span class="keyword">begin</span> : name </span><br><span class="line">            bcd_fadd U1( a[i:i-<span class="number">3</span>] , b[i:i-<span class="number">3</span>] , temp_cout[j] , sum[i:i-<span class="number">3</span>]) ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>报错信息：Error (10170): Verilog HDL syntax error at top_module.v(12) near text: “,”;  expecting “;”</p>
-</blockquote>
-<p>没有查到相关信息(先留一个坑)，猜测：<code>for-loop</code>中不能有两个<code>genvar</code>,于是不能出现<code>,</code> ,提示你要用<code>;</code></p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Right Verion </span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">399</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> cout,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">399</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">genvar</span> i ;</span><br><span class="line">    <span class="keyword">reg</span> [<span class="number">99</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    <span class="keyword">assign</span> cout = temp_cout[<span class="number">99</span>] ;</span><br><span class="line">    <span class="keyword">generate</span></span><br><span class="line">        bcd_fadd U0( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin , temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>]) ;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">7</span> ; i &lt; <span class="number">400</span> ;  i = i + <span class="number">4</span> ) <span class="keyword">begin</span> : name </span><br><span class="line">            bcd_fadd U1( a[i:i-<span class="number">3</span>] , b[i:i-<span class="number">3</span>] , temp_cout[(i + <span class="number">1</span>) / <span class="number">4</span> - <span class="number">2</span>] , temp_cout[(i + <span class="number">1</span>) / <span class="number">4</span> - <span class="number">1</span>] , sum[i:i-<span class="number">3</span>]) ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>此处实现一下<code>bcd_fadd</code></strong></p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> bcd_fadd(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span> : <span class="number">0</span>] a , b ,</span><br><span class="line">    <span class="keyword">input</span> cin , </span><br><span class="line">    <span class="keyword">output</span> cout ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] sum</span><br><span class="line">) ;</span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">4</span>:<span class="number">0</span>] temp ;</span><br><span class="line">    <span class="keyword">assign</span> temp = a + b + cin ;</span><br><span class="line">    <span class="keyword">assign</span> &#123;cout , sum&#125; = (temp&gt;<span class="number">9</span>) ? (temp+<span class="number">6</span>) : temp ; </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Circuits"><a href="#Circuits" class="headerlink" title="Circuits"></a>Circuits</h1><h2 id="Combinational-Logic"><a href="#Combinational-Logic" class="headerlink" title="Combinational Logic"></a>Combinational Logic</h2><h3 id="Basic-Gates"><a href="#Basic-Gates" class="headerlink" title="Basic Gates"></a>Basic Gates</h3><h4 id="Even-longer-vectors"><a href="#Even-longer-vectors" class="headerlink" title="Even longer vectors"></a>Even longer vectors</h4><blockquote>
-<p>See also the shorter version: <a href="https://hdlbits.01xz.net/wiki/gatesv">Gates and vectors</a>.</p>
-<p>You are given a 100-bit input vector in[99:0]. We want to know some relationships between each bit and its neighbour:</p>
 <ul>
-<li><strong>out_both</strong>: Each bit of this output vector should indicate whether <em>both</em> the corresponding input bit and its neighbour to the <strong>left</strong> are ‘1’. For example, <code>out_both[98]</code> should indicate if <code>in[98]</code> and <code>in[99]</code> are both 1. Since <code>in[99]</code> has no neighbour to the left, the answer is obvious so we don’t need to know <code>out_both[99]</code>.</li>
-<li><strong>out_any</strong>: Each bit of this output vector should indicate whether <em>any</em> of the corresponding input bit and its neighbour to the <strong>right</strong> are ‘1’. For example, <code>out_any[2]</code> should indicate if either <code>in[2]</code> or <code>in[1]</code> are 1. Since <code>in[0]</code> has no neighbour to the right, the answer is obvious so we don’t need to know <code>out_any[0]</code>.</li>
-<li><strong>out_different</strong>: Each bit of this output vector should indicate whether the corresponding input bit is different from its neighbour to the <strong>left</strong>. For example, <code>out_different[98]</code> should indicate if <code>in[98]</code> is different from <code>in[99]</code>. For this part, treat the vector as wrapping around, so <code>in[99]</code>‘s neighbour to the left is <code>in[0]</code>.</li>
+<li>未完成任务    </li>
+<li>已完成任务</li>
 </ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//My vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">98</span>:<span class="number">0</span>] out_both,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">1</span>] out_any,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out_different );</span><br><span class="line">    <span class="keyword">genvar</span> i ;</span><br><span class="line">	<span class="keyword">generate</span></span><br><span class="line">        <span class="keyword">for</span>( i = <span class="number">0</span> ; i &lt; <span class="number">99</span> ; i++ ) <span class="keyword">begin</span> : generate_name</span><br><span class="line">            <span class="keyword">assign</span> out_both[i] = in[i] &amp; in[i+<span class="number">1</span>] ;</span><br><span class="line">            <span class="keyword">assign</span> out_any[i+<span class="number">1</span>]= in[i+<span class="number">1</span>] | in[i] ;</span><br><span class="line">            <span class="keyword">assign</span> out_different[i] = in[i] ^ in[i+<span class="number">1</span>] ;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">assign</span> out_different[<span class="number">99</span>] = in[<span class="number">99</span>] ^ in[<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">endgenerate</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Offical vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">98</span>:<span class="number">0</span>] out_both,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">1</span>] out_any,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] out_different );</span><br><span class="line">    <span class="keyword">assign</span> out_both = in[<span class="number">98</span>:<span class="number">0</span>] &amp; in[<span class="number">99</span>:<span class="number">1</span>] ;</span><br><span class="line">    <span class="keyword">assign</span> out_any  = in[<span class="number">99</span>:<span class="number">1</span>] | in[<span class="number">98</span>:<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">assign</span> out_different = in ^ &#123; in[<span class="number">0</span>] , in[<span class="number">99</span>:<span class="number">1</span>] &#125; ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="Multiplexers"><a href="#Multiplexers" class="headerlink" title="Multiplexers"></a>Multiplexers</h3><h4 id="9-to-1-multiplexer"><a href="#9-to-1-multiplexer" class="headerlink" title="9-to-1 multiplexer"></a>9-to-1 multiplexer</h4><blockquote>
-<p>Create a 16-bit wide, 9-to-1 multiplexer. sel&#x3D;0 chooses a, sel&#x3D;1 chooses b, etc. For the unused cases (sel&#x3D;9 to 15), set all output bits to ‘1’.</p>
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Flase vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">15</span>:<span class="number">0</span>] a, b, c, d, e, f, g, h, i,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">15</span>:<span class="number">0</span>] out );</span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span> </span><br><span class="line">    <span class="keyword">case</span>(sel)</span><br><span class="line">        <span class="number">4&#x27;b0000</span> : out = a ;</span><br><span class="line">        <span class="number">4&#x27;b0001</span> : out = b ;</span><br><span class="line">        <span class="number">4&#x27;b0010</span> : out = c ;</span><br><span class="line">        <span class="number">4&#x27;b0011</span> : out = d ;</span><br><span class="line">        <span class="number">4&#x27;b0100</span> : out = e ;</span><br><span class="line">        <span class="number">4&#x27;b0101</span> : out = f ;</span><br><span class="line">        <span class="number">4&#x27;b0110</span> : out = g ;</span><br><span class="line">        <span class="number">4&#x27;b0111</span> : out = h ;</span><br><span class="line">        <span class="number">4&#x27;b1000</span> : out = i ;</span><br><span class="line">     	<span class="keyword">default</span> : out = <span class="number">16&#x27;hFFFF</span> ;<span class="comment">//十六进制应该为4&#x27;hFFFF</span></span><br><span class="line">        <span class="comment">//踩过的坑 ： out = 1 ; out = 0xFFFF ; out = 4&#x27;hFFFF</span></span><br><span class="line">        <span class="keyword">endcase</span></span><br><span class="line">    <span class="keyword">end</span>      </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="256-to-1-4-bit-multiplexer"><a href="#256-to-1-4-bit-multiplexer" class="headerlink" title="256-to-1 4-bit multiplexer"></a>256-to-1 4-bit multiplexer</h4><blockquote>
-<p>Create a 4-bit wide, 256-to-1 multiplexer. The 256 4-bit inputs are all packed into a single 1024-bit input vector. sel&#x3D;0 should select bits <code>in[3:0]</code>, sel&#x3D;1 selects bits <code>in[7:4]</code>, sel&#x3D;2 selects bits <code>in[11:8]</code>, etc.</p>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
 </blockquote>
-<blockquote>
-<p>Hint</p>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
+</blockquote>
 <ul>
-<li>With this many options, a case statement isn’t so useful.</li>
-<li>Vector indices can be variable, as long as the synthesizer can figure out that the width of the bits being selected is constant. It’s not always good at this. An error saying “… is not a constant” means it couldn’t prove that the select width is constant. In particular, <code>in[ sel*4+3 : sel*4 ]</code> does not work. &#x2F;&#x2F; verilog 索引不支持全为变量</li>
-<li>Bit slicing (“Indexed vector part select”, since Verilog-2001) has an even more compact syntax.</li>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
 </ul>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">1023</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] out );</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">assign</span> out = in[sel * <span class="number">4</span> + <span class="number">3</span> : sel * <span class="number">4</span>] ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>error : sel is not a constant File ;</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//True</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">1023</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] sel,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] out );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assign</span> out = in[sel * <span class="number">4</span>  +: <span class="number">4</span>] ;<span class="comment">//从sel*4向上四位</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Arithmetic-Circuits"><a href="#Arithmetic-Circuits" class="headerlink" title="Arithmetic Circuits"></a>Arithmetic Circuits</h3><h4 id="3-bit-binary-adder"><a href="#3-bit-binary-adder" class="headerlink" title="3-bit binary adder"></a>3-bit binary adder</h4><blockquote>
-<p>Now that you know how to build a <a href="https://hdlbits.01xz.net/wiki/Fadd">full adder</a>, make 3 instances of it to create a 3-bit binary ripple-carry adder. The adder adds two 3-bit numbers and a carry-in to produce a 3-bit sum and carry out. To encourage you to actually instantiate full adders, also output the carry-out from <em>each</em> full adder in the ripple-carry adder. cout[2] is the final carry-out from the last full adder, and is the carry-out you usually see.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">2</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">2</span>:<span class="number">0</span>] cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">2</span>:<span class="number">0</span>] sum );</span><br><span class="line">    full_adder ripple_adder_1( a[<span class="number">0</span>] , b[<span class="number">0</span>] , cin , cout[<span class="number">0</span>] , sum[<span class="number">0</span>] ) ;</span><br><span class="line">    full_adder ripple_adder_2( a[<span class="number">1</span>] , b[<span class="number">1</span>] , cout[<span class="number">0</span>] , cout[<span class="number">1</span>] , sum[<span class="number">1</span>] ) ;</span><br><span class="line">    full_adder ripple_adder_3( a[<span class="number">2</span>] , b[<span class="number">2</span>] , cout[<span class="number">1</span>] , cout[<span class="number">2</span>] , sum[<span class="number">2</span>] ) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">module</span> full_adder(</span><br><span class="line">    <span class="keyword">input</span> a , b , cin , </span><br><span class="line">    <span class="keyword">output</span> cout , sum</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> cout= a &amp; b | a &amp; cin | b &amp; cin ;</span><br><span class="line">    <span class="keyword">assign</span> sum = a ^ b ^ cin ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Signed-addition-overflow"><a href="#Signed-addition-overflow" class="headerlink" title="Signed addition overflow"></a>Signed addition overflow</h4><blockquote>
-<p>Assume that you have two 8-bit 2’s complement numbers, a[7:0] and b[7:0]. These numbers are added to produce s[7:0]. Also compute whether a (signed) overflow has occurred.</p>
-</blockquote>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Flase vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">7</span>:<span class="number">0</span>] s,</span><br><span class="line">    <span class="keyword">output</span> overflow</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">assign</span> &#123; overflow , s &#125; = a + b ;</span><br><span class="line">    <span class="comment">//注意题中的signed overflow , 并不等于进位cout</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>如何检测符号溢出(<strong>signed overflow</strong>) : 符号不同，相加不会溢出  ； 符号相同，可能溢出，需要设置检测。</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//True vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">7</span>:<span class="number">0</span>] a , b ,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">7</span> : <span class="number">0</span>] s ,</span><br><span class="line">    <span class="keyword">output</span> overflow</span><br><span class="line">);</span><br><span class="line">    <span class="keyword">assign</span> s = a + b ;</span><br><span class="line">    <span class="keyword">assign</span> overflow = ( a[<span class="number">7</span>] == b[<span class="number">7</span>] ) ? (a[<span class="number">7</span>] ^ s[<span class="number">7</span>]) : <span class="number">0</span> ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="100-bit-binary-adder"><a href="#100-bit-binary-adder" class="headerlink" title="100-bit binary adder"></a>100-bit binary adder</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">	<span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] a,</span><br><span class="line">	<span class="keyword">input</span> [<span class="number">99</span>:<span class="number">0</span>] b,</span><br><span class="line">	<span class="keyword">input</span> cin,</span><br><span class="line">	<span class="keyword">output</span> cout,</span><br><span class="line">	<span class="keyword">output</span> [<span class="number">99</span>:<span class="number">0</span>] sum</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// The concatenation &#123;cout, sum&#125; is a 101-bit vector.</span></span><br><span class="line">	<span class="keyword">assign</span> &#123;cout, sum&#125; = a+b+cin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-digit-BCD-adder"><a href="#4-digit-BCD-adder" class="headerlink" title="4-digit BCD adder"></a>4-digit BCD adder</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">15</span>:<span class="number">0</span>] a, b,</span><br><span class="line">    <span class="keyword">input</span> cin,</span><br><span class="line">    <span class="keyword">output</span> cout,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">15</span>:<span class="number">0</span>] sum );</span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">2</span>:<span class="number">0</span>] temp_cout ;</span><br><span class="line">    bcd_fadd U0 ( a[<span class="number">3</span>:<span class="number">0</span>] , b[<span class="number">3</span>:<span class="number">0</span>] , cin ,  temp_cout[<span class="number">0</span>] , sum[<span class="number">3</span>:<span class="number">0</span>] ) ;</span><br><span class="line">    bcd_fadd U1 ( a[<span class="number">7</span>:<span class="number">4</span>] , b[<span class="number">7</span>:<span class="number">4</span>] , temp_cout[<span class="number">0</span>] ,  temp_cout[<span class="number">1</span>] , sum[<span class="number">7</span>:<span class="number">4</span>] ) ;</span><br><span class="line">    bcd_fadd U2 ( a[<span class="number">11</span>:<span class="number">8</span>] , b[<span class="number">11</span>:<span class="number">8</span>] , temp_cout[<span class="number">1</span>] ,  temp_cout[<span class="number">2</span>] , sum[<span class="number">11</span>:<span class="number">8</span>] ) ;</span><br><span class="line">    bcd_fadd U3 ( a[<span class="number">15</span>:<span class="number">12</span>] , b[<span class="number">15</span>:<span class="number">12</span>] , temp_cout[<span class="number">2</span>] ,  cout , sum[<span class="number">15</span>:<span class="number">12</span>] ) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Karnaugh-Map-to-Citcuit"><a href="#Karnaugh-Map-to-Citcuit" class="headerlink" title="Karnaugh Map to Citcuit"></a>Karnaugh Map to Citcuit</h3><h4 id="3-variable"><a href="#3-variable" class="headerlink" title="3-variable"></a>3-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">	<span class="keyword">input</span> a, </span><br><span class="line">	<span class="keyword">input</span> b,</span><br><span class="line">	<span class="keyword">input</span> c,</span><br><span class="line">	<span class="keyword">output</span> out</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// SOP form: Three prime implicants (1 term each), summed.</span></span><br><span class="line">	<span class="comment">// POS form: One prime implicant (of 3 terms)</span></span><br><span class="line">	<span class="comment">// In this particular case, the result is the same for both SOP and POS.</span></span><br><span class="line">    <span class="comment">// it&#x27;s easier by using SOP</span></span><br><span class="line">	<span class="keyword">assign</span> out = (a | b | c);</span><br><span class="line">	</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-variable"><a href="#4-variable" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = (!b &amp; !c) | (!a &amp; !d) | (!a &amp; b &amp; c) | (a &amp; c &amp; d)  ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-variable-1"><a href="#4-variable-1" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = a | (!b &amp; c) ;</span><br><span class="line">    <span class="comment">//用0去算！f更简单</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="4-variable-2"><a href="#4-variable-2" class="headerlink" title="4-variable"></a>4-variable</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Stupid vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">    <span class="keyword">assign</span> out = (!a &amp; !b) &amp; (c ^ d) | (!a &amp; b) &amp; !(c ^ d) | a &amp; b &amp; (c ^ d) | (a &amp; !b) &amp; !(c ^ d);</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Wise vesion</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out  ); </span><br><span class="line">	<span class="keyword">assign</span> out = a ^ b ^ c ^ d ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>如果会奇偶校验便能一眼看出：<code>abcd</code>中有奇数个<code>1</code>，卡诺图为<code>1</code> .反之为<code>0</code>.</strong></p>
-<h4 id="Minimum-SOP-and-POS"><a href="#Minimum-SOP-and-POS" class="headerlink" title="Minimum SOP and POS"></a>Minimum SOP and POS</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out_sop,</span><br><span class="line">    <span class="keyword">output</span> out_pos</span><br><span class="line">); </span><br><span class="line">	<span class="keyword">assign</span> out_sop = c &amp; d | !a &amp; !b &amp; c ;</span><br><span class="line">    <span class="keyword">assign</span> out_pos = c &amp; (!a | b) &amp; (!b | d) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Karnaugh-map"><a href="#Karnaugh-map" class="headerlink" title="Karnaugh map"></a>Karnaugh map</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">4</span>:<span class="number">1</span>] x, </span><br><span class="line">    <span class="keyword">output</span> f );</span><br><span class="line">    <span class="keyword">assign</span> f = !x[<span class="number">1</span>] &amp; x[<span class="number">3</span>] | x[<span class="number">1</span>] &amp; x[<span class="number">2</span>] &amp; !x[<span class="number">3</span>] ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="Karnaugh-map-1"><a href="#Karnaugh-map-1" class="headerlink" title="Karnaugh map"></a>Karnaugh map</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">4</span>:<span class="number">1</span>] x,</span><br><span class="line">    <span class="keyword">output</span> f</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">assign</span> f = (x[<span class="number">3</span>] | !x[<span class="number">4</span>]) &amp; (!x[<span class="number">2</span>] | x[<span class="number">3</span>] | x[<span class="number">4</span>]) &amp; (!x[<span class="number">1</span>] | x[<span class="number">2</span>] | !x[<span class="number">4</span>]) &amp; (!x[<span class="number">1</span>] | !x[<span class="number">2</span>] | x[<span class="number">4</span>]) ;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="K-map-implemented-with-a-multiplexer"><a href="#K-map-implemented-with-a-multiplexer" class="headerlink" title="K-map implemented with a multiplexer"></a>K-map implemented with a multiplexer</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">3</span>:<span class="number">0</span>] mux_in</span><br><span class="line">); </span><br><span class="line">    <span class="keyword">always</span> @(*)<span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">case</span>( &#123; c , d &#125; )</span><br><span class="line">            <span class="number">2&#x27;b00</span> : mux_in = <span class="number">4&#x27;b0100</span> ;</span><br><span class="line">            <span class="number">2&#x27;b01</span> : mux_in = <span class="number">4&#x27;b0001</span> ;</span><br><span class="line">            <span class="number">2&#x27;b11</span> : mux_in = <span class="number">4&#x27;b1001</span> ;</span><br><span class="line">            <span class="number">2&#x27;b10</span> : mux_in = <span class="number">4&#x27;b0101</span> ;</span><br><span class="line">            <span class="keyword">default</span> : mux_in = <span class="number">4&#x27;b0000</span> ;</span><br><span class="line">        <span class="keyword">endcase</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>不完备 不一致 不可判定</p>
 ]]></content>
       <tags>
-        <tag>IC</tag>
+        <tag>Software</tag>
       </tags>
   </entry>
 </search>
