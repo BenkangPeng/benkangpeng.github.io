@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-10-20T14:24:54.163Z</updated>
+  <updated>2023-10-31T08:14:45.308Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Gdb学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/a06a32e/"/>
+    <id>http://benkangpeng.github.io/posts/a06a32e/</id>
+    <published>2023-10-26T15:26:49.000Z</published>
+    <updated>2023-10-31T08:14:45.308Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以前学过一个C的调试工具&lt;code&gt;gdb&lt;/code&gt;，重新看了一下资料复习。资料是&lt;code&gt;LinuxC&lt;/code&gt;书上的一个章节，当然这本书也是十分推荐。&lt;a href=&quot;https://link.zhihu.com/?target=http://staff.ustc.edu.cn/~guoyan/os12/LinuxC.pdf&quot;&gt;Download Pdf&lt;/a&gt;    &lt;a href=&quot;https://akaedu.github.io/book/&quot;&gt;View Online&lt;/a&gt;  &lt;a href=&quot;https://www.zhihu.com/question/34069391&quot;&gt;相关讨论&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>重学链表</title>
+    <link href="http://benkangpeng.github.io/posts/14fa845f/"/>
+    <id>http://benkangpeng.github.io/posts/14fa845f/</id>
+    <published>2023-10-24T07:45:08.000Z</published>
+    <updated>2023-10-31T08:14:45.309Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近又重学了一遍链表，记得大一学链表时也是很迷，指来指去没指明白哈哈哈。这一次学也是通透多了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DataStructure</title>
+    <link href="http://benkangpeng.github.io/posts/ba907200/"/>
+    <id>http://benkangpeng.github.io/posts/ba907200/</id>
+    <published>2023-10-20T16:09:08.000Z</published>
+    <updated>2023-10-31T08:14:45.306Z</updated>
+    
+    
+    <summary type="html">&lt;p style = &quot;color : #f03752 ; font-size : 24px&quot;&gt;It&#39;s the note I made when learned data structure . &lt;/p&gt;
+
+&lt;p&gt;Ref : &lt;a href=&quot;https://www.bilibili.com/video/BV1nJ411V7bd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git学习笔记</title>
     <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
     <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
     <published>2023-10-09T03:30:57.000Z</published>
-    <updated>2023-10-20T14:24:54.163Z</updated>
+    <updated>2023-10-20T14:39:40.071Z</updated>
     
     
     <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
