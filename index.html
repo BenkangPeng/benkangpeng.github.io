@@ -315,7 +315,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-06 08:59:02 / Modified: 09:07:10" itemprop="dateCreated datePublished" datetime="2024-03-06T08:59:02+08:00">2024-03-06</time>
+      <time title="Created: 2024-03-06 08:59:02 / Modified: 09:13:46" itemprop="dateCreated datePublished" datetime="2024-03-06T08:59:02+08:00">2024-03-06</time>
     </span>
 
   
@@ -410,7 +410,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-06 08:58:17 / Modified: 09:07:10" itemprop="dateCreated datePublished" datetime="2024-03-06T08:58:17+08:00">2024-03-06</time>
+      <time title="Created: 2024-03-06 08:58:17 / Modified: 09:13:22" itemprop="dateCreated datePublished" datetime="2024-03-06T08:58:17+08:00">2024-03-06</time>
     </span>
 
   
@@ -438,60 +438,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<ul>
-<li><h3 id="声明脚本执行器"><a href="#声明脚本执行器" class="headerlink" title="声明脚本执行器"></a>声明脚本执行器</h3></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/bash</span></span><br></pre></td></tr></table></figure>
-
-<p>可以用命令<code>which bash</code>查看<code>bash</code>位置</p>
-<ul>
-<li><h3 id="shell传递参数"><a href="#shell传递参数" class="headerlink" title="shell传递参数"></a>shell传递参数</h3></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh 1 2 3 4</span><br></pre></td></tr></table></figure>
-
-<p><code>$1</code>接受参数<code>1</code> , <code>$2</code>接受参数2……</p>
-<ul>
-<li><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3></li>
-</ul>
-<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，<code>expr</code> 最常用。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">a=$1</span><br><span class="line">b=$2</span><br><span class="line">val=`expr $a + $b`</span><br><span class="line">echo &quot;a + b = $val&quot;</span><br><span class="line">val=`expr $a - $b`</span><br><span class="line">echo &quot;a - b = $val&quot;</span><br><span class="line">val=`expr $a \* $b`</span><br><span class="line">echo &quot;a * b = $val&quot;</span><br><span class="line">val=`expr $a / $b`</span><br><span class="line">echo &quot;a / b = $val&quot;</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;a is equal to b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a != $b ]  #严格遵循空格</span><br><span class="line">then </span><br><span class="line">    echo &quot;a isn&#x27;t equal to b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<p><strong>乘法需用<code>\*</code>转义表示</strong></p>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">if [ $a -eq $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -eq $b : a 等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -eq $b: a 不等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ne $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ne $b: a 不等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ne $b : a 等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -gt $b: a 大于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -gt $b: a 不大于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -lt $b: a 小于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -lt $b: a 不小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ge $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ge $b: a 大于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ge $b: a 小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -le $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -le $b: a 小于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -le $b: a 大于 b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<h3 id="显示命令执行结果"><a href="#显示命令执行结果" class="headerlink" title="显示命令执行结果"></a><strong>显示命令执行结果</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo `date`</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="shell输入"><a href="#shell输入" class="headerlink" title="shell输入"></a><strong>shell输入</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">read name</span><br><span class="line">echo &quot;$name is excellent!&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for loop in 1 2 3 4 5</span><br><span class="line">do </span><br><span class="line">    echo &quot;loop is $loop&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int=5</span><br><span class="line">while [ $int -ge 0 ]</span><br><span class="line">do</span><br><span class="line">    echo &quot;int = $int&quot;</span><br><span class="line">    let &quot;int--&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h3 id="sed-i"><a href="#sed-i" class="headerlink" title="sed -i"></a>sed -i</h3><p><code>sed</code>是一个在Unix和类Unix环境中使用的流编辑器，它可以对输入的文本（文件或管道）进行基本的文本转换。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/old_string/new_string/g&#x27; filename</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-i</code>：表示直接修改文件内容，而不是输出到标准输出。</li>
-<li><code>s</code>：表示替换操作。</li>
-<li><code>old_string</code>：要被替换的字符串。</li>
-<li><code>new_string</code>：用于替换的新字符串。</li>
-<li><code>g</code>：表示全局替换，即一行中的所有匹配都会被替换。</li>
-<li><code>filename</code>：要进行替换的文件名。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;10c apple&#x27; banana.txt</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将<code>banana.txt</code>的第十行修改成<code>apple</code>.</li>
-</ul>
-<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h3><p>正则匹配字符串</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659:~/helloworld$ ls | grep &quot;.v&quot;</span><br><span class="line">count4.v</span><br><span class="line">count4_tb.v</span><br><span class="line">counter.v</span><br><span class="line">shift_register.v</span><br></pre></td></tr></table></figure>
-
-<p>↑匹配显示所有<code>.v</code>后缀的文件</p>
-
+          <p>shell笔记</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c3711ab9/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -547,7 +502,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-06 08:56:02 / Modified: 09:07:10" itemprop="dateCreated datePublished" datetime="2024-03-06T08:56:02+08:00">2024-03-06</time>
+      <time title="Created: 2024-03-06 08:56:02 / Modified: 09:14:03" itemprop="dateCreated datePublished" datetime="2024-03-06T08:56:02+08:00">2024-03-06</time>
     </span>
 
   
@@ -681,7 +636,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-06 08:37:02 / Modified: 09:07:10" itemprop="dateCreated datePublished" datetime="2024-03-06T08:37:02+08:00">2024-03-06</time>
+      <time title="Created: 2024-03-06 08:37:02 / Modified: 09:14:20" itemprop="dateCreated datePublished" datetime="2024-03-06T08:37:02+08:00">2024-03-06</time>
     </span>
 
   
