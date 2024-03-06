@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"benkangpeng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"rgb(240,55,82)","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="一、基础算法快排123456789101112void quick_sort(std::vector&lt;int&gt; &amp;q , int l , int r )&amp;#123;    if(l &gt;&#x3D; r)   return;    int i &#x3D; l - 1 , j &#x3D; r + 1 , x &#x3D; q[(l+r)&gt;&gt;1] ;    while(i &lt; j)&amp;#123">
+    <meta name="description" content="……">
 <meta property="og:type" content="article">
 <meta property="og:title" content="notes_of_acwing">
 <meta property="og:url" content="http://benkangpeng.github.io/posts/830bf4be/index.html">
 <meta property="og:site_name" content="Benkang Peng">
-<meta property="og:description" content="一、基础算法快排123456789101112void quick_sort(std::vector&lt;int&gt; &amp;q , int l , int r )&amp;#123;    if(l &gt;&#x3D; r)   return;    int i &#x3D; l - 1 , j &#x3D; r + 1 , x &#x3D; q[(l+r)&gt;&gt;1] ;    while(i &lt; j)&amp;#123">
+<meta property="og:description" content="……">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-06T00:56:02.000Z">
-<meta property="article:modified_time" content="2024-03-06T01:14:03.229Z">
+<meta property="article:modified_time" content="2024-03-06T01:17:28.361Z">
 <meta property="article:author" content="Benkang Peng">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -228,7 +228,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-06 08:56:02 / Modified: 09:14:03" itemprop="dateCreated datePublished" datetime="2024-03-06T08:56:02+08:00">2024-03-06</time>
+      <time title="Created: 2024-03-06 08:56:02 / Modified: 09:17:28" itemprop="dateCreated datePublished" datetime="2024-03-06T08:56:02+08:00">2024-03-06</time>
     </span>
 
   
@@ -262,7 +262,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><p>……</p>
+<span id="more"></span>
 
 <h1 id="一、基础算法"><a href="#一、基础算法" class="headerlink" title="一、基础算法"></a>一、基础算法</h1><h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(std::vector&lt;<span class="type">int</span>&gt; &amp;q , <span class="type">int</span> l , <span class="type">int</span> r )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r)   <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i = l - <span class="number">1</span> , j = r + <span class="number">1</span> , x = q[(l+r)&gt;&gt;<span class="number">1</span>] ;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++ ; <span class="keyword">while</span>(q[i] &lt; x) ;</span><br><span class="line">        <span class="keyword">do</span> j-- ; <span class="keyword">while</span>(q[j] &gt; x) ;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j)   std::<span class="built_in">swap</span>(q[i] , q[j]) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">quick_sort</span>(q , l , j) ;</span><br><span class="line">    <span class="built_in">quick_sort</span>(q , j+<span class="number">1</span> , r) ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
