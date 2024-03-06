@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"benkangpeng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"rgb(240,55,82)","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="AbstractIn the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plu">
+    <meta name="description" content="声明脚本执行器  1#!&#x2F;usr&#x2F;bin&#x2F;bash  可以用命令which bash查看bash位置  shell传递参数  1.&#x2F;test.sh 1 2 3 4  $1接受参数1 , $2接受参数2……  算数运算符  原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。 12345678910111213141516171819a&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Customized Website Article Link">
-<meta property="og:url" content="http://benkangpeng.github.io/posts/4bc5178d/index.html">
+<meta property="og:title" content="shell笔记">
+<meta property="og:url" content="http://benkangpeng.github.io/posts/c3711ab9/index.html">
 <meta property="og:site_name" content="Benkang Peng">
-<meta property="og:description" content="AbstractIn the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plu">
+<meta property="og:description" content="声明脚本执行器  1#!&#x2F;usr&#x2F;bin&#x2F;bash  可以用命令which bash查看bash位置  shell传递参数  1.&#x2F;test.sh 1 2 3 4  $1接受参数1 , $2接受参数2……  算数运算符  原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。 12345678910111213141516171819a&#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-01T09:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-25T10:16:01.631Z">
+<meta property="article:published_time" content="2024-03-06T00:58:17.000Z">
+<meta property="article:modified_time" content="2024-03-06T01:07:10.218Z">
 <meta property="article:author" content="Benkang Peng">
-<meta property="article:tag" content="Web">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://benkangpeng.github.io/posts/4bc5178d/">
+<link rel="canonical" href="http://benkangpeng.github.io/posts/c3711ab9/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://benkangpeng.github.io/posts/4bc5178d/","path":"posts/4bc5178d/","title":"Customized Website Article Link"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://benkangpeng.github.io/posts/c3711ab9/","path":"posts/c3711ab9/","title":"shell笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Customized Website Article Link | Benkang Peng</title>
+<title>shell笔记 | Benkang Peng</title>
   
 
 
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-and-Configure-it"><span class="nav-number">2.</span> <span class="nav-text">Install and Configure it</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">声明脚本执行器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">shell传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">显示命令执行结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell%E8%BE%93%E5%85%A5"><span class="nav-number">6.</span> <span class="nav-text">shell输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="nav-number">7.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while%E5%BE%AA%E7%8E%AF"><span class="nav-number">8.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed-i"><span class="nav-number">9.</span> <span class="nav-text">sed -i</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep%E5%91%BD%E4%BB%A4"><span class="nav-number">10.</span> <span class="nav-text">grep命令</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,7 +198,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://benkangpeng.github.io/posts/4bc5178d/">
+    <link itemprop="mainEntityOfPage" href="http://benkangpeng.github.io/posts/c3711ab9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/GNU-Linux-Logo-Penguin-SVG.webp">
@@ -211,12 +211,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Customized Website Article Link | Benkang Peng">
+      <meta itemprop="name" content="shell笔记 | Benkang Peng">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Customized Website Article Link
+          shell笔记
         </h1>
 
         <div class="post-meta-container">
@@ -226,15 +226,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2023-10-01 17:00:00" itemprop="dateCreated datePublished" datetime="2023-10-01T17:00:00+08:00">2023-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-09-25 18:16:01" itemprop="dateModified" datetime="2023-09-25T18:16:01+08:00">2023-09-25</time>
+      <time title="Created: 2024-03-06 08:58:17 / Modified: 09:07:10" itemprop="dateCreated datePublished" datetime="2024-03-06T08:58:17+08:00">2024-03-06</time>
     </span>
 
   
@@ -251,14 +245,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>2k</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -268,47 +262,59 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
-<span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><span id="more"></span>
 
-<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ol>
-<li><strong>Add plugin to Hexo :</strong></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>Modify <code>config.yml</code></strong></li>
-</ol>
-<p><strong>Change the origin code</strong> </p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>into</strong>(You can choose one of two ways below :)</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>or</strong></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:addrlink.html</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color = red ">Be careful : </strong> </p>
-<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
-<ol start="3">
-<li><strong>Add the codes below in the end of file <code>config.yml</code></strong></li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span></span><br></pre></td></tr></table></figure>
-
-<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>Final Nagging</strong></li>
-</ol>
 <ul>
-<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
-<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
+<li><h3 id="声明脚本执行器"><a href="#声明脚本执行器" class="headerlink" title="声明脚本执行器"></a>声明脚本执行器</h3></li>
 </ul>
-<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>可以用命令<code>which bash</code>查看<code>bash</code>位置</p>
 <ul>
-<li><strong>That’s all .</strong></li>
+<li><h3 id="shell传递参数"><a href="#shell传递参数" class="headerlink" title="shell传递参数"></a>shell传递参数</h3></li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test.sh 1 2 3 4</span><br></pre></td></tr></table></figure>
+
+<p><code>$1</code>接受参数<code>1</code> , <code>$2</code>接受参数2……</p>
+<ul>
+<li><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3></li>
+</ul>
+<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，<code>expr</code> 最常用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">a=$1</span><br><span class="line">b=$2</span><br><span class="line">val=`expr $a + $b`</span><br><span class="line">echo &quot;a + b = $val&quot;</span><br><span class="line">val=`expr $a - $b`</span><br><span class="line">echo &quot;a - b = $val&quot;</span><br><span class="line">val=`expr $a \* $b`</span><br><span class="line">echo &quot;a * b = $val&quot;</span><br><span class="line">val=`expr $a / $b`</span><br><span class="line">echo &quot;a / b = $val&quot;</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;a is equal to b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a != $b ]  #严格遵循空格</span><br><span class="line">then </span><br><span class="line">    echo &quot;a isn&#x27;t equal to b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p><strong>乘法需用<code>\*</code>转义表示</strong></p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">if [ $a -eq $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -eq $b : a 等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -eq $b: a 不等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ne $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ne $b: a 不等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ne $b : a 等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -gt $b: a 大于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -gt $b: a 不大于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -lt $b: a 小于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -lt $b: a 不小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ge $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ge $b: a 大于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ge $b: a 小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -le $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -le $b: a 小于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -le $b: a 大于 b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示命令执行结果"><a href="#显示命令执行结果" class="headerlink" title="显示命令执行结果"></a><strong>显示命令执行结果</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo `date`</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="shell输入"><a href="#shell输入" class="headerlink" title="shell输入"></a><strong>shell输入</strong></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">read name</span><br><span class="line">echo &quot;$name is excellent!&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for loop in 1 2 3 4 5</span><br><span class="line">do </span><br><span class="line">    echo &quot;loop is $loop&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int=5</span><br><span class="line">while [ $int -ge 0 ]</span><br><span class="line">do</span><br><span class="line">    echo &quot;int = $int&quot;</span><br><span class="line">    let &quot;int--&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-i"><a href="#sed-i" class="headerlink" title="sed -i"></a>sed -i</h3><p><code>sed</code>是一个在Unix和类Unix环境中使用的流编辑器，它可以对输入的文本（文件或管道）进行基本的文本转换。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s/old_string/new_string/g&#x27; filename</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-i</code>：表示直接修改文件内容，而不是输出到标准输出。</li>
+<li><code>s</code>：表示替换操作。</li>
+<li><code>old_string</code>：要被替换的字符串。</li>
+<li><code>new_string</code>：用于替换的新字符串。</li>
+<li><code>g</code>：表示全局替换，即一行中的所有匹配都会被替换。</li>
+<li><code>filename</code>：要进行替换的文件名。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;10c apple&#x27; banana.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<code>banana.txt</code>的第十行修改成<code>apple</code>.</li>
+</ul>
+<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h3><p>正则匹配字符串</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659:~/helloworld$ ls | grep &quot;.v&quot;</span><br><span class="line">count4.v</span><br><span class="line">count4_tb.v</span><br><span class="line">counter.v</span><br><span class="line">shift_register.v</span><br></pre></td></tr></table></figure>
+
+<p>↑匹配显示所有<code>.v</code>后缀的文件</p>
 
     </div>
 
@@ -318,20 +324,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/f1f00c7b/" rel="prev" title="Deploy your website">
-                  <i class="fa fa-angle-left"></i> Deploy your website
+                <a href="/posts/830bf4be/" rel="prev" title="notes_of_acwing">
+                  <i class="fa fa-angle-left"></i> notes_of_acwing
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/6e206cd9/" rel="next" title="解决文章目录点击不跳转的问题">
-                  解决文章目录点击不跳转的问题 <i class="fa fa-angle-right"></i>
+                <a href="/posts/918da884/" rel="next" title="windows相关">
+                  windows相关 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -453,7 +459,7 @@ setInterval("createtime()",250);
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"Me":true,"url":"http://benkangpeng.github.io/posts/4bc5178d/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"Me":true,"url":"http://benkangpeng.github.io/posts/c3711ab9/"}</script>
   <script src="/js/third-party/quicklink.js"></script>
 
 </body>

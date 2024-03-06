@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2023-10-31T08:14:45.308Z</updated>
+  <updated>2024-03-06T01:07:10.223Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,136 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>流畅的Python</title>
+    <link href="http://benkangpeng.github.io/posts/32ffb807/"/>
+    <id>http://benkangpeng.github.io/posts/32ffb807/</id>
+    <published>2024-03-06T01:02:17.000Z</published>
+    <updated>2024-03-06T01:07:10.223Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;《流畅的Python》读书笔记&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="http://benkangpeng.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows相关</title>
+    <link href="http://benkangpeng.github.io/posts/918da884/"/>
+    <id>http://benkangpeng.github.io/posts/918da884/</id>
+    <published>2024-03-06T00:59:02.000Z</published>
+    <updated>2024-03-06T01:07:10.221Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h3 id=&quot;磁盘扩容&quot;&gt;&lt;a href=&quot;#磁盘扩容&quot; class=&quot;headerlink&quot; title=&quot;磁盘扩容&quot;&gt;&lt;/a&gt;磁盘扩容&lt;/h3&gt;&lt;p&gt;参考文献：&lt;a href=&quot;https://www.diskgenius.</summary>
+      
+    
+    
+    
+    
+    <category term="windows" scheme="http://benkangpeng.github.io/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell笔记</title>
+    <link href="http://benkangpeng.github.io/posts/c3711ab9/"/>
+    <id>http://benkangpeng.github.io/posts/c3711ab9/</id>
+    <published>2024-03-06T00:58:17.000Z</published>
+    <updated>2024-03-06T01:07:10.218Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h3 id=&quot;声明脚本执行器&quot;&gt;&lt;a href=&quot;#声明脚本执行器&quot; class=&quot;headerlink&quot; title=&quot;声明脚本执行器&quot;&gt;&lt;/a&gt;声明脚本执行器&lt;/h3&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>notes_of_acwing</title>
+    <link href="http://benkangpeng.github.io/posts/830bf4be/"/>
+    <id>http://benkangpeng.github.io/posts/830bf4be/</id>
+    <published>2024-03-06T00:56:02.000Z</published>
+    <updated>2024-03-06T01:07:10.222Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h1 id=&quot;一、基础算法&quot;&gt;&lt;a href=&quot;#一、基础算法&quot; class=&quot;headerlink&quot; title=&quot;一、基础算法&quot;&gt;&lt;/a&gt;一、基础算法&lt;/h1&gt;&lt;h2 id=&quot;快排&quot;&gt;&lt;a href=&quot;#快排&quot; class=</summary>
+      
+    
+    
+    
+    
+    <category term="Algorithm" scheme="http://benkangpeng.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/d2783502/"/>
+    <id>http://benkangpeng.github.io/posts/d2783502/</id>
+    <published>2024-03-06T00:37:02.000Z</published>
+    <updated>2024-03-06T01:07:10.219Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h3 id=&quot;强制修改密码&quot;&gt;&lt;a href=&quot;#强制修改密码&quot; class=&quot;headerlink&quot; title=&quot;强制修改密码&quot;&gt;&lt;/a&gt;强制修改密码&lt;/h3&gt;&lt;p&gt;如果将密码修改得很简单，&lt;code&gt;centos&lt;/cod</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cpp新知</title>
+    <link href="http://benkangpeng.github.io/posts/3ecf09f5/"/>
+    <id>http://benkangpeng.github.io/posts/3ecf09f5/</id>
+    <published>2024-03-06T00:35:17.000Z</published>
+    <updated>2024-03-06T01:07:10.216Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;span id=&quot;more&quot;&gt;&lt;/span&gt;
+
+&lt;h3 id=&quot;C-矩阵运算-运算符重载&quot;&gt;&lt;a href=&quot;#C-矩阵运算-运算符重载&quot; class=&quot;headerlink&quot; title=&quot;C++矩阵运算(运算符重载)&quot;&gt;&lt;/a&gt;C++矩阵运算(运算符重载)&lt;/h3&gt;&lt;p&gt;&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="C++" scheme="http://benkangpeng.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Gdb学习笔记</title>
@@ -36,7 +166,7 @@
     <link href="http://benkangpeng.github.io/posts/14fa845f/"/>
     <id>http://benkangpeng.github.io/posts/14fa845f/</id>
     <published>2023-10-24T07:45:08.000Z</published>
-    <updated>2023-10-31T08:14:45.309Z</updated>
+    <updated>2023-11-02T08:44:37.116Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近又重学了一遍链表，记得大一学链表时也是很迷，指来指去没指明白哈哈哈。这一次学也是通透多了。&lt;/p&gt;</summary>
@@ -68,7 +198,7 @@
     <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
     <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
     <published>2023-10-09T03:30:57.000Z</published>
-    <updated>2023-10-20T14:39:40.071Z</updated>
+    <updated>2024-02-06T07:43:01.057Z</updated>
     
     
     <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
@@ -102,7 +232,7 @@
     <link href="http://benkangpeng.github.io/posts/4ff0bc03/"/>
     <id>http://benkangpeng.github.io/posts/4ff0bc03/</id>
     <published>2023-10-01T12:00:00.000Z</published>
-    <updated>2023-09-25T10:16:42.746Z</updated>
+    <updated>2023-12-04T12:59:01.843Z</updated>
     
     
     <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
