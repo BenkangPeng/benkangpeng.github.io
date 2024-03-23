@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2024-03-06T01:07:10.223Z</updated>
+  <updated>2024-03-15T09:09:58.953Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python调试工具pdb</title>
+    <link href="http://benkangpeng.github.io/posts/9e73dd3c/"/>
+    <id>http://benkangpeng.github.io/posts/9e73dd3c/</id>
+    <published>2024-03-06T01:27:24.000Z</published>
+    <updated>2024-03-15T09:09:58.953Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;code&gt;pdb&lt;/code&gt;是一个内置于&lt;code&gt;Python&lt;/code&gt;的调试工具，使用方法与&lt;code&gt;gdb&lt;/code&gt;类似。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="http://benkangpeng.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>流畅的Python</title>
@@ -51,191 +68,6 @@
   </entry>
   
   <entry>
-    <title>shell笔记</title>
-    <link href="http://benkangpeng.github.io/posts/c3711ab9/"/>
-    <id>http://benkangpeng.github.io/posts/c3711ab9/</id>
-    <published>2024-03-06T00:58:17.000Z</published>
-    <updated>2024-03-06T01:13:22.304Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;shell笔记&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>notes_of_acwing</title>
-    <link href="http://benkangpeng.github.io/posts/830bf4be/"/>
-    <id>http://benkangpeng.github.io/posts/830bf4be/</id>
-    <published>2024-03-06T00:56:02.000Z</published>
-    <updated>2024-03-06T01:17:28.361Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Algorithm" scheme="http://benkangpeng.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos学习笔记</title>
-    <link href="http://benkangpeng.github.io/posts/d2783502/"/>
-    <id>http://benkangpeng.github.io/posts/d2783502/</id>
-    <published>2024-03-06T00:37:02.000Z</published>
-    <updated>2024-03-06T01:16:59.352Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cpp新知</title>
-    <link href="http://benkangpeng.github.io/posts/3ecf09f5/"/>
-    <id>http://benkangpeng.github.io/posts/3ecf09f5/</id>
-    <published>2024-03-06T00:35:17.000Z</published>
-    <updated>2024-03-06T01:17:13.599Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="C++" scheme="http://benkangpeng.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gdb学习笔记</title>
-    <link href="http://benkangpeng.github.io/posts/a06a32e/"/>
-    <id>http://benkangpeng.github.io/posts/a06a32e/</id>
-    <published>2023-10-26T15:26:49.000Z</published>
-    <updated>2023-10-31T08:14:45.308Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;以前学过一个C的调试工具&lt;code&gt;gdb&lt;/code&gt;，重新看了一下资料复习。资料是&lt;code&gt;LinuxC&lt;/code&gt;书上的一个章节，当然这本书也是十分推荐。&lt;a href=&quot;https://link.zhihu.com/?target=http://staff.ustc.edu.cn/~guoyan/os12/LinuxC.pdf&quot;&gt;Download Pdf&lt;/a&gt;    &lt;a href=&quot;https://akaedu.github.io/book/&quot;&gt;View Online&lt;/a&gt;  &lt;a href=&quot;https://www.zhihu.com/question/34069391&quot;&gt;相关讨论&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>重学链表</title>
-    <link href="http://benkangpeng.github.io/posts/14fa845f/"/>
-    <id>http://benkangpeng.github.io/posts/14fa845f/</id>
-    <published>2023-10-24T07:45:08.000Z</published>
-    <updated>2023-11-02T08:44:37.116Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近又重学了一遍链表，记得大一学链表时也是很迷，指来指去没指明白哈哈哈。这一次学也是通透多了。&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>DataStructure</title>
-    <link href="http://benkangpeng.github.io/posts/ba907200/"/>
-    <id>http://benkangpeng.github.io/posts/ba907200/</id>
-    <published>2023-10-20T16:09:08.000Z</published>
-    <updated>2023-10-31T08:14:45.306Z</updated>
-    
-    
-    <summary type="html">&lt;p style = &quot;color : #f03752 ; font-size : 24px&quot;&gt;It&#39;s the note I made when learned data structure . &lt;/p&gt;
-
-&lt;p&gt;Ref : &lt;a href=&quot;https://www.bilibili.com/video/BV1nJ411V7bd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git学习笔记</title>
-    <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
-    <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
-    <published>2023-10-09T03:30:57.000Z</published>
-    <updated>2024-02-06T07:43:01.057Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Collecting commonly used websites</title>
-    <link href="http://benkangpeng.github.io/posts/7c22bd6a/"/>
-    <id>http://benkangpeng.github.io/posts/7c22bd6a/</id>
-    <published>2023-10-01T13:00:00.000Z</published>
-    <updated>2023-10-14T10:25:37.575Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong style=&quot;color : orange&quot;&gt;Some commonly used or valuable websites .&lt;/strong&gt; &lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HDLBits Solutions</title>
-    <link href="http://benkangpeng.github.io/posts/4ff0bc03/"/>
-    <id>http://benkangpeng.github.io/posts/4ff0bc03/</id>
-    <published>2023-10-01T12:00:00.000Z</published>
-    <updated>2023-12-04T12:59:01.843Z</updated>
-    
-    
-    <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
-
-&lt;p&gt;The solutions and my notes of &lt;a href=&quot;[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)&quot;&gt;HDLBits&lt;/a&gt; are written in this document .&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="IC" scheme="http://benkangpeng.github.io/tags/IC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Instruction Of Typora</title>
-    <link href="http://benkangpeng.github.io/posts/bfc69175/"/>
-    <id>http://benkangpeng.github.io/posts/bfc69175/</id>
-    <published>2023-10-01T11:00:00.000Z</published>
-    <updated>2023-09-25T10:16:31.761Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Software" scheme="http://benkangpeng.github.io/tags/Software/"/>
-    
-  </entry>
-  
-  <entry>
     <title>解决文章目录点击不跳转的问题</title>
     <link href="http://benkangpeng.github.io/posts/6e206cd9/"/>
     <id>http://benkangpeng.github.io/posts/6e206cd9/</id>
@@ -255,11 +87,179 @@
   </entry>
   
   <entry>
+    <title>Gdb学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/a06a32e/"/>
+    <id>http://benkangpeng.github.io/posts/a06a32e/</id>
+    <published>2022-10-26T15:26:49.000Z</published>
+    <updated>2024-03-15T12:39:02.249Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;以前学过一个C的调试工具&lt;code&gt;gdb&lt;/code&gt;，重新看了一下资料复习。资料是&lt;code&gt;LinuxC&lt;/code&gt;书上的一个章节，当然这本书也是十分推荐。&lt;a href=&quot;https://link.zhihu.com/?target=http://staff.ustc.edu.cn/~guoyan/os12/LinuxC.pdf&quot;&gt;Download Pdf&lt;/a&gt;    &lt;a href=&quot;https://akaedu.github.io/book/&quot;&gt;View Online&lt;/a&gt;  &lt;a href=&quot;https://www.zhihu.com/question/34069391&quot;&gt;相关讨论&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
+    <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
+    <published>2022-10-09T03:30:57.000Z</published>
+    <updated>2024-03-15T12:39:10.622Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell笔记</title>
+    <link href="http://benkangpeng.github.io/posts/c3711ab9/"/>
+    <id>http://benkangpeng.github.io/posts/c3711ab9/</id>
+    <published>2022-03-06T00:58:17.000Z</published>
+    <updated>2024-03-15T12:40:02.862Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;shell笔记&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>notes_of_acwing</title>
+    <link href="http://benkangpeng.github.io/posts/830bf4be/"/>
+    <id>http://benkangpeng.github.io/posts/830bf4be/</id>
+    <published>2022-03-06T00:56:02.000Z</published>
+    <updated>2024-03-15T12:39:36.250Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Algorithm" scheme="http://benkangpeng.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cpp新知</title>
+    <link href="http://benkangpeng.github.io/posts/3ecf09f5/"/>
+    <id>http://benkangpeng.github.io/posts/3ecf09f5/</id>
+    <published>2022-03-06T00:35:17.000Z</published>
+    <updated>2024-03-15T12:38:27.103Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C++" scheme="http://benkangpeng.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重学链表</title>
+    <link href="http://benkangpeng.github.io/posts/14fa845f/"/>
+    <id>http://benkangpeng.github.io/posts/14fa845f/</id>
+    <published>2021-10-24T07:45:08.000Z</published>
+    <updated>2024-03-15T12:40:22.424Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近又重学了一遍链表，记得大一学链表时也是很迷，指来指去没指明白哈哈哈。这一次学也是通透多了。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DataStructure</title>
+    <link href="http://benkangpeng.github.io/posts/ba907200/"/>
+    <id>http://benkangpeng.github.io/posts/ba907200/</id>
+    <published>2021-10-20T16:09:08.000Z</published>
+    <updated>2024-03-15T12:38:43.622Z</updated>
+    
+    
+    <summary type="html">&lt;p style = &quot;color : #f03752 ; font-size : 24px&quot;&gt;It&#39;s the note I made when learned data structure . &lt;/p&gt;
+
+&lt;p&gt;Ref : &lt;a href=&quot;https://www.bilibili.com/video/BV1nJ411V7bd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Collecting commonly used websites</title>
+    <link href="http://benkangpeng.github.io/posts/7c22bd6a/"/>
+    <id>http://benkangpeng.github.io/posts/7c22bd6a/</id>
+    <published>2021-10-01T13:00:00.000Z</published>
+    <updated>2024-03-15T12:38:03.917Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong style=&quot;color : orange&quot;&gt;Some commonly used or valuable websites .&lt;/strong&gt; &lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Tools" scheme="http://benkangpeng.github.io/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDLBits Solutions</title>
+    <link href="http://benkangpeng.github.io/posts/4ff0bc03/"/>
+    <id>http://benkangpeng.github.io/posts/4ff0bc03/</id>
+    <published>2021-10-01T12:00:00.000Z</published>
+    <updated>2024-03-15T12:39:51.479Z</updated>
+    
+    
+    <summary type="html">&lt;h3&gt;Abstract&lt;/h3&gt;
+
+&lt;p&gt;The solutions and my notes of &lt;a href=&quot;[Problem sets - HDLBits (01xz.net)](https://hdlbits.01xz.net/wiki/Problem_sets)&quot;&gt;HDLBits&lt;/a&gt; are written in this document .&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="IC" scheme="http://benkangpeng.github.io/tags/IC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Instruction Of Typora</title>
+    <link href="http://benkangpeng.github.io/posts/bfc69175/"/>
+    <id>http://benkangpeng.github.io/posts/bfc69175/</id>
+    <published>2021-10-01T11:00:00.000Z</published>
+    <updated>2024-03-15T12:39:23.594Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Software" scheme="http://benkangpeng.github.io/tags/Software/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Customized Website Article Link</title>
     <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
     <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
-    <published>2023-10-01T09:00:00.000Z</published>
-    <updated>2023-09-25T10:16:01.631Z</updated>
+    <published>2021-10-01T09:00:00.000Z</published>
+    <updated>2024-03-15T12:38:34.756Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
@@ -275,8 +275,8 @@
     <title>Deploy your website</title>
     <link href="http://benkangpeng.github.io/posts/f1f00c7b/"/>
     <id>http://benkangpeng.github.io/posts/f1f00c7b/</id>
-    <published>2023-10-01T08:00:00.000Z</published>
-    <updated>2023-09-25T10:34:24.566Z</updated>
+    <published>2021-10-01T08:00:00.000Z</published>
+    <updated>2024-03-15T12:38:50.526Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:&lt;a href=&quot;https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;Here&lt;/a&gt;)。&lt;/p&gt;
@@ -293,8 +293,8 @@
     <title>Hello Hexo-NexT</title>
     <link href="http://benkangpeng.github.io/posts/b3bdf13b/"/>
     <id>http://benkangpeng.github.io/posts/b3bdf13b/</id>
-    <published>2023-10-01T07:00:00.000Z</published>
-    <updated>2023-09-26T16:56:57.256Z</updated>
+    <published>2021-10-01T07:00:00.000Z</published>
+    <updated>2024-03-15T12:39:17.399Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;&lt;strong style=&quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt;Hello Hexo and NexT !&lt;/strong&gt;&lt;/p&gt;
@@ -306,6 +306,23 @@
     
     
     <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos学习笔记</title>
+    <link href="http://benkangpeng.github.io/posts/d2783502/"/>
+    <id>http://benkangpeng.github.io/posts/d2783502/</id>
+    <published>2021-03-06T00:37:02.000Z</published>
+    <updated>2024-03-15T12:37:55.696Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="linux" scheme="http://benkangpeng.github.io/tags/linux/"/>
     
   </entry>
   
