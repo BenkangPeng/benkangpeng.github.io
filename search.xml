@@ -44,38 +44,101 @@
       </tags>
   </entry>
   <entry>
-    <title>DataStructure</title>
-    <url>/posts/ba907200/</url>
-    <content><![CDATA[<p style = "color : #f03752 ; font-size : 24px">It's the note I made when learned data structure . </p>
-
-<p>Ref : <a href="https://www.bilibili.com/video/BV1nJ411V7bd/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili</a></p>
+    <title>Gdb学习笔记</title>
+    <url>/posts/a06a32e/</url>
+    <content><![CDATA[<p>以前学过一个C的调试工具<code>gdb</code>，重新看了一下资料复习。资料是<code>LinuxC</code>书上的一个章节，当然这本书也是十分推荐。<a href="https://link.zhihu.com/?target=http://staff.ustc.edu.cn/~guoyan/os12/LinuxC.pdf">Download Pdf</a>    <a href="https://akaedu.github.io/book/">View Online</a>  <a href="https://www.zhihu.com/question/34069391">相关讨论</a></p>
 <span id="more"></span>
 
-<h1 id="Representation-and-Implementation-of-ADT"><a href="#Representation-and-Implementation-of-ADT" class="headerlink" title="Representation and Implementation of ADT"></a>Representation and Implementation of ADT</h1><p><strong>EX :  Arithmetic Operations on Complex Numbers</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> real;</span><br><span class="line">    <span class="type">float</span> imag;</span><br><span class="line">&#125; Complex;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">assign</span><span class="params">(Complex &amp;A, <span class="type">float</span> real, <span class="type">float</span> imag)</span> </span>&#123;</span><br><span class="line">    A.real = real;</span><br><span class="line">    A.imag = imag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(Complex A)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; A.real &lt;&lt; <span class="string">&#x27;+&#x27;</span> &lt;&lt; A.imag &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real + C.real ;</span><br><span class="line">    A.imag = B.imag + C.imag ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">minus</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real - C.real ;</span><br><span class="line">    A.imag = B.imag - C.imag ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">multiply</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real * C.real - B.imag * C.imag ;</span><br><span class="line">    A.imag = B.real * C.imag + B.imag * C.real ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">divide</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = (B.real * C.real + B.imag * C.imag) / (C.real * C.real + C.imag * C.imag) ;</span><br><span class="line">    A.imag = ( - B.real * C.imag + B.imag * C.real ) / (C.real * C.real + C.imag * C.imag) ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Complex A , B , C ;</span><br><span class="line">    <span class="built_in">assign</span>(A , <span class="number">1</span> , <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">assign</span>(B , <span class="number">3</span> , <span class="number">4</span>) ;</span><br><span class="line">    <span class="built_in">assign</span>(C , <span class="number">5</span> , <span class="number">6</span>) ;</span><br><span class="line">    <span class="built_in">divide</span>(A , B , C) ;</span><br><span class="line">    <span class="built_in">print</span>(A) ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="单步执行"><a href="#单步执行" class="headerlink" title="单步执行"></a>单步执行</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例程序</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add_range</span><span class="params">(<span class="type">int</span> low, <span class="type">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i, sum;</span><br><span class="line">    <span class="keyword">for</span> (i = low; i &lt;= high; i++)</span><br><span class="line">        sum = sum + i;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> result[<span class="number">100</span>];</span><br><span class="line">    result[<span class="number">0</span>] = <span class="built_in">add_range</span>(<span class="number">1</span>, <span class="number">10</span>);</span><br><span class="line">    result[<span class="number">1</span>] = <span class="built_in">add_range</span>(<span class="number">1</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;result[0]=%d\nresult[1]=%d\n&quot;</span>, result[<span class="number">0</span>], result[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="Linear-List"><a href="#Linear-List" class="headerlink" title="Linear List"></a>Linear List</h1><h2 id="Squence-Linear-List"><a href="#Squence-Linear-List" class="headerlink" title="Squence Linear List"></a>Squence Linear List</h2><h3 id="EX1-Horner’s-rules-or-Qin-Jiushao-秦九韶-’s-algorithm"><a href="#EX1-Horner’s-rules-or-Qin-Jiushao-秦九韶-’s-algorithm" class="headerlink" title="EX1. Horner’s rules or Qin Jiushao(秦九韶)’s algorithm"></a><strong>EX1. Horner’s rules or Qin Jiushao(秦九韶)’s algorithm</strong></h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 9 </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> K 1e7 <span class="comment">// numbers of loop</span></span></span><br><span class="line"><span class="type">double</span> a[<span class="number">10</span>] = &#123; <span class="number">2.1</span> , <span class="number">3.4</span> , <span class="number">2</span> , <span class="number">1.3</span> , <span class="number">3</span> , <span class="number">8.8</span> , <span class="number">4.3</span> , <span class="number">5.3</span> , <span class="number">5.3</span> , <span class="number">4.3</span>&#125; ;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">func1</span><span class="params">(<span class="type">double</span> x , <span class="type">double</span> *a )</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> res = a[<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= N ; i++)&#123;</span><br><span class="line">        res += a[i] * <span class="built_in">pow</span>(x , i) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res ;</span><br><span class="line">    <span class="comment">//std:: cout &lt;&lt; &quot;the result of polynominal by func1 is &quot; &lt;&lt; res &lt;&lt; std::endl ; </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">func2</span><span class="params">(<span class="type">double</span> x , <span class="type">double</span> *a)</span></span>&#123;</span><br><span class="line">    <span class="comment">// Qin Jiushao&#x27;s algorithm</span></span><br><span class="line">    <span class="type">double</span> res = a[<span class="number">9</span>] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = N ; i &gt; <span class="number">0</span> ; i--)&#123;</span><br><span class="line">        res = a[i - <span class="number">1</span>] + res * x ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res ;</span><br><span class="line">    <span class="comment">//std::cout &lt;&lt; &quot;the resulr of polynominal by func2 is &quot; &lt;&lt; res &lt;&lt; std::endl ;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">time_func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">clock_t</span> start , stop ;</span><br><span class="line">    start = <span class="built_in">clock</span>() ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; K ; i++)&#123;</span><br><span class="line">        <span class="built_in">func1</span>( <span class="number">2.4</span> , a ) ;   </span><br><span class="line">    &#125;</span><br><span class="line">    stop = <span class="built_in">clock</span>() ;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func1 cost &quot;</span> &lt;&lt; (<span class="built_in">double</span>(stop - start)) / CLK_TCK / K &lt;&lt; <span class="string">&quot; s per time&quot;</span> &lt;&lt; std::endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">time_func2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">clock_t</span> start , stop ;</span><br><span class="line">    start = <span class="built_in">clock</span>() ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; K ; i++)&#123;</span><br><span class="line">        <span class="built_in">func2</span>( <span class="number">2.4</span> , a ) ;   </span><br><span class="line">    &#125;</span><br><span class="line">    stop = <span class="built_in">clock</span>() ;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func2 cost &quot;</span> &lt;&lt; (<span class="built_in">double</span>(stop - start)) / CLK_TCK / K  &lt;&lt; <span class="string">&quot; s per time&quot;</span> &lt;&lt; std::endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> x ; </span><br><span class="line">    std::cin &gt;&gt; x ; </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;the result of func1 is &quot;</span> &lt;&lt; <span class="built_in">func1</span>(x , a) &lt;&lt; std::endl ;    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;the result of func2 is &quot;</span> &lt;&lt; <span class="built_in">func2</span>(x , a) &lt;&lt; std::endl ;    </span><br><span class="line">    <span class="built_in">func2</span>(x , a) ;</span><br><span class="line">    <span class="built_in">time_func1</span>() ;</span><br><span class="line">    <span class="built_in">time_func2</span>() ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="C-dynamic-memory-allocation"><a href="#C-dynamic-memory-allocation" class="headerlink" title="C++ dynamic memory allocation"></a>C++ dynamic memory allocation</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* p = <span class="keyword">new</span> <span class="type">int</span> ;</span><br><span class="line"><span class="type">int</span>* p2 = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">10</span>] ; <span class="comment">//allocate 10 int memory to p2</span></span><br><span class="line"><span class="keyword">delete</span> p , p2;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Convenient-way-of-passing-values-in-C"><a href="#Convenient-way-of-passing-values-in-C" class="headerlink" title="Convenient way of passing values in C++"></a>Convenient way of passing values in C++</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap_1</span><span class="params">(<span class="type">int</span>&amp; a , <span class="type">int</span>&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = a ;</span><br><span class="line">    a = b ;</span><br><span class="line">    b = temp ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span> , b = <span class="number">9</span> ;</span><br><span class="line">    <span class="built_in">swap_1</span>(a , b) ;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a = &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b = &quot;</span> &lt;&lt; b &lt;&lt; endl ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Representation-of-LinearList"><a href="#Representation-of-LinearList" class="headerlink" title="Representation of LinearList"></a>Representation of LinearList</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ElementType int </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 20 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">SqList</span>&#123;</span><br><span class="line">    ElementType  *element ;</span><br><span class="line">    <span class="type">int</span> length ;</span><br><span class="line">&#125;SqList ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InitList_Sq</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="comment">//Initial the Squence Linear List</span></span><br><span class="line">    L.element = <span class="keyword">new</span> ElementType[MaxSize] ;</span><br><span class="line">    <span class="keyword">if</span>(!L.element)  &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        L.length = <span class="number">0</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DestroyList</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L.element)   <span class="keyword">delete</span> L.element ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ClearList</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    L.length = <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetLength</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  L.length ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">IsEmpty</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L.length)    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">else</span>    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetEle</span><span class="params">(SqList &amp;L , <span class="type">int</span> i , ElementType &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">1</span> || i &gt; L.length)   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">else</span> e = L.element[i] ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LocateEle</span> <span class="params">(SqList &amp;L , ElementType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; L.length ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.element[i] == e)   <span class="keyword">return</span> i ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListInsert_Sq</span><span class="params">(SqList &amp;L , ElementType e , <span class="type">int</span> i )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L.length || (L.length + <span class="number">1</span>) &gt; MaxSize)   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = L.element[L.length - <span class="number">1</span>] ; j &gt;= i ; j--)&#123;</span><br><span class="line">        L.element[j + <span class="number">1</span>] = L.element[j] ;</span><br><span class="line">    &#125;</span><br><span class="line">    L.element[i] = e ;</span><br><span class="line">    L.length++ ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">PrintList_Sq</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; L.length ; i++)&#123;</span><br><span class="line">        cout &lt;&lt; L.element[i] &lt;&lt; <span class="string">&quot; &quot;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListDelete_Sq</span><span class="params">(SqList &amp;L , <span class="type">int</span> i )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L.length - <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span> ; j &lt; L.length ; j++)&#123;</span><br><span class="line">        L.element[j - <span class="number">1</span>] = L.element[j] ; </span><br><span class="line">    &#125;</span><br><span class="line">    L.length-- ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">union_list</span><span class="params">(SqList &amp;La , SqList Lb)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> length = <span class="built_in">GetLength</span>(Lb) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">GetLength</span>(Lb) ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">LocateEle</span>(La , Lb.element[i]) == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">ListInsert_Sq</span>(La , Lb.element[i] , <span class="built_in">GetLength</span>(La)) ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge_list_Sq</span><span class="params">(SqList &amp;Lc , SqList La , SqList Lb )</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> length_a = <span class="built_in">GetLength</span>(La) , length_b = <span class="built_in">GetLength</span>(Lb) ;</span><br><span class="line">    Lc.length = length_a + length_b ;</span><br><span class="line">    Lc.element = <span class="keyword">new</span> ElementType[Lc.length] ;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span> , j = <span class="number">0</span> , k = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; length_a &amp;&amp; j &lt; length_b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(La.element[i] &lt; Lb.element[j])&#123;</span><br><span class="line">            Lc.element[k++] = La.element[i++] ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> Lc.element[k++] = Lb.element[j++] ;</span><br><span class="line">    &#125;</span><br><span class="line">    pc-&gt;next = pa ? pa : pb ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqList L ;</span><br><span class="line">    <span class="built_in">InitList_Sq</span>(L) ; </span><br><span class="line">    <span class="type">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span> , <span class="number">3</span> , <span class="number">5</span> , <span class="number">7</span> , <span class="number">9</span>&#125; ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++)&#123;</span><br><span class="line">        L.element[i] = a[i] ;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = <span class="number">5</span> ;</span><br><span class="line">    <span class="built_in">ListDelete_Sq</span>(L , <span class="number">4</span>) ;</span><br><span class="line">    <span class="built_in">PrintList_Sq</span>(L) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Advantages and Disadvantages of Squence Linear List :</strong></p>
-<p><strong>Advantages :</strong></p>
 <ul>
-<li><strong>Storing physical location relationships represents logical relationships .</strong></li>
-<li><strong>Can get any elements quickly .</strong></li>
+<li><strong>生成并进入<code>gdb</code></strong></li>
 </ul>
-<p><strong>Disadvantage:</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -g test.cpp -o main</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gdb main</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><strong>Too many steps to move elements  in the option of Insert and Delete elements .</strong></li>
+<li><strong>单步执行</strong><ul>
+<li><code>list</code>列出源程序. <code>list 23</code>表示从第23行开始列出源程序。简写为<code>l</code></li>
+<li><code>回车</code>重复执行上一次的指令</li>
+<li><code>n</code> 表示<code>next</code>下一步</li>
+<li><code>s</code> ， <code>step</code>, 进入被调用函数</li>
 </ul>
-<h2 id="Linked-Linear-List"><a href="#Linked-Linear-List" class="headerlink" title="Linked Linear List"></a>Linked Linear List</h2><p>I write a new article about linked linear list <a href="">HERE</a></p>
-]]></content>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">start <span class="comment"># 开始运行程序</span></span></span><br><span class="line">Thread 1 hit Temporary breakpoint 1, main () at test.cpp:12</span><br><span class="line">12          result[0] = add_range(1, 10);</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">n <span class="comment"># next单步运行到下一步</span></span></span><br><span class="line">(gdb) n</span><br><span class="line">13          result[1] = add_range(1, 100);</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如果我们要进入子函数add_range查看运行过程呢  -&gt; `s`表示step</span></span><br><span class="line">(gdb) s</span><br><span class="line">add_range (low=1, high=100) at test.cpp:5</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>打印参数值</strong><ul>
+<li><code>i locals</code>显示当前栈帧变量信息</li>
+<li><code>p &lt;variable&gt;</code> 打印变量</li>
+<li><code>set var &lt;variable&gt; = &lt;data&gt;</code>修改变量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 1, main () at test.cpp:12</span><br><span class="line">12          result[0] = add_range(1, 10);</span><br><span class="line">(gdb) s</span><br><span class="line">add_range (low=1, high=10) at test.cpp:5</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br><span class="line">(gdb) i locals  # info local 显示当前栈帧中的变量</span><br><span class="line">i = 32760</span><br><span class="line">sum = 501247388</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此处就可以发现程序的问题：没有赋初值</span></span><br><span class="line">(gdb) n</span><br><span class="line">6               sum = sum + i;</span><br><span class="line">(gdb) i locals</span><br><span class="line">i = 1</span><br><span class="line">sum = 501247388</span><br><span class="line">(gdb) set var sum = 0 # 修改sum的值</span><br><span class="line">(gdb) n</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br><span class="line">(gdb) p sum # print sum</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">1 = 1 <span class="comment"># $1是临时变量，临时显示</span></span></span><br><span class="line">(gdb)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>栈帧</strong><ul>
+<li><code>bt</code>显示栈帧</li>
+<li><code>f &lt;numble&gt;</code>选中、进入栈帧</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Thread <span class="number">1</span> hit Temporary breakpoint <span class="number">1</span>, <span class="built_in">main</span> () at test.c:<span class="number">10</span></span><br><span class="line"><span class="number">10</span>          <span class="type">int</span> result[<span class="number">5</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">11</span>          result[<span class="number">0</span>] = <span class="built_in">Sum</span>(<span class="number">1</span> , <span class="number">10</span>) ;</span><br><span class="line">(gdb) <span class="function">s</span></span><br><span class="line"><span class="function"><span class="title">Sum</span> <span class="params">(low=<span class="number">1</span>, high=<span class="number">10</span>)</span> at test.c:<span class="number">3</span></span></span><br><span class="line"><span class="function"><span class="number">3</span>           int i =</span> <span class="number">0</span> , sum = <span class="number">0</span> ;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">4</span>           <span class="keyword">for</span>(i = low ; i &lt;= high ; i++)&#123;</span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">5</span>               sum += i ;</span><br><span class="line">(gdb) p result</span><br><span class="line">No symbol <span class="string">&quot;result&quot;</span> in current context.</span><br><span class="line"><span class="comment">// 当前栈帧没有&quot;result&quot;</span></span><br><span class="line">(gdb) bt <span class="comment">// 显示当前栈帧 backtrace</span></span><br><span class="line">#<span class="number">0</span>  <span class="built_in">Sum</span> (low=<span class="number">1</span>, high=<span class="number">10</span>) at test.c:<span class="number">5</span></span><br><span class="line">#<span class="number">1</span>  <span class="number">0x00000000004015c2</span> <span class="function">in <span class="title">main</span> <span class="params">()</span> at test.c:<span class="number">11</span></span></span><br><span class="line"><span class="function">(gdb) f <span class="number">1</span> // frame <span class="number">1</span> , <span class="number">1</span>为bt列出来的栈帧编号</span></span><br><span class="line"><span class="function">#<span class="number">1</span>  <span class="number">0x00000000004015c2</span> in main () at test.c:<span class="number">11</span></span></span><br><span class="line"><span class="function"><span class="number">11</span>          result[<span class="number">0</span>] =</span> <span class="built_in">Sum</span>(<span class="number">1</span> , <span class="number">10</span>) ;</span><br><span class="line">(gdb) p result</span><br><span class="line">$<span class="number">1</span> = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> input[<span class="number">8</span>] ;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input=%d\n&quot;</span>, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上C程序的功能是：输入<code>字符型</code>的数字(<code>最高七位</code>），输出对应的<code>整数</code>，如此循环。</p>
+<p>但又是类似的结果，第一次输出正确，之后的输出错误。(其实一眼能看出sum没有置零)</p>
+<p>接下来进行<code>debug</code>:</p>
+<ul>
+<li><code>display &lt;variable&gt;</code> 设置变量显示 ， <code>undisplay &lt;variable&gt;</code>关闭某个变量显示</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">4</span>           <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">7</span>               <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">1234</span></span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">(gdb) display sum	<span class="comment">//显示变量</span></span><br><span class="line"><span class="number">1</span>: sum = <span class="number">0</span></span><br><span class="line">(gdb) display input[i]</span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">9</span>               sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">0</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">1</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">9</span>               sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">1</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">50</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">12</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">50</span> <span class="string">&#x27;2&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>就这样跟踪了几个循环似乎没有错误。如果我们不像这样重复跟踪，可以设置断点，让程序自然运行到我们想要停止的位置。</strong></p>
+<ul>
+<li><code>b &lt;lineNumber&gt;</code>设置断点 , <code>b</code> :  <code>breakpoint</code> </li>
+<li><code>c</code> 连续执行，直到断点处 <code>continue</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">[New Thread 18408.0x4c14]</span><br><span class="line">input=1234</span><br><span class="line"></span><br><span class="line">Thread 1 hit Breakpoint 2, main () at test.c:7</span><br><span class="line">7               scanf(&quot;%s&quot;, input);</span><br><span class="line">1: sum = 1234</span><br><span class="line">2: input[i] = 0 &#x27;\000&#x27;</span><br><span class="line">(gdb) n</span><br><span class="line">5678</span><br><span class="line">8               for (i = 0; input[i] != &#x27;\0&#x27;; i++)</span><br><span class="line">1: sum = 1234</span><br><span class="line">(gdb) n</span><br><span class="line">9               sum = sum*10 + input[i] - &#x27;0&#x27;;</span><br><span class="line">1: sum = 1234</span><br></pre></td></tr></table></figure>
+
+<p><strong>如此便找到问题所在：下一次循环中，sum会在上一次循环输入的基础上进行累加</strong></p>
+<p>只要在每一次输入输出结束后将sum置零即可，如下：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> input[<span class="number">8</span>] ;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input=%d\n&quot;</span>, sum);</span><br><span class="line">        sum = <span class="number">0</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>i b</code> 查看所有断点信息<code>info breakpoints</code></li>
+<li><code>delete breakpoints &lt;num&gt;</code> 删除所指的编号断点</li>
+<li><code>disable breakpoints &lt;num&gt;</code>禁用所指编号断点</li>
+<li><code>enable breakpoints &lt;num&gt;</code></li>
+<li><code>run</code> 从头开始连续而非单步执行程序</li>
+<li><code> b &lt;num&gt; if &lt;command&gt;</code> 设立触发断点的条件，例如<code>b 7 if sum != 0</code></li>
+</ul>
+<h1 id="观察点"><a href="#观察点" class="headerlink" title="观察点"></a>观察点</h1><p>依然是之前的例子：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="type">char</span> input[<span class="number">5</span>] ;</span><br><span class="line">   <span class="type">int</span> sum ;</span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    sum = <span class="number">0</span> ;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span> , input) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; input[i] != <span class="string">&#x27;\0&#x27;</span> ; i++)&#123;</span><br><span class="line">        sum = sum * <span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;input = &quot;</span> &lt;&lt; sum &lt;&lt; endl ;</span><br><span class="line">   &#125; </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果我们没有注意到数组长度，输入了长度大于4的字符串，<code>input</code>产生了越界会发生什么</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 6, main () at test.cpp:7</span><br><span class="line">7           sum = 0 ;</span><br><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">input = 123407</span><br></pre></td></tr></table></figure>
+
+<p><strong>我们发现输出也是不对的 ， 但 ：</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) p input</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">13 = <span class="string">&quot;12345&quot;</span></span></span><br><span class="line">(gdb) x/8b input # 以byte为单位，打印input后8个byte地址的信息</span><br><span class="line">0x61fe13:       49      50      51      52      53      0       0       0</span><br></pre></td></tr></table></figure>
+
+<p><strong>我们输入<code>12345</code>后，查看input内的值，发现按照程序逻辑，<code>for</code>循环也会在<code>i = 5</code>处结束</strong></p>
+<p><strong>结果应该仍为12345</strong> ,  <strong>莫非<code>input[5]有变化？</code></strong></p>
+<ul>
+<li><code>watch &lt;varible&gt;</code>观察点变量被访问修改时，程序中断</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 11, main () at test.cpp:7</span><br><span class="line">7           sum = 0 ;</span><br><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) i watchpoints</span><br><span class="line">No watchpoints.</span><br><span class="line">(gdb) watch input [5]</span><br><span class="line">Hardware watchpoint 12: input [5]</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 0 &#x27;\000&#x27;</span><br><span class="line">New value = 1 &#x27;\001&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 1 &#x27;\001&#x27;</span><br><span class="line">New value = 2 &#x27;\002&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 2 &#x27;\002&#x27;</span><br><span class="line">New value = 3 &#x27;\003&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br></pre></td></tr></table></figure>
+
+<p><strong>我们发现每一次for循环运行时<code>input[5]</code>会＋1 ， 可知 i &#x3D; 5 时 ， sum &#x3D; 12345 * 10  + 5 - 48  &#x3D; 123407</strong></p>
+<p><strong>也就是说<code>input[5]对应的就是i</code> , 换句话说，i的地址是 &amp;input[5]</strong></p>
+<p><strong>修改</strong>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="type">char</span> input[<span class="number">5</span>] ;</span><br><span class="line">   <span class="type">int</span> sum ;</span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    sum = <span class="number">0</span> ;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span> , input) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; input[i] != <span class="string">&#x27;\0&#x27;</span> ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(input[i] &lt; <span class="string">&#x27;0&#x27;</span> || input[i] &gt; <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;invalid input !&quot;</span> &lt;&lt; endl ;</span><br><span class="line">            sum = <span class="number">-1</span> ;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sum = sum * <span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;input = &quot;</span> &lt;&lt; sum &lt;&lt; endl ;</span><br><span class="line">   &#125; </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>Deploy your website</title>
@@ -532,101 +595,38 @@
       </tags>
   </entry>
   <entry>
-    <title>Gdb学习笔记</title>
-    <url>/posts/a06a32e/</url>
-    <content><![CDATA[<p>以前学过一个C的调试工具<code>gdb</code>，重新看了一下资料复习。资料是<code>LinuxC</code>书上的一个章节，当然这本书也是十分推荐。<a href="https://link.zhihu.com/?target=http://staff.ustc.edu.cn/~guoyan/os12/LinuxC.pdf">Download Pdf</a>    <a href="https://akaedu.github.io/book/">View Online</a>  <a href="https://www.zhihu.com/question/34069391">相关讨论</a></p>
+    <title>DataStructure</title>
+    <url>/posts/ba907200/</url>
+    <content><![CDATA[<p style = "color : #f03752 ; font-size : 24px">It's the note I made when learned data structure . </p>
+
+<p>Ref : <a href="https://www.bilibili.com/video/BV1nJ411V7bd/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili</a></p>
 <span id="more"></span>
 
-<h1 id="单步执行"><a href="#单步执行" class="headerlink" title="单步执行"></a>单步执行</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例程序</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add_range</span><span class="params">(<span class="type">int</span> low, <span class="type">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i, sum;</span><br><span class="line">    <span class="keyword">for</span> (i = low; i &lt;= high; i++)</span><br><span class="line">        sum = sum + i;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> result[<span class="number">100</span>];</span><br><span class="line">    result[<span class="number">0</span>] = <span class="built_in">add_range</span>(<span class="number">1</span>, <span class="number">10</span>);</span><br><span class="line">    result[<span class="number">1</span>] = <span class="built_in">add_range</span>(<span class="number">1</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;result[0]=%d\nresult[1]=%d\n&quot;</span>, result[<span class="number">0</span>], result[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Representation-and-Implementation-of-ADT"><a href="#Representation-and-Implementation-of-ADT" class="headerlink" title="Representation and Implementation of ADT"></a>Representation and Implementation of ADT</h1><p><strong>EX :  Arithmetic Operations on Complex Numbers</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> real;</span><br><span class="line">    <span class="type">float</span> imag;</span><br><span class="line">&#125; Complex;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">assign</span><span class="params">(Complex &amp;A, <span class="type">float</span> real, <span class="type">float</span> imag)</span> </span>&#123;</span><br><span class="line">    A.real = real;</span><br><span class="line">    A.imag = imag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(Complex A)</span></span>&#123;</span><br><span class="line">    cout &lt;&lt; A.real &lt;&lt; <span class="string">&#x27;+&#x27;</span> &lt;&lt; A.imag &lt;&lt; <span class="string">&#x27;i&#x27;</span> &lt;&lt; endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real + C.real ;</span><br><span class="line">    A.imag = B.imag + C.imag ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">minus</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real - C.real ;</span><br><span class="line">    A.imag = B.imag - C.imag ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">multiply</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = B.real * C.real - B.imag * C.imag ;</span><br><span class="line">    A.imag = B.real * C.imag + B.imag * C.real ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">divide</span><span class="params">(Complex &amp;A , Complex B , Complex C)</span></span>&#123;</span><br><span class="line">    A.real = (B.real * C.real + B.imag * C.imag) / (C.real * C.real + C.imag * C.imag) ;</span><br><span class="line">    A.imag = ( - B.real * C.imag + B.imag * C.real ) / (C.real * C.real + C.imag * C.imag) ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Complex A , B , C ;</span><br><span class="line">    <span class="built_in">assign</span>(A , <span class="number">1</span> , <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">assign</span>(B , <span class="number">3</span> , <span class="number">4</span>) ;</span><br><span class="line">    <span class="built_in">assign</span>(C , <span class="number">5</span> , <span class="number">6</span>) ;</span><br><span class="line">    <span class="built_in">divide</span>(A , B , C) ;</span><br><span class="line">    <span class="built_in">print</span>(A) ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h1 id="Linear-List"><a href="#Linear-List" class="headerlink" title="Linear List"></a>Linear List</h1><h2 id="Squence-Linear-List"><a href="#Squence-Linear-List" class="headerlink" title="Squence Linear List"></a>Squence Linear List</h2><h3 id="EX1-Horner’s-rules-or-Qin-Jiushao-秦九韶-’s-algorithm"><a href="#EX1-Horner’s-rules-or-Qin-Jiushao-秦九韶-’s-algorithm" class="headerlink" title="EX1. Horner’s rules or Qin Jiushao(秦九韶)’s algorithm"></a><strong>EX1. Horner’s rules or Qin Jiushao(秦九韶)’s algorithm</strong></h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 9 </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> K 1e7 <span class="comment">// numbers of loop</span></span></span><br><span class="line"><span class="type">double</span> a[<span class="number">10</span>] = &#123; <span class="number">2.1</span> , <span class="number">3.4</span> , <span class="number">2</span> , <span class="number">1.3</span> , <span class="number">3</span> , <span class="number">8.8</span> , <span class="number">4.3</span> , <span class="number">5.3</span> , <span class="number">5.3</span> , <span class="number">4.3</span>&#125; ;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">func1</span><span class="params">(<span class="type">double</span> x , <span class="type">double</span> *a )</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> res = a[<span class="number">0</span>] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= N ; i++)&#123;</span><br><span class="line">        res += a[i] * <span class="built_in">pow</span>(x , i) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res ;</span><br><span class="line">    <span class="comment">//std:: cout &lt;&lt; &quot;the result of polynominal by func1 is &quot; &lt;&lt; res &lt;&lt; std::endl ; </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">func2</span><span class="params">(<span class="type">double</span> x , <span class="type">double</span> *a)</span></span>&#123;</span><br><span class="line">    <span class="comment">// Qin Jiushao&#x27;s algorithm</span></span><br><span class="line">    <span class="type">double</span> res = a[<span class="number">9</span>] ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = N ; i &gt; <span class="number">0</span> ; i--)&#123;</span><br><span class="line">        res = a[i - <span class="number">1</span>] + res * x ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res ;</span><br><span class="line">    <span class="comment">//std::cout &lt;&lt; &quot;the resulr of polynominal by func2 is &quot; &lt;&lt; res &lt;&lt; std::endl ;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">time_func1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">clock_t</span> start , stop ;</span><br><span class="line">    start = <span class="built_in">clock</span>() ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; K ; i++)&#123;</span><br><span class="line">        <span class="built_in">func1</span>( <span class="number">2.4</span> , a ) ;   </span><br><span class="line">    &#125;</span><br><span class="line">    stop = <span class="built_in">clock</span>() ;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func1 cost &quot;</span> &lt;&lt; (<span class="built_in">double</span>(stop - start)) / CLK_TCK / K &lt;&lt; <span class="string">&quot; s per time&quot;</span> &lt;&lt; std::endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">time_func2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">clock_t</span> start , stop ;</span><br><span class="line">    start = <span class="built_in">clock</span>() ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; K ; i++)&#123;</span><br><span class="line">        <span class="built_in">func2</span>( <span class="number">2.4</span> , a ) ;   </span><br><span class="line">    &#125;</span><br><span class="line">    stop = <span class="built_in">clock</span>() ;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;func2 cost &quot;</span> &lt;&lt; (<span class="built_in">double</span>(stop - start)) / CLK_TCK / K  &lt;&lt; <span class="string">&quot; s per time&quot;</span> &lt;&lt; std::endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">double</span> x ; </span><br><span class="line">    std::cin &gt;&gt; x ; </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;the result of func1 is &quot;</span> &lt;&lt; <span class="built_in">func1</span>(x , a) &lt;&lt; std::endl ;    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;the result of func2 is &quot;</span> &lt;&lt; <span class="built_in">func2</span>(x , a) &lt;&lt; std::endl ;    </span><br><span class="line">    <span class="built_in">func2</span>(x , a) ;</span><br><span class="line">    <span class="built_in">time_func1</span>() ;</span><br><span class="line">    <span class="built_in">time_func2</span>() ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="C-dynamic-memory-allocation"><a href="#C-dynamic-memory-allocation" class="headerlink" title="C++ dynamic memory allocation"></a>C++ dynamic memory allocation</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* p = <span class="keyword">new</span> <span class="type">int</span> ;</span><br><span class="line"><span class="type">int</span>* p2 = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">10</span>] ; <span class="comment">//allocate 10 int memory to p2</span></span><br><span class="line"><span class="keyword">delete</span> p , p2;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Convenient-way-of-passing-values-in-C"><a href="#Convenient-way-of-passing-values-in-C" class="headerlink" title="Convenient way of passing values in C++"></a>Convenient way of passing values in C++</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap_1</span><span class="params">(<span class="type">int</span>&amp; a , <span class="type">int</span>&amp; b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp = a ;</span><br><span class="line">    a = b ;</span><br><span class="line">    b = temp ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">2</span> , b = <span class="number">9</span> ;</span><br><span class="line">    <span class="built_in">swap_1</span>(a , b) ;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;a = &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b = &quot;</span> &lt;&lt; b &lt;&lt; endl ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Representation-of-LinearList"><a href="#Representation-of-LinearList" class="headerlink" title="Representation of LinearList"></a>Representation of LinearList</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ElementType int </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 20 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">SqList</span>&#123;</span><br><span class="line">    ElementType  *element ;</span><br><span class="line">    <span class="type">int</span> length ;</span><br><span class="line">&#125;SqList ;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InitList_Sq</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="comment">//Initial the Squence Linear List</span></span><br><span class="line">    L.element = <span class="keyword">new</span> ElementType[MaxSize] ;</span><br><span class="line">    <span class="keyword">if</span>(!L.element)  &#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        L.length = <span class="number">0</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">DestroyList</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L.element)   <span class="keyword">delete</span> L.element ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ClearList</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    L.length = <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetLength</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  L.length ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">IsEmpty</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L.length)    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">else</span>    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetEle</span><span class="params">(SqList &amp;L , <span class="type">int</span> i , ElementType &amp;e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">1</span> || i &gt; L.length)   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">else</span> e = L.element[i] ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LocateEle</span> <span class="params">(SqList &amp;L , ElementType e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; L.length ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.element[i] == e)   <span class="keyword">return</span> i ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListInsert_Sq</span><span class="params">(SqList &amp;L , ElementType e , <span class="type">int</span> i )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L.length || (L.length + <span class="number">1</span>) &gt; MaxSize)   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = L.element[L.length - <span class="number">1</span>] ; j &gt;= i ; j--)&#123;</span><br><span class="line">        L.element[j + <span class="number">1</span>] = L.element[j] ;</span><br><span class="line">    &#125;</span><br><span class="line">    L.element[i] = e ;</span><br><span class="line">    L.length++ ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">PrintList_Sq</span><span class="params">(SqList &amp;L)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; L.length ; i++)&#123;</span><br><span class="line">        cout &lt;&lt; L.element[i] &lt;&lt; <span class="string">&quot; &quot;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ListDelete_Sq</span><span class="params">(SqList &amp;L , <span class="type">int</span> i )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt; L.length - <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = i + <span class="number">1</span> ; j &lt; L.length ; j++)&#123;</span><br><span class="line">        L.element[j - <span class="number">1</span>] = L.element[j] ; </span><br><span class="line">    &#125;</span><br><span class="line">    L.length-- ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">union_list</span><span class="params">(SqList &amp;La , SqList Lb)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> length = <span class="built_in">GetLength</span>(Lb) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">GetLength</span>(Lb) ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">LocateEle</span>(La , Lb.element[i]) == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">ListInsert_Sq</span>(La , Lb.element[i] , <span class="built_in">GetLength</span>(La)) ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge_list_Sq</span><span class="params">(SqList &amp;Lc , SqList La , SqList Lb )</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> length_a = <span class="built_in">GetLength</span>(La) , length_b = <span class="built_in">GetLength</span>(Lb) ;</span><br><span class="line">    Lc.length = length_a + length_b ;</span><br><span class="line">    Lc.element = <span class="keyword">new</span> ElementType[Lc.length] ;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span> , j = <span class="number">0</span> , k = <span class="number">0</span> ;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; length_a &amp;&amp; j &lt; length_b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(La.element[i] &lt; Lb.element[j])&#123;</span><br><span class="line">            Lc.element[k++] = La.element[i++] ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> Lc.element[k++] = Lb.element[j++] ;</span><br><span class="line">    &#125;</span><br><span class="line">    pc-&gt;next = pa ? pa : pb ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    SqList L ;</span><br><span class="line">    <span class="built_in">InitList_Sq</span>(L) ; </span><br><span class="line">    <span class="type">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span> , <span class="number">3</span> , <span class="number">5</span> , <span class="number">7</span> , <span class="number">9</span>&#125; ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++)&#123;</span><br><span class="line">        L.element[i] = a[i] ;</span><br><span class="line">    &#125;</span><br><span class="line">    L.length = <span class="number">5</span> ;</span><br><span class="line">    <span class="built_in">ListDelete_Sq</span>(L , <span class="number">4</span>) ;</span><br><span class="line">    <span class="built_in">PrintList_Sq</span>(L) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Advantages and Disadvantages of Squence Linear List :</strong></p>
+<p><strong>Advantages :</strong></p>
 <ul>
-<li><strong>生成并进入<code>gdb</code></strong></li>
+<li><strong>Storing physical location relationships represents logical relationships .</strong></li>
+<li><strong>Can get any elements quickly .</strong></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">g++ -g test.cpp -o main</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gdb main</span></span><br></pre></td></tr></table></figure>
-
+<p><strong>Disadvantage:</strong></p>
 <ul>
-<li><strong>单步执行</strong><ul>
-<li><code>list</code>列出源程序. <code>list 23</code>表示从第23行开始列出源程序。简写为<code>l</code></li>
-<li><code>回车</code>重复执行上一次的指令</li>
-<li><code>n</code> 表示<code>next</code>下一步</li>
-<li><code>s</code> ， <code>step</code>, 进入被调用函数</li>
+<li><strong>Too many steps to move elements  in the option of Insert and Delete elements .</strong></li>
 </ul>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">start <span class="comment"># 开始运行程序</span></span></span><br><span class="line">Thread 1 hit Temporary breakpoint 1, main () at test.cpp:12</span><br><span class="line">12          result[0] = add_range(1, 10);</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">n <span class="comment"># next单步运行到下一步</span></span></span><br><span class="line">(gdb) n</span><br><span class="line">13          result[1] = add_range(1, 100);</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">如果我们要进入子函数add_range查看运行过程呢  -&gt; `s`表示step</span></span><br><span class="line">(gdb) s</span><br><span class="line">add_range (low=1, high=100) at test.cpp:5</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>打印参数值</strong><ul>
-<li><code>i locals</code>显示当前栈帧变量信息</li>
-<li><code>p &lt;variable&gt;</code> 打印变量</li>
-<li><code>set var &lt;variable&gt; = &lt;data&gt;</code>修改变量</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 1, main () at test.cpp:12</span><br><span class="line">12          result[0] = add_range(1, 10);</span><br><span class="line">(gdb) s</span><br><span class="line">add_range (low=1, high=10) at test.cpp:5</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br><span class="line">(gdb) i locals  # info local 显示当前栈帧中的变量</span><br><span class="line">i = 32760</span><br><span class="line">sum = 501247388</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">此处就可以发现程序的问题：没有赋初值</span></span><br><span class="line">(gdb) n</span><br><span class="line">6               sum = sum + i;</span><br><span class="line">(gdb) i locals</span><br><span class="line">i = 1</span><br><span class="line">sum = 501247388</span><br><span class="line">(gdb) set var sum = 0 # 修改sum的值</span><br><span class="line">(gdb) n</span><br><span class="line">5           for (i = low; i &lt;= high; i++)</span><br><span class="line">(gdb) p sum # print sum</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">1 = 1 <span class="comment"># $1是临时变量，临时显示</span></span></span><br><span class="line">(gdb)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>栈帧</strong><ul>
-<li><code>bt</code>显示栈帧</li>
-<li><code>f &lt;numble&gt;</code>选中、进入栈帧</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Thread <span class="number">1</span> hit Temporary breakpoint <span class="number">1</span>, <span class="built_in">main</span> () at test.c:<span class="number">10</span></span><br><span class="line"><span class="number">10</span>          <span class="type">int</span> result[<span class="number">5</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">11</span>          result[<span class="number">0</span>] = <span class="built_in">Sum</span>(<span class="number">1</span> , <span class="number">10</span>) ;</span><br><span class="line">(gdb) <span class="function">s</span></span><br><span class="line"><span class="function"><span class="title">Sum</span> <span class="params">(low=<span class="number">1</span>, high=<span class="number">10</span>)</span> at test.c:<span class="number">3</span></span></span><br><span class="line"><span class="function"><span class="number">3</span>           int i =</span> <span class="number">0</span> , sum = <span class="number">0</span> ;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">4</span>           <span class="keyword">for</span>(i = low ; i &lt;= high ; i++)&#123;</span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">5</span>               sum += i ;</span><br><span class="line">(gdb) p result</span><br><span class="line">No symbol <span class="string">&quot;result&quot;</span> in current context.</span><br><span class="line"><span class="comment">// 当前栈帧没有&quot;result&quot;</span></span><br><span class="line">(gdb) bt <span class="comment">// 显示当前栈帧 backtrace</span></span><br><span class="line">#<span class="number">0</span>  <span class="built_in">Sum</span> (low=<span class="number">1</span>, high=<span class="number">10</span>) at test.c:<span class="number">5</span></span><br><span class="line">#<span class="number">1</span>  <span class="number">0x00000000004015c2</span> <span class="function">in <span class="title">main</span> <span class="params">()</span> at test.c:<span class="number">11</span></span></span><br><span class="line"><span class="function">(gdb) f <span class="number">1</span> // frame <span class="number">1</span> , <span class="number">1</span>为bt列出来的栈帧编号</span></span><br><span class="line"><span class="function">#<span class="number">1</span>  <span class="number">0x00000000004015c2</span> in main () at test.c:<span class="number">11</span></span></span><br><span class="line"><span class="function"><span class="number">11</span>          result[<span class="number">0</span>] =</span> <span class="built_in">Sum</span>(<span class="number">1</span> , <span class="number">10</span>) ;</span><br><span class="line">(gdb) p result</span><br><span class="line">$<span class="number">1</span> = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> input[<span class="number">8</span>] ;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input=%d\n&quot;</span>, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上C程序的功能是：输入<code>字符型</code>的数字(<code>最高七位</code>），输出对应的<code>整数</code>，如此循环。</p>
-<p>但又是类似的结果，第一次输出正确，之后的输出错误。(其实一眼能看出sum没有置零)</p>
-<p>接下来进行<code>debug</code>:</p>
-<ul>
-<li><code>display &lt;variable&gt;</code> 设置变量显示 ， <code>undisplay &lt;variable&gt;</code>关闭某个变量显示</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="number">4</span>           <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">7</span>               <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">1234</span></span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">(gdb) display sum	<span class="comment">//显示变量</span></span><br><span class="line"><span class="number">1</span>: sum = <span class="number">0</span></span><br><span class="line">(gdb) display input[i]</span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">9</span>               sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">0</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb) n</span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">1</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">49</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">9</span>               sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">1</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">50</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line">(gdb)</span><br><span class="line"><span class="number">8</span>               <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line"><span class="number">1</span>: sum = <span class="number">12</span></span><br><span class="line"><span class="number">2</span>: input[i] = <span class="number">50</span> <span class="string">&#x27;2&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>就这样跟踪了几个循环似乎没有错误。如果我们不像这样重复跟踪，可以设置断点，让程序自然运行到我们想要停止的位置。</strong></p>
-<ul>
-<li><code>b &lt;lineNumber&gt;</code>设置断点 , <code>b</code> :  <code>breakpoint</code> </li>
-<li><code>c</code> 连续执行，直到断点处 <code>continue</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">[New Thread 18408.0x4c14]</span><br><span class="line">input=1234</span><br><span class="line"></span><br><span class="line">Thread 1 hit Breakpoint 2, main () at test.c:7</span><br><span class="line">7               scanf(&quot;%s&quot;, input);</span><br><span class="line">1: sum = 1234</span><br><span class="line">2: input[i] = 0 &#x27;\000&#x27;</span><br><span class="line">(gdb) n</span><br><span class="line">5678</span><br><span class="line">8               for (i = 0; input[i] != &#x27;\0&#x27;; i++)</span><br><span class="line">1: sum = 1234</span><br><span class="line">(gdb) n</span><br><span class="line">9               sum = sum*10 + input[i] - &#x27;0&#x27;;</span><br><span class="line">1: sum = 1234</span><br></pre></td></tr></table></figure>
-
-<p><strong>如此便找到问题所在：下一次循环中，sum会在上一次循环输入的基础上进行累加</strong></p>
-<p>只要在每一次输入输出结束后将sum置零即可，如下：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>, i = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> input[<span class="number">8</span>] ;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, input);</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; input[i] != <span class="string">&#x27;\0&#x27;</span>; i++)</span><br><span class="line">        sum = sum*<span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input=%d\n&quot;</span>, sum);</span><br><span class="line">        sum = <span class="number">0</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>i b</code> 查看所有断点信息<code>info breakpoints</code></li>
-<li><code>delete breakpoints &lt;num&gt;</code> 删除所指的编号断点</li>
-<li><code>disable breakpoints &lt;num&gt;</code>禁用所指编号断点</li>
-<li><code>enable breakpoints &lt;num&gt;</code></li>
-<li><code>run</code> 从头开始连续而非单步执行程序</li>
-<li><code> b &lt;num&gt; if &lt;command&gt;</code> 设立触发断点的条件，例如<code>b 7 if sum != 0</code></li>
-</ul>
-<h1 id="观察点"><a href="#观察点" class="headerlink" title="观察点"></a>观察点</h1><p>依然是之前的例子：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="type">char</span> input[<span class="number">5</span>] ;</span><br><span class="line">   <span class="type">int</span> sum ;</span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    sum = <span class="number">0</span> ;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span> , input) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; input[i] != <span class="string">&#x27;\0&#x27;</span> ; i++)&#123;</span><br><span class="line">        sum = sum * <span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;input = &quot;</span> &lt;&lt; sum &lt;&lt; endl ;</span><br><span class="line">   &#125; </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果我们没有注意到数组长度，输入了长度大于4的字符串，<code>input</code>产生了越界会发生什么</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 6, main () at test.cpp:7</span><br><span class="line">7           sum = 0 ;</span><br><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line">input = 123407</span><br></pre></td></tr></table></figure>
-
-<p><strong>我们发现输出也是不对的 ， 但 ：</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) p input</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">13 = <span class="string">&quot;12345&quot;</span></span></span><br><span class="line">(gdb) x/8b input # 以byte为单位，打印input后8个byte地址的信息</span><br><span class="line">0x61fe13:       49      50      51      52      53      0       0       0</span><br></pre></td></tr></table></figure>
-
-<p><strong>我们输入<code>12345</code>后，查看input内的值，发现按照程序逻辑，<code>for</code>循环也会在<code>i = 5</code>处结束</strong></p>
-<p><strong>结果应该仍为12345</strong> ,  <strong>莫非<code>input[5]有变化？</code></strong></p>
-<ul>
-<li><code>watch &lt;varible&gt;</code>观察点变量被访问修改时，程序中断</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Thread 1 hit Temporary breakpoint 11, main () at test.cpp:7</span><br><span class="line">7           sum = 0 ;</span><br><span class="line">(gdb) n</span><br><span class="line">8           scanf(&quot;%s&quot; , input) ;</span><br><span class="line">(gdb)</span><br><span class="line">12345</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) i watchpoints</span><br><span class="line">No watchpoints.</span><br><span class="line">(gdb) watch input [5]</span><br><span class="line">Hardware watchpoint 12: input [5]</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 0 &#x27;\000&#x27;</span><br><span class="line">New value = 1 &#x27;\001&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 1 &#x27;\001&#x27;</span><br><span class="line">New value = 2 &#x27;\002&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br><span class="line">(gdb) c</span><br><span class="line">Continuing.</span><br><span class="line"></span><br><span class="line">Thread 1 hit Hardware watchpoint 12: input [5]</span><br><span class="line"></span><br><span class="line">Old value = 2 &#x27;\002&#x27;</span><br><span class="line">New value = 3 &#x27;\003&#x27;</span><br><span class="line">0x0000000000401607 in main () at test.cpp:9</span><br><span class="line">9           for(int i = 0 ; input[i] != &#x27;\0&#x27; ; i++)&#123;</span><br></pre></td></tr></table></figure>
-
-<p><strong>我们发现每一次for循环运行时<code>input[5]</code>会＋1 ， 可知 i &#x3D; 5 时 ， sum &#x3D; 12345 * 10  + 5 - 48  &#x3D; 123407</strong></p>
-<p><strong>也就是说<code>input[5]对应的就是i</code> , 换句话说，i的地址是 &amp;input[5]</strong></p>
-<p><strong>修改</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="type">char</span> input[<span class="number">5</span>] ;</span><br><span class="line">   <span class="type">int</span> sum ;</span><br><span class="line">   <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    sum = <span class="number">0</span> ;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span> , input) ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; input[i] != <span class="string">&#x27;\0&#x27;</span> ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(input[i] &lt; <span class="string">&#x27;0&#x27;</span> || input[i] &gt; <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;invalid input !&quot;</span> &lt;&lt; endl ;</span><br><span class="line">            sum = <span class="number">-1</span> ;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sum = sum * <span class="number">10</span> + input[i] - <span class="string">&#x27;0&#x27;</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;input = &quot;</span> &lt;&lt; sum &lt;&lt; endl ;</span><br><span class="line">   &#125; </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="Linked-Linear-List"><a href="#Linked-Linear-List" class="headerlink" title="Linked Linear List"></a>Linked Linear List</h2><p>I write a new article about linked linear list <a href="">HERE</a></p>
+]]></content>
   </entry>
   <entry>
     <title>centos学习笔记</title>
@@ -786,6 +786,121 @@
 ]]></content>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
+
+<span id="more"></span>
+
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Software</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows相关</title>
+    <url>/posts/918da884/</url>
+    <content><![CDATA[<p>……</p>
+<span id="more"></span>
+
+<h3 id="磁盘扩容"><a href="#磁盘扩容" class="headerlink" title="磁盘扩容"></a>磁盘扩容</h3><p>参考文献：<a href="https://www.diskgenius.cn/help/extend-partition.php">无损扩容分区– DiskGenius</a></p>
+<p>使用软件：<a href="https://www.tbtool.cn/">图吧工具箱 - 最纯净的硬件工具箱 (tbtool.cn)</a></p>
+<p>遇到的问题：</p>
+<ul>
+<li>参考文献中的第3步中的“调整后的容量”是指腾出空闲空间的盘，在扩充目的盘后剩余的空间大小。例如，原有C盘50G，D盘100G，想在D盘腾出10G给C盘，那么“调整后的容量”应该是90G</li>
+<li>如果重启时，windows不能自动进入WinPE的话，可以尝试安装一个<a href="https://www.wepe.com.cn/">微PE工具箱</a> ，安装之后电脑开机时，会出现一个进入<code>WinPE</code>的选项。如果要删除<code>WinPE</code>的开机引导的话，参考<a href="https://blog.csdn.net/lezeqe/article/details/105086599">微PE工具箱怎么卸载</a> ，其实就是把开机引导删除即可。</li>
+<li>windows重启进入<code>WinPE</code>后，会自动化操作，不要打断。可能遇到:”检测到下列文件系统错误，分区容量未做调整， 无效的的文件记录”.   可参考<a href="https://blog.csdn.net/QKK612501/article/details/115298382">检测到下列文件系统错误解决方案</a></li>
+</ul>
+<h3 id="使用Clash后，不打开Clash就无法上网"><a href="#使用Clash后，不打开Clash就无法上网" class="headerlink" title="使用Clash后，不打开Clash就无法上网"></a>使用Clash后，不打开Clash就无法上网</h3><p>把Clash的系统代理关了就行</p>
+]]></content>
+      <tags>
+        <tag>windows</tag>
       </tags>
   </entry>
   <entry>
@@ -1006,6 +1121,68 @@
 ]]></content>
       <tags>
         <tag>IC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell笔记</title>
+    <url>/posts/c3711ab9/</url>
+    <content><![CDATA[<p>shell笔记</p>
+<span id="more"></span>
+
+<ul>
+<li><h3 id="声明脚本执行器"><a href="#声明脚本执行器" class="headerlink" title="声明脚本执行器"></a>声明脚本执行器</h3></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>可以用命令<code>which bash</code>查看<code>bash</code>位置</p>
+<ul>
+<li><h3 id="shell传递参数"><a href="#shell传递参数" class="headerlink" title="shell传递参数"></a>shell传递参数</h3></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./test.sh 1 2 3 4</span><br></pre></td></tr></table></figure>
+
+<p><code>$1</code>接受参数<code>1</code> , <code>$2</code>接受参数2……</p>
+<ul>
+<li><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3></li>
+</ul>
+<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，<code>expr</code> 最常用。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">a=$1</span><br><span class="line">b=$2</span><br><span class="line">val=`expr $a + $b`</span><br><span class="line">echo &quot;a + b = $val&quot;</span><br><span class="line">val=`expr $a - $b`</span><br><span class="line">echo &quot;a - b = $val&quot;</span><br><span class="line">val=`expr $a \* $b`</span><br><span class="line">echo &quot;a * b = $val&quot;</span><br><span class="line">val=`expr $a / $b`</span><br><span class="line">echo &quot;a / b = $val&quot;</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;a is equal to b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a != $b ]  #严格遵循空格</span><br><span class="line">then </span><br><span class="line">    echo &quot;a isn&#x27;t equal to b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p><strong>乘法需用<code>\*</code>转义表示</strong></p>
+<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if [ $a -eq $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -eq $b : a 等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -eq $b: a 不等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ne $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ne $b: a 不等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ne $b : a 等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -gt $b: a 大于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -gt $b: a 不大于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -lt $b: a 小于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -lt $b: a 不小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ge $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ge $b: a 大于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ge $b: a 小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -le $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -le $b: a 小于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -le $b: a 大于 b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示命令执行结果"><a href="#显示命令执行结果" class="headerlink" title="显示命令执行结果"></a><strong>显示命令执行结果</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo `date`</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="shell输入"><a href="#shell输入" class="headerlink" title="shell输入"></a><strong>shell输入</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">read name</span><br><span class="line">echo &quot;$name is excellent!&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for loop in 1 2 3 4 5</span><br><span class="line">do </span><br><span class="line">    echo &quot;loop is $loop&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">int=5</span><br><span class="line">while [ $int -ge 0 ]</span><br><span class="line">do</span><br><span class="line">    echo &quot;int = $int&quot;</span><br><span class="line">    let &quot;int--&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h3 id="sed-i"><a href="#sed-i" class="headerlink" title="sed -i"></a>sed -i</h3><p><code>sed</code>是一个在Unix和类Unix环境中使用的流编辑器，它可以对输入的文本（文件或管道）进行基本的文本转换。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;s/old_string/new_string/g&#x27; filename</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-i</code>：表示直接修改文件内容，而不是输出到标准输出。</li>
+<li><code>s</code>：表示替换操作。</li>
+<li><code>old_string</code>：要被替换的字符串。</li>
+<li><code>new_string</code>：用于替换的新字符串。</li>
+<li><code>g</code>：表示全局替换，即一行中的所有匹配都会被替换。</li>
+<li><code>filename</code>：要进行替换的文件名。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;10c apple&#x27; banana.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将<code>banana.txt</code>的第十行修改成<code>apple</code>.</li>
+</ul>
+<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h3><p>正则匹配字符串</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659:~/helloworld$ ls | grep &quot;.v&quot;</span><br><span class="line">count4.v</span><br><span class="line">count4_tb.v</span><br><span class="line">counter.v</span><br><span class="line">shift_register.v</span><br></pre></td></tr></table></figure>
+
+<p>↑匹配显示所有<code>.v</code>后缀的文件</p>
+]]></content>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1388,138 +1565,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Software</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python调试工具pdb</title>
-    <url>/posts/9e73dd3c/</url>
-    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
-<span id="more"></span>
-
-<ul>
-<li>启动</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>步进</li>
-</ul>
-<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
-<p><code>l</code>: list 列出源码</p>
-<p><code>ll</code>: list all</p>
-<p>回车重复上一条命令</p>
-<p><code>n</code>: next下一步</p>
-<p><code>s</code>: step下一步，可进入函数</p>
-<ul>
-<li>断点</li>
-</ul>
-<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
-<p><code>b</code>:输出所有断点信息</p>
-<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
-<p><code>c</code>: continue持续运行程序，直到断点</p>
-<ul>
-<li>打印</li>
-</ul>
-<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
-<p><code>p &lt;variable&gt;</code>打印变量</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>notes_of_acwing</title>
     <url>/posts/830bf4be/</url>
     <content><![CDATA[<p>……</p>
@@ -1584,23 +1629,40 @@
       </tags>
   </entry>
   <entry>
-    <title>windows相关</title>
-    <url>/posts/918da884/</url>
-    <content><![CDATA[<p>……</p>
+    <title>python调试工具pdb</title>
+    <url>/posts/9e73dd3c/</url>
+    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
 <span id="more"></span>
 
-<h3 id="磁盘扩容"><a href="#磁盘扩容" class="headerlink" title="磁盘扩容"></a>磁盘扩容</h3><p>参考文献：<a href="https://www.diskgenius.cn/help/extend-partition.php">无损扩容分区– DiskGenius</a></p>
-<p>使用软件：<a href="https://www.tbtool.cn/">图吧工具箱 - 最纯净的硬件工具箱 (tbtool.cn)</a></p>
-<p>遇到的问题：</p>
 <ul>
-<li>参考文献中的第3步中的“调整后的容量”是指腾出空闲空间的盘，在扩充目的盘后剩余的空间大小。例如，原有C盘50G，D盘100G，想在D盘腾出10G给C盘，那么“调整后的容量”应该是90G</li>
-<li>如果重启时，windows不能自动进入WinPE的话，可以尝试安装一个<a href="https://www.wepe.com.cn/">微PE工具箱</a> ，安装之后电脑开机时，会出现一个进入<code>WinPE</code>的选项。如果要删除<code>WinPE</code>的开机引导的话，参考<a href="https://blog.csdn.net/lezeqe/article/details/105086599">微PE工具箱怎么卸载</a> ，其实就是把开机引导删除即可。</li>
-<li>windows重启进入<code>WinPE</code>后，会自动化操作，不要打断。可能遇到:”检测到下列文件系统错误，分区容量未做调整， 无效的的文件记录”.   可参考<a href="https://blog.csdn.net/QKK612501/article/details/115298382">检测到下列文件系统错误解决方案</a></li>
+<li>启动</li>
 </ul>
-<h3 id="使用Clash后，不打开Clash就无法上网"><a href="#使用Clash后，不打开Clash就无法上网" class="headerlink" title="使用Clash后，不打开Clash就无法上网"></a>使用Clash后，不打开Clash就无法上网</h3><p>把Clash的系统代理关了就行</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>步进</li>
+</ul>
+<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
+<p><code>l</code>: list 列出源码</p>
+<p><code>ll</code>: list all</p>
+<p>回车重复上一条命令</p>
+<p><code>n</code>: next下一步</p>
+<p><code>s</code>: step下一步，可进入函数</p>
+<ul>
+<li>断点</li>
+</ul>
+<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
+<p><code>b</code>:输出所有断点信息</p>
+<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
+<p><code>c</code>: continue持续运行程序，直到断点</p>
+<ul>
+<li>打印</li>
+</ul>
+<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
+<p><code>p &lt;variable&gt;</code>打印变量</p>
 ]]></content>
       <tags>
-        <tag>windows</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1685,117 +1747,6 @@
 ]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><strong>Bug复现</strong></li>
-</ul>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
-
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><strong>开发者模式Debug</strong></li>
-</ul>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-<ul>
-<li><strong>问题分析</strong></li>
-</ul>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-<ul>
-<li><strong>解决方案</strong></li>
-</ul>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>shell笔记</title>
-    <url>/posts/c3711ab9/</url>
-    <content><![CDATA[<p>shell笔记</p>
-<span id="more"></span>
-
-<ul>
-<li><h3 id="声明脚本执行器"><a href="#声明脚本执行器" class="headerlink" title="声明脚本执行器"></a>声明脚本执行器</h3></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/usr/bin/bash</span></span><br></pre></td></tr></table></figure>
-
-<p>可以用命令<code>which bash</code>查看<code>bash</code>位置</p>
-<ul>
-<li><h3 id="shell传递参数"><a href="#shell传递参数" class="headerlink" title="shell传递参数"></a>shell传递参数</h3></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./test.sh 1 2 3 4</span><br></pre></td></tr></table></figure>
-
-<p><code>$1</code>接受参数<code>1</code> , <code>$2</code>接受参数2……</p>
-<ul>
-<li><h3 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h3></li>
-</ul>
-<p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，<code>expr</code> 最常用。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">a=$1</span><br><span class="line">b=$2</span><br><span class="line">val=`expr $a + $b`</span><br><span class="line">echo &quot;a + b = $val&quot;</span><br><span class="line">val=`expr $a - $b`</span><br><span class="line">echo &quot;a - b = $val&quot;</span><br><span class="line">val=`expr $a \* $b`</span><br><span class="line">echo &quot;a * b = $val&quot;</span><br><span class="line">val=`expr $a / $b`</span><br><span class="line">echo &quot;a / b = $val&quot;</span><br><span class="line"></span><br><span class="line">if [ $a == $b ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;a is equal to b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a != $b ]  #严格遵循空格</span><br><span class="line">then </span><br><span class="line">    echo &quot;a isn&#x27;t equal to b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<p><strong>乘法需用<code>\*</code>转义表示</strong></p>
-<h3 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a><strong>关系运算符</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">if [ $a -eq $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -eq $b : a 等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -eq $b: a 不等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ne $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ne $b: a 不等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ne $b : a 等于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -gt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -gt $b: a 大于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -gt $b: a 不大于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -lt $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -lt $b: a 小于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -lt $b: a 不小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -ge $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -ge $b: a 大于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -ge $b: a 小于 b&quot;</span><br><span class="line">fi</span><br><span class="line">if [ $a -le $b ]</span><br><span class="line">then</span><br><span class="line">   echo &quot;$a -le $b: a 小于或等于 b&quot;</span><br><span class="line">else</span><br><span class="line">   echo &quot;$a -le $b: a 大于 b&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<h3 id="显示命令执行结果"><a href="#显示命令执行结果" class="headerlink" title="显示命令执行结果"></a><strong>显示命令执行结果</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo `date`</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="shell输入"><a href="#shell输入" class="headerlink" title="shell输入"></a><strong>shell输入</strong></h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">read name</span><br><span class="line">echo &quot;$name is excellent!&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for loop in 1 2 3 4 5</span><br><span class="line">do </span><br><span class="line">    echo &quot;loop is $loop&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">int=5</span><br><span class="line">while [ $int -ge 0 ]</span><br><span class="line">do</span><br><span class="line">    echo &quot;int = $int&quot;</span><br><span class="line">    let &quot;int--&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h3 id="sed-i"><a href="#sed-i" class="headerlink" title="sed -i"></a>sed -i</h3><p><code>sed</code>是一个在Unix和类Unix环境中使用的流编辑器，它可以对输入的文本（文件或管道）进行基本的文本转换。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;s/old_string/new_string/g&#x27; filename</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-i</code>：表示直接修改文件内容，而不是输出到标准输出。</li>
-<li><code>s</code>：表示替换操作。</li>
-<li><code>old_string</code>：要被替换的字符串。</li>
-<li><code>new_string</code>：用于替换的新字符串。</li>
-<li><code>g</code>：表示全局替换，即一行中的所有匹配都会被替换。</li>
-<li><code>filename</code>：要进行替换的文件名。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;10c apple&#x27; banana.txt</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>将<code>banana.txt</code>的第十行修改成<code>apple</code>.</li>
-</ul>
-<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h3><p>正则匹配字符串</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659:~/helloworld$ ls | grep &quot;.v&quot;</span><br><span class="line">count4.v</span><br><span class="line">count4_tb.v</span><br><span class="line">counter.v</span><br><span class="line">shift_register.v</span><br></pre></td></tr></table></figure>
-
-<p>↑匹配显示所有<code>.v</code>后缀的文件</p>
-]]></content>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -1918,5 +1869,54 @@
 <li><a href="https://www.acwing.com/problem/content/description/829/">827. 双链表 - AcWing题库</a></li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
+<span id="more"></span>
+
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><strong>Bug复现</strong></li>
+</ul>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
+
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><strong>开发者模式Debug</strong></li>
+</ul>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+<ul>
+<li><strong>问题分析</strong></li>
+</ul>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+<ul>
+<li><strong>解决方案</strong></li>
+</ul>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
   </entry>
 </search>
