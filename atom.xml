@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-05-12T07:33:30.574Z</updated>
+  <updated>2025-05-12T08:50:33.324Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ build and debug with g++ in Windows Vscode</title>
+    <link href="http://benkangpeng.github.io/posts/4d82c4d4/"/>
+    <id>http://benkangpeng.github.io/posts/4d82c4d4/</id>
+    <published>2025-05-12T08:47:47.000Z</published>
+    <updated>2025-05-12T08:50:33.324Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在&lt;code&gt;Windows Vscode&lt;/code&gt;上配置&lt;code&gt;C/C++&lt;/code&gt;调试环境。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C++ Windows" scheme="http://benkangpeng.github.io/tags/C-Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>C++ Template</title>
@@ -157,10 +174,10 @@
     <link href="http://benkangpeng.github.io/posts/830bf4be/"/>
     <id>http://benkangpeng.github.io/posts/830bf4be/</id>
     <published>2022-03-06T00:56:02.000Z</published>
-    <updated>2024-03-15T12:39:36.250Z</updated>
+    <updated>2025-05-12T07:38:14.741Z</updated>
     
     
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.acwing.com/&quot;&gt;acwing&lt;/a&gt;算法笔记&lt;/p&gt;</summary>
     
     
     
@@ -174,10 +191,10 @@
     <link href="http://benkangpeng.github.io/posts/3ecf09f5/"/>
     <id>http://benkangpeng.github.io/posts/3ecf09f5/</id>
     <published>2022-03-06T00:35:17.000Z</published>
-    <updated>2024-03-15T12:38:27.103Z</updated>
+    <updated>2025-05-12T07:41:44.373Z</updated>
     
     
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;C++一些新的知识点&lt;/p&gt;</summary>
     
     
     
@@ -331,10 +348,10 @@
     <link href="http://benkangpeng.github.io/posts/d2783502/"/>
     <id>http://benkangpeng.github.io/posts/d2783502/</id>
     <published>2021-03-06T00:37:02.000Z</published>
-    <updated>2024-03-15T12:37:55.696Z</updated>
+    <updated>2025-05-12T07:39:02.725Z</updated>
     
     
-    <summary type="html">&lt;p&gt;……&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;CentOS相关&lt;/p&gt;</summary>
     
     
     
