@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-05-12T09:31:00.434Z</updated>
+  <updated>2025-05-13T14:41:10.207Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>memory alignment</title>
+    <link href="http://benkangpeng.github.io/posts/7729f5c5/"/>
+    <id>http://benkangpeng.github.io/posts/7729f5c5/</id>
+    <published>2025-05-13T08:20:19.000Z</published>
+    <updated>2025-05-13T14:41:10.207Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于内存对齐(&lt;code&gt;memory alignment&lt;/code&gt;)的笔记&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="C++" scheme="http://benkangpeng.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tech debt</title>
+    <link href="http://benkangpeng.github.io/posts/b68e097c/"/>
+    <id>http://benkangpeng.github.io/posts/b68e097c/</id>
+    <published>2025-05-13T01:14:37.000Z</published>
+    <updated>2025-05-13T01:44:18.515Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;a style=&quot;font-size: 24px; color: red;&quot;&gt;将军的恩情还不尽！👋😭👋&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>C++ build and debug with g++ in Windows Vscode</title>
     <link href="http://benkangpeng.github.io/posts/4d82c4d4/"/>
     <id>http://benkangpeng.github.io/posts/4d82c4d4/</id>
     <published>2025-05-12T08:47:47.000Z</published>
-    <updated>2025-05-12T09:31:00.434Z</updated>
+    <updated>2025-05-13T08:30:43.445Z</updated>
     
     
     <summary type="html">&lt;p&gt;在&lt;code&gt;Windows Vscode&lt;/code&gt;上配置&lt;code&gt;C/C++&lt;/code&gt;调试环境。&lt;/p&gt;</summary>
@@ -322,43 +354,6 @@
     
     
     <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello Hexo-NexT</title>
-    <link href="http://benkangpeng.github.io/posts/b3bdf13b/"/>
-    <id>http://benkangpeng.github.io/posts/b3bdf13b/</id>
-    <published>2021-10-01T07:00:00.000Z</published>
-    <updated>2024-03-15T12:39:17.399Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;&lt;strong style=&quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt;Hello Hexo and NexT !&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong style = &quot;color : rgb(128,109,158) ; font-size : 24px&quot;&gt; Hexo and NexT yyds ! &lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;基于Hexo和NexT主题，我的第一个个人网站诞生啦！&lt;/p&gt;
-&lt;p&gt;这篇文章记录了建立网站的点点滴滴，并持续更新我对心肝宝贝&lt;a href=&quot;https://benkangpeng.github.io/&quot;&gt;My Website&lt;/a&gt;的持续美化、修缮。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>centos学习笔记</title>
-    <link href="http://benkangpeng.github.io/posts/d2783502/"/>
-    <id>http://benkangpeng.github.io/posts/d2783502/</id>
-    <published>2021-03-06T00:37:02.000Z</published>
-    <updated>2025-05-12T09:32:21.724Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;CentOS相关&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Linux" scheme="http://benkangpeng.github.io/tags/Linux/"/>
     
   </entry>
   
