@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-05-13T15:09:26.434Z</updated>
+  <updated>2025-05-14T02:12:50.583Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://benkangpeng.github.io/posts/7729f5c5/"/>
     <id>http://benkangpeng.github.io/posts/7729f5c5/</id>
     <published>2025-05-13T08:20:19.000Z</published>
-    <updated>2025-05-13T15:09:26.434Z</updated>
+    <updated>2025-05-14T02:12:50.583Z</updated>
     
     
     <summary type="html">&lt;p&gt;关于内存对齐(&lt;code&gt;memory alignment&lt;/code&gt;)的笔记&lt;/p&gt;</summary>
@@ -38,13 +38,16 @@
     <link href="http://benkangpeng.github.io/posts/b68e097c/"/>
     <id>http://benkangpeng.github.io/posts/b68e097c/</id>
     <published>2025-05-13T01:14:37.000Z</published>
-    <updated>2025-05-13T01:44:18.515Z</updated>
+    <updated>2025-05-14T01:40:58.404Z</updated>
     
     
-    <summary type="html">&lt;p&gt;&lt;a style=&quot;font-size: 24px; color: red;&quot;&gt;将军的恩情还不尽！👋😭👋&lt;/a&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;&lt;a style=&quot;font-size: 24px; color: red;&quot; href=&quot;http://www.naenara.com.kp/images/politics/leader3.jpg&quot;&gt;将军的恩情还不尽！👋😭👋&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a style=&quot;font-size: 24px; color: red;&quot; href=&quot;https://csdiy.wiki/&quot;&gt;灯塔国的技术债也还不尽！👋😭👋&lt;/a&gt;&lt;/p&gt;</summary>
     
     
     
+    
+    <category term="Course" scheme="http://benkangpeng.github.io/tags/Course/"/>
     
   </entry>
   
