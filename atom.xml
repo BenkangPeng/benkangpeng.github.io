@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-05-14T02:25:33.682Z</updated>
+  <updated>2025-05-28T12:21:00.459Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Sub-group Swizzle分块矩阵乘优化原理分析</title>
+    <link href="http://benkangpeng.github.io/posts/2b96453f/"/>
+    <id>http://benkangpeng.github.io/posts/2b96453f/</id>
+    <published>2025-05-28T12:07:02.000Z</published>
+    <updated>2025-05-28T12:21:00.459Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Sub-group-Swizzle分块矩阵乘优化原理分析&quot;&gt;&lt;a href=&quot;#Sub-group-Swizzle分块矩阵乘优化原理分析&quot; class=&quot;headerlink&quot; title=&quot;Sub-group Swizzle分块矩阵乘优化原理分析&quot;&gt;&lt;/a&gt;Sub-group Swizzle分块矩阵乘优化原理分析&lt;/h2&gt;&lt;p&gt;因为要写成实验报告用来应付课程作业，因此写得罗里吧嗦的，见谅 :(&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>memory alignment</title>
     <link href="http://benkangpeng.github.io/posts/7729f5c5/"/>
     <id>http://benkangpeng.github.io/posts/7729f5c5/</id>
     <published>2025-05-13T08:20:19.000Z</published>
-    <updated>2025-05-14T02:25:33.682Z</updated>
+    <updated>2025-05-14T02:33:53.376Z</updated>
     
     
     <summary type="html">&lt;p&gt;关于内存对齐(&lt;code&gt;memory alignment&lt;/code&gt;)的笔记&lt;/p&gt;</summary>
@@ -177,7 +192,7 @@
     <link href="http://benkangpeng.github.io/posts/a91eaa72/"/>
     <id>http://benkangpeng.github.io/posts/a91eaa72/</id>
     <published>2022-10-09T03:30:57.000Z</published>
-    <updated>2024-03-15T12:39:10.622Z</updated>
+    <updated>2025-05-14T07:54:35.114Z</updated>
     
     
     <summary type="html">&lt;p&gt;Git学习笔记 by 《&lt;a href=&quot;https://git-scm.com/book/zh/v2&quot;&gt;ProGit&lt;/a&gt;》&lt;/p&gt;</summary>
@@ -334,24 +349,6 @@
     
     
     <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Deploy your website</title>
-    <link href="http://benkangpeng.github.io/posts/f1f00c7b/"/>
-    <id>http://benkangpeng.github.io/posts/f1f00c7b/</id>
-    <published>2021-10-01T08:00:00.000Z</published>
-    <updated>2024-03-15T12:38:50.526Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;我们在使用&lt;a href=&quot;https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/&quot;&gt;Hexo+NexT搭建&lt;/a&gt;好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:&lt;a href=&quot;https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&amp;vd_source=da5120fea3f8bb8d2fe1984a02a9a745&quot;&gt;Here&lt;/a&gt;)。&lt;/p&gt;
-&lt;p&gt;我们可以使用&lt;code&gt;Github pages&lt;/code&gt; 和&lt;code&gt;Gitee pages&lt;/code&gt; 上线网站从而白嫖一台只能搭载&lt;code&gt;静态网页&lt;/code&gt;的服务器  （&lt;del&gt;是不是有种白嫖的快乐&lt;/del&gt;）以下是上线步骤。&lt;/p&gt;</summary>
     
     
     

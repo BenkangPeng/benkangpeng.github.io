@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png">
 <meta property="article:published_time" content="2025-05-13T08:20:19.000Z">
-<meta property="article:modified_time" content="2025-05-14T02:25:33.682Z">
+<meta property="article:modified_time" content="2025-05-14T02:33:53.376Z">
 <meta property="article:author" content="Benkang Peng">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -261,7 +261,7 @@
 <span id="more"></span>
 
 <h4 id="计算机读取数据的方式"><a href="#计算机读取数据的方式" class="headerlink" title="计算机读取数据的方式"></a>计算机读取数据的方式</h4><p>计算机以<strong>字节块</strong>为粒度进行数据读取。例如，64位的机器中，数据总线宽度为64 bits(8 bytes)，字节块大小为8，它以8 bytes的粒度进行数据读取。若<code>int64_t x;</code>的地址为<code>0x8</code>(能整除8bytes, 称为64位对齐)，那么机器读取<code>x</code>时，会将<code>0x8~0xF</code>这个地址范围内的8 bytes读出，从而得到<code>x</code>。若<code>x</code>的存储地址未对齐(不能整除8, 称为未按8 bytes对齐)，那么机器可能需要进行两次数据读取，才能得到<code>x</code>的值。假设<code>x</code>存储地址为<code>0x6</code>，<code>x</code>数据地址范围则为<code>0x6~0xD</code>，跨越了<code>0x0~0x7</code> <code>0x8~0xF</code>这两个字节块，机器读取<code>x</code>时，<strong>并不能</strong>够直接读出地址<code>0x6~0xD</code>的8 bytes数据。机器需要先读取<code>0x0~0x7</code>中的8 bytes，再读取<code>0x8~0xF</code>中的8 bytes，最后拼接得到<code>x</code>。</p>
-<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" />
+<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" alt = "计算机按字节快读取数据的方式"/>
 
 <p>内存对齐：变量的地址是变量大小的整数倍($addr &#x3D; n * sizeof(varible)$)  例如，<code>double variable</code>的地址保证是8的整数倍，<code>int variable</code>的地址保证是4的整数倍。</p>
 <p>保证每一个变量的内存对齐，能够让机器以尽可能少的次数读取到数据。若变量内存未对齐，跨越了多个字节块，计算机就可能需要读取多个字节块</p>
@@ -274,7 +274,7 @@
 </blockquote>
 <h4 id="struct对齐"><a href="#struct对齐" class="headerlink" title="struct对齐"></a>struct对齐</h4><p>当一个结构体内有不同的数据类型时，如何保证所有的变量内存对齐？</p>
 <p>编译器通过加入<code>pad</code>实现内存对齐：</p>
-<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png">
+<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png" alt="编译器自动padding的方式">
 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// struct aligned Aligned;</span></span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    <span class="type">uintptr_t</span> addr_a = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.a);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_b = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.b);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_c = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.c);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_d = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.d);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.a is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_a &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.b is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_b &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// check whether 2 bytes aligned or not</span></span><br><span class="line">    <span class="built_in">assert</span>((addr_b % <span class="number">2</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.c is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_c &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">assert</span>((addr_c % <span class="number">4</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.d is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_d &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -282,7 +282,7 @@
 <p>Address of F.a is 0x61fdf4<br>Address of F.b is 0x61fdf6<br>Address of F.c is 0x61fdf8<br>Address of F.d is 0x61fdfc</p>
 </blockquote>
 <p>调换<code>struct</code>中变量的声明顺序，会改变<code>padding</code>的方式：</p>
-<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png">
+<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png" alt="调换变量声明顺序后编译器padding方式">
 
 <p>以上这种<code>padding</code>更加节省存储，但是编译器不会主动去调换变量声明顺序去做优化。因此程序员需要手动调整结构体内变量声明顺序以达到最优的<code>padding</code>。<strong>一般来说，按照数据类型大小，从大到小声明变量，能达到最佳的<code>padding</code></strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//change the order of variable declartion</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo2</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    foo2 F2;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo2&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F2) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -318,6 +318,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/2b96453f/" rel="next" title="Sub-group Swizzle分块矩阵乘优化原理分析">
+                  Sub-group Swizzle分块矩阵乘优化原理分析 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -345,13 +348,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">131k</span>
+    <span title="Word count total">137k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:58</span>
+    <span title="Reading time total">4:09</span>
   </span>
 </div>
 <div class="busuanzi-count">

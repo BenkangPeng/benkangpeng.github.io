@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Collecting commonly used websites</title>
+    <url>/posts/7c22bd6a/</url>
+    <content><![CDATA[<p><strong style="color : orange">Some commonly used or valuable websites .</strong> </p>
+<span id="more"></span>
+
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hackway</p><p>计算机专业学习路线</p>
+<a href="https://hackway.org/docs/cs/intro"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>cs-self-learning</p><p>CS自学指南</p>
+<a href="https://csdiy.wiki"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>名校公开课程评价网</p><p>CS Courses</p>
+<a href="https://conanhujinming.github.io/comments-for-awesome-courses/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>CS公开课程学习群</p><p>一个QQ群</p>
+<a href="https://zhuanlan.zhihu.com/p/253232863"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>编程指北</p><p>计算机学习路线</p>
+<a href="https://csguide.cn/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
+<a href="chat.zhille.io"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello 算法</p><p>算法学习入门教程</p>
+<a href="https://www.hello-algo.com/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Brian (Bojie) Li (01.me)</p><p>https://01.me/</p>
+<a href="https://01.me/"></a>
+</div></div>]]></content>
+      <tags>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++ Template</title>
     <url>/posts/a7ed73c4/</url>
     <content><![CDATA[<p>本文是阅读<code>C++ templates: the complete guide 2nd</code>的笔记。</p>
@@ -257,49 +300,6 @@
       <tags>
         <tag>C++</tag>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Collecting commonly used websites</title>
-    <url>/posts/7c22bd6a/</url>
-    <content><![CDATA[<p><strong style="color : orange">Some commonly used or valuable websites .</strong> </p>
-<span id="more"></span>
-
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hackway</p><p>计算机专业学习路线</p>
-<a href="https://hackway.org/docs/cs/intro"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>cs-self-learning</p><p>CS自学指南</p>
-<a href="https://csdiy.wiki"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>名校公开课程评价网</p><p>CS Courses</p>
-<a href="https://conanhujinming.github.io/comments-for-awesome-courses/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>CS公开课程学习群</p><p>一个QQ群</p>
-<a href="https://zhuanlan.zhihu.com/p/253232863"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>编程指北</p><p>计算机学习路线</p>
-<a href="https://csguide.cn/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
-<a href="chat.zhille.io"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello 算法</p><p>算法学习入门教程</p>
-<a href="https://www.hello-algo.com/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Brian (Bojie) Li (01.me)</p><p>https://01.me/</p>
-<a href="https://01.me/"></a>
-</div></div>]]></content>
-      <tags>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -563,6 +563,99 @@
 </ul>
 <h2 id="Linked-Linear-List"><a href="#Linked-Linear-List" class="headerlink" title="Linked Linear List"></a>Linked Linear List</h2><p>I write a new article about linked linear list <a href="">HERE</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Deploy your website</title>
+    <url>/posts/f1f00c7b/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:<a href="https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">Here</a>)。</p>
+<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
+<span id="more"></span>
+
+<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
+<li><p><strong>注册GitHub、新建仓库</strong></p>
+<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
+</li>
+<li><p><strong>生成ssh-key</strong></p>
+<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
+<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
+<p><strong>尝试本机与Github通信</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+</blockquote>
+<p>若显示以上结果，则表明通信成功。</p>
+</li>
+<li><p>修改<code>Hexo</code> 配置文件</p>
+<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
+<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
+</li>
+<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog (master)</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将文件上传到<code>Github</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g  # hexo generate</span><br><span class="line">hexo d  # hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
+<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
+</li>
+<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
+</li>
+</ul>
+<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
+<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
+<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
+</li>
+<li><p><strong>新建仓库</strong></p>
+<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
+</li>
+<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
+<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
+
+<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>SSH-key填入Gitee</strong></p>
+<p>点头像→设置→SSH公钥</p>
+</li>
+<li><p><strong>第一次通信</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
+</blockquote>
+<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
+</li>
+<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://gitee.com/benkangpeng/benkangpeng.git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>部署、上传到Gitee</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
+</li>
+<li><p><strong>将仓库设置为Gitee Pages</strong></p>
+<p>①进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
+<p>②进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
   </entry>
   <entry>
     <title>Customized Website Article Link</title>
@@ -833,6 +926,19 @@
 <li>强制重置(删除)某个commit, 例如<code>git reset --hard HEAD~1</code>删除上一次提交。</li>
 <li>取消暂存的文件，例如将<code>CONTRIBUTING.md</code>文件取出&#96;&#96;stageing area<code>,</code>git reset HEAD CONTRIBUTING.md&#96;</li>
 </ul>
+<h3 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h3><p><a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">🔗官方文档-写得很好</a></p>
+<p><code>git rebase</code>命令是用于解决开发者仓库与上游<code>upstream</code>仓库之间同步问题的命令。</p>
+<img src="https://pic1.imgdb.cn/item/6824495358cb8da5c8f18c52.png" alt="git rebase示意图">
+
+<p>以<code>TVM</code>为例，你<code>fork</code>完tvm后，提交了两个commit，在此期间，tvm upstream又更新了两个commit，这时如何将你的commit贡献给上游呢？</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git fetch upstream #将上游仓库更新到本地，但不合并(与git pull不同)</span><br><span class="line">git switch main</span><br><span class="line">git rebase upstream/main #以upstream为基，将你的commit贴到upstream之后(注意：并不是变更Upstream/main，而是改变了origin/main)</span><br><span class="line">git push origin main #更新origin</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在github上contribute</span></span><br></pre></td></tr></table></figure>
+
+<p><code>git rebase</code>的工作流程：</p>
+<p>如果<code>git rebase</code>发生冲突，则需要手动解决冲突，并:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add &lt;conflicit file&gt;</span><br><span class="line">git rebase upstream --continue</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="文件版本回溯"><a href="#文件版本回溯" class="headerlink" title="*文件版本回溯"></a>*文件版本回溯</h3><p>案例：<code>commit log</code>如下，自从<code>git clone</code>以来，我提交了<code>version 1</code>和<code>version2</code>.整个项目只有两个文件：<code>check.md</code>和<code>README.md</code>. 我现在想将<code>check.md</code>还原到<code>version 1</code>的状态，但<code>README.md</code>不用还原。(可以理解为我后知后觉意识到<code>version2</code>中对<code>check.md</code>的修改是错误的。)</p>
 <blockquote>
 <p>$ git log –pretty&#x3D;oneline<br>bc03ee1185c084b514ff44a9520ab5d29777b600 (HEAD) version2<br>3d44a28a78ffba2eab8d0718e34c3f7463cfa2a1 version 1<br>86d413d821c361c0245859fddd9c6258f698f16f (tag: v1.0, origin&#x2F;main, origin&#x2F;HEAD) colle<br>ct some ways to github<br>1bfa40c95f5b2a5a086421889e60321ef056fbc0 (tag: v0.1) the first commit by git push<br>a41ee579c6756e653d380b2e08426ea74f77841d (tag: v0.0) Create README.md</p>
@@ -919,194 +1025,6 @@
 ]]></content>
       <tags>
         <tag>Tools</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Deploy your website</title>
-    <url>/posts/f1f00c7b/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>我们在使用<a href="https://benkangpeng.gitee.io/2023/09/18/Hello%20Hexo-NEXT/">Hexo+NexT搭建</a>好个人博客后,只能在本地端口访问，其他人无法访问(有一种内网穿透的方法可以将电脑端口暴露，从而达到”上线“的功能。尚未了解    找到了:<a href="https://www.bilibili.com/video/BV1z14y1r7Fc/?spm_id_from=333.999.0.0&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">Here</a>)。</p>
-<p>我们可以使用<code>Github pages</code> 和<code>Gitee pages</code> 上线网站从而白嫖一台只能搭载<code>静态网页</code>的服务器  （<del>是不是有种白嫖的快乐</del>）以下是上线步骤。</p>
-<span id="more"></span>
-
-<h3 id="Github-pages"><a href="#Github-pages" class="headerlink" title="Github pages"></a>Github pages</h3><h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ul>
-<li><p><strong>注册GitHub、新建仓库</strong></p>
-<p>新建一个仓库，注意仓库名一定是用户名与github.io的组合，例如<code>benkangpeng.github.io</code></p>
-</li>
-<li><p><strong>生成ssh-key</strong></p>
-<p>如果未配置过git ，未获得<code>ssh key</code> 的话，需要配置<code>git</code>并获得<code>ssh key</code>(我理解为电脑硬件、邮箱对应的编码。通过该编码可以找到唯一的计算机，<code>GitHub</code>就是通过<code>ssh key</code>与计算机进行加密数据传输的。计算机网络没学 ，一定得补补:cry:)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>Connect computer with GitHub by ssh-key</strong></p>
-<p><strong>将ssh-key加入到github上</strong>：点击<code>个人头像进入个人空间</code> → <code>SSH and GPG keys</code>→ <code>New SSH key </code>,Title随意(最好标明是哪台电脑），<code>Key</code>粘上刚才复制的<code>id_rsa.pub</code> ，添加成功后会收到Github的邮件。</p>
-<p><strong>尝试本机与Github通信</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Hi BenkangPeng! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-</blockquote>
-<p>若显示以上结果，则表明通信成功。</p>
-</li>
-<li><p>修改<code>Hexo</code> 配置文件</p>
-<p><code>_config.yml </code>文件中找到<code>deploy</code>一项，修改为</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br></pre></td></tr></table></figure>
-
-<p>其中，<code>type</code>表示<code>the type of site deploying</code> , 即网站发布的方式，我们通过<code>git</code>发布</p>
-<p><code>repository</code>则填写之前建立的仓库的地址，后加上后缀<code>.git</code></p>
-</li>
-<li><p>安装<code>hexo部署插件</code>(最好在根目录安装插件)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">benkangpeng@DESKTOP-FR84659 MINGW64 /d/Hexo/blog (master)</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将文件上传到<code>Github</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g  # hexo generate</span><br><span class="line">hexo d  # hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>此时相关文件已上传到对应的仓库中，但如果此时你输入<code>https:\\benkangpeng.github.io</code>结果是<code>404</code>，原因是未将该仓库设置为<code>GitHub pages</code> .</p>
-<p>在仓库页面右边的侧边栏中有一个<code>设置</code>的齿轮图标，点击→勾选<code>Use your GitHub Pages website</code>→<code>Save Changes</code></p>
-</li>
-<li><p><strong>大功告成</strong>，输入<code>https:\\benkangpeng.github.io</code>查看网页吧！</p>
-</li>
-</ul>
-<h3 id="Gitee-pages"><a href="#Gitee-pages" class="headerlink" title="Gitee pages"></a>Gitee pages</h3><p>因为Gitee pages的部署与Github类似(<del>毕竟抄来的</del>)，以下步骤较为简略，可参考着Github的配置步骤进行。</p>
-<h4 id="主要步骤-1"><a href="#主要步骤-1" class="headerlink" title="主要步骤:"></a>主要步骤:</h4><ul>
-<li><p><strong>Gitee注册账号</strong>并实名认证(对，就是这么狗:dog:)</p>
-</li>
-<li><p><strong>新建仓库</strong></p>
-<p>此处一定要注意仓库名与用户名一致，例如我的是<code>benkangpeng</code>,与Github不同(GitHub是benkangpeng.github.io)</p>
-</li>
-<li><p><strong>Git全局设置、获取ssh-key</strong>(同上面的Github)</p>
-<p>已经设置过全局设置、获取过ssh-key，则无需进行操作。重复操作会改变计算机的ssh-key，与之前在Github绑定的ssh-key不同了，导致Github与计算机无法通信。最优解：固定计算机的ssh-key不变，Github、Gitee共用一个。此后也不要变更ssh-key.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;benkangpeng&quot;</span><br><span class="line">git config --global user.email &quot;benkangpeng@163.com&quot;</span><br><span class="line">ssh-keygen -t rsa -C &quot;benkangpeng@163.com&quot;  # 之后三次回车</span><br></pre></td></tr></table></figure>
-
-<p>根据终端输出的信息找到<code>id_rsa.pub</code>的位置,或者通过以下命令查看：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>SSH-key填入Gitee</strong></p>
-<p>点头像→设置→SSH公钥</p>
-</li>
-<li><p><strong>第一次通信</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Hi BenkangPeng(@benkangpeng)! You’ve successfully authenticated, but GITEE.COM does not provide shell access.</p>
-</blockquote>
-<p><del>咱也不懂<code>does not provide shell access</code>是啥意思，Gitee垃圾就完事了</del></p>
-</li>
-<li><p><strong>修改<code>hexo</code>  <code>_config.yml</code></strong></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="comment">#repository: https://github.com/benkangpeng/benkangpeng.github.io.git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://gitee.com/benkangpeng/benkangpeng.git</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>安装hexo部署插件</strong>(安装过的无需重复安装)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>部署、上传到Gitee</strong></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>此时可以看到相关文件已上传到Gitee仓库中。</p>
-</li>
-<li><p><strong>将仓库设置为Gitee Pages</strong></p>
-<p>①进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
-<p>②进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Software</tag>
       </tags>
   </entry>
   <entry>
@@ -1489,6 +1407,152 @@
       </tags>
   </entry>
   <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
+
+<span id="more"></span>
+
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Software</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sub-group Swizzle分块矩阵乘优化原理分析</title>
+    <url>/posts/2b96453f/</url>
+    <content><![CDATA[<h2 id="Sub-group-Swizzle分块矩阵乘优化原理分析"><a href="#Sub-group-Swizzle分块矩阵乘优化原理分析" class="headerlink" title="Sub-group Swizzle分块矩阵乘优化原理分析"></a>Sub-group Swizzle分块矩阵乘优化原理分析</h2><p>因为要写成实验报告用来应付课程作业，因此写得罗里吧嗦的，见谅 :(</p>
+<span id="more"></span>
+
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>矩阵乘法是深度学习、科学计算等应用领域的基础算子，其优化方法是广泛研究的课题。对于大规模矩阵乘法，可以利用线性代数中矩阵分块乘法理论，将大规模矩阵乘法转化为分块矩阵乘。<code>Sub-group Swizzle Block Matrix Multiplication</code>是一种将矩阵乘法划分为<strong>子组</strong>，并重新映射<strong>线程块</strong><code>threadBlockIdx</code>，提高<code>GPU L2 Cache Hit Rate</code>，以加速分块矩阵乘的优化方法。这种优化方法在<code>Cutlass</code>[1], <code>triton</code>[2]中被广泛实现，但是目前相关资料对这种优化方法原理的分析较少，甚至存在原理上的错误，相关论坛中的讨论[3]没有定论。本文分析了线程块与SM分配原则、线程块之间的执行顺序，解释了<code>Sub-group Swizzle Matrix Multiplication</code>优化<code>L2 cache hit rate</code>的原理。</p>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><h4 id="分块矩阵乘法"><a href="#分块矩阵乘法" class="headerlink" title="分块矩阵乘法"></a>分块矩阵乘法</h4><p><img src="https://pic1.imgdb.cn/item/6836fd4158cb8da5c8164db2.png"><br>上图表示的是$A \times B &#x3D; C$的矩阵乘法，假设三个矩阵$A,B，C$为大小相等的方形矩阵，每一个矩阵可以分为$5\times 5$个分块。以下是为每一个分块分配一个<code>threadblock</code>并行计算<code>C</code>矩阵的<code>triton</code>核函数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@triton.JIT</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matmul_row_wise</span>(<span class="params">...</span>):</span><br><span class="line">    pid = tl.program_id(axis=<span class="number">0</span>)</span><br><span class="line">    grid_n = tl.cdiv(N, BLOCK_SIZE_N)</span><br><span class="line">    pid_m = pid // grid_n</span><br><span class="line">    pid_n = pid % grid_n</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#compute every block of matrix C</span></span><br><span class="line">    .......</span><br></pre></td></tr></table></figure>
+
+<p>以上<code>triton</code>核函数分配了$5\times5$个线程块，每一个线程块取出<code>A</code>矩阵相应的<strong>分块行</strong>(<code>a row of blocks in A</code>)，与B矩阵相应的分块列(<code>a column of blocks in B</code>)，计算得到<code>C</code>矩阵对应的一个分块。<code>threadblockIdx</code>(<code>Triton中称为Program Idx</code>)按照列主序(<code>row-wise</code>)分布。但是，这种算法的<code>L2 cache hit rate</code>不高，当$B$矩阵列数$N$较大时，<code>L2 cache</code>命中率较低。</p>
+<h4 id="Sub-group-Swizzle分块矩阵乘"><a href="#Sub-group-Swizzle分块矩阵乘" class="headerlink" title="Sub-group Swizzle分块矩阵乘"></a>Sub-group Swizzle分块矩阵乘</h4><p><code>Sub-group Swizzle Block Matmul</code>分为两步：①将多个<strong>分块行</strong>分为一个<code>sub-group</code>；②更改<code>threadblockIdx</code>在结果矩阵<code>C</code>上的排列顺序。</p>
+<p><img src="https://pic1.imgdb.cn/item/6836fd6858cb8da5c8164dc4.png"></p>
+<p>如图二所示，在一个分组中，<code>threadblockIdx</code>按照如图所示的折线分布。例如在一个大小为2的分组中，<code>threadblockIdx</code>按照<code>(0,0)，(1,0)，(0,1)，(1,1)</code>的顺序递增，在下一个分组中，<code>threadblockIdx</code>按照<code>(2,0),(3,0),(2,1),(3,1)</code>的顺序递增。以下为这种算法的<code>triton</code>实现：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@triton.jit</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matmul_kernel_group_col_wise</span>(<span class="params"></span></span><br><span class="line"><span class="params">        <span class="comment"># Pointers to matrices</span></span></span><br><span class="line"><span class="params">        a_ptr, b_ptr, c_ptr,M, N, K,stride_am, stride_ak,stride_bk, stride_bn, </span></span><br><span class="line"><span class="params">        stride_cm, stride_cn,</span></span><br><span class="line"><span class="params">        <span class="comment"># Meta-parameters</span></span></span><br><span class="line"><span class="params">        BLOCK_SIZE_M: tl.constexpr, BLOCK_SIZE_N: tl.constexpr, BLOCK_SIZE_K: tl.constexpr,  <span class="comment">#</span></span></span><br><span class="line"><span class="params">        GROUP_SIZE_M: tl.constexpr,  <span class="comment">#</span></span></span><br><span class="line"><span class="params">        ACTIVATION: tl.constexpr  <span class="comment">#</span></span></span><br><span class="line"><span class="params"></span>):</span><br><span class="line">    pid = tl.program_id(axis=<span class="number">0</span>)</span><br><span class="line">    num_pid_m = tl.cdiv(M, BLOCK_SIZE_M)</span><br><span class="line">    num_pid_n = tl.cdiv(N, BLOCK_SIZE_N)</span><br><span class="line">    num_pid_in_group = GROUP_SIZE_M * num_pid_n</span><br><span class="line">    group_id = pid // num_pid_in_group</span><br><span class="line">    first_pid_m = group_id * GROUP_SIZE_M</span><br><span class="line">    group_size_m = <span class="built_in">min</span>(num_pid_m - first_pid_m, GROUP_SIZE_M)</span><br><span class="line">    pid_m = first_pid_m + ((pid % num_pid_in_group) % group_size_m)</span><br><span class="line">    pid_n = (pid % num_pid_in_group) // group_size_m</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#computer every block.......</span></span><br></pre></td></tr></table></figure>
+
+<p>基于分组的<code>swizzle</code> <code>threadblockIdx</code>映射方式能够提高<code>L2 cache</code>命中率。然而，没有相关材料论述其中的原理。材料[2]认为线程块之间是严格串行的，因此能够复用部分数据。但在<code>CUDA</code>编程模型中，所有线程块之间并不是严格串行的，线程块之间的执行顺序由<code>GPU SM Scheduler</code>和硬件资源所影响，存在较为复杂的关系。接下来将展开优化原理分析。</p>
+<h4 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h4><h5 id="ThreadBlock与SM映射关系"><a href="#ThreadBlock与SM映射关系" class="headerlink" title="ThreadBlock与SM映射关系"></a>ThreadBlock与SM映射关系</h5><p>GPU按照<code>ThreadBlockIdx</code>顺序映射到<code>SM(Stream Mutliprocessor)</code>，占满所有SM后，剩余的<code>threadblock</code>等待<code>SM</code>资源的释放，一旦SM空闲，则分配到该SM上。使用如下设备端代码可以获取每一个<code>threadblock</code>对应的<code>SM</code>的索引，从而逆向得到特定GPU上<code>threadblock</code>与<code>SM</code>的映射关系。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">__device__ <span class="type">unsigned</span> <span class="type">int</span> <span class="title">smid</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> sm;</span><br><span class="line">    <span class="built_in">asm</span>(<span class="string">&quot;mov.u32  %0, %%smid;&quot;</span> : <span class="string">&quot;=r&quot;</span>(sm));</span><br><span class="line">    <span class="keyword">return</span> sm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如，<code>GeForce 4090 GPU</code>有9个完整的<code>GPC(Graph Process cluster</code>(每个GPC含有12个SM)，2个不完整的<code>GPC</code>(每个GPC含10个SM)，共$9\times12+2\times10&#x3D;128$个SM。在实验程序中，由于资源限制，单个<code>SM</code>最多同时并行2个<code>threadblock</code>(<code>residency=2</code>)下图为<code>GeForce RTX 4090</code>中<code>SM</code>与<code>threadblock</code>之间的映射关系。<br><img src="https://pic1.imgdb.cn/item/6836fe1458cb8da5c8164ddf.png" alt="[The mapping relationship between SMs and thread blocks on NVIDIA GeForce RTX 4090.png]"><br>如上图所示，<code>0~127</code>号<code>threadblock</code>被依次映射到<code>0,0,2,2,4,4,6,6......126,126</code>号<code>SM</code>上，<code>128~143</code>号<code>threadblock</code>被依次映射到<code>1,1,3,3,5,5......15,15</code>号<code>SM</code>上，<code>144~199</code>号<code>threadblock</code>被依次映射到<code>17,19......127</code>号<code>SM</code>上，<code>200~255</code>号<code>threadblock</code>被依次映射到<code>17,19......127</code>号<code>SM</code>。<code>threadblockIdx</code>大于255的<code>threadblock</code>等待<code>SM</code>资源的释放，一旦<code>SM</code>空闲，则将<code>threadblock</code>映射到空闲的<code>SM</code>上。</p>
+<p>我们称第一次调度中，将尽可能多的<code>threadblock</code>映射到<code>SMs</code>上，占满<code>SM</code>，为<code>the first wave</code>(第一波调度)[4]。所有SM被占满后，采用贪心调度策略(Greedy Schedule)将<code>threadblock</code>映射到<code>SM</code>，即一旦有SM空闲，立刻将<code>threadblock</code>映射上。使用如下设备端函数测出各线程块发射时间：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">__device__ unsigned long long globaltime(void)</span><br><span class="line">&#123;</span><br><span class="line">    unsigned long long time;</span><br><span class="line">    asm(<span class="string">&quot;mov.u64  %0, %%globaltimer;&quot;</span> : <span class="string">&quot;=l&quot;</span>(time));</span><br><span class="line">    <span class="keyword">return</span> time;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://pic1.imgdb.cn/item/6836fe2e58cb8da5c8164de4.png" alt="[the first wave and Greedy Schedule.jpg]"></p>
+<p>由上图可知，由于GPU SM资源限制，GPU不能同时发射所有的<code>threadblocks</code>，因此不同批次发射到<code>SM</code>上的<code>threadblocks</code>之间存在串行关系。接下来分析不同批次的<code>threadblock</code>之间如何通过分组<code>swizzle</code>优化<code>L2 cache</code>命中率。</p>
+<h5 id="不同批次之间线程块访存优化"><a href="#不同批次之间线程块访存优化" class="headerlink" title="不同批次之间线程块访存优化"></a>不同批次之间线程块访存优化</h5><p>本节将对<code>L2 cache</code>访问进行量化分析，分析案例为：</p>
+<ul>
+<li>矩阵分块规模<code>M,K,N = 512, 512, 512</code>，数据精度为<code>Fp16</code>，<code>BLOCK SIZE M,K,N = 64,64,32</code></li>
+<li><code>NVIDIA GeForce RTX 4090</code> <code>L2 cache</code>为<code>72MB</code>，为便于分析，假设<code>L2 cache</code>容量正好能够缓存住256个<code>threadblock</code>计算所需的数据量。</li>
+<li>假设每一批次的所有<code>threadblock</code>同时结束。虽然一般来说，矩阵乘法中每个<code>threadblock</code>计算的数据量相同，但是各<code>threadblock</code>的耗时可能不是严格相等。为便于分析，此处做近似分析，下一节做补充说明。</li>
+</ul>
+<p><img src="https://pic1.imgdb.cn/item/6836fe4058cb8da5c8164de5.png" alt="[row wise 256blocks.jpg]"><br>上图展示了按照行主序设置<code>threadblockIdx</code>的计算流程：①<code>C0</code>表示第一批同时启动的256个<code>ThreadBlocks</code>。256个<code>threadblocks</code>同时读取<code>A0(一行分块)</code>，GPU会将其合并为一次读操作；256个<code>threadBlocks</code>一共需要读取<code>B0(256列分块)</code>。那么<code>C0</code>中256个<code>threadblocks</code>完成计算总共需要从<code>Global Memory</code>中读257行分块。此时，<code>A0</code>和<code>B0</code>被缓存在L2 cache中。②<code>C1</code>中256个<code>threadblocks</code>需要读<code>A0</code>和<code>B1</code>。<code>A0</code>被缓存在L2 Cache中，不需要从Global Memory中读取。<code>B1</code>需要从Global Memory读取。C1完成计算需要从Global Memory中读取256行分块(忽略从L2 Cache中读取A0的开销，因为L2 Cache速度远快于Global Memory)。此时A0和B1被缓存在L2 Cache中(B0被替换)。同理，③C2完成计算需要从Global Memory中读取257行分块；④C3完成计算需要从Global Memory中读取257行分块。</p>
+<p>综上，4批<code>threadblocks</code>完成计算，依次需要从Global Memory读取的数据量：257行分块$\rightarrow$ 256 $\rightarrow$ 257 $\rightarrow$ 256。</p>
+<p><img src="https://pic1.imgdb.cn/item/6836fedc58cb8da5c8164e0b.png" alt="sub-group swizzle 256 blocks.png"><br>上图展示了分组大小为2，按照折线顺序编排<code>threadblockIdx</code>的计算流程：①<code>C0</code>表示第一批同时启动的256个<code>ThreadBlocks</code>。256个<code>threadblocks</code>同时读取<code>A0(一行分块)</code>，GPU会将其合并为一次读操作；256个<code>threadBlocks</code>一共需要读取<code>B0(256列分块)</code>。那么<code>C0</code>中256个<code>threadblocks</code>完成计算总共需要从<code>Global Memory</code>中读257行分块。此时，<code>A0</code>和<code>B0</code>被缓存在L2 cache中。②<code>C1</code>中256个<code>threadblocks</code>需要读<code>A1</code>和<code>B0</code>。<code>B0</code>被缓存在L2 Cache中，不需要从Global Memory中读取。<code>A1</code>需要从Global Memory读取。C1完成计算需要从Global 1行分块(忽略从L2 Cache中读取B0的开销，因为L2 Cache速度远快于Global Memory)。此时A1和B0被缓存在L2 Cache中(A0被替换)。同理，③C2完成计算需要从Global Memory中读取257行分块；④C3完成计算需要从Global Memory中读取1行分块。</p>
+<p>综上，4批<code>threadblocks</code>完成计算，依次需要从Global Memory读取的数据量：257行分块$\rightarrow$ 1 $\rightarrow$ 257 $\rightarrow$ 1。</p>
+<p>由此可见，分组折线编排<code>threadblockIdx</code>能够较大地提升<code>L2 Cache</code>命中率。</p>
+<h5 id="同一批线程块的发射顺序"><a href="#同一批线程块的发射顺序" class="headerlink" title="同一批线程块的发射顺序"></a>同一批线程块的发射顺序</h5><p>同一批线程块的发射顺序并不是严格并行的，而是大致上按照<code>threadblockIdx</code>的顺序发射(但不是严格顺序)，如下图所示[5]：<br><img src="https://pic1.imgdb.cn/item/6836ff2558cb8da5c8164e29.png" alt="Time-View of CTA Scheduling Across SMs.png"><br>可以得出经验性的结论：让<code>threadblockIdx</code>相邻的线程块访问相邻地址的数据，更有可能提高<code>L2 Cache</code>命中率。</p>
+<h4 id="实验：性能比较"><a href="#实验：性能比较" class="headerlink" title="实验：性能比较"></a>实验：性能比较</h4><p>实验环境：</p>
+<ul>
+<li><code>NVIDIA GeForce RTX 4090</code></li>
+<li><code>cuda 12.1</code></li>
+<li><code>CentOS 7.9</code></li>
+</ul>
+<p>下图是两种不同的<code>threadblockIdx</code>编排顺序的算法性能对比图。当矩阵规模较小时，两种算法性能接近，在大规模矩阵乘时，<code>sub-group swizzle</code>比<code>row-wise</code>性能大约高2倍。</p>
+<p><img src="https://pic1.imgdb.cn/item/6836feef58cb8da5c8164e11.png" alt="[row-wise vs sub-group swizzle.png]"><br><code>L2 Cache Hit rate</code>对比：<br><img src="https://pic1.imgdb.cn/item/6836ff6158cb8da5c8164e2f.png" alt="L2 cache hit rate compare.png"></p>
+<p>小规模矩阵乘法中，因为<code>4090 GPU</code> L2 Cache足够大(72MB)，能够缓存住所有的数据，两种算法的L2 cache命中率都很高。大规模矩阵乘法中，两种算法有明显差异，<code>M,K,N=16384</code>下，两种算法的L2 cache命中率分别为<code>83.22%, 95.70%</code>，<code>M,K,N=32768</code>规模下分别为<code>83.28%, 95.64%</code>。</p>
+<p>经过<code>triton tuning</code>后，<code>sub-group swizzle</code>矩阵乘与<code>cuBLAS</code>性能对比图。<br><img src="https://pic1.imgdb.cn/item/6836ff3e58cb8da5c8164e2d.png" alt="[tuning triton vs cublas.png]"></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a id="1">[1]</a> <a href="https://github.com/NVIDIA/cutlass/blob/main/include/cutlass/gemm/threadblock/threadblock_swizzle.h">https://github.com/NVIDIA/cutlass/blob/main/include/cutlass/gemm/threadblock/threadblock_swizzle.h</a><br>[2] <a href="https://triton-lang.org/main/getting-started/tutorials/03-matrix-multiplication.html">https://triton-lang.org/main/getting-started/tutorials/03-matrix-multiplication.html</a><br>[3] <a href="https://github.com/NVIDIA/cutlass/issues/1017">https://github.com/NVIDIA/cutlass/issues/1017</a><br>[4] <a href="https://cs.rochester.edu/%7Esree/fermi-tbs/fermi-tbs.html">https://cs.rochester.edu/%7Esree/fermi-tbs/fermi-tbs.html</a><br>[5] Yang J, Wen M, Chen D, et al. HyFiSS: A Hybrid Fidelity Stall-Aware Simulator for GPGPUs[C]&#x2F;&#x2F;2024 57th IEEE&#x2F;ACM International Symposium on Microarchitecture (MICRO). IEEE, 2024: 168-185.</p>
+]]></content>
+  </entry>
+  <entry>
     <title>HDLBits Solutions</title>
     <url>/posts/4ff0bc03/</url>
     <content><![CDATA[<h3>Abstract</h3>
@@ -1709,54 +1773,6 @@
       </tags>
   </entry>
   <entry>
-    <title>memory alignment</title>
-    <url>/posts/7729f5c5/</url>
-    <content><![CDATA[<p>关于内存对齐(<code>memory alignment</code>)的笔记</p>
-<span id="more"></span>
-
-<h4 id="计算机读取数据的方式"><a href="#计算机读取数据的方式" class="headerlink" title="计算机读取数据的方式"></a>计算机读取数据的方式</h4><p>计算机以<strong>字节块</strong>为粒度进行数据读取。例如，64位的机器中，数据总线宽度为64 bits(8 bytes)，字节块大小为8，它以8 bytes的粒度进行数据读取。若<code>int64_t x;</code>的地址为<code>0x8</code>(能整除8bytes, 称为64位对齐)，那么机器读取<code>x</code>时，会将<code>0x8~0xF</code>这个地址范围内的8 bytes读出，从而得到<code>x</code>。若<code>x</code>的存储地址未对齐(不能整除8, 称为未按8 bytes对齐)，那么机器可能需要进行两次数据读取，才能得到<code>x</code>的值。假设<code>x</code>存储地址为<code>0x6</code>，<code>x</code>数据地址范围则为<code>0x6~0xD</code>，跨越了<code>0x0~0x7</code> <code>0x8~0xF</code>这两个字节块，机器读取<code>x</code>时，<strong>并不能</strong>够直接读出地址<code>0x6~0xD</code>的8 bytes数据。机器需要先读取<code>0x0~0x7</code>中的8 bytes，再读取<code>0x8~0xF</code>中的8 bytes，最后拼接得到<code>x</code>。</p>
-<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" />
-
-<p>内存对齐：变量的地址是变量大小的整数倍($addr &#x3D; n * sizeof(varible)$)  例如，<code>double variable</code>的地址保证是8的整数倍，<code>int variable</code>的地址保证是4的整数倍。</p>
-<p>保证每一个变量的内存对齐，能够让机器以尽可能少的次数读取到数据。若变量内存未对齐，跨越了多个字节块，计算机就可能需要读取多个字节块</p>
-<p><code>memory alignment</code>对性能的影响：</p>
-<p> <a href="https://ideone.com/KmWNUo">🔗code</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Force 1-byte alignment</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UnalignedData</span> &#123;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//aligned and padded by compiler</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedData</span> &#123;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">performance_test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> iterations = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="number">1e4</span>);</span><br><span class="line">	<span class="function">std::vector&lt;UnalignedData&gt; <span class="title">unaligned</span><span class="params">(iterations)</span> </span>;</span><br><span class="line">	<span class="function">std::vector&lt;AlignedData&gt; <span class="title">aligned</span><span class="params">(iterations)</span></span>;</span><br><span class="line">    std::array&lt;<span class="type">double</span>, iterations&gt; collect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initial</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">        unaligned[i] = &#123;<span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i), i * <span class="number">3.14</span>, i&#125;;</span><br><span class="line">        aligned[i] = &#123;i * <span class="number">3.14</span>, i, <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//unaligned</span></span><br><span class="line">	<span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = unaligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">unaligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//aligned</span></span><br><span class="line">	start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = aligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">aligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Unaligned: &quot;</span> &lt;&lt; unaligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Aligned: &quot;</span> &lt;&lt; aligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Performance Improvement: &quot;</span> &lt;&lt; (unaligned_time.<span class="built_in">count</span>() / aligned_time.<span class="built_in">count</span>() <span class="number">-1</span>)*<span class="number">100</span> &lt;&lt; <span class="string">&quot;%&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	<span class="built_in">performance_test</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Exec Time of Unaligned: 0.000185ms<br>Exec Time of Aligned: 7.2e-05ms<br>Performance Improvement: 156.944%</p>
-</blockquote>
-<h4 id="struct对齐"><a href="#struct对齐" class="headerlink" title="struct对齐"></a>struct对齐</h4><p>当一个结构体内有不同的数据类型时，如何保证所有的变量内存对齐？</p>
-<p>编译器通过加入<code>pad</code>实现内存对齐：</p>
-<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png">
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// struct aligned Aligned;</span></span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    <span class="type">uintptr_t</span> addr_a = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.a);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_b = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.b);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_c = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.c);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_d = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.d);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.a is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_a &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.b is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_b &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// check whether 2 bytes aligned or not</span></span><br><span class="line">    <span class="built_in">assert</span>((addr_b % <span class="number">2</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.c is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_c &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">assert</span>((addr_c % <span class="number">4</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.d is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_d &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Address of F.a is 0x61fdf4<br>Address of F.b is 0x61fdf6<br>Address of F.c is 0x61fdf8<br>Address of F.d is 0x61fdfc</p>
-</blockquote>
-<p>调换<code>struct</code>中变量的声明顺序，会改变<code>padding</code>的方式：</p>
-<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png">
-
-<p>以上这种<code>padding</code>更加节省存储，但是编译器不会主动去调换变量声明顺序去做优化。因此程序员需要手动调整结构体内变量声明顺序以达到最优的<code>padding</code>。<strong>一般来说，按照数据类型大小，从大到小声明变量，能达到最佳的<code>padding</code></strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//change the order of variable declartion</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo2</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    foo2 F2;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo2&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F2) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>struct foo’s size &#x3D; 12<br>struct foo2’s size &#x3D; 8</p>
-</blockquote>
-<h4 id="禁用编译器padding"><a href="#禁用编译器padding" class="headerlink" title="禁用编译器padding"></a>禁用编译器padding</h4><p><code>#pragma pack(push 1)</code> …. <code>#pragma pack(pop)</code></p>
-<p><a href="https://www.ideone.com/bK0SWW">🔗code</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认对齐的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;      <span class="comment">// 1 字节</span></span><br><span class="line">    <span class="type">int</span> b;       <span class="comment">// 4 字节（对齐要求 4）</span></span><br><span class="line">    <span class="type">double</span> c;    <span class="comment">// 8 字节（对齐要求 8）</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 紧凑对齐（取消填充）</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PackedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> s1;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">PackedStruct</span> s2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Addresses:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s1: %p\ns1.a: %p\ns1.b: %p\ns1.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s1, &amp;s1.a, &amp;s1.b, &amp;s1.c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s2: %p\ns2.a: %p\ns2.b: %p\ns2.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s2, &amp;s2.a, &amp;s2.b, &amp;s2.c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://ncmiller.dev/memory-alignment.html">[1] 10 Things You Should Know About Memory Alignment | ncmiller.dev</a></p>
-]]></content>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>centos学习笔记</title>
     <url>/posts/d2783502/</url>
     <content><![CDATA[<p>CentOS相关</p>
@@ -1917,6 +1933,43 @@
       </tags>
   </entry>
   <entry>
+    <title>python调试工具pdb</title>
+    <url>/posts/9e73dd3c/</url>
+    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
+<span id="more"></span>
+
+<ul>
+<li>启动</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>步进</li>
+</ul>
+<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
+<p><code>l</code>: list 列出源码</p>
+<p><code>ll</code>: list all</p>
+<p>回车重复上一条命令</p>
+<p><code>n</code>: next下一步</p>
+<p><code>s</code>: step下一步，可进入函数</p>
+<ul>
+<li>断点</li>
+</ul>
+<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
+<p><code>b</code>:输出所有断点信息</p>
+<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
+<p><code>c</code>: continue持续运行程序，直到断点</p>
+<ul>
+<li>打印</li>
+</ul>
+<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
+<p><code>p &lt;variable&gt;</code>打印变量</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>notes_of_acwing</title>
     <url>/posts/830bf4be/</url>
     <content><![CDATA[<p><a href="https://www.acwing.com/">acwing</a>算法笔记</p>
@@ -1981,74 +2034,51 @@
       </tags>
   </entry>
   <entry>
-    <title>python调试工具pdb</title>
-    <url>/posts/9e73dd3c/</url>
-    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
+    <title>memory alignment</title>
+    <url>/posts/7729f5c5/</url>
+    <content><![CDATA[<p>关于内存对齐(<code>memory alignment</code>)的笔记</p>
 <span id="more"></span>
 
-<ul>
-<li>启动</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
+<h4 id="计算机读取数据的方式"><a href="#计算机读取数据的方式" class="headerlink" title="计算机读取数据的方式"></a>计算机读取数据的方式</h4><p>计算机以<strong>字节块</strong>为粒度进行数据读取。例如，64位的机器中，数据总线宽度为64 bits(8 bytes)，字节块大小为8，它以8 bytes的粒度进行数据读取。若<code>int64_t x;</code>的地址为<code>0x8</code>(能整除8bytes, 称为64位对齐)，那么机器读取<code>x</code>时，会将<code>0x8~0xF</code>这个地址范围内的8 bytes读出，从而得到<code>x</code>。若<code>x</code>的存储地址未对齐(不能整除8, 称为未按8 bytes对齐)，那么机器可能需要进行两次数据读取，才能得到<code>x</code>的值。假设<code>x</code>存储地址为<code>0x6</code>，<code>x</code>数据地址范围则为<code>0x6~0xD</code>，跨越了<code>0x0~0x7</code> <code>0x8~0xF</code>这两个字节块，机器读取<code>x</code>时，<strong>并不能</strong>够直接读出地址<code>0x6~0xD</code>的8 bytes数据。机器需要先读取<code>0x0~0x7</code>中的8 bytes，再读取<code>0x8~0xF</code>中的8 bytes，最后拼接得到<code>x</code>。</p>
+<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" alt = "计算机按字节快读取数据的方式"/>
 
-<ul>
-<li>步进</li>
-</ul>
-<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
-<p><code>l</code>: list 列出源码</p>
-<p><code>ll</code>: list all</p>
-<p>回车重复上一条命令</p>
-<p><code>n</code>: next下一步</p>
-<p><code>s</code>: step下一步，可进入函数</p>
-<ul>
-<li>断点</li>
-</ul>
-<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
-<p><code>b</code>:输出所有断点信息</p>
-<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
-<p><code>c</code>: continue持续运行程序，直到断点</p>
-<ul>
-<li>打印</li>
-</ul>
-<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
-<p><code>p &lt;variable&gt;</code>打印变量</p>
+<p>内存对齐：变量的地址是变量大小的整数倍($addr &#x3D; n * sizeof(varible)$)  例如，<code>double variable</code>的地址保证是8的整数倍，<code>int variable</code>的地址保证是4的整数倍。</p>
+<p>保证每一个变量的内存对齐，能够让机器以尽可能少的次数读取到数据。若变量内存未对齐，跨越了多个字节块，计算机就可能需要读取多个字节块</p>
+<p><code>memory alignment</code>对性能的影响：</p>
+<p> <a href="https://ideone.com/KmWNUo">🔗code</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Force 1-byte alignment</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UnalignedData</span> &#123;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//aligned and padded by compiler</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedData</span> &#123;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">performance_test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> iterations = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="number">1e4</span>);</span><br><span class="line">	<span class="function">std::vector&lt;UnalignedData&gt; <span class="title">unaligned</span><span class="params">(iterations)</span> </span>;</span><br><span class="line">	<span class="function">std::vector&lt;AlignedData&gt; <span class="title">aligned</span><span class="params">(iterations)</span></span>;</span><br><span class="line">    std::array&lt;<span class="type">double</span>, iterations&gt; collect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initial</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">        unaligned[i] = &#123;<span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i), i * <span class="number">3.14</span>, i&#125;;</span><br><span class="line">        aligned[i] = &#123;i * <span class="number">3.14</span>, i, <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//unaligned</span></span><br><span class="line">	<span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = unaligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">unaligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//aligned</span></span><br><span class="line">	start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = aligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">aligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Unaligned: &quot;</span> &lt;&lt; unaligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Aligned: &quot;</span> &lt;&lt; aligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Performance Improvement: &quot;</span> &lt;&lt; (unaligned_time.<span class="built_in">count</span>() / aligned_time.<span class="built_in">count</span>() <span class="number">-1</span>)*<span class="number">100</span> &lt;&lt; <span class="string">&quot;%&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	<span class="built_in">performance_test</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Exec Time of Unaligned: 0.000185ms<br>Exec Time of Aligned: 7.2e-05ms<br>Performance Improvement: 156.944%</p>
+</blockquote>
+<h4 id="struct对齐"><a href="#struct对齐" class="headerlink" title="struct对齐"></a>struct对齐</h4><p>当一个结构体内有不同的数据类型时，如何保证所有的变量内存对齐？</p>
+<p>编译器通过加入<code>pad</code>实现内存对齐：</p>
+<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png" alt="编译器自动padding的方式">
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// struct aligned Aligned;</span></span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    <span class="type">uintptr_t</span> addr_a = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.a);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_b = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.b);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_c = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.c);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_d = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.d);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.a is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_a &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.b is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_b &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// check whether 2 bytes aligned or not</span></span><br><span class="line">    <span class="built_in">assert</span>((addr_b % <span class="number">2</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.c is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_c &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">assert</span>((addr_c % <span class="number">4</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.d is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_d &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Address of F.a is 0x61fdf4<br>Address of F.b is 0x61fdf6<br>Address of F.c is 0x61fdf8<br>Address of F.d is 0x61fdfc</p>
+</blockquote>
+<p>调换<code>struct</code>中变量的声明顺序，会改变<code>padding</code>的方式：</p>
+<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png" alt="调换变量声明顺序后编译器padding方式">
+
+<p>以上这种<code>padding</code>更加节省存储，但是编译器不会主动去调换变量声明顺序去做优化。因此程序员需要手动调整结构体内变量声明顺序以达到最优的<code>padding</code>。<strong>一般来说，按照数据类型大小，从大到小声明变量，能达到最佳的<code>padding</code></strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//change the order of variable declartion</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo2</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    foo2 F2;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo2&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F2) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>struct foo’s size &#x3D; 12<br>struct foo2’s size &#x3D; 8</p>
+</blockquote>
+<h4 id="禁用编译器padding"><a href="#禁用编译器padding" class="headerlink" title="禁用编译器padding"></a>禁用编译器padding</h4><p><code>#pragma pack(push 1)</code> …. <code>#pragma pack(pop)</code></p>
+<p><a href="https://www.ideone.com/bK0SWW">🔗code</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认对齐的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;      <span class="comment">// 1 字节</span></span><br><span class="line">    <span class="type">int</span> b;       <span class="comment">// 4 字节（对齐要求 4）</span></span><br><span class="line">    <span class="type">double</span> c;    <span class="comment">// 8 字节（对齐要求 8）</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 紧凑对齐（取消填充）</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PackedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> s1;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">PackedStruct</span> s2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Addresses:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s1: %p\ns1.a: %p\ns1.b: %p\ns1.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s1, &amp;s1.a, &amp;s1.b, &amp;s1.c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s2: %p\ns2.a: %p\ns2.b: %p\ns2.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s2, &amp;s2.a, &amp;s2.b, &amp;s2.c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://ncmiller.dev/memory-alignment.html">[1] 10 Things You Should Know About Memory Alignment | ncmiller.dev</a></p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tech debt</title>
-    <url>/posts/b68e097c/</url>
-    <content><![CDATA[<p><a style="font-size: 24px; color: red;" href="http://www.naenara.com.kp/images/politics/leader3.jpg">将军的恩情还不尽！👋😭👋</a></p>
-<p><a style="font-size: 24px; color: red;" href="https://csdiy.wiki/">灯塔国的技术债也还不尽！👋😭👋</a></p>
-<span id="more"></span>
-
-<ul>
-<li><p><input checked="" disabled="" type="checkbox"> 
-<del><a href="https://www.bilibili.com/video/BV1K8411b7AU/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗CS106L</a>  <a href="https://github.com/BenkangPeng/CS106L">🔗My note and assignment</a></del></p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<a href="https://space.bilibili.com/8888480/lists/3509640?type=series">🔗左程云-Algorithm</a>  <a href="https://github.com/BenkangPeng/CrackTheAlgorithm">🔗My note</a></p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<a href="https://csdiy.wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CS144/#_1">🔗CS144</a></p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<a href="">🔗李宏毅机器学习(不是传统ML)2025</a></p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<a href="https://www.bilibili.com/video/BV1QZ421N7pT/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗CUDA Mode</a>  <a href="https://github.com/gpu-mode/lectures">🔗Github Link</a></p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-<a href="https://www.bilibili.com/video/BV1De4y1p7Z8/?vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗反向传播-karpathy</a>  <a href="https://karpathy.ai/">🔗Andrej Karpathy系列视频</a>   Karpathy动手构建GPT系列</p>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Course</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -2114,6 +2144,124 @@
       </tags>
   </entry>
   <entry>
+    <title>tech debt</title>
+    <url>/posts/b68e097c/</url>
+    <content><![CDATA[<p><a style="font-size: 24px; color: red;" href="http://www.naenara.com.kp/images/politics/leader3.jpg">将军的恩情还不尽！👋😭👋</a></p>
+<p><a style="font-size: 24px; color: red;" href="https://csdiy.wiki/">灯塔国的技术债也还不尽！👋😭👋</a></p>
+<span id="more"></span>
+
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+<del><a href="https://www.bilibili.com/video/BV1K8411b7AU/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗CS106L</a>  <a href="https://github.com/BenkangPeng/CS106L">🔗My note and assignment</a></del></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="https://space.bilibili.com/8888480/lists/3509640?type=series">🔗左程云-Algorithm</a>  <a href="https://github.com/BenkangPeng/CrackTheAlgorithm">🔗My note</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="https://csdiy.wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CS144/#_1">🔗CS144</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="">🔗李宏毅机器学习(不是传统ML)2025</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="https://www.bilibili.com/video/BV1QZ421N7pT/?spm_id_from=333.337.search-card.all.click&vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗CUDA Mode</a>  <a href="https://github.com/gpu-mode/lectures">🔗Github Link</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="https://www.bilibili.com/video/BV1De4y1p7Z8/?vd_source=da5120fea3f8bb8d2fe1984a02a9a745">🔗反向传播-karpathy</a>  <a href="https://karpathy.ai/">🔗Andrej Karpathy系列视频</a>   Karpathy动手构建GPT系列</p>
+</li>
+<li><p><input disabled="" type="checkbox"> </p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Course</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>流畅的Python</title>
+    <url>/posts/32ffb807/</url>
+    <content><![CDATA[<p>《流畅的Python》读书笔记</p>
+<span id="more"></span>
+
+<h3 id="第一章-Python数据模型"><a href="#第一章-Python数据模型" class="headerlink" title="第一章 Python数据模型"></a>第一章 Python数据模型</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">Card = collections.namedtuple(<span class="string">&#x27;Card&#x27;</span> , [<span class="string">&#x27;rank&#x27;</span> , <span class="string">&#x27;suit&#x27;</span>])</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FrenchDeck</span>:</span><br><span class="line">    ranks = [<span class="built_in">str</span>(n) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">11</span>)] + <span class="built_in">list</span>(<span class="string">&#x27;JQKA&#x27;</span>)</span><br><span class="line">    suits  = <span class="string">&#x27;spades diamonds clubs hearts&#x27;</span>.split()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self._cards = [Card(rank , suit) <span class="keyword">for</span> rank <span class="keyword">in</span> self.ranks </span><br><span class="line">                                         <span class="keyword">for</span> suit <span class="keyword">in</span> self.suits]</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self._cards)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,position</span>):</span><br><span class="line">        <span class="keyword">return</span> self._cards[position]</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    deck = FrenchDeck()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(deck))</span><br><span class="line">    <span class="built_in">print</span>(deck[-<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(deck[:<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="built_in">print</span>(choice(deck))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>namedtuple</code></li>
+</ul>
+<blockquote>
+<p>In Python, NamedTuple is present inside the collections module. It provides a way to create simple, lightweight data structures similar to a class, but without the overhead of defining a full class. Like dictionaries, they contain keys that are hashed to a particular value. On the contrary, it supports both access from key-value and iteration, the functionality that dictionaries lack.</p>
+</blockquote>
+<p><a href="https://www.geeksforgeeks.org/namedtuple-in-python/">Namedtuple in Python - GeeksforGeeks</a></p>
+<p>划重点:①一个轻量的数据结构类；②相比于字典，还有下标索引的功能。</p>
+<p><strong>序列协议:</strong></p>
+<ul>
+<li>在 Python 中，序列是一种通用的数据结构，可以包含多个元素，并且支持<strong>迭代</strong>、<strong>索引</strong>和<strong>切片</strong>操作。</li>
+<li>序列协议定义了一组<strong>特殊方法</strong>，例如 <code>__len__</code> 和 <code>__getitem__</code>，用于使对象表现得像序列一样。</li>
+<li>如果一个类实现了这些方法，它的<strong>实例</strong>就可以像<strong>列表</strong>、<strong>字符串</strong>或<strong>元组</strong>一样进行操作。</li>
+</ul>
+<p><code>FrenchDeck</code>类中实现了<code>__len__</code>方法后，对实例化类<code>deck</code>执行<code>len(deck)</code>时，实际上调用的是<code>deck.__len__(self)</code> ; 同理，对<code>deck</code>执行切片、下标索引时实际调用的是<code>__getitem__</code>方法。</p>
+<p><strong>sorted</strong>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> card <span class="keyword">in</span> <span class="built_in">sorted</span>(deck , key=card_value):</span><br><span class="line">        <span class="built_in">print</span>(card)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>card_value</code>不需要传入参数<code>card</code> , <code>sorted</code>会自动将<code>deck</code>中每一个<code>card</code>传入<code>key</code>中,不需要显式传参。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Vector</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self , x=<span class="number">0</span> , y=<span class="number">0</span></span>):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Vector(%r,%r)&#x27;</span>%(self.x , self.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__abs__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> sqrt(self.x**<span class="number">2</span> + self.y**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__bool__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bool</span>(self.x <span class="keyword">or</span> self.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__add__</span>(<span class="params">self , other</span>):</span><br><span class="line">        <span class="keyword">return</span> Vector(self.x+other.x , self.y+other.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__mul__</span>(<span class="params">self , scalar</span>):</span><br><span class="line">        <span class="keyword">return</span> Vector(self.x*scalar , self.y*scalar) </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    v1 = Vector(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    v2 = Vector(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">    v3 = Vector(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(v1+v2)</span><br><span class="line">    <span class="built_in">print</span>(v1*<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">abs</span>(v1))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">bool</span>(v3))</span><br></pre></td></tr></table></figure>
+
+<h3 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h3><p><strong>列表推导与生成器表达式</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    colors = [<span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;white&#x27;</span>]</span><br><span class="line">    sizes = [<span class="string">&#x27;S&#x27;</span>, <span class="string">&#x27;M&#x27;</span>, <span class="string">&#x27;L&#x27;</span>]</span><br><span class="line">    tshirt = [(color,size) <span class="keyword">for</span> color <span class="keyword">in</span> colors</span><br><span class="line">                            <span class="keyword">for</span> size <span class="keyword">in</span> sizes]</span><br><span class="line">    <span class="built_in">print</span>(tshirt)</span><br><span class="line">    symbols = <span class="string">&#x27;$¢£¥€¤&#x27;</span></span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">ord</span>(symbol) <span class="keyword">for</span> symbol <span class="keyword">in</span> symbols <span class="keyword">if</span> <span class="built_in">ord</span>(symbol) &gt; <span class="number">127</span>)</span><br><span class="line">    b = [ <span class="built_in">ord</span>(symbol) <span class="keyword">for</span> symbol <span class="keyword">in</span> symbols <span class="keyword">if</span> <span class="built_in">ord</span>(symbol) &gt; <span class="number">127</span> ]</span><br><span class="line">    <span class="built_in">print</span>(a , b)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>虽然也可以用列表推导来初始化元组、数组或其他序列类型，但是生成<br>器表达式是更好的选择。这是因为生成器表达式背后遵守了迭代器协<br>议，可以逐个地产出元素，而不是先建立一个完整的列表，然后再把这<br>个列表传递到某个构造函数里。前面那种方式显然能够节省内存。</p>
+</blockquote>
+<p><strong>元组</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    lax_coordinates = (<span class="number">33.9425</span>, -<span class="number">118.408056</span>)</span><br><span class="line">    city, year, pop, chg, area = (<span class="string">&#x27;Tokyo&#x27;</span>, <span class="number">2003</span>, <span class="number">32450</span>, <span class="number">0.66</span>, <span class="number">8014</span>)</span><br><span class="line">    traveler_ids = [(<span class="string">&#x27;USA&#x27;</span>, <span class="string">&#x27;31195855&#x27;</span>), (<span class="string">&#x27;BRA&#x27;</span>, <span class="string">&#x27;CE342567&#x27;</span>),(<span class="string">&#x27;ESP&#x27;</span>, <span class="string">&#x27;XDA205856&#x27;</span>)]</span><br><span class="line">    <span class="keyword">for</span> passport <span class="keyword">in</span> <span class="built_in">sorted</span>(traveler_ids):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s/%s&#x27;</span> % passport)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们把元组 (‘Tokyo’, 2003, 32450, 0.66, 8014) 里<br>的元素分别赋值给变量 city、year、pop、chg 和 area，而这所有的<br>赋值我们只用一行声明就写完了。同样，在后面一行中，一个 % 运算符<br>就把 passport 元组里的元素对应到了 print 函数的格式字符串空档<br>中。这两个都是对元组拆包的应用。</p>
+</blockquote>
+<p>不使用中间变量交换两个变量的值</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a , b = b , a</span><br></pre></td></tr></table></figure>
+
+<p>实际此处涉及到元组的解包:python首先解析右值，组成元组(b,a),再解包赋值给a,b</p>
+<p>*<strong>运算符</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">devmode</span>(<span class="params">a , b</span>):</span><br><span class="line">    <span class="keyword">return</span> (a//b , a%b)</span><br><span class="line">t = (<span class="number">12</span>,<span class="number">7</span>)</span><br><span class="line"><span class="built_in">print</span>(devmode(*t))</span><br><span class="line">a , b , *_ = <span class="built_in">range</span>(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(a,b,_)</span><br></pre></td></tr></table></figure>
+
+<p><strong>嵌套元组</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    metro_areas = [</span><br><span class="line">    (<span class="string">&#x27;Tokyo&#x27;</span>,<span class="string">&#x27;JP&#x27;</span>,<span class="number">36.933</span>,(<span class="number">35.689722</span>,<span class="number">139.691667</span>)), </span><br><span class="line">    (<span class="string">&#x27;Delhi NCR&#x27;</span>, <span class="string">&#x27;IN&#x27;</span>, <span class="number">21.935</span>, (<span class="number">28.613889</span>, <span class="number">77.208889</span>)),</span><br><span class="line">    (<span class="string">&#x27;Mexico City&#x27;</span>, <span class="string">&#x27;MX&#x27;</span>, <span class="number">20.142</span>, (<span class="number">19.433333</span>, -<span class="number">99.133333</span>)),</span><br><span class="line">    (<span class="string">&#x27;New York-Newark&#x27;</span>, <span class="string">&#x27;US&#x27;</span>, <span class="number">20.104</span>, (<span class="number">40.808611</span>, -<span class="number">74.020386</span>)),</span><br><span class="line">    (<span class="string">&#x27;Sao Paulo&#x27;</span>, <span class="string">&#x27;BR&#x27;</span>, <span class="number">19.649</span>, (-<span class="number">23.547778</span>, -<span class="number">46.635833</span>)),</span><br><span class="line">    ]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&#123;:15&#125; | &#123;:^9&#125; | &#123;:^9&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;lat.&#x27;</span>, <span class="string">&#x27;long.&#x27;</span>))</span><br><span class="line">    fmt = <span class="string">&#x27;&#123;:15&#125; | &#123;:9.4f&#125; | &#123;:9.4f&#125;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> name, cc, pop, (latitude, longitude) <span class="keyword">in</span> metro_areas:</span><br><span class="line">        <span class="keyword">if</span> longitude &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(fmt.<span class="built_in">format</span>(name, latitude, longitude))</span><br></pre></td></tr></table></figure>
+
+<p><code>&#123;:15&#125;</code>表示占15格 ， <code>&#123;:^9&#125;</code>表示占9格，字符串居中 ， <code>&#123;:&gt;9&#125;</code>右对齐占9格，<code>&#123;:9.4f&#125;</code>占9格，保留四位小数的浮点数</p>
+<p><strong>具名元组collections.namedtuple</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    city = namedtuple(<span class="string">&#x27;city&#x27;</span> , [<span class="string">&#x27;name&#x27;</span> , <span class="string">&#x27;country&#x27;</span> , <span class="string">&#x27;pop&#x27;</span> , <span class="string">&#x27;coordinates&#x27;</span>])</span><br><span class="line">    tokyo = city(<span class="string">&#x27;tokyo&#x27;</span> , <span class="string">&#x27;Japan&#x27;</span> , <span class="string">&#x27;36.933&#x27;</span> , (<span class="number">35</span>,<span class="number">139</span>))</span><br><span class="line">    <span class="built_in">print</span>(tokyo.pop , tokyo.coordinates)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(city._fields)</span><br><span class="line">    delhi_data = (<span class="string">&#x27;Delhi NCR&#x27;</span>, <span class="string">&#x27;IN&#x27;</span>, <span class="number">21.935</span>, (<span class="number">28.613889</span>, <span class="number">77.208889</span>))</span><br><span class="line">    delhi = city._make(delhi_data)</span><br><span class="line">    <span class="built_in">print</span>(delhi._asdict)</span><br></pre></td></tr></table></figure>
+
+<p><code>._fields</code>返回具名元素所有的字段名称</p>
+<p><code>._make</code>支持以**元组(或列表)**创建具名元组</p>
+<p><code>._asdict</code>把具名元组以 collections.OrderedDict 的形式返回，我们可以利用它来把元组里的信息友好地呈现出来。</p>
+<p><strong>切片</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&#x27;bicycle&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s[::<span class="number">3</span>] , s[::-<span class="number">1</span>] , s[::-<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">1</span>:<span class="number">5</span>:<span class="number">2</span>] , s[<span class="number">5</span>:<span class="number">1</span>:-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<p><code>start:stop:step</code>    <code>step</code>为负值表示反向切片</p>
+<p><strong>对序列使用</strong>*</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    <span class="built_in">print</span>(l * <span class="number">3</span> , <span class="number">3</span> * <span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">    board = [[<span class="string">&#x27;_&#x27;</span>]*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">    <span class="built_in">print</span>(board)</span><br><span class="line">    board[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(board)</span><br><span class="line">    board_ = [[<span class="string">&#x27;_&#x27;</span>]*<span class="number">3</span>]*<span class="number">3</span></span><br><span class="line">    board_[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(board_)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python chapter2.py</span> </span><br><span class="line">[1, 2, 3, 1, 2, 3, 1, 2, 3] abcabcabc</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;]]</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;]]</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>board_ = [[&#39;_&#39;]*3]*3</code>  这种方法创建了一个包含三个引用的列表，修改其中一个列表，其他两个列表都会变化。</p>
+<h3 id="第三章-字典和集合"><a href="#第三章-字典和集合" class="headerlink" title="第三章 字典和集合"></a>第三章 字典和集合</h3><p><strong>字典初始化</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = <span class="built_in">dict</span>(one=<span class="number">1</span>, two=<span class="number">2</span>, three=<span class="number">3</span>)</span><br><span class="line">    b = &#123;<span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">    c = <span class="built_in">dict</span>(<span class="built_in">zip</span>([<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">    d = <span class="built_in">dict</span>([(<span class="string">&#x27;two&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;one&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;three&#x27;</span>, <span class="number">3</span>)])</span><br><span class="line">    e = <span class="built_in">dict</span>(&#123;<span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line">    <span class="built_in">print</span>(a == b == c == d == e)<span class="comment">#以上五种字典初始化方式等价</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>字典推导</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DIAL_CODES = [(<span class="number">86</span>, <span class="string">&#x27;China&#x27;</span>),(<span class="number">91</span>, <span class="string">&#x27;India&#x27;</span>),(<span class="number">1</span>, <span class="string">&#x27;United States&#x27;</span>),(<span class="number">62</span>, <span class="string">&#x27;Indonesia&#x27;</span>),(<span class="number">55</span>, <span class="string">&#x27;Brazil&#x27;</span>),(<span class="number">92</span>, <span class="string">&#x27;Pakistan&#x27;</span>),(<span class="number">880</span>, <span class="string">&#x27;Bangladesh&#x27;</span>),(<span class="number">234</span>, <span class="string">&#x27;Nigeria&#x27;</span>),(<span class="number">7</span>, <span class="string">&#x27;Russia&#x27;</span>),(<span class="number">81</span>, <span class="string">&#x27;Japan&#x27;</span>)]</span><br><span class="line">country_code = &#123;country : code <span class="keyword">for</span> code,country <span class="keyword">in</span> DIAL_CODES <span class="keyword">if</span> code &gt; <span class="number">66</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(country_code)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>集合</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    s = <span class="built_in">set</span>(l) </span><br><span class="line">    <span class="built_in">print</span>(s)    </span><br><span class="line"></span><br><span class="line">    s2 = &#123;<span class="number">4</span>,<span class="number">6</span>,<span class="number">9</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(s&amp;s2)</span><br><span class="line">    <span class="built_in">print</span>(s|s2)</span><br><span class="line">    <span class="built_in">print</span>(s-s2)</span><br><span class="line"></span><br><span class="line">    s3 = <span class="built_in">set</span>()</span><br><span class="line">    s3.add(<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># s3.pop()</span></span><br><span class="line">    <span class="built_in">print</span>(s3)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>s = set(l)</code>会将列表<code>l</code>中元素去重</p>
+<p><code>s&amp;s2</code>求交集，<code>s|s2</code>求并集，<code>s-s2</code>求补集</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows相关</title>
     <url>/posts/918da884/</url>
     <content><![CDATA[<p>一些windows相关的内容</p>
@@ -2131,55 +2279,6 @@
 ]]></content>
       <tags>
         <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><strong>Bug复现</strong></li>
-</ul>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
-
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><strong>开发者模式Debug</strong></li>
-</ul>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-<ul>
-<li><strong>问题分析</strong></li>
-</ul>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-<ul>
-<li><strong>解决方案</strong></li>
-</ul>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-]]></content>
-      <tags>
-        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -2304,87 +2403,52 @@
 ]]></content>
   </entry>
   <entry>
-    <title>流畅的Python</title>
-    <url>/posts/32ffb807/</url>
-    <content><![CDATA[<p>《流畅的Python》读书笔记</p>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
 <span id="more"></span>
 
-<h3 id="第一章-Python数据模型"><a href="#第一章-Python数据模型" class="headerlink" title="第一章 Python数据模型"></a>第一章 Python数据模型</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line">Card = collections.namedtuple(<span class="string">&#x27;Card&#x27;</span> , [<span class="string">&#x27;rank&#x27;</span> , <span class="string">&#x27;suit&#x27;</span>])</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FrenchDeck</span>:</span><br><span class="line">    ranks = [<span class="built_in">str</span>(n) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">11</span>)] + <span class="built_in">list</span>(<span class="string">&#x27;JQKA&#x27;</span>)</span><br><span class="line">    suits  = <span class="string">&#x27;spades diamonds clubs hearts&#x27;</span>.split()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self._cards = [Card(rank , suit) <span class="keyword">for</span> rank <span class="keyword">in</span> self.ranks </span><br><span class="line">                                         <span class="keyword">for</span> suit <span class="keyword">in</span> self.suits]</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__len__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self._cards)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,position</span>):</span><br><span class="line">        <span class="keyword">return</span> self._cards[position]</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    deck = FrenchDeck()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(deck))</span><br><span class="line">    <span class="built_in">print</span>(deck[-<span class="number">1</span>])</span><br><span class="line">    <span class="built_in">print</span>(deck[:<span class="number">3</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="built_in">print</span>(choice(deck))</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>namedtuple</code></li>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><strong>Bug复现</strong></li>
 </ul>
-<blockquote>
-<p>In Python, NamedTuple is present inside the collections module. It provides a way to create simple, lightweight data structures similar to a class, but without the overhead of defining a full class. Like dictionaries, they contain keys that are hashed to a particular value. On the contrary, it supports both access from key-value and iteration, the functionality that dictionaries lack.</p>
-</blockquote>
-<p><a href="https://www.geeksforgeeks.org/namedtuple-in-python/">Namedtuple in Python - GeeksforGeeks</a></p>
-<p>划重点:①一个轻量的数据结构类；②相比于字典，还有下标索引的功能。</p>
-<p><strong>序列协议:</strong></p>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
+
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
 <ul>
-<li>在 Python 中，序列是一种通用的数据结构，可以包含多个元素，并且支持<strong>迭代</strong>、<strong>索引</strong>和<strong>切片</strong>操作。</li>
-<li>序列协议定义了一组<strong>特殊方法</strong>，例如 <code>__len__</code> 和 <code>__getitem__</code>，用于使对象表现得像序列一样。</li>
-<li>如果一个类实现了这些方法，它的<strong>实例</strong>就可以像<strong>列表</strong>、<strong>字符串</strong>或<strong>元组</strong>一样进行操作。</li>
+<li><strong>开发者模式Debug</strong></li>
 </ul>
-<p><code>FrenchDeck</code>类中实现了<code>__len__</code>方法后，对实例化类<code>deck</code>执行<code>len(deck)</code>时，实际上调用的是<code>deck.__len__(self)</code> ; 同理，对<code>deck</code>执行切片、下标索引时实际调用的是<code>__getitem__</code>方法。</p>
-<p><strong>sorted</strong>:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> card <span class="keyword">in</span> <span class="built_in">sorted</span>(deck , key=card_value):</span><br><span class="line">        <span class="built_in">print</span>(card)</span><br></pre></td></tr></table></figure>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>其中<code>card_value</code>不需要传入参数<code>card</code> , <code>sorted</code>会自动将<code>deck</code>中每一个<code>card</code>传入<code>key</code>中,不需要显式传参。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Vector</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self , x=<span class="number">0</span> , y=<span class="number">0</span></span>):</span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;Vector(%r,%r)&#x27;</span>%(self.x , self.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__abs__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> sqrt(self.x**<span class="number">2</span> + self.y**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__bool__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">bool</span>(self.x <span class="keyword">or</span> self.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__add__</span>(<span class="params">self , other</span>):</span><br><span class="line">        <span class="keyword">return</span> Vector(self.x+other.x , self.y+other.y)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__mul__</span>(<span class="params">self , scalar</span>):</span><br><span class="line">        <span class="keyword">return</span> Vector(self.x*scalar , self.y*scalar) </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    v1 = Vector(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    v2 = Vector(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line">    v3 = Vector(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(v1+v2)</span><br><span class="line">    <span class="built_in">print</span>(v1*<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">abs</span>(v1))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">bool</span>(v3))</span><br></pre></td></tr></table></figure>
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="第二章-数据结构"><a href="#第二章-数据结构" class="headerlink" title="第二章 数据结构"></a>第二章 数据结构</h3><p><strong>列表推导与生成器表达式</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    colors = [<span class="string">&#x27;black&#x27;</span>, <span class="string">&#x27;white&#x27;</span>]</span><br><span class="line">    sizes = [<span class="string">&#x27;S&#x27;</span>, <span class="string">&#x27;M&#x27;</span>, <span class="string">&#x27;L&#x27;</span>]</span><br><span class="line">    tshirt = [(color,size) <span class="keyword">for</span> color <span class="keyword">in</span> colors</span><br><span class="line">                            <span class="keyword">for</span> size <span class="keyword">in</span> sizes]</span><br><span class="line">    <span class="built_in">print</span>(tshirt)</span><br><span class="line">    symbols = <span class="string">&#x27;$¢£¥€¤&#x27;</span></span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">ord</span>(symbol) <span class="keyword">for</span> symbol <span class="keyword">in</span> symbols <span class="keyword">if</span> <span class="built_in">ord</span>(symbol) &gt; <span class="number">127</span>)</span><br><span class="line">    b = [ <span class="built_in">ord</span>(symbol) <span class="keyword">for</span> symbol <span class="keyword">in</span> symbols <span class="keyword">if</span> <span class="built_in">ord</span>(symbol) &gt; <span class="number">127</span> ]</span><br><span class="line">    <span class="built_in">print</span>(a , b)</span><br></pre></td></tr></table></figure>
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>虽然也可以用列表推导来初始化元组、数组或其他序列类型，但是生成<br>器表达式是更好的选择。这是因为生成器表达式背后遵守了迭代器协<br>议，可以逐个地产出元素，而不是先建立一个完整的列表，然后再把这<br>个列表传递到某个构造函数里。前面那种方式显然能够节省内存。</p>
-</blockquote>
-<p><strong>元组</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    lax_coordinates = (<span class="number">33.9425</span>, -<span class="number">118.408056</span>)</span><br><span class="line">    city, year, pop, chg, area = (<span class="string">&#x27;Tokyo&#x27;</span>, <span class="number">2003</span>, <span class="number">32450</span>, <span class="number">0.66</span>, <span class="number">8014</span>)</span><br><span class="line">    traveler_ids = [(<span class="string">&#x27;USA&#x27;</span>, <span class="string">&#x27;31195855&#x27;</span>), (<span class="string">&#x27;BRA&#x27;</span>, <span class="string">&#x27;CE342567&#x27;</span>),(<span class="string">&#x27;ESP&#x27;</span>, <span class="string">&#x27;XDA205856&#x27;</span>)]</span><br><span class="line">    <span class="keyword">for</span> passport <span class="keyword">in</span> <span class="built_in">sorted</span>(traveler_ids):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;%s/%s&#x27;</span> % passport)</span><br></pre></td></tr></table></figure>
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+<ul>
+<li><strong>问题分析</strong></li>
+</ul>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>我们把元组 (‘Tokyo’, 2003, 32450, 0.66, 8014) 里<br>的元素分别赋值给变量 city、year、pop、chg 和 area，而这所有的<br>赋值我们只用一行声明就写完了。同样，在后面一行中，一个 % 运算符<br>就把 passport 元组里的元素对应到了 print 函数的格式字符串空档<br>中。这两个都是对元组拆包的应用。</p>
-</blockquote>
-<p>不使用中间变量交换两个变量的值</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a , b = b , a</span><br></pre></td></tr></table></figure>
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
 
-<p>实际此处涉及到元组的解包:python首先解析右值，组成元组(b,a),再解包赋值给a,b</p>
-<p>*<strong>运算符</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">devmode</span>(<span class="params">a , b</span>):</span><br><span class="line">    <span class="keyword">return</span> (a//b , a%b)</span><br><span class="line">t = (<span class="number">12</span>,<span class="number">7</span>)</span><br><span class="line"><span class="built_in">print</span>(devmode(*t))</span><br><span class="line">a , b , *_ = <span class="built_in">range</span>(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(a,b,_)</span><br></pre></td></tr></table></figure>
-
-<p><strong>嵌套元组</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    metro_areas = [</span><br><span class="line">    (<span class="string">&#x27;Tokyo&#x27;</span>,<span class="string">&#x27;JP&#x27;</span>,<span class="number">36.933</span>,(<span class="number">35.689722</span>,<span class="number">139.691667</span>)), </span><br><span class="line">    (<span class="string">&#x27;Delhi NCR&#x27;</span>, <span class="string">&#x27;IN&#x27;</span>, <span class="number">21.935</span>, (<span class="number">28.613889</span>, <span class="number">77.208889</span>)),</span><br><span class="line">    (<span class="string">&#x27;Mexico City&#x27;</span>, <span class="string">&#x27;MX&#x27;</span>, <span class="number">20.142</span>, (<span class="number">19.433333</span>, -<span class="number">99.133333</span>)),</span><br><span class="line">    (<span class="string">&#x27;New York-Newark&#x27;</span>, <span class="string">&#x27;US&#x27;</span>, <span class="number">20.104</span>, (<span class="number">40.808611</span>, -<span class="number">74.020386</span>)),</span><br><span class="line">    (<span class="string">&#x27;Sao Paulo&#x27;</span>, <span class="string">&#x27;BR&#x27;</span>, <span class="number">19.649</span>, (-<span class="number">23.547778</span>, -<span class="number">46.635833</span>)),</span><br><span class="line">    ]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;&#123;:15&#125; | &#123;:^9&#125; | &#123;:^9&#125;&#x27;</span>.<span class="built_in">format</span>(<span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;lat.&#x27;</span>, <span class="string">&#x27;long.&#x27;</span>))</span><br><span class="line">    fmt = <span class="string">&#x27;&#123;:15&#125; | &#123;:9.4f&#125; | &#123;:9.4f&#125;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> name, cc, pop, (latitude, longitude) <span class="keyword">in</span> metro_areas:</span><br><span class="line">        <span class="keyword">if</span> longitude &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(fmt.<span class="built_in">format</span>(name, latitude, longitude))</span><br></pre></td></tr></table></figure>
-
-<p><code>&#123;:15&#125;</code>表示占15格 ， <code>&#123;:^9&#125;</code>表示占9格，字符串居中 ， <code>&#123;:&gt;9&#125;</code>右对齐占9格，<code>&#123;:9.4f&#125;</code>占9格，保留四位小数的浮点数</p>
-<p><strong>具名元组collections.namedtuple</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    city = namedtuple(<span class="string">&#x27;city&#x27;</span> , [<span class="string">&#x27;name&#x27;</span> , <span class="string">&#x27;country&#x27;</span> , <span class="string">&#x27;pop&#x27;</span> , <span class="string">&#x27;coordinates&#x27;</span>])</span><br><span class="line">    tokyo = city(<span class="string">&#x27;tokyo&#x27;</span> , <span class="string">&#x27;Japan&#x27;</span> , <span class="string">&#x27;36.933&#x27;</span> , (<span class="number">35</span>,<span class="number">139</span>))</span><br><span class="line">    <span class="built_in">print</span>(tokyo.pop , tokyo.coordinates)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(city._fields)</span><br><span class="line">    delhi_data = (<span class="string">&#x27;Delhi NCR&#x27;</span>, <span class="string">&#x27;IN&#x27;</span>, <span class="number">21.935</span>, (<span class="number">28.613889</span>, <span class="number">77.208889</span>))</span><br><span class="line">    delhi = city._make(delhi_data)</span><br><span class="line">    <span class="built_in">print</span>(delhi._asdict)</span><br></pre></td></tr></table></figure>
-
-<p><code>._fields</code>返回具名元素所有的字段名称</p>
-<p><code>._make</code>支持以**元组(或列表)**创建具名元组</p>
-<p><code>._asdict</code>把具名元组以 collections.OrderedDict 的形式返回，我们可以利用它来把元组里的信息友好地呈现出来。</p>
-<p><strong>切片</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&#x27;bicycle&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(s[::<span class="number">3</span>] , s[::-<span class="number">1</span>] , s[::-<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(s[<span class="number">1</span>:<span class="number">5</span>:<span class="number">2</span>] , s[<span class="number">5</span>:<span class="number">1</span>:-<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-<p><code>start:stop:step</code>    <code>step</code>为负值表示反向切片</p>
-<p><strong>对序列使用</strong>*</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    <span class="built_in">print</span>(l * <span class="number">3</span> , <span class="number">3</span> * <span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">    board = [[<span class="string">&#x27;_&#x27;</span>]*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">    <span class="built_in">print</span>(board)</span><br><span class="line">    board[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(board)</span><br><span class="line">    board_ = [[<span class="string">&#x27;_&#x27;</span>]*<span class="number">3</span>]*<span class="number">3</span></span><br><span class="line">    board_[<span class="number">1</span>][<span class="number">2</span>] = <span class="string">&#x27;X&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(board_)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python chapter2.py</span> </span><br><span class="line">[1, 2, 3, 1, 2, 3, 1, 2, 3] abcabcabc</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;]]</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;_&#x27;]]</span><br><span class="line">[[&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;], [&#x27;_&#x27;, &#x27;_&#x27;, &#x27;X&#x27;]]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>board_ = [[&#39;_&#39;]*3]*3</code>  这种方法创建了一个包含三个引用的列表，修改其中一个列表，其他两个列表都会变化。</p>
-<h3 id="第三章-字典和集合"><a href="#第三章-字典和集合" class="headerlink" title="第三章 字典和集合"></a>第三章 字典和集合</h3><p><strong>字典初始化</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    a = <span class="built_in">dict</span>(one=<span class="number">1</span>, two=<span class="number">2</span>, three=<span class="number">3</span>)</span><br><span class="line">    b = &#123;<span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">    c = <span class="built_in">dict</span>(<span class="built_in">zip</span>([<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">    d = <span class="built_in">dict</span>([(<span class="string">&#x27;two&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;one&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;three&#x27;</span>, <span class="number">3</span>)])</span><br><span class="line">    e = <span class="built_in">dict</span>(&#123;<span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line">    <span class="built_in">print</span>(a == b == c == d == e)<span class="comment">#以上五种字典初始化方式等价</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>字典推导</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DIAL_CODES = [(<span class="number">86</span>, <span class="string">&#x27;China&#x27;</span>),(<span class="number">91</span>, <span class="string">&#x27;India&#x27;</span>),(<span class="number">1</span>, <span class="string">&#x27;United States&#x27;</span>),(<span class="number">62</span>, <span class="string">&#x27;Indonesia&#x27;</span>),(<span class="number">55</span>, <span class="string">&#x27;Brazil&#x27;</span>),(<span class="number">92</span>, <span class="string">&#x27;Pakistan&#x27;</span>),(<span class="number">880</span>, <span class="string">&#x27;Bangladesh&#x27;</span>),(<span class="number">234</span>, <span class="string">&#x27;Nigeria&#x27;</span>),(<span class="number">7</span>, <span class="string">&#x27;Russia&#x27;</span>),(<span class="number">81</span>, <span class="string">&#x27;Japan&#x27;</span>)]</span><br><span class="line">country_code = &#123;country : code <span class="keyword">for</span> code,country <span class="keyword">in</span> DIAL_CODES <span class="keyword">if</span> code &gt; <span class="number">66</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(country_code)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>集合</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">    s = <span class="built_in">set</span>(l) </span><br><span class="line">    <span class="built_in">print</span>(s)    </span><br><span class="line"></span><br><span class="line">    s2 = &#123;<span class="number">4</span>,<span class="number">6</span>,<span class="number">9</span>&#125;</span><br><span class="line">    <span class="built_in">print</span>(s&amp;s2)</span><br><span class="line">    <span class="built_in">print</span>(s|s2)</span><br><span class="line">    <span class="built_in">print</span>(s-s2)</span><br><span class="line"></span><br><span class="line">    s3 = <span class="built_in">set</span>()</span><br><span class="line">    s3.add(<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># s3.pop()</span></span><br><span class="line">    <span class="built_in">print</span>(s3)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><code>s = set(l)</code>会将列表<code>l</code>中元素去重</p>
-<p><code>s&amp;s2</code>求交集，<code>s|s2</code>求并集，<code>s-s2</code>求补集</p>
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+<ul>
+<li><strong>解决方案</strong></li>
+</ul>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
 </search>
