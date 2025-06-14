@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-05-28T12:21:00.459Z</updated>
+  <updated>2025-06-14T15:39:43.697Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A simple example of Cython</title>
+    <link href="http://benkangpeng.github.io/posts/ec8e075c/"/>
+    <id>http://benkangpeng.github.io/posts/ec8e075c/</id>
+    <published>2025-06-14T15:39:13.000Z</published>
+    <updated>2025-06-14T15:39:43.697Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython&quot;&gt;&lt;a href=&quot;#Tutorial-Binding-C-Functions-and-Classes-to-Python-using-</summary>
+      
+    
+    
+    
+    
+    <category term="Cython" scheme="http://benkangpeng.github.io/tags/Cython/"/>
+    
+  </entry>
   
   <entry>
     <title>Sub-group Swizzle分块矩阵乘优化原理分析</title>
@@ -337,23 +357,6 @@
     
     
     <category term="Software" scheme="http://benkangpeng.github.io/tags/Software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Customized Website Article Link</title>
-    <link href="http://benkangpeng.github.io/posts/4bc5178d/"/>
-    <id>http://benkangpeng.github.io/posts/4bc5178d/</id>
-    <published>2021-10-01T09:00:00.000Z</published>
-    <updated>2024-03-15T12:38:34.756Z</updated>
-    
-    
-    <summary type="html">&lt;h3 id=&quot;Abstract&quot;&gt;&lt;a href=&quot;#Abstract&quot; class=&quot;headerlink&quot; title=&quot;Abstract&quot;&gt;&lt;/a&gt;Abstract&lt;/h3&gt;&lt;p&gt;In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called &lt;code&gt;hexo-abbrlink&lt;/code&gt; , which is really amazing !   Here is the link :  &lt;a href=&quot;https://github.com/rozbo/hexo-abbrlink&quot;&gt;rozbo&amp;#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Web" scheme="http://benkangpeng.github.io/tags/Web/"/>
     
   </entry>
   
