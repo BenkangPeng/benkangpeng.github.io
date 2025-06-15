@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.20/fancybox/fancybox.css" integrity="sha256-RvRHGSuWAxZpXKV9lLDt2e+rZ+btzn48Wp4ueS3NZKs=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"benkangpeng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac","show_result":true},"fold":{"enable":true,"height":500},"bookmark":{"enable":false,"color":"rgb(240,55,82)","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文以TVM v0.20.0为例，分析TVM中Python前端与C++后端的绑定机制。绑定机制主要包括三个部分：类的注册、对象的初始化以及成员函数的绑定。本文将以DataflowBlockRewrite类为例，逐步解析这一过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TVM Python与Cpp绑定机制解析">
+<meta property="og:url" content="http://benkangpeng.github.io/posts/816428ff/index.html">
+<meta property="og:site_name" content="Benkang Peng">
+<meta property="og:description" content="本文以TVM v0.20.0为例，分析TVM中Python前端与C++后端的绑定机制。绑定机制主要包括三个部分：类的注册、对象的初始化以及成员函数的绑定。本文将以DataflowBlockRewrite类为例，逐步解析这一过程。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-15T00:39:56.000Z">
+<meta property="article:modified_time" content="2025-06-15T00:41:43.483Z">
+<meta property="article:author" content="Benkang Peng">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://benkangpeng.github.io/posts/816428ff/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://benkangpeng.github.io/posts/816428ff/","path":"posts/816428ff/","title":"TVM Python与Cpp绑定机制解析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>TVM Python与Cpp绑定机制解析 | Benkang Peng</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Benkang Peng" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Benkang Peng</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Personal Website</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-external-link"><a href="/external-link/" rel="section"><i class="fa fa-external-link fa-fw"></i>External-link</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-me"><a href="/me/index.html" rel="section"><i class="fa fa-code fa-fw"></i>Me</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E7%AB%AF%E6%B3%A8%E5%86%8C%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">一、前端注册类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%89%8D%E7%AB%AF%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">二、前端对象初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81TVM%E5%89%8D%E7%AB%AF%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E4%B8%8E%E5%90%8E%E7%AB%AF%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%BB%91%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">三、TVM前端对象的成员函数与后端对象的成员函数绑定</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Benkang Peng"
+      src="/images/GNU-Linux-Logo-Penguin-SVG.webp">
+  <p class="site-author-name" itemprop="name">Benkang Peng</p>
+  <div class="site-description" itemprop="description">A newbie</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/benkangpeng" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;benkangpeng" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:benkangpeng@163.com" title="E-Mail → mailto:benkangpeng@163.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://benkangpeng.github.io/posts/816428ff/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/GNU-Linux-Logo-Penguin-SVG.webp">
+      <meta itemprop="name" content="Benkang Peng">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Benkang Peng">
+      <meta itemprop="description" content="A newbie">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="TVM Python与Cpp绑定机制解析 | Benkang Peng">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TVM Python与Cpp绑定机制解析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>7.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>13 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本文以<code>TVM v0.20.0</code>为例，分析TVM中Python前端与C++后端的绑定机制。绑定机制主要包括三个部分：<strong>类的注册</strong>、<strong>对象的初始化</strong>以及<strong>成员函数的绑定</strong>。本文将以<code>DataflowBlockRewrite</code>类为例，逐步解析这一过程。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>为行文方便，前端默认指TVM python前端，后端默认指TVM C++后端</p>
+</blockquote>
+<h3 id="一、前端注册类"><a href="#一、前端注册类" class="headerlink" title="一、前端注册类"></a>一、前端注册类</h3><p>在TVM前端中，需要对每一个类进行注册。</p>
+<p>以<code>DataflowBlockRewrite</code>为例，注册代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line">    ......</span><br><span class="line"><span class="comment">#等价于DataflowBlockRewrite = tvm._ffi.register_object(&quot;relax.DataflowBlockRewrite&quot;)(DataflowBlockRewrite)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了行文流畅，本文中大多数的类、文件没有注明具体路径，读者可以使用VSCode <code>Ctrl + P</code>搜索文件，侧边栏搜索类名进行检索。</p>
+</blockquote>
+<p>接下来，我们分析<code>tvm._ffi.register_object</code>的执行流程，该函数定义如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">register_object</span>(<span class="params">type_key=<span class="literal">None</span></span>):</span><br><span class="line">    </span><br><span class="line">    object_name = type_key <span class="keyword">if</span> <span class="built_in">isinstance</span>(type_key, <span class="built_in">str</span>) <span class="keyword">else</span> type_key.__name__ <span class="comment">#object_name = &quot;relax.DataflowBlockRewrite&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="comment">#ignore ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(type_key, <span class="built_in">str</span>):</span><br><span class="line">        <span class="keyword">return</span> register</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> register(type_key)</span><br></pre></td></tr></table></figure>
+
+<p>当传入字符串参数<code>&quot;relax.DataflowBlockRewrite&quot;</code> 时， <code>tvm._ffi.register_object(&quot;relax.DataflowBlockRewrite&quot;)</code>返回一个注册函数<code>register</code>。</p>
+<p>再看<code>register(DataflowBlockRewrite)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;internal register function&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">hasattr</span>(cls, <span class="string">&quot;_type_index&quot;</span>):</span><br><span class="line">            tindex = cls._type_index</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># tidx是一个与C uint兼容的uint数据类型</span></span><br><span class="line">            tidx = ctypes.c_uint()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> _RUNTIME_ONLY:</span><br><span class="line">                check_call(_LIB.TVMObjectTypeKey2Index(c_str(object_name), ctypes.byref(tidx)))<span class="comment">#检查这个类是否在C++后端中,如果存在，将type_index写入tidx(=240)</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># directly skip unknown objects during runtime.</span></span><br><span class="line">                ret = _LIB.TVMObjectTypeKey2Index(c_str(object_name), ctypes.byref(tidx))</span><br><span class="line">                <span class="keyword">if</span> ret != <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> cls</span><br><span class="line">            tindex = tidx.value<span class="comment">#tindex = 240</span></span><br><span class="line">        <span class="comment">#注册</span></span><br><span class="line">        _register_object(tindex, cls)</span><br><span class="line">        <span class="keyword">return</span> cls</span><br></pre></td></tr></table></figure>
+
+
+
+<p>函数 <code>_register_object</code>的定义在<code>object.pxi</code>中，以<code>_register_object(240, DataflowBlockRewrite)</code>的执行流程为例：</p>
+<blockquote>
+<p><strong>Cython编译流程</strong>：</p>
+<p><code>python/tvm/_ffi/_cython</code>中<code>base.pxi</code>,<code>ndarray.pxi</code>,<code>object.pxi</code>,<code>packed_func.pxi</code>描述了与C++的接口，<code>core.pyx</code> <code>include</code>了这些<code>*.pxi</code>文件。</p>
+<p>TVM项目编译后，<code>python/tvm/_ffi/_cython</code>中的<code>core.pyx</code>被编译成 <code>python/tvm/_ffi/_cy3</code>中的<code>.so</code>文件(例如<code>core.cpython-312-x86_64-linux-gnu.so</code>)。(Cython具体编译配置见<code>python/setup.py</code>L161)。完成编译后，便可以在<code>python</code>文件中调用<code>.so</code>中的C++函数&#x2F;类。例如<code>python/tvm/_ffi/registry.py</code>中<code>from ._cy3.core import _register_object</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;Maps object type index to its constructor&quot;&quot;&quot;</span></span><br><span class="line">cdef <span class="built_in">list</span> OBJECT_TYPE = []</span><br><span class="line"><span class="string">&quot;&quot;&quot;Maps object type to its type index&quot;&quot;&quot;</span></span><br><span class="line">cdef <span class="built_in">dict</span> OBJECT_INDEX = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#object是python内置的一个类，可表示所有对象</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_register_object</span>(<span class="params"><span class="built_in">int</span> index, <span class="built_in">object</span> cls</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;register object class&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">issubclass</span>(cls, NDArrayBase):</span><br><span class="line">        _register_ndarray(index, cls)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> OBJECT_TYPE</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(OBJECT_TYPE) &lt;= index:</span><br><span class="line">        OBJECT_TYPE.append(<span class="literal">None</span>)</span><br><span class="line">      </span><br><span class="line">    <span class="comment">#将类写进列表、字典中，从而实现注册</span></span><br><span class="line">    OBJECT_TYPE[index] = cls  <span class="comment"># ID → Python类</span></span><br><span class="line">    OBJECT_INDEX[cls] = index <span class="comment"># Python类 → ID</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>前端和后端中相对应的类的<code>type_index</code>相等，从而实现一一对应。</li>
+</ul>
+<h3 id="二、前端对象初始化"><a href="#二、前端对象初始化" class="headerlink" title="二、前端对象初始化"></a>二、前端对象初始化</h3><p>仍然以<code>DataflowBlockRewrite</code>为例</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dfb: DataflowBlock, root_fn: Function</span>):</span><br><span class="line">        self.func_name = root_fn.__name__ <span class="keyword">if</span> <span class="built_in">hasattr</span>(root_fn, <span class="string">&quot;__name__&quot;</span>) <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">        self.__init_handle_by_constructor__(</span><br><span class="line">            _ffi_api.DataflowBlockRewrite, dfb, root_fn  <span class="comment"># type: ignore</span></span><br><span class="line">        )</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><code>DataflowBlockRewrite</code>前端初始化函数<code>__init__</code>所需的参数与后端C++构造函数一致。 <code>binding_rewrite.h</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span> : <span class="keyword">public</span> ObjectRef &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">TVM_DLL <span class="keyword">explicit</span> <span class="title">DataflowBlockRewrite</span><span class="params">(DataflowBlock dfb, Function root_fn)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>python对象初始化时，通过<code>self.__init_handle_by_constructor__</code>创建了C++实例。</p>
+<p><code>object.pxi</code>中定义了类<code>ObjectBase</code>和方法<code>__init_handle_by_constructor__</code>: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cdef class ObjectBase</span><br><span class="line">	cdef void* chandle</span><br><span class="line">	def __init_handle_by_constructor__(self, fconstructor, *args):</span><br><span class="line">        </span><br><span class="line">        self.chandle = NULL</span><br><span class="line">        cdef void* chandle</span><br><span class="line">        ConstructorCall(</span><br><span class="line">            (&lt;PackedFuncBase&gt;fconstructor).chandle,</span><br><span class="line">            kTVMObjectHandle, args, &amp;chandle)</span><br><span class="line">        self.chandle = chandle</span><br></pre></td></tr></table></figure>
+
+<p>类的初始化发生在函数<code>ConstructorCall</code>。此处函数调用栈比较深，可以简单理解为：使用构造函数<code>fconstructor</code>和参数<code>args</code>，构造了一个<code>C++</code>的<code>DataflowBlockRewrite</code>类，并用临时指针<code>chandle</code>指向这个<code>C++</code>实例，再用<code>self.chandle</code>指向该C++实例。</p>
+<p><code>DataflowBlockRewrite</code>继承自<code>ObjectBase</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">	class DataflowBlockRewrite</span><br><span class="line">	class Object</span><br><span class="line">	class ObjectBase</span><br><span class="line">	DataflowBlockRewrite &lt;|-- Object</span><br><span class="line">	Object &lt;|-- ObjectBase</span><br></pre></td></tr></table></figure>
+
+<p>因此，python类<code>DataflowBlockRewrite</code>有一个成员变量<code>self.chandle</code>指向C++对象<code>DataflowBlockRewrite</code>,即python DataflowBlockRewrite.chandle  -&gt;  &amp;(C++ DataflowBlockRewrite)，从而实现了python对象与C++对象的绑定。</p>
+<h3 id="三、TVM前端对象的成员函数与后端对象的成员函数绑定"><a href="#三、TVM前端对象的成员函数与后端对象的成员函数绑定" class="headerlink" title="三、TVM前端对象的成员函数与后端对象的成员函数绑定"></a>三、TVM前端对象的成员函数与后端对象的成员函数绑定</h3><p>仍然以<code>DataflowBlockRewrite</code>为例，它的<code>replace_all_uses</code>方法与后端C++函数<code>ReplaceAllUses</code>进行了绑定：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">replace_all_uses</span>(<span class="params">self, old_var: Var, new_var: Var</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        _ffi_api.dfb_rewrite_replace_all_uses(self, old_var, new_var) </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*! \brief Statement rewriter for relax.DataflowBlock. */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewriteNode</span> : <span class="keyword">public</span> Object &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">/*! \brief Replace all uses of old_var with new_var. */</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">ReplaceAllUses</span><span class="params">(Var old_var, Var new_var)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>python类<code>DataflowBlockRewrite</code>调用<code>_ffi_api.dfb_rewrite_replace_all_uses</code>，实际在调用后端的注册函数<code>relax.dfb_rewrite_replace_all_uses</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TVM_REGISTER_GLOBAL</span>(<span class="string">&quot;relax.dfb_rewrite_replace_all_uses&quot;</span>)</span><br><span class="line">    .<span class="built_in">set_body_typed</span>([](DataflowBlockRewrite rwt, Var old_var, Var new_var) &#123;</span><br><span class="line">      rwt-&gt;<span class="built_in">ReplaceAllUses</span>(old_var, new_var);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>函数体内再调用<code>rwt-&gt;ReplaceAllUses(old_var, new_var);</code></p>
+<p>所以，<code>_ffi_api.dfb_rewrite_replace_all_uses</code>是如何与后端注册的函数<code>relax.dfb_rewrite_replace_all_uses</code>进行绑定的呢？<code>_ffi_api</code>是一个module，为什么会有一个<code>dfb_rewrite_replace_all_uses</code>方法呢？这一功能的实现依赖于Python一个特性，运行时对象属性更新(Dynamic Attribute Assignment).</p>
+<p>在<code>binging_rewrite.py</code>中，通过<code>from . import _ffi_api</code>导入<code>_ffi_api</code>，这个导入操作会执行<code>_ffi_api.py</code>中的<code>tvm._ffi._init_api(&quot;relax&quot;, __name__)</code>，这行代码将后端注册的、<code>relax namspace</code>中的函数写入了<code>_ffi_api</code>这个module。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tvm._ffi._init_api(&quot;relax&quot;, __name__)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">__name__ = tvm.relax._ffi_api</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">__name__是python内置的一个变量，表示当前python文件被调用时的路径</span></span><br></pre></td></tr></table></figure>
+
+<p><code>registry.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_init_api</span>(<span class="params">namespace, target_module_name=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="comment">#namespace = &quot;relax&quot;, target_module_name = &quot;tvm.relax._ffi_api&quot;</span></span><br><span class="line">    target_module_name = target_module_name <span class="keyword">if</span> target_module_name <span class="keyword">else</span> namespace</span><br><span class="line">    <span class="keyword">if</span> namespace.startswith(<span class="string">&quot;tvm.&quot;</span>):</span><br><span class="line">        _init_api_prefix(target_module_name, namespace[<span class="number">4</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># target_module_name = &quot;tvm.relax._ffi_api&quot;, namespace = &quot;relax&quot;</span></span><br><span class="line">        _init_api_prefix(target_module_name, namespace)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_init_api_prefix</span>(<span class="params">module_name, prefix</span>):</span><br><span class="line">    <span class="comment"># module_name = &quot;tvm.relax._ffi_api&quot;, prefix = &quot;relax&quot;</span></span><br><span class="line">    <span class="comment"># sys.modules是python内置的字典，可以通过名称来获取module</span></span><br><span class="line">    module = sys.modules[module_name] <span class="comment">#module = _ffi_api</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> list_global_func_names():<span class="comment">#列出后端注册的所有函数</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(prefix):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">		<span class="comment">#以name = &quot;relax.dfb_rewrite_replace_all_uses&quot;为例</span></span><br><span class="line">        fname = name[<span class="built_in">len</span>(prefix) + <span class="number">1</span> :]<span class="comment">#name = dfb_rewrite_replace_all_uses</span></span><br><span class="line">        target_module = module <span class="comment">#_ffi_api</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> fname.find(<span class="string">&quot;.&quot;</span>) != -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="comment">#拿到dfb_rewrite_replace_all_uses的C++ handle</span></span><br><span class="line">        f = get_global_func(name)</span><br><span class="line">        <span class="comment">#wrap it as a python function</span></span><br><span class="line">        ff = _get_api(f)</span><br><span class="line">        ff.__name__ = fname<span class="comment">#设置名字为dfb_rewrite_replace_all_uses</span></span><br><span class="line">        ff.__doc__ = <span class="string">&quot;TVM PackedFunc %s. &quot;</span> % fname</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#为模块(对象)_ffi_api设置一个属性</span></span><br><span class="line">        <span class="comment">#等价于_ffi_api.&quot;dfb_rewrite_replace_all_uses&quot; = ff</span></span><br><span class="line">        <span class="built_in">setattr</span>(target_module, ff.__name__, ff)</span><br></pre></td></tr></table></figure>
+
+<p><code>Tips</code>: </p>
+<ul>
+<li>后端<code>relax.dfb_rewrite_replace_all_uses</code>的注册</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TVM_REGISTER_GLOBAL</span>(<span class="string">&quot;relax.dfb_rewrite_replace_all_uses&quot;</span>)</span><br><span class="line">    .<span class="built_in">set_body_typed</span>([](DataflowBlockRewrite rwt, Var old_var, Var new_var) &#123;</span><br><span class="line">      rwt-&gt;<span class="built_in">ReplaceAllUses</span>(old_var, new_var);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>list_global_func_names()</code>返回的列表中有一个字符串为<code>relax.dfb_rewrite_replace_all_uses</code></p>
+<ul>
+<li>经过以上步骤，<code>_ffi_api</code>具有属性<code>dfb_rewrite_replace_all_uses</code>, <code>_ffi_api.dfb_rewrite_replace_all_uses</code>是一个python函数<code>dfb_rewrite_replace_all_uses</code>, 它里面包装了对应的名为<code>relax.dfb_rewrite_replace_all_uses</code>的后端注册的函数。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/ec8e075c/" rel="prev" title="A simple example of Cython">
+                  <i class="fa fa-angle-left"></i> A simple example of Cython
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Benkang Peng</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">151k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4:34</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">Loading days...</span>
+<span id="times">Loading hours,minutes and seconds...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("10/01/2021 15:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "🛜The website has survived for  "+dnum+"  days ";
+        document.getElementById("times").innerHTML = hnum + " hours " + mnum + " minutes and " + snum + " seconds.🎉🎉🎉";
+    }
+setInterval("createtime()",250);
+
+</script>
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/benkangpeng" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.20/fancybox/fancybox.umd.js" integrity="sha256-q8XkJ6dj5VwSvzI8+nATCHHQG+Xv/dAZBCgqmu93zOY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"Me":true,"url":"http://benkangpeng.github.io/posts/816428ff/"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="http://benkangpeng.github.io/atom.xml" rel="self"/>
   
   <link href="http://benkangpeng.github.io/"/>
-  <updated>2025-06-14T15:39:43.697Z</updated>
+  <updated>2025-06-15T00:41:43.483Z</updated>
   <id>http://benkangpeng.github.io/</id>
   
   <author>
@@ -17,17 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TVM Python与Cpp绑定机制解析</title>
+    <link href="http://benkangpeng.github.io/posts/816428ff/"/>
+    <id>http://benkangpeng.github.io/posts/816428ff/</id>
+    <published>2025-06-15T00:39:56.000Z</published>
+    <updated>2025-06-15T00:41:43.483Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本文以&lt;code&gt;TVM v0.20.0&lt;/code&gt;为例，分析TVM中Python前端与C++后端的绑定机制。绑定机制主要包括三个部分：&lt;strong&gt;类的注册&lt;/strong&gt;、&lt;strong&gt;对象的初始化&lt;/strong&gt;以及&lt;strong&gt;成员函数的绑定&lt;/strong&gt;。本文将以&lt;code&gt;DataflowBlockRewrite&lt;/code&gt;类为例，逐步解析这一过程。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>A simple example of Cython</title>
     <link href="http://benkangpeng.github.io/posts/ec8e075c/"/>
     <id>http://benkangpeng.github.io/posts/ec8e075c/</id>
     <published>2025-06-14T15:39:13.000Z</published>
-    <updated>2025-06-14T15:39:43.697Z</updated>
+    <updated>2025-06-15T00:42:16.700Z</updated>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython&quot;&gt;&lt;a href=&quot;#Tutorial-Binding-C-Functions-and-Classes-to-Python-using-</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython&quot;&gt;&lt;a href=&quot;#Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython&quot; class=&quot;headerlink&quot; title=&quot;Tutorial: Binding C++ Functions and Classes to Python using Cython&quot;&gt;&lt;/a&gt;Tutorial: Binding C++ Functions and Classes to Python using Cython&lt;/h1&gt;</summary>
     
     
     
@@ -41,7 +53,7 @@
     <link href="http://benkangpeng.github.io/posts/2b96453f/"/>
     <id>http://benkangpeng.github.io/posts/2b96453f/</id>
     <published>2025-05-28T12:07:02.000Z</published>
-    <updated>2025-05-28T12:21:00.459Z</updated>
+    <updated>2025-05-28T12:41:41.650Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Sub-group-Swizzle分块矩阵乘优化原理分析&quot;&gt;&lt;a href=&quot;#Sub-group-Swizzle分块矩阵乘优化原理分析&quot; class=&quot;headerlink&quot; title=&quot;Sub-group Swizzle分块矩阵乘优化原理分析&quot;&gt;&lt;/a&gt;Sub-group Swizzle分块矩阵乘优化原理分析&lt;/h2&gt;&lt;p&gt;因为要写成实验报告用来应付课程作业，因此写得罗里吧嗦的，见谅 :(&lt;/p&gt;</summary>
@@ -340,23 +352,6 @@
     
     
     <category term="IC" scheme="http://benkangpeng.github.io/tags/IC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Instruction Of Typora</title>
-    <link href="http://benkangpeng.github.io/posts/bfc69175/"/>
-    <id>http://benkangpeng.github.io/posts/bfc69175/</id>
-    <published>2021-10-01T11:00:00.000Z</published>
-    <updated>2024-03-15T12:39:23.594Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Software" scheme="http://benkangpeng.github.io/tags/Software/"/>
     
   </entry>
   

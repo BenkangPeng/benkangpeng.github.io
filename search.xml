@@ -1,46 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Collecting commonly used websites</title>
-    <url>/posts/7c22bd6a/</url>
-    <content><![CDATA[<p><strong style="color : orange">Some commonly used or valuable websites .</strong> </p>
-<span id="more"></span>
+    <title>A simple example of Cython</title>
+    <url>/posts/ec8e075c/</url>
+    <content><![CDATA[<h1 id="Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython"><a href="#Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython" class="headerlink" title="Tutorial: Binding C++ Functions and Classes to Python using Cython"></a>Tutorial: Binding C++ Functions and Classes to Python using Cython</h1><span id="more"></span>
 
-<div class="link-grid"><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hackway</p><p>计算机专业学习路线</p>
-<a href="https://hackway.org/docs/cs/intro"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>cs-self-learning</p><p>CS自学指南</p>
-<a href="https://csdiy.wiki"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>名校公开课程评价网</p><p>CS Courses</p>
-<a href="https://conanhujinming.github.io/comments-for-awesome-courses/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>CS公开课程学习群</p><p>一个QQ群</p>
-<a href="https://zhuanlan.zhihu.com/p/253232863"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>编程指北</p><p>计算机学习路线</p>
-<a href="https://csguide.cn/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
-<a href="chat.zhille.io"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Hello 算法</p><p>算法学习入门教程</p>
-<a href="https://www.hello-algo.com/"></a>
-</div><div class="link-grid-container">
-<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
-<p>Brian (Bojie) Li (01.me)</p><p>https://01.me/</p>
-<a href="https://01.me/"></a>
-</div></div>]]></content>
+<h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#cpp-implementation">C++ Implementation</a></li>
+<li><a href="#cython-binding-files">Cython Binding Files</a></li>
+<li><a href="#building-the-extension">Building the Extension</a></li>
+<li><a href="#using-the-python-module">Using the Python Module</a></li>
+<li><a href="#best-practices">Best Practices</a></li>
+</ol>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Cython is a powerful tool that allows you to write C extensions for Python. It’s particularly useful when you want to:</p>
+<ul>
+<li>Speed up Python code by converting it to C</li>
+<li>Interface with existing C&#x2F;C++ code</li>
+<li>Create Python bindings for C++ classes and functions</li>
+</ul>
+<p>This tutorial demonstrates how to create Python bindings for C++ functions and classes using a real-world example.</p>
+<h2 id="Project-Structure"><a href="#Project-Structure" class="headerlink" title="Project Structure"></a>Project Structure</h2><p>A typical Cython project for C++ bindings consists of the following files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src/cc/</span><br><span class="line">├── functions.hpp      # C++ header file</span><br><span class="line">├── functions.cc       # C++ implementation</span><br><span class="line">├── functions.pxd      # Cython declarations</span><br><span class="line">├── functions.pyx      # Cython implementation</span><br><span class="line">└── setup.py          # Build configuration</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-Implementation"><a href="#C-Implementation" class="headerlink" title="C++ Implementation"></a>C++ Implementation</h2><h3 id="Header-File-functions-hpp"><a href="#Header-File-functions-hpp" class="headerlink" title="Header File (functions.hpp)"></a>Header File (functions.hpp)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> CC_FUNCTIONS_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> CC_FUNCTIONS_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Function declarations</span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">prim</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">fib</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matmul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Class declaration</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">matrix</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">matrix</span>();</span><br><span class="line">    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">mul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                     std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B);</span><br><span class="line">    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">transpose</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Implementation-File-functions-cc"><a href="#Implementation-File-functions-cc" class="headerlink" title="Implementation File(functions.cc)"></a>Implementation File(functions.cc)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;functions.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">prim</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// calculate the upper bound of the n-th prime numbers</span></span><br><span class="line">  <span class="type">int</span> upper = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(n * (<span class="built_in">log</span>(n) + <span class="built_in">log</span>(<span class="built_in">log</span>(n)))) + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">std::vector&lt;<span class="type">bool</span>&gt; <span class="title">sieve</span><span class="params">(upper + <span class="number">1</span>, <span class="literal">true</span>)</span></span>;</span><br><span class="line">  sieve[<span class="number">0</span>] = sieve[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">2</span>; p * p &lt;= upper; p++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sieve[p]) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> i = p * p; i &lt;= upper; i += p) &#123;</span><br><span class="line">        sieve[i] = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">  primes.<span class="built_in">reserve</span>(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; primes.<span class="built_in">size</span>() &lt; <span class="built_in">static_cast</span>&lt;<span class="type">size_t</span>&gt;(n) &amp;&amp; i &lt;= upper; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sieve[i]) &#123;</span><br><span class="line">      primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> primes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">fib</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n)</span></span>;</span><br><span class="line">  res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  res[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    res[i] = res[i - <span class="number">1</span>] + res[i - <span class="number">2</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matmul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                     std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>() || B.<span class="built_in">empty</span>() || A[<span class="number">0</span>].<span class="built_in">size</span>() != B.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(</span><br><span class="line">        <span class="string">&quot;Invalid matrix dimensions for multiplication.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(A.<span class="built_in">size</span>(), std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(B[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; B[<span class="number">0</span>].<span class="built_in">size</span>(); ++j) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; B.<span class="built_in">size</span>(); ++k) &#123;</span><br><span class="line">        res[i][j] += A[i][k] * B[k][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; matrix::<span class="built_in">mul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                          std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>() || B.<span class="built_in">empty</span>() || A[<span class="number">0</span>].<span class="built_in">size</span>() != B.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(</span><br><span class="line">        <span class="string">&quot;Invalid matrix dimensions for multiplication.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(A.<span class="built_in">size</span>(), std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(B[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; B[<span class="number">0</span>].<span class="built_in">size</span>(); ++j) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; B.<span class="built_in">size</span>(); ++k) &#123;</span><br><span class="line">        res[i][j] += A[i][k] * B[k][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">matrix::<span class="built_in">matrix</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt;</span><br><span class="line">matrix::<span class="built_in">transpose</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(<span class="string">&quot;Invalid matrix dimensions for transpose.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> row = A.<span class="built_in">size</span>();</span><br><span class="line">  <span class="type">int</span> col = A[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(col, std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(row, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; row; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; col; ++j) &#123;</span><br><span class="line">      res[j][i] = A[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Cython-Binding-Files"><a href="#Cython-Binding-Files" class="headerlink" title="Cython Binding Files"></a>Cython Binding Files</h2><h3 id="1-PXD-File-functions-pxd"><a href="#1-PXD-File-functions-pxd" class="headerlink" title="1. PXD File (functions.pxd)"></a>1. PXD File (functions.pxd)</h3><p>The PXD file contains declarations that tell Cython about the C++ types and functions:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> libcpp.vector cimport vector</span><br><span class="line"></span><br><span class="line">cdef extern <span class="keyword">from</span> <span class="string">&quot;functions.cc&quot;</span>:</span><br><span class="line">    <span class="comment"># Function declarations</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] prim(<span class="built_in">int</span> n)</span><br><span class="line">    cdef vector[<span class="built_in">int</span>] fib(<span class="built_in">int</span> n)</span><br><span class="line">    cdef vector[vector[<span class="built_in">int</span>]] matmul(vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Class declaration</span></span><br><span class="line">    cdef cppclass matrix:</span><br><span class="line">        matrix()</span><br><span class="line">        vector[vector[<span class="built_in">int</span>]] mul(vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B)</span><br><span class="line">        vector[vector[<span class="built_in">int</span>]] transpose(vector[vector[<span class="built_in">int</span>]] A)</span><br></pre></td></tr></table></figure>
+
+<p>❌ Intuitively, it should be <code>cdef extern from &quot;functions.hpp&quot;</code> in <code>functions.pxd</code>, and the TVM project also includes header files (<code>.hpp</code>) in its <code>.pxi</code>. However, this causes errors on my Windows computer. Changing it to <code>.cc</code> resolves the issue.</p>
+<h3 id="2-PYX-File-functions-pyx"><a href="#2-PYX-File-functions-pyx" class="headerlink" title="2. PYX File (functions.pyx)"></a>2. PYX File (functions.pyx)</h3><p>The PYX file contains the Python interface implementation:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># distutils: language=c++</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> libcpp.vector cimport vector</span><br><span class="line"><span class="keyword">from</span> functions cimport prim, fib, matmul, matrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># Function wrappers</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getNPrimes</span>(<span class="params"><span class="built_in">int</span> n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Get the first n prime numbers.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] primes = prim(n)</span><br><span class="line">    <span class="keyword">return</span> primes</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getNFibonacci</span>(<span class="params"><span class="built_in">int</span> n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Get the first n Fibonacci numbers.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] res = fib(n)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matMul</span>(<span class="params">vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Multiply two matrices.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[vector[<span class="built_in">int</span>]] res = matmul(A, B)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment"># Class wrapper</span></span><br><span class="line">cdef <span class="keyword">class</span> <span class="title class_">PyMatrix</span>:</span><br><span class="line">    cdef matrix _matrix <span class="comment"># wrap a C++ class `matrix` in python class `PyMatrix`</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self._matrix = matrix()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">self, vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B</span>):</span><br><span class="line">        <span class="keyword">return</span> self._matrix.mul(A, B)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">transpose</span>(<span class="params">self, vector[vector[<span class="built_in">int</span>]] A</span>):</span><br><span class="line">        <span class="keyword">return</span> self._matrix.transpose(A)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Building-the-Extension"><a href="#Building-the-Extension" class="headerlink" title="Building the Extension"></a>Building the Extension</h2><p>Create a <code>setup.py</code> file to build the Cython extension:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    ext_modules=cythonize(<span class="string">&quot;functions.pyx&quot;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>To build the extension, run:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-the-Python-Module"><a href="#Using-the-Python-Module" class="headerlink" title="Using the Python Module"></a>Using the Python Module</h2><p>After building, you can use the module in Python:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> functions <span class="keyword">import</span> getNPrimes, getNFibonacci, matMul, PyMatrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using functions</span></span><br><span class="line">primes = getNPrimes(<span class="number">10</span>)</span><br><span class="line">fibonacci = getNFibonacci(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using the matrix class</span></span><br><span class="line">matrix = PyMatrix()</span><br><span class="line">A = [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">B = [[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]]</span><br><span class="line">result = matrix.mul(A, B)</span><br><span class="line">transposed = matrix.transpose(A)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h2><ol>
+<li><p><strong>Type Declarations</strong></p>
+<ul>
+<li>Use <code>cdef</code> for C-level declarations</li>
+<li>Use <code>cpdef</code> for functions that need to be called from both Python and C</li>
+<li>Use <code>def</code> for pure Python functions</li>
+</ul>
+</li>
+<li><p><strong>Memory Management</strong></p>
+<ul>
+<li>Cython handles most memory management automatically</li>
+<li>Use <code>cdef</code> classes for better performance</li>
+<li>Be careful with C++ objects that need explicit cleanup</li>
+</ul>
+</li>
+<li><p><strong>Error Handling</strong></p>
+<ul>
+<li>Use Python exceptions for error handling</li>
+<li>Convert C++ exceptions to Python exceptions when necessary</li>
+</ul>
+</li>
+<li><p><strong>Documentation</strong></p>
+<ul>
+<li>Add docstrings to Python-facing functions</li>
+<li>Document type requirements and constraints</li>
+<li>Include usage examples</li>
+</ul>
+</li>
+<li><p><strong>Performance Optimization</strong></p>
+<ul>
+<li>Use static typing where possible</li>
+<li>Minimize Python&#x2F;C++ boundary crossings</li>
+<li>Use <code>nogil</code> for CPU-bound operations</li>
+</ul>
+</li>
+<li><p><strong>Testing</strong></p>
+<ul>
+<li>Write unit tests for both C++ and Python interfaces</li>
+<li>Test edge cases and error conditions</li>
+<li>Verify memory management</li>
+</ul>
+</li>
+</ol>
+]]></content>
       <tags>
-        <tag>Tools</tag>
+        <tag>Cython</tag>
       </tags>
   </entry>
   <entry>
@@ -303,6 +352,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Collecting commonly used websites</title>
+    <url>/posts/7c22bd6a/</url>
+    <content><![CDATA[<p><strong style="color : orange">Some commonly used or valuable websites .</strong> </p>
+<span id="more"></span>
+
+<div class="link-grid"><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hackway</p><p>计算机专业学习路线</p>
+<a href="https://hackway.org/docs/cs/intro"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>cs-self-learning</p><p>CS自学指南</p>
+<a href="https://csdiy.wiki"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>名校公开课程评价网</p><p>CS Courses</p>
+<a href="https://conanhujinming.github.io/comments-for-awesome-courses/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>CS公开课程学习群</p><p>一个QQ群</p>
+<a href="https://zhuanlan.zhihu.com/p/253232863"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>编程指北</p><p>计算机学习路线</p>
+<a href="https://csguide.cn/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello FakeGPT</p><p>ChatGPT加速器</p>
+<a href="chat.zhille.io"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Hello 算法</p><p>算法学习入门教程</p>
+<a href="https://www.hello-algo.com/"></a>
+</div><div class="link-grid-container">
+<object class="link-grid-image" data="https://pic.imgdb.cn/item/65115467c458853aef31fe7c.jpg"></object>
+<p>Brian (Bojie) Li (01.me)</p><p>https://01.me/</p>
+<a href="https://01.me/"></a>
+</div></div>]]></content>
+      <tags>
+        <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cpp新知</title>
     <url>/posts/3ecf09f5/</url>
     <content><![CDATA[<p>C++一些新的知识点</p>
@@ -531,6 +623,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Customized Website Article Link</title>
+    <url>/posts/4bc5178d/</url>
+    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
+<span id="more"></span>
+
+<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ol>
+<li><strong>Add plugin to Hexo :</strong></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>Modify <code>config.yml</code></strong></li>
+</ol>
+<p><strong>Change the origin code</strong> </p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>into</strong>(You can choose one of two ways below :)</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>or</strong></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:addrlink.html</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color = red ">Be careful : </strong> </p>
+<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
+<ol start="3">
+<li><strong>Add the codes below in the end of file <code>config.yml</code></strong></li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span></span><br></pre></td></tr></table></figure>
+
+<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>Final Nagging</strong></li>
+</ol>
+<ul>
+<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
+<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
+</ul>
+<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
+<ul>
+<li><strong>That’s all .</strong></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DataStructure</title>
     <url>/posts/ba907200/</url>
     <content><![CDATA[<p style = "color : #f03752 ; font-size : 24px">It's the note I made when learned data structure . </p>
@@ -651,55 +792,6 @@
 <p>①进入仓库→上面的边框 <code>管理</code>→向下滑，勾选<code>开源</code>→<code>保存</code></p>
 <p>②进入仓库→上面的边框 <code>服务</code>→<code>Gitee Pages</code> → 勾选<code>强制使用HTTPS</code>→<code>启动</code></p>
 </li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Customized Website Article Link</title>
-    <url>/posts/4bc5178d/</url>
-    <content><![CDATA[<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>In the default setting of Hexo and Next , my article ‘s usl is long and ugly ,  so I want to customize my article’s lick ,which is concise and static .  Fortunately , I finally find a hexo plugin called <code>hexo-abbrlink</code> , which is really amazing !   Here is the link :  <a href="https://github.com/rozbo/hexo-abbrlink">rozbo&#x2F;hexo-abbrlink: create one and only link for every post for hexo (github.com)</a></p>
-<span id="more"></span>
-
-<h3 id="Install-and-Configure-it"><a href="#Install-and-Configure-it" class="headerlink" title="Install and Configure it"></a>Install and Configure it</h3><ol>
-<li><strong>Add plugin to Hexo :</strong></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong>Modify <code>config.yml</code></strong></li>
-</ol>
-<p><strong>Change the origin code</strong> </p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>into</strong>(You can choose one of two ways below :)</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:abbrlink/</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>or</strong></p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:addrlink.html</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color = red ">Be careful : </strong> </p>
-<p>There is a <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code> ,  and not in <code>permalink: posts/:addrlink.html</code> !    This <code>/</code>  is really important .</p>
-<ol start="3">
-<li><strong>Add the codes below in the end of file <code>config.yml</code></strong></li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># abbrlink config</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>      <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>        <span class="comment">#support dec(default) and hex</span></span><br><span class="line">  <span class="attr">drafts:</span> <span class="literal">false</span>   <span class="comment">#(true)Process draft,(false)Do not process draft. false(default) </span></span><br><span class="line">  <span class="comment"># Generate categories from directory-tree</span></span><br><span class="line">  <span class="comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span></span><br><span class="line">  <span class="attr">auto_category:</span></span><br><span class="line">     <span class="attr">enable:</span> <span class="literal">true</span>  <span class="comment">#true(default)</span></span><br><span class="line">     <span class="attr">depth:</span>        <span class="comment">#3(default)</span></span><br><span class="line">     <span class="attr">over_write:</span> <span class="literal">false</span> </span><br><span class="line">  <span class="attr">auto_title:</span> <span class="literal">false</span> <span class="comment">#enable auto title, it can auto fill the title by path</span></span><br><span class="line">  <span class="attr">auto_date:</span> <span class="literal">false</span> <span class="comment">#enable auto date, it can auto fill the date by time today</span></span><br><span class="line">  <span class="attr">force:</span> <span class="literal">false</span> <span class="comment">#enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink. This only updates abbrlink rather than other front variables.</span></span><br></pre></td></tr></table></figure>
-
-<p>You can modifly the parameters <code>alg</code> and <code>rep</code> according to your preference , and their meaning is as follow :</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="string">alg</span> <span class="string">--</span> <span class="string">Algorithm</span> <span class="string">(currently</span> <span class="string">support</span> <span class="string">crc16</span> <span class="string">and</span> <span class="string">crc32,</span> <span class="string">which</span> <span class="string">crc16</span> <span class="string">is</span> <span class="string">default)</span></span><br><span class="line"><span class="string">rep</span> <span class="string">--</span> <span class="string">Represent</span> <span class="string">(the</span> <span class="string">generated</span> <span class="string">link</span> <span class="string">could</span> <span class="string">be</span> <span class="string">presented</span> <span class="string">in</span> <span class="string">hex</span> <span class="string">or</span> <span class="string">dec</span> <span class="string">value)</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>Final Nagging</strong></li>
-</ol>
-<ul>
-<li>If  your article ‘s  URL  is still the style <code>:year/:month/:day/:title/</code> ,  you may forget to change <code>permalink: :year/:month/:day/:title/</code>  into  <code>permalink: posts/:abbrlink/</code>  or <code>permalink: posts/:addrlink.html</code>  .   Another reason may be <code>&quot;GitHub just can&#39;t response at once&quot;</code>  , so just wait for minutes patiently ~</li>
-<li>Just don’t forget the <code>/</code> in the end of <code>permalink: posts/:abbrlink/</code></li>
-</ul>
-<p><del>Actually , I had fallen into two traps mentioned above .</del></p>
-<ul>
-<li><strong>That’s all .</strong></li>
 </ul>
 ]]></content>
       <tags>
@@ -1025,6 +1117,101 @@
 ]]></content>
       <tags>
         <tag>Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Instruction Of Typora</title>
+    <url>/posts/bfc69175/</url>
+    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
+
+<span id="more"></span>
+
+<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
+<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
+<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>心志要坚，意趣要乐</p>
+</blockquote>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>第一点</li>
+<li>第二点</li>
+<li><ul>
+<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
+</ul>
+</li>
+</ol>
+<p>- </p>
+<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>未完成任务    </li>
+<li>已完成任务</li>
+</ul>
+<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
+
+<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">A</th>
+<th align="center">B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">C</td>
+<td align="center">D</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>我是分割线 </p>
+<hr>
+<p>我是分割线 </p>
+<hr>
+<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="www.zhihu.com">知乎</a></p>
+<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
+<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Software</tag>
       </tags>
   </entry>
   <entry>
@@ -1407,101 +1594,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Instruction Of Typora</title>
-    <url>/posts/bfc69175/</url>
-    <content><![CDATA[<p>Typora是一个基于markdown语法的轻量级软件，以下是我在学习markdown语法时的一些笔记。</p>
-
-<span id="more"></span>
-
-<p><a href="https://pan.baidu.com/s/1A0PSXm8SgOlyFYxgQ7yaDg?pwd=jwuf#list/path=%2F">Typora软件分享</a>提取码：jwuf</p>
-<h3 id="Living-preview"><a href="#Living-preview" class="headerlink" title="Living preview"></a>Living preview</h3><p>Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，<strong>可自动隐去格式说明中的格式语句</strong> 。 注意一定要在符号与正文之间<strong>加空格</strong>，目的在于区分内容与格式符。文字换行也与一般不同，要<strong>先加空格再enter</strong>。</p>
-<h3 id="具体符号"><a href="#具体符号" class="headerlink" title="具体符号"></a>具体符号</h3><h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>随着标题的井字符数量的增加，标题优先级逐渐下降。</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 大标题  （ Ctrl + 1 ） </span><br><span class="line">## 第二号标题 （ Ctrl + 2 ) </span><br><span class="line">### 第三号标题  </span><br><span class="line">一直可以到第六号标题</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Blockquote"><a href="#Blockquote" class="headerlink" title="Blockquote"></a>Blockquote</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">语法 ： &gt; 引用内容  </span><br><span class="line">例如输入下列语句：</span><br><span class="line">&gt; 心志要坚，意趣要乐。  </span><br><span class="line">输出结果为</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>心志要坚，意趣要乐</p>
-</blockquote>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">就如平常一样输入序号就行了，此后换行就会自动排序。  </span><br><span class="line">格式 ：1. 第一点        </span><br><span class="line">2. 第二点</span><br><span class="line">3. * 空圆</span><br><span class="line">   - 方形</span><br><span class="line">* 实圆</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ol>
-<li>第一点</li>
-<li>第二点</li>
-<li><ul>
-<li><h2 id="星号"><a href="#星号" class="headerlink" title="星号"></a>星号</h2></li>
-</ul>
-</li>
-</ol>
-<p>- </p>
-<h4 id="Task-List"><a href="#Task-List" class="headerlink" title="Task List"></a>Task List</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">- [ ] 未完成任务    - [x] 已完成任务</span><br><span class="line">可点击任务点完成任务  </span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li>未完成任务    </li>
-<li>已完成任务</li>
-</ul>
-<h4 id="Code-Block"><a href="#Code-Block" class="headerlink" title="Code Block"></a>Code Block</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">​```language</span><br><span class="line">代码段</span><br><span class="line">​```  </span><br><span class="line">其实后面那三个顿号电脑会自动显示的（注意是顿号，  </span><br><span class="line">英文输入法下的Esc下边那个键）  </span><br><span class="line">代码段也有一个神奇的功能，就是能完整显示Typora的代码符，   </span><br><span class="line">要不然本文的一个个事例又是怎么保留住这些Typora符呢。想想也知道，  </span><br><span class="line">设计一个这样的文本格式，  </span><br><span class="line">当然也要兼顾代码的特殊符号呀，比如代码里的#、*是不能参与Typora的格式符的。  </span><br><span class="line">代码语句的输入  </span><br><span class="line">格式 </span><br></pre></td></tr></table></figure>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Reverse Bits Ordering</span><br><span class="line">module top_module(</span><br><span class="line">    input [99:0] in ,</span><br><span class="line">    output [99:0] out </span><br><span class="line">) ;</span><br><span class="line">    genvar i ;</span><br><span class="line">    generate</span><br><span class="line">        for(i = 0 ; i &lt; 100 ; i++) begin : generate_name</span><br><span class="line">            assign out[i] = in [99 - i] ;</span><br><span class="line">        end</span><br><span class="line">    endgenerate</span><br><span class="line">endmodule</span><br></pre></td></tr></table></figure>
-
-<h4 id="Math-Blocks"><a href="#Math-Blocks" class="headerlink" title="Math Blocks"></a>Math Blocks</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ 单行输入 $</span><br><span class="line">$ \mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;</span><br><span class="line">\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; 0 \\</span><br><span class="line">\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; 0 \\</span><br><span class="line">\end&#123;vmatrix&#125;  </span><br><span class="line">$</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| A  | B |</span><br><span class="line">| C  | D |</span><br><span class="line">| E  | F |  </span><br><span class="line">点击表格内有功能选择</span><br></pre></td></tr></table></figure>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th align="center">A</th>
-<th align="center">B</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="center">D</td>
-</tr>
-<tr>
-<td align="center">E</td>
-<td align="center">F</td>
-</tr>
-</tbody></table>
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">--- </span><br><span class="line">或者 </span><br><span class="line">*** </span><br><span class="line">例如 </span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">我是分割线 </span><br><span class="line"></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>我是分割线 </p>
-<hr>
-<p>我是分割线 </p>
-<hr>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">输入[toc]再回车就行了 （table of content) </span><br><span class="line">就会生成一个目录，点击相应标记即可跳转 </span><br><span class="line">例如 </span><br><span class="line">[toc] </span><br></pre></td></tr></table></figure>
-</blockquote>
-<h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式 </span><br><span class="line">[给链接起个名字](写上具体网址)</span><br><span class="line">[知乎](https://www.zhihu.com/) 注意用英文输入法下的括号  </span><br><span class="line">在markdown文件中按住Ctrl键同时点击网址即可直接打开</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><a href="www.zhihu.com">知乎</a></p>
-<h4 id="Insert-Pictures"><a href="#Insert-Pictures" class="headerlink" title="Insert Pictures"></a>Insert Pictures</h4><blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">格式  </span><br><span class="line">![起个名字](存储位置) </span><br><span class="line">例如 </span><br><span class="line">![思维导图](D:\desktop\Typora.png) </span><br><span class="line">当然啦，直接把图片拖过来复制一下不香吗</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）</p>
-<p><img src="file://D:/Software/Typora/Pictures/1693142385073.png?lastModify=1695005959" alt="img"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Software</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Sub-group Swizzle分块矩阵乘优化原理分析</title>
     <url>/posts/2b96453f/</url>
     <content><![CDATA[<h2 id="Sub-group-Swizzle分块矩阵乘优化原理分析"><a href="#Sub-group-Swizzle分块矩阵乘优化原理分析" class="headerlink" title="Sub-group Swizzle分块矩阵乘优化原理分析"></a>Sub-group Swizzle分块矩阵乘优化原理分析</h2><p>因为要写成实验报告用来应付课程作业，因此写得罗里吧嗦的，见谅 :(</p>
@@ -1773,6 +1865,85 @@
       </tags>
   </entry>
   <entry>
+    <title>TVM Python与Cpp绑定机制解析</title>
+    <url>/posts/816428ff/</url>
+    <content><![CDATA[<p>本文以<code>TVM v0.20.0</code>为例，分析TVM中Python前端与C++后端的绑定机制。绑定机制主要包括三个部分：<strong>类的注册</strong>、<strong>对象的初始化</strong>以及<strong>成员函数的绑定</strong>。本文将以<code>DataflowBlockRewrite</code>类为例，逐步解析这一过程。</p>
+<span id="more"></span>
+
+<blockquote>
+<p>为行文方便，前端默认指TVM python前端，后端默认指TVM C++后端</p>
+</blockquote>
+<h3 id="一、前端注册类"><a href="#一、前端注册类" class="headerlink" title="一、前端注册类"></a>一、前端注册类</h3><p>在TVM前端中，需要对每一个类进行注册。</p>
+<p>以<code>DataflowBlockRewrite</code>为例，注册代码如下</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line">    ......</span><br><span class="line"><span class="comment">#等价于DataflowBlockRewrite = tvm._ffi.register_object(&quot;relax.DataflowBlockRewrite&quot;)(DataflowBlockRewrite)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了行文流畅，本文中大多数的类、文件没有注明具体路径，读者可以使用VSCode <code>Ctrl + P</code>搜索文件，侧边栏搜索类名进行检索。</p>
+</blockquote>
+<p>接下来，我们分析<code>tvm._ffi.register_object</code>的执行流程，该函数定义如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">register_object</span>(<span class="params">type_key=<span class="literal">None</span></span>):</span><br><span class="line">    </span><br><span class="line">    object_name = type_key <span class="keyword">if</span> <span class="built_in">isinstance</span>(type_key, <span class="built_in">str</span>) <span class="keyword">else</span> type_key.__name__ <span class="comment">#object_name = &quot;relax.DataflowBlockRewrite&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="comment">#ignore ....</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(type_key, <span class="built_in">str</span>):</span><br><span class="line">        <span class="keyword">return</span> register</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> register(type_key)</span><br></pre></td></tr></table></figure>
+
+<p>当传入字符串参数<code>&quot;relax.DataflowBlockRewrite&quot;</code> 时， <code>tvm._ffi.register_object(&quot;relax.DataflowBlockRewrite&quot;)</code>返回一个注册函数<code>register</code>。</p>
+<p>再看<code>register(DataflowBlockRewrite)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">register</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;internal register function&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">hasattr</span>(cls, <span class="string">&quot;_type_index&quot;</span>):</span><br><span class="line">            tindex = cls._type_index</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># tidx是一个与C uint兼容的uint数据类型</span></span><br><span class="line">            tidx = ctypes.c_uint()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> _RUNTIME_ONLY:</span><br><span class="line">                check_call(_LIB.TVMObjectTypeKey2Index(c_str(object_name), ctypes.byref(tidx)))<span class="comment">#检查这个类是否在C++后端中,如果存在，将type_index写入tidx(=240)</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># directly skip unknown objects during runtime.</span></span><br><span class="line">                ret = _LIB.TVMObjectTypeKey2Index(c_str(object_name), ctypes.byref(tidx))</span><br><span class="line">                <span class="keyword">if</span> ret != <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> cls</span><br><span class="line">            tindex = tidx.value<span class="comment">#tindex = 240</span></span><br><span class="line">        <span class="comment">#注册</span></span><br><span class="line">        _register_object(tindex, cls)</span><br><span class="line">        <span class="keyword">return</span> cls</span><br></pre></td></tr></table></figure>
+
+
+
+<p>函数 <code>_register_object</code>的定义在<code>object.pxi</code>中，以<code>_register_object(240, DataflowBlockRewrite)</code>的执行流程为例：</p>
+<blockquote>
+<p><strong>Cython编译流程</strong>：</p>
+<p><code>python/tvm/_ffi/_cython</code>中<code>base.pxi</code>,<code>ndarray.pxi</code>,<code>object.pxi</code>,<code>packed_func.pxi</code>描述了与C++的接口，<code>core.pyx</code> <code>include</code>了这些<code>*.pxi</code>文件。</p>
+<p>TVM项目编译后，<code>python/tvm/_ffi/_cython</code>中的<code>core.pyx</code>被编译成 <code>python/tvm/_ffi/_cy3</code>中的<code>.so</code>文件(例如<code>core.cpython-312-x86_64-linux-gnu.so</code>)。(Cython具体编译配置见<code>python/setup.py</code>L161)。完成编译后，便可以在<code>python</code>文件中调用<code>.so</code>中的C++函数&#x2F;类。例如<code>python/tvm/_ffi/registry.py</code>中<code>from ._cy3.core import _register_object</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;Maps object type index to its constructor&quot;&quot;&quot;</span></span><br><span class="line">cdef <span class="built_in">list</span> OBJECT_TYPE = []</span><br><span class="line"><span class="string">&quot;&quot;&quot;Maps object type to its type index&quot;&quot;&quot;</span></span><br><span class="line">cdef <span class="built_in">dict</span> OBJECT_INDEX = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#object是python内置的一个类，可表示所有对象</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_register_object</span>(<span class="params"><span class="built_in">int</span> index, <span class="built_in">object</span> cls</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;register object class&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">issubclass</span>(cls, NDArrayBase):</span><br><span class="line">        _register_ndarray(index, cls)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> OBJECT_TYPE</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(OBJECT_TYPE) &lt;= index:</span><br><span class="line">        OBJECT_TYPE.append(<span class="literal">None</span>)</span><br><span class="line">      </span><br><span class="line">    <span class="comment">#将类写进列表、字典中，从而实现注册</span></span><br><span class="line">    OBJECT_TYPE[index] = cls  <span class="comment"># ID → Python类</span></span><br><span class="line">    OBJECT_INDEX[cls] = index <span class="comment"># Python类 → ID</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>前端和后端中相对应的类的<code>type_index</code>相等，从而实现一一对应。</li>
+</ul>
+<h3 id="二、前端对象初始化"><a href="#二、前端对象初始化" class="headerlink" title="二、前端对象初始化"></a>二、前端对象初始化</h3><p>仍然以<code>DataflowBlockRewrite</code>为例</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dfb: DataflowBlock, root_fn: Function</span>):</span><br><span class="line">        self.func_name = root_fn.__name__ <span class="keyword">if</span> <span class="built_in">hasattr</span>(root_fn, <span class="string">&quot;__name__&quot;</span>) <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">        self.__init_handle_by_constructor__(</span><br><span class="line">            _ffi_api.DataflowBlockRewrite, dfb, root_fn  <span class="comment"># type: ignore</span></span><br><span class="line">        )</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p><code>DataflowBlockRewrite</code>前端初始化函数<code>__init__</code>所需的参数与后端C++构造函数一致。 <code>binding_rewrite.h</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span> : <span class="keyword">public</span> ObjectRef &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="function">TVM_DLL <span class="keyword">explicit</span> <span class="title">DataflowBlockRewrite</span><span class="params">(DataflowBlock dfb, Function root_fn)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>python对象初始化时，通过<code>self.__init_handle_by_constructor__</code>创建了C++实例。</p>
+<p><code>object.pxi</code>中定义了类<code>ObjectBase</code>和方法<code>__init_handle_by_constructor__</code>: </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cdef class ObjectBase</span><br><span class="line">	cdef void* chandle</span><br><span class="line">	def __init_handle_by_constructor__(self, fconstructor, *args):</span><br><span class="line">        </span><br><span class="line">        self.chandle = NULL</span><br><span class="line">        cdef void* chandle</span><br><span class="line">        ConstructorCall(</span><br><span class="line">            (&lt;PackedFuncBase&gt;fconstructor).chandle,</span><br><span class="line">            kTVMObjectHandle, args, &amp;chandle)</span><br><span class="line">        self.chandle = chandle</span><br></pre></td></tr></table></figure>
+
+<p>类的初始化发生在函数<code>ConstructorCall</code>。此处函数调用栈比较深，可以简单理解为：使用构造函数<code>fconstructor</code>和参数<code>args</code>，构造了一个<code>C++</code>的<code>DataflowBlockRewrite</code>类，并用临时指针<code>chandle</code>指向这个<code>C++</code>实例，再用<code>self.chandle</code>指向该C++实例。</p>
+<p><code>DataflowBlockRewrite</code>继承自<code>ObjectBase</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">	class DataflowBlockRewrite</span><br><span class="line">	class Object</span><br><span class="line">	class ObjectBase</span><br><span class="line">	DataflowBlockRewrite &lt;|-- Object</span><br><span class="line">	Object &lt;|-- ObjectBase</span><br></pre></td></tr></table></figure>
+
+<p>因此，python类<code>DataflowBlockRewrite</code>有一个成员变量<code>self.chandle</code>指向C++对象<code>DataflowBlockRewrite</code>,即python DataflowBlockRewrite.chandle  -&gt;  &amp;(C++ DataflowBlockRewrite)，从而实现了python对象与C++对象的绑定。</p>
+<h3 id="三、TVM前端对象的成员函数与后端对象的成员函数绑定"><a href="#三、TVM前端对象的成员函数与后端对象的成员函数绑定" class="headerlink" title="三、TVM前端对象的成员函数与后端对象的成员函数绑定"></a>三、TVM前端对象的成员函数与后端对象的成员函数绑定</h3><p>仍然以<code>DataflowBlockRewrite</code>为例，它的<code>replace_all_uses</code>方法与后端C++函数<code>ReplaceAllUses</code>进行了绑定：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@tvm._ffi.register_object(<span class="params"><span class="string">&quot;relax.DataflowBlockRewrite&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewrite</span>(<span class="title class_ inherited__">Object</span>):</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">replace_all_uses</span>(<span class="params">self, old_var: Var, new_var: Var</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        _ffi_api.dfb_rewrite_replace_all_uses(self, old_var, new_var) </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*! \brief Statement rewriter for relax.DataflowBlock. */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DataflowBlockRewriteNode</span> : <span class="keyword">public</span> Object &#123;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">/*! \brief Replace all uses of old_var with new_var. */</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">ReplaceAllUses</span><span class="params">(Var old_var, Var new_var)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>python类<code>DataflowBlockRewrite</code>调用<code>_ffi_api.dfb_rewrite_replace_all_uses</code>，实际在调用后端的注册函数<code>relax.dfb_rewrite_replace_all_uses</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">TVM_REGISTER_GLOBAL</span>(<span class="string">&quot;relax.dfb_rewrite_replace_all_uses&quot;</span>)</span><br><span class="line">    .<span class="built_in">set_body_typed</span>([](DataflowBlockRewrite rwt, Var old_var, Var new_var) &#123;</span><br><span class="line">      rwt-&gt;<span class="built_in">ReplaceAllUses</span>(old_var, new_var);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>函数体内再调用<code>rwt-&gt;ReplaceAllUses(old_var, new_var);</code></p>
+<p>所以，<code>_ffi_api.dfb_rewrite_replace_all_uses</code>是如何与后端注册的函数<code>relax.dfb_rewrite_replace_all_uses</code>进行绑定的呢？<code>_ffi_api</code>是一个module，为什么会有一个<code>dfb_rewrite_replace_all_uses</code>方法呢？这一功能的实现依赖于Python一个特性，运行时对象属性更新(Dynamic Attribute Assignment).</p>
+<p>在<code>binging_rewrite.py</code>中，通过<code>from . import _ffi_api</code>导入<code>_ffi_api</code>，这个导入操作会执行<code>_ffi_api.py</code>中的<code>tvm._ffi._init_api(&quot;relax&quot;, __name__)</code>，这行代码将后端注册的、<code>relax namspace</code>中的函数写入了<code>_ffi_api</code>这个module。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tvm._ffi._init_api(&quot;relax&quot;, __name__)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">__name__ = tvm.relax._ffi_api</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">__name__是python内置的一个变量，表示当前python文件被调用时的路径</span></span><br></pre></td></tr></table></figure>
+
+<p><code>registry.py</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">_init_api</span>(<span class="params">namespace, target_module_name=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="comment">#namespace = &quot;relax&quot;, target_module_name = &quot;tvm.relax._ffi_api&quot;</span></span><br><span class="line">    target_module_name = target_module_name <span class="keyword">if</span> target_module_name <span class="keyword">else</span> namespace</span><br><span class="line">    <span class="keyword">if</span> namespace.startswith(<span class="string">&quot;tvm.&quot;</span>):</span><br><span class="line">        _init_api_prefix(target_module_name, namespace[<span class="number">4</span>:])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># target_module_name = &quot;tvm.relax._ffi_api&quot;, namespace = &quot;relax&quot;</span></span><br><span class="line">        _init_api_prefix(target_module_name, namespace)</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_init_api_prefix</span>(<span class="params">module_name, prefix</span>):</span><br><span class="line">    <span class="comment"># module_name = &quot;tvm.relax._ffi_api&quot;, prefix = &quot;relax&quot;</span></span><br><span class="line">    <span class="comment"># sys.modules是python内置的字典，可以通过名称来获取module</span></span><br><span class="line">    module = sys.modules[module_name] <span class="comment">#module = _ffi_api</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> list_global_func_names():<span class="comment">#列出后端注册的所有函数</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(prefix):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">		<span class="comment">#以name = &quot;relax.dfb_rewrite_replace_all_uses&quot;为例</span></span><br><span class="line">        fname = name[<span class="built_in">len</span>(prefix) + <span class="number">1</span> :]<span class="comment">#name = dfb_rewrite_replace_all_uses</span></span><br><span class="line">        target_module = module <span class="comment">#_ffi_api</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> fname.find(<span class="string">&quot;.&quot;</span>) != -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="comment">#拿到dfb_rewrite_replace_all_uses的C++ handle</span></span><br><span class="line">        f = get_global_func(name)</span><br><span class="line">        <span class="comment">#wrap it as a python function</span></span><br><span class="line">        ff = _get_api(f)</span><br><span class="line">        ff.__name__ = fname<span class="comment">#设置名字为dfb_rewrite_replace_all_uses</span></span><br><span class="line">        ff.__doc__ = <span class="string">&quot;TVM PackedFunc %s. &quot;</span> % fname</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#为模块(对象)_ffi_api设置一个属性</span></span><br><span class="line">        <span class="comment">#等价于_ffi_api.&quot;dfb_rewrite_replace_all_uses&quot; = ff</span></span><br><span class="line">        <span class="built_in">setattr</span>(target_module, ff.__name__, ff)</span><br></pre></td></tr></table></figure>
+
+<p><code>Tips</code>: </p>
+<ul>
+<li>后端<code>relax.dfb_rewrite_replace_all_uses</code>的注册</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">TVM_REGISTER_GLOBAL</span>(<span class="string">&quot;relax.dfb_rewrite_replace_all_uses&quot;</span>)</span><br><span class="line">    .<span class="built_in">set_body_typed</span>([](DataflowBlockRewrite rwt, Var old_var, Var new_var) &#123;</span><br><span class="line">      rwt-&gt;<span class="built_in">ReplaceAllUses</span>(old_var, new_var);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>list_global_func_names()</code>返回的列表中有一个字符串为<code>relax.dfb_rewrite_replace_all_uses</code></p>
+<ul>
+<li>经过以上步骤，<code>_ffi_api</code>具有属性<code>dfb_rewrite_replace_all_uses</code>, <code>_ffi_api.dfb_rewrite_replace_all_uses</code>是一个python函数<code>dfb_rewrite_replace_all_uses</code>, 它里面包装了对应的名为<code>relax.dfb_rewrite_replace_all_uses</code>的后端注册的函数。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>centos学习笔记</title>
     <url>/posts/d2783502/</url>
     <content><![CDATA[<p>CentOS相关</p>
@@ -1933,40 +2104,51 @@
       </tags>
   </entry>
   <entry>
-    <title>python调试工具pdb</title>
-    <url>/posts/9e73dd3c/</url>
-    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
+    <title>memory alignment</title>
+    <url>/posts/7729f5c5/</url>
+    <content><![CDATA[<p>关于内存对齐(<code>memory alignment</code>)的笔记</p>
 <span id="more"></span>
 
-<ul>
-<li>启动</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
+<h4 id="计算机读取数据的方式"><a href="#计算机读取数据的方式" class="headerlink" title="计算机读取数据的方式"></a>计算机读取数据的方式</h4><p>计算机以<strong>字节块</strong>为粒度进行数据读取。例如，64位的机器中，数据总线宽度为64 bits(8 bytes)，字节块大小为8，它以8 bytes的粒度进行数据读取。若<code>int64_t x;</code>的地址为<code>0x8</code>(能整除8bytes, 称为64位对齐)，那么机器读取<code>x</code>时，会将<code>0x8~0xF</code>这个地址范围内的8 bytes读出，从而得到<code>x</code>。若<code>x</code>的存储地址未对齐(不能整除8, 称为未按8 bytes对齐)，那么机器可能需要进行两次数据读取，才能得到<code>x</code>的值。假设<code>x</code>存储地址为<code>0x6</code>，<code>x</code>数据地址范围则为<code>0x6~0xD</code>，跨越了<code>0x0~0x7</code> <code>0x8~0xF</code>这两个字节块，机器读取<code>x</code>时，<strong>并不能</strong>够直接读出地址<code>0x6~0xD</code>的8 bytes数据。机器需要先读取<code>0x0~0x7</code>中的8 bytes，再读取<code>0x8~0xF</code>中的8 bytes，最后拼接得到<code>x</code>。</p>
+<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" alt = "计算机按字节快读取数据的方式"/>
 
-<ul>
-<li>步进</li>
-</ul>
-<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
-<p><code>l</code>: list 列出源码</p>
-<p><code>ll</code>: list all</p>
-<p>回车重复上一条命令</p>
-<p><code>n</code>: next下一步</p>
-<p><code>s</code>: step下一步，可进入函数</p>
-<ul>
-<li>断点</li>
-</ul>
-<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
-<p><code>b</code>:输出所有断点信息</p>
-<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
-<p><code>c</code>: continue持续运行程序，直到断点</p>
-<ul>
-<li>打印</li>
-</ul>
-<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
-<p><code>p &lt;variable&gt;</code>打印变量</p>
+<p>内存对齐：变量的地址是变量大小的整数倍($addr &#x3D; n * sizeof(varible)$)  例如，<code>double variable</code>的地址保证是8的整数倍，<code>int variable</code>的地址保证是4的整数倍。</p>
+<p>保证每一个变量的内存对齐，能够让机器以尽可能少的次数读取到数据。若变量内存未对齐，跨越了多个字节块，计算机就可能需要读取多个字节块</p>
+<p><code>memory alignment</code>对性能的影响：</p>
+<p> <a href="https://ideone.com/KmWNUo">🔗code</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Force 1-byte alignment</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UnalignedData</span> &#123;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//aligned and padded by compiler</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedData</span> &#123;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">performance_test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> iterations = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="number">1e4</span>);</span><br><span class="line">	<span class="function">std::vector&lt;UnalignedData&gt; <span class="title">unaligned</span><span class="params">(iterations)</span> </span>;</span><br><span class="line">	<span class="function">std::vector&lt;AlignedData&gt; <span class="title">aligned</span><span class="params">(iterations)</span></span>;</span><br><span class="line">    std::array&lt;<span class="type">double</span>, iterations&gt; collect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initial</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">        unaligned[i] = &#123;<span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i), i * <span class="number">3.14</span>, i&#125;;</span><br><span class="line">        aligned[i] = &#123;i * <span class="number">3.14</span>, i, <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//unaligned</span></span><br><span class="line">	<span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = unaligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">unaligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//aligned</span></span><br><span class="line">	start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = aligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">aligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Unaligned: &quot;</span> &lt;&lt; unaligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Aligned: &quot;</span> &lt;&lt; aligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Performance Improvement: &quot;</span> &lt;&lt; (unaligned_time.<span class="built_in">count</span>() / aligned_time.<span class="built_in">count</span>() <span class="number">-1</span>)*<span class="number">100</span> &lt;&lt; <span class="string">&quot;%&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	<span class="built_in">performance_test</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Exec Time of Unaligned: 0.000185ms<br>Exec Time of Aligned: 7.2e-05ms<br>Performance Improvement: 156.944%</p>
+</blockquote>
+<h4 id="struct对齐"><a href="#struct对齐" class="headerlink" title="struct对齐"></a>struct对齐</h4><p>当一个结构体内有不同的数据类型时，如何保证所有的变量内存对齐？</p>
+<p>编译器通过加入<code>pad</code>实现内存对齐：</p>
+<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png" alt="编译器自动padding的方式">
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// struct aligned Aligned;</span></span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    <span class="type">uintptr_t</span> addr_a = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.a);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_b = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.b);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_c = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.c);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_d = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.d);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.a is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_a &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.b is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_b &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// check whether 2 bytes aligned or not</span></span><br><span class="line">    <span class="built_in">assert</span>((addr_b % <span class="number">2</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.c is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_c &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">assert</span>((addr_c % <span class="number">4</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.d is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_d &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Address of F.a is 0x61fdf4<br>Address of F.b is 0x61fdf6<br>Address of F.c is 0x61fdf8<br>Address of F.d is 0x61fdfc</p>
+</blockquote>
+<p>调换<code>struct</code>中变量的声明顺序，会改变<code>padding</code>的方式：</p>
+<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png" alt="调换变量声明顺序后编译器padding方式">
+
+<p>以上这种<code>padding</code>更加节省存储，但是编译器不会主动去调换变量声明顺序去做优化。因此程序员需要手动调整结构体内变量声明顺序以达到最优的<code>padding</code>。<strong>一般来说，按照数据类型大小，从大到小声明变量，能达到最佳的<code>padding</code></strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//change the order of variable declartion</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo2</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    foo2 F2;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo2&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F2) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>struct foo’s size &#x3D; 12<br>struct foo2’s size &#x3D; 8</p>
+</blockquote>
+<h4 id="禁用编译器padding"><a href="#禁用编译器padding" class="headerlink" title="禁用编译器padding"></a>禁用编译器padding</h4><p><code>#pragma pack(push 1)</code> …. <code>#pragma pack(pop)</code></p>
+<p><a href="https://www.ideone.com/bK0SWW">🔗code</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认对齐的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;      <span class="comment">// 1 字节</span></span><br><span class="line">    <span class="type">int</span> b;       <span class="comment">// 4 字节（对齐要求 4）</span></span><br><span class="line">    <span class="type">double</span> c;    <span class="comment">// 8 字节（对齐要求 8）</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 紧凑对齐（取消填充）</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PackedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> s1;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">PackedStruct</span> s2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Addresses:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s1: %p\ns1.a: %p\ns1.b: %p\ns1.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s1, &amp;s1.a, &amp;s1.b, &amp;s1.c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s2: %p\ns2.a: %p\ns2.b: %p\ns2.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s2, &amp;s2.a, &amp;s2.b, &amp;s2.c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://ncmiller.dev/memory-alignment.html">[1] 10 Things You Should Know About Memory Alignment | ncmiller.dev</a></p>
 ]]></content>
       <tags>
-        <tag>Python</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -2034,51 +2216,40 @@
       </tags>
   </entry>
   <entry>
-    <title>memory alignment</title>
-    <url>/posts/7729f5c5/</url>
-    <content><![CDATA[<p>关于内存对齐(<code>memory alignment</code>)的笔记</p>
+    <title>python调试工具pdb</title>
+    <url>/posts/9e73dd3c/</url>
+    <content><![CDATA[<p><code>pdb</code>是一个内置于<code>Python</code>的调试工具，使用方法与<code>gdb</code>类似。</p>
 <span id="more"></span>
 
-<h4 id="计算机读取数据的方式"><a href="#计算机读取数据的方式" class="headerlink" title="计算机读取数据的方式"></a>计算机读取数据的方式</h4><p>计算机以<strong>字节块</strong>为粒度进行数据读取。例如，64位的机器中，数据总线宽度为64 bits(8 bytes)，字节块大小为8，它以8 bytes的粒度进行数据读取。若<code>int64_t x;</code>的地址为<code>0x8</code>(能整除8bytes, 称为64位对齐)，那么机器读取<code>x</code>时，会将<code>0x8~0xF</code>这个地址范围内的8 bytes读出，从而得到<code>x</code>。若<code>x</code>的存储地址未对齐(不能整除8, 称为未按8 bytes对齐)，那么机器可能需要进行两次数据读取，才能得到<code>x</code>的值。假设<code>x</code>存储地址为<code>0x6</code>，<code>x</code>数据地址范围则为<code>0x6~0xD</code>，跨越了<code>0x0~0x7</code> <code>0x8~0xF</code>这两个字节块，机器读取<code>x</code>时，<strong>并不能</strong>够直接读出地址<code>0x6~0xD</code>的8 bytes数据。机器需要先读取<code>0x0~0x7</code>中的8 bytes，再读取<code>0x8~0xF</code>中的8 bytes，最后拼接得到<code>x</code>。</p>
-<img src="https://pic1.imgdb.cn/item/6823fe8e58cb8da5c8f10ddf.png" alt = "计算机按字节快读取数据的方式"/>
+<ul>
+<li>启动</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python -m pdb test.py</span><br></pre></td></tr></table></figure>
 
-<p>内存对齐：变量的地址是变量大小的整数倍($addr &#x3D; n * sizeof(varible)$)  例如，<code>double variable</code>的地址保证是8的整数倍，<code>int variable</code>的地址保证是4的整数倍。</p>
-<p>保证每一个变量的内存对齐，能够让机器以尽可能少的次数读取到数据。若变量内存未对齐，跨越了多个字节块，计算机就可能需要读取多个字节块</p>
-<p><code>memory alignment</code>对性能的影响：</p>
-<p> <a href="https://ideone.com/KmWNUo">🔗code</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Force 1-byte alignment</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">UnalignedData</span> &#123;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//aligned and padded by compiler</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedData</span> &#123;</span><br><span class="line">	<span class="type">double</span> d;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">performance_test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> iterations = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="number">1e4</span>);</span><br><span class="line">	<span class="function">std::vector&lt;UnalignedData&gt; <span class="title">unaligned</span><span class="params">(iterations)</span> </span>;</span><br><span class="line">	<span class="function">std::vector&lt;AlignedData&gt; <span class="title">aligned</span><span class="params">(iterations)</span></span>;</span><br><span class="line">    std::array&lt;<span class="type">double</span>, iterations&gt; collect;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//initial</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">        unaligned[i] = &#123;<span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i), i * <span class="number">3.14</span>, i&#125;;</span><br><span class="line">        aligned[i] = &#123;i * <span class="number">3.14</span>, i, <span class="built_in">static_cast</span>&lt;<span class="type">char</span>&gt;(i)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//unaligned</span></span><br><span class="line">	<span class="keyword">auto</span> start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = unaligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">auto</span> end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">unaligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//aligned</span></span><br><span class="line">	start = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; iterations; ++i)&#123;</span><br><span class="line">		collect[i] = aligned[i].d;</span><br><span class="line">	&#125;</span><br><span class="line">	end = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">	std::<span class="function">chrono::duration&lt;<span class="type">double</span>, std::milli&gt; <span class="title">aligned_time</span><span class="params">(end - start)</span></span>;</span><br><span class="line">	</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Unaligned: &quot;</span> &lt;&lt; unaligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Exec Time of Aligned: &quot;</span> &lt;&lt; aligned_time.<span class="built_in">count</span>() &lt;&lt; <span class="string">&quot;ms&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">	std::cout &lt;&lt; <span class="string">&quot;Performance Improvement: &quot;</span> &lt;&lt; (unaligned_time.<span class="built_in">count</span>() / aligned_time.<span class="built_in">count</span>() <span class="number">-1</span>)*<span class="number">100</span> &lt;&lt; <span class="string">&quot;%&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;	</span><br><span class="line">	<span class="built_in">performance_test</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Exec Time of Unaligned: 0.000185ms<br>Exec Time of Aligned: 7.2e-05ms<br>Performance Improvement: 156.944%</p>
-</blockquote>
-<h4 id="struct对齐"><a href="#struct对齐" class="headerlink" title="struct对齐"></a>struct对齐</h4><p>当一个结构体内有不同的数据类型时，如何保证所有的变量内存对齐？</p>
-<p>编译器通过加入<code>pad</code>实现内存对齐：</p>
-<img src="https://pic1.imgdb.cn/item/6823fecc58cb8da5c8f10e01.png" alt="编译器自动padding的方式">
-
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// struct aligned Aligned;</span></span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    <span class="type">uintptr_t</span> addr_a = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.a);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_b = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.b);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_c = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.c);</span><br><span class="line">    <span class="type">uintptr_t</span> addr_d = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">uintptr_t</span>&gt;(&amp;F.d);</span><br><span class="line">    </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.a is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_a &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.b is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_b &lt;&lt; std::endl;</span><br><span class="line">    <span class="comment">// check whether 2 bytes aligned or not</span></span><br><span class="line">    <span class="built_in">assert</span>((addr_b % <span class="number">2</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.c is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_c &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">assert</span>((addr_c % <span class="number">4</span>) == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Address of F.d is 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; addr_d &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Address of F.a is 0x61fdf4<br>Address of F.b is 0x61fdf6<br>Address of F.c is 0x61fdf8<br>Address of F.d is 0x61fdfc</p>
-</blockquote>
-<p>调换<code>struct</code>中变量的声明顺序，会改变<code>padding</code>的方式：</p>
-<img src="https://pic1.imgdb.cn/item/6823fed258cb8da5c8f10e06.png" alt="调换变量声明顺序后编译器padding方式">
-
-<p>以上这种<code>padding</code>更加节省存储，但是编译器不会主动去调换变量声明顺序去做优化。因此程序员需要手动调整结构体内变量声明顺序以达到最优的<code>padding</code>。<strong>一般来说，按照数据类型大小，从大到小声明变量，能达到最佳的<code>padding</code></strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span>&#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;<span class="comment">//2 bytes</span></span><br><span class="line">    <span class="type">int32_t</span> c;<span class="comment">//4 bytes</span></span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//change the order of variable declartion</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">foo2</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> a;</span><br><span class="line">    <span class="type">uint16_t</span> b;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="type">char</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    foo F;</span><br><span class="line">    foo2 F2;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;struct foo2&#x27;s size = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(F2) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>struct foo’s size &#x3D; 12<br>struct foo2’s size &#x3D; 8</p>
-</blockquote>
-<h4 id="禁用编译器padding"><a href="#禁用编译器padding" class="headerlink" title="禁用编译器padding"></a>禁用编译器padding</h4><p><code>#pragma pack(push 1)</code> …. <code>#pragma pack(pop)</code></p>
-<p><a href="https://www.ideone.com/bK0SWW">🔗code</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认对齐的结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;      <span class="comment">// 1 字节</span></span><br><span class="line">    <span class="type">int</span> b;       <span class="comment">// 4 字节（对齐要求 4）</span></span><br><span class="line">    <span class="type">double</span> c;    <span class="comment">// 8 字节（对齐要求 8）</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 紧凑对齐（取消填充）</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(push, 1)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">PackedStruct</span> &#123;</span><br><span class="line">    <span class="type">char</span> a;</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">    <span class="type">double</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> pack(pop)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">AlignedStruct</span> s1;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">PackedStruct</span> s2;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Addresses:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s1: %p\ns1.a: %p\ns1.b: %p\ns1.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s1, &amp;s1.a, &amp;s1.b, &amp;s1.c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s2: %p\ns2.a: %p\ns2.b: %p\ns2.c: %p\n&quot;</span>, </span><br><span class="line">           &amp;s2, &amp;s2.a, &amp;s2.b, &amp;s2.c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://ncmiller.dev/memory-alignment.html">[1] 10 Things You Should Know About Memory Alignment | ncmiller.dev</a></p>
+<ul>
+<li>步进</li>
+</ul>
+<p>不同于<code>gdb</code>需要输入<code>start</code>开始运行，进入<code>pdb</code>后程序已经开始运行。</p>
+<p><code>l</code>: list 列出源码</p>
+<p><code>ll</code>: list all</p>
+<p>回车重复上一条命令</p>
+<p><code>n</code>: next下一步</p>
+<p><code>s</code>: step下一步，可进入函数</p>
+<ul>
+<li>断点</li>
+</ul>
+<p><code>b &lt;linenum&gt;</code>: 在第<code>linenum</code>行设置断点</p>
+<p><code>b</code>:输出所有断点信息</p>
+<p><code>disable &lt;Num&gt;</code>:禁用断点</p>
+<p><code>c</code>: continue持续运行程序，直到断点</p>
+<ul>
+<li>打印</li>
+</ul>
+<p><code>whatis &lt;variable&gt;</code>查看变量属性</p>
+<p><code>p &lt;variable&gt;</code>打印变量</p>
 ]]></content>
       <tags>
-        <tag>C++</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2178,6 +2349,26 @@
       </tags>
   </entry>
   <entry>
+    <title>windows相关</title>
+    <url>/posts/918da884/</url>
+    <content><![CDATA[<p>一些windows相关的内容</p>
+<span id="more"></span>
+
+<h3 id="磁盘扩容"><a href="#磁盘扩容" class="headerlink" title="磁盘扩容"></a>磁盘扩容</h3><p>参考文献：<a href="https://www.diskgenius.cn/help/extend-partition.php">无损扩容分区– DiskGenius</a></p>
+<p>使用软件：<a href="https://www.tbtool.cn/">图吧工具箱 - 最纯净的硬件工具箱 (tbtool.cn)</a></p>
+<p>遇到的问题：</p>
+<ul>
+<li>参考文献中的第3步中的“调整后的容量”是指腾出空闲空间的盘，在扩充目的盘后剩余的空间大小。例如，原有C盘50G，D盘100G，想在D盘腾出10G给C盘，那么“调整后的容量”应该是90G</li>
+<li>如果重启时，windows不能自动进入WinPE的话，可以尝试安装一个<a href="https://www.wepe.com.cn/">微PE工具箱</a> ，安装之后电脑开机时，会出现一个进入<code>WinPE</code>的选项。如果要删除<code>WinPE</code>的开机引导的话，参考<a href="https://blog.csdn.net/lezeqe/article/details/105086599">微PE工具箱怎么卸载</a> ，其实就是把开机引导删除即可。</li>
+<li>windows重启进入<code>WinPE</code>后，会自动化操作，不要打断。可能遇到:”检测到下列文件系统错误，分区容量未做调整， 无效的的文件记录”.   可参考<a href="https://blog.csdn.net/QKK612501/article/details/115298382">检测到下列文件系统错误解决方案</a></li>
+</ul>
+<h3 id="使用Clash后，不打开Clash就无法上网"><a href="#使用Clash后，不打开Clash就无法上网" class="headerlink" title="使用Clash后，不打开Clash就无法上网"></a>使用Clash后，不打开Clash就无法上网</h3><p>把Clash的系统代理关了就行</p>
+]]></content>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>流畅的Python</title>
     <url>/posts/32ffb807/</url>
     <content><![CDATA[<p>《流畅的Python》读书笔记</p>
@@ -2262,23 +2453,52 @@
       </tags>
   </entry>
   <entry>
-    <title>windows相关</title>
-    <url>/posts/918da884/</url>
-    <content><![CDATA[<p>一些windows相关的内容</p>
+    <title>解决文章目录点击不跳转的问题</title>
+    <url>/posts/6e206cd9/</url>
+    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
+
+<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
 <span id="more"></span>
 
-<h3 id="磁盘扩容"><a href="#磁盘扩容" class="headerlink" title="磁盘扩容"></a>磁盘扩容</h3><p>参考文献：<a href="https://www.diskgenius.cn/help/extend-partition.php">无损扩容分区– DiskGenius</a></p>
-<p>使用软件：<a href="https://www.tbtool.cn/">图吧工具箱 - 最纯净的硬件工具箱 (tbtool.cn)</a></p>
-<p>遇到的问题：</p>
-<ul>
-<li>参考文献中的第3步中的“调整后的容量”是指腾出空闲空间的盘，在扩充目的盘后剩余的空间大小。例如，原有C盘50G，D盘100G，想在D盘腾出10G给C盘，那么“调整后的容量”应该是90G</li>
-<li>如果重启时，windows不能自动进入WinPE的话，可以尝试安装一个<a href="https://www.wepe.com.cn/">微PE工具箱</a> ，安装之后电脑开机时，会出现一个进入<code>WinPE</code>的选项。如果要删除<code>WinPE</code>的开机引导的话，参考<a href="https://blog.csdn.net/lezeqe/article/details/105086599">微PE工具箱怎么卸载</a> ，其实就是把开机引导删除即可。</li>
-<li>windows重启进入<code>WinPE</code>后，会自动化操作，不要打断。可能遇到:”检测到下列文件系统错误，分区容量未做调整， 无效的的文件记录”.   可参考<a href="https://blog.csdn.net/QKK612501/article/details/115298382">检测到下列文件系统错误解决方案</a></li>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
+<li><strong>Bug复现</strong></li>
 </ul>
-<h3 id="使用Clash后，不打开Clash就无法上网"><a href="#使用Clash后，不打开Clash就无法上网" class="headerlink" title="使用Clash后，不打开Clash就无法上网"></a>使用Clash后，不打开Clash就无法上网</h3><p>把Clash的系统代理关了就行</p>
+<p>点击文章目录不跳转，打开开发者工具，发现：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
+
+<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
+<ul>
+<li><strong>开发者模式Debug</strong></li>
+</ul>
+<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
+<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>检查文章中的标题<code>Quick Start</code>:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
+<ul>
+<li><strong>问题分析</strong></li>
+</ul>
+<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
+<p>我的摘要：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>官方的摘要：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
+
+<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
+<ul>
+<li><strong>解决方案</strong></li>
+</ul>
+<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
 ]]></content>
       <tags>
-        <tag>Windows</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -2401,160 +2621,5 @@
 <li><a href="https://www.acwing.com/problem/content/description/829/">827. 双链表 - AcWing题库</a></li>
 </ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>解决文章目录点击不跳转的问题</title>
-    <url>/posts/6e206cd9/</url>
-    <content><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p style = "color : green">网页文章目录罢工了？</p>
-
-<p>今天在巡视我的小破站时，突然发现我的网页文章目录罢工了：点击目录文章不发生跳转。STFW找到了NexT主题下的一个2020年的<a href = "https://github.com/theme-next/hexo-theme-next/pull/1540/files">Issue</a> , 但我发现官方现在已经把这个bug修复了。之后我才找到原因：<strong>Hexo没有正确地渲染出我的markdown语法，或者说，我没有正确的书写markdown。</strong> <strong>将h标签写的标题改成markdown语法即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></strong> </p>
-<span id="more"></span>
-
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><ul>
-<li><strong>Bug复现</strong></li>
-</ul>
-<p>点击文章目录不跳转，打开开发者工具，发现：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received</span><br></pre></td></tr></table></figure>
-
-<p>监听器确实监听到了一个response , 但 message channel在response接受前已关闭？不懂什么意思……</p>
-<ul>
-<li><strong>开发者模式Debug</strong></li>
-</ul>
-<p>打开开发者工具，选择一个元素进行检查，例如<code>摘要</code>，发现浏览器将其渲染为：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>摘要<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong style = "color : red">这明显没设置锚点链接！！！怎么可能跳转！！！</strong></p>
-<p>我又去看了下在建站初，Hexo自己给出的文章实例<code>Hello World</code>,检查<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span> = <span class="string">&quot;nav-link&quot;</span> <span class="attr">href</span> = <span class="string">&quot;#Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-number&quot;</span>&gt;</span>1.<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span> = <span class="string">&quot;nav-text&quot;</span>&gt;</span>Quick Start<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>检查文章中的标题<code>Quick Start</code>:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">id</span>=<span class="string">&quot;Quick-Start&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#Quick-Start&quot;</span> <span class="attr">class</span>=<span class="string">&quot;headerlink&quot;</span> <span class="attr">title</span>=<span class="string">&quot;Quick Start&quot;</span>&gt;</span></span><br><span class="line">		Quick Start</span><br><span class="line">	<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>发现文章内的大标题都被加上了&#96;&#96;id&#96;锚点。而我写的文章都没有渲染加上锚点。</p>
-<ul>
-<li><strong>问题分析</strong></li>
-</ul>
-<p>同样是<code>_post</code>文件夹里的md文件，渲染结果却不同，问题肯定处在markdown文件内部，我仔细对比了官方参考的<code>Hello World</code>文章与我的文章，发现了问题所在：<strong style = "color:red">原来我的文章内的标题都是用HTML格式写的，而官方文章都是用markdown语法写的</strong>，即：</p>
-<p>我的摘要：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h3&gt;摘要&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
-
-<p>官方的摘要：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">### 摘要</span></span><br></pre></td></tr></table></figure>
-
-<p>markdown里写的是<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>,那hexo当然要原封不动地渲染为<code>&lt;h3&gt;摘要&lt;/h3&gt;</code> , 难不成还修改你的HTML代码？	被自己傻到了:sweat_smile:</p>
-<ul>
-<li><strong>解决方案</strong></li>
-</ul>
-<p>把markdown源文件修改即可，即<code>&lt;h3&gt;摘要&lt;/h3&gt;</code>改成<code>### 摘要</code></p>
-]]></content>
-      <tags>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A simple example of Cython</title>
-    <url>/posts/ec8e075c/</url>
-    <content><![CDATA[<h1 id="Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython"><a href="#Tutorial-Binding-C-Functions-and-Classes-to-Python-using-Cython" class="headerlink" title="Tutorial: Binding C++ Functions and Classes to Python using Cython"></a>Tutorial: Binding C++ Functions and Classes to Python using Cython</h1><h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#project-structure">Project Structure</a></li>
-<li><a href="#cpp-implementation">C++ Implementation</a></li>
-<li><a href="#cython-binding-files">Cython Binding Files</a></li>
-<li><a href="#building-the-extension">Building the Extension</a></li>
-<li><a href="#using-the-python-module">Using the Python Module</a></li>
-<li><a href="#best-practices">Best Practices</a></li>
-</ol>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Cython is a powerful tool that allows you to write C extensions for Python. It’s particularly useful when you want to:</p>
-<ul>
-<li>Speed up Python code by converting it to C</li>
-<li>Interface with existing C&#x2F;C++ code</li>
-<li>Create Python bindings for C++ classes and functions</li>
-</ul>
-<p>This tutorial demonstrates how to create Python bindings for C++ functions and classes using a real-world example.</p>
-<h2 id="Project-Structure"><a href="#Project-Structure" class="headerlink" title="Project Structure"></a>Project Structure</h2><p>A typical Cython project for C++ bindings consists of the following files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">src/cc/</span><br><span class="line">├── functions.hpp      # C++ header file</span><br><span class="line">├── functions.cc       # C++ implementation</span><br><span class="line">├── functions.pxd      # Cython declarations</span><br><span class="line">├── functions.pyx      # Cython implementation</span><br><span class="line">└── setup.py          # Build configuration</span><br></pre></td></tr></table></figure>
-
-<h2 id="C-Implementation"><a href="#C-Implementation" class="headerlink" title="C++ Implementation"></a>C++ Implementation</h2><h3 id="Header-File-functions-hpp"><a href="#Header-File-functions-hpp" class="headerlink" title="Header File (functions.hpp)"></a>Header File (functions.hpp)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> CC_FUNCTIONS_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> CC_FUNCTIONS_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Function declarations</span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">prim</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">fib</span><span class="params">(<span class="type">int</span> n)</span></span>;</span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matmul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Class declaration</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">matrix</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">matrix</span>();</span><br><span class="line">    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">mul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                     std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B);</span><br><span class="line">    std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">transpose</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Implementation-File-functions-cc"><a href="#Implementation-File-functions-cc" class="headerlink" title="Implementation File(functions.cc)"></a>Implementation File(functions.cc)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;functions.hpp&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">prim</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// calculate the upper bound of the n-th prime numbers</span></span><br><span class="line">  <span class="type">int</span> upper = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(n * (<span class="built_in">log</span>(n) + <span class="built_in">log</span>(<span class="built_in">log</span>(n)))) + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function">std::vector&lt;<span class="type">bool</span>&gt; <span class="title">sieve</span><span class="params">(upper + <span class="number">1</span>, <span class="literal">true</span>)</span></span>;</span><br><span class="line">  sieve[<span class="number">0</span>] = sieve[<span class="number">1</span>] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">2</span>; p * p &lt;= upper; p++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sieve[p]) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> i = p * p; i &lt;= upper; i += p) &#123;</span><br><span class="line">        sieve[i] = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  std::vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">  primes.<span class="built_in">reserve</span>(n);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; primes.<span class="built_in">size</span>() &lt; <span class="built_in">static_cast</span>&lt;<span class="type">size_t</span>&gt;(n) &amp;&amp; i &lt;= upper; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sieve[i]) &#123;</span><br><span class="line">      primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> primes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">fib</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">res</span><span class="params">(n)</span></span>;</span><br><span class="line">  res[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  res[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    res[i] = res[i - <span class="number">1</span>] + res[i - <span class="number">2</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">matmul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                     std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>() || B.<span class="built_in">empty</span>() || A[<span class="number">0</span>].<span class="built_in">size</span>() != B.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(</span><br><span class="line">        <span class="string">&quot;Invalid matrix dimensions for multiplication.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(A.<span class="built_in">size</span>(), std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(B[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; B[<span class="number">0</span>].<span class="built_in">size</span>(); ++j) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; B.<span class="built_in">size</span>(); ++k) &#123;</span><br><span class="line">        res[i][j] += A[i][k] * B[k][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; matrix::<span class="built_in">mul</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A,</span><br><span class="line">                                          std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;B) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>() || B.<span class="built_in">empty</span>() || A[<span class="number">0</span>].<span class="built_in">size</span>() != B.<span class="built_in">size</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(</span><br><span class="line">        <span class="string">&quot;Invalid matrix dimensions for multiplication.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(A.<span class="built_in">size</span>(), std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(B[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; B[<span class="number">0</span>].<span class="built_in">size</span>(); ++j) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; B.<span class="built_in">size</span>(); ++k) &#123;</span><br><span class="line">        res[i][j] += A[i][k] * B[k][j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">matrix::<span class="built_in">matrix</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt;</span><br><span class="line">matrix::<span class="built_in">transpose</span>(std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; &amp;A) &#123;</span><br><span class="line">  <span class="keyword">if</span> (A.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    <span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(<span class="string">&quot;Invalid matrix dimensions for transpose.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">int</span> row = A.<span class="built_in">size</span>();</span><br><span class="line">  <span class="type">int</span> col = A[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">  std::vector&lt;std::vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">res</span>(col, std::<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(row, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; row; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; col; ++j) &#123;</span><br><span class="line">      res[j][i] = A[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Cython-Binding-Files"><a href="#Cython-Binding-Files" class="headerlink" title="Cython Binding Files"></a>Cython Binding Files</h2><h3 id="1-PXD-File-functions-pxd"><a href="#1-PXD-File-functions-pxd" class="headerlink" title="1. PXD File (functions.pxd)"></a>1. PXD File (functions.pxd)</h3><p>The PXD file contains declarations that tell Cython about the C++ types and functions:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> libcpp.vector cimport vector</span><br><span class="line"></span><br><span class="line">cdef extern <span class="keyword">from</span> <span class="string">&quot;functions.cc&quot;</span>:</span><br><span class="line">    <span class="comment"># Function declarations</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] prim(<span class="built_in">int</span> n)</span><br><span class="line">    cdef vector[<span class="built_in">int</span>] fib(<span class="built_in">int</span> n)</span><br><span class="line">    cdef vector[vector[<span class="built_in">int</span>]] matmul(vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Class declaration</span></span><br><span class="line">    cdef cppclass matrix:</span><br><span class="line">        matrix()</span><br><span class="line">        vector[vector[<span class="built_in">int</span>]] mul(vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B)</span><br><span class="line">        vector[vector[<span class="built_in">int</span>]] transpose(vector[vector[<span class="built_in">int</span>]] A)</span><br></pre></td></tr></table></figure>
-
-<p>❌ Intuitively, it should be <code>cdef extern from &quot;functions.hpp&quot;</code> in <code>functions.pxd</code>, and the TVM project also includes header files (<code>.hpp</code>) in its <code>.pxi</code>. However, this causes errors on my Windows computer. Changing it to <code>.cc</code> resolves the issue.</p>
-<h3 id="2-PYX-File-functions-pyx"><a href="#2-PYX-File-functions-pyx" class="headerlink" title="2. PYX File (functions.pyx)"></a>2. PYX File (functions.pyx)</h3><p>The PYX file contains the Python interface implementation:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># distutils: language=c++</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> libcpp.vector cimport vector</span><br><span class="line"><span class="keyword">from</span> functions cimport prim, fib, matmul, matrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># Function wrappers</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getNPrimes</span>(<span class="params"><span class="built_in">int</span> n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Get the first n prime numbers.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] primes = prim(n)</span><br><span class="line">    <span class="keyword">return</span> primes</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getNFibonacci</span>(<span class="params"><span class="built_in">int</span> n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Get the first n Fibonacci numbers.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[<span class="built_in">int</span>] res = fib(n)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">matMul</span>(<span class="params">vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Multiply two matrices.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cdef vector[vector[<span class="built_in">int</span>]] res = matmul(A, B)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment"># Class wrapper</span></span><br><span class="line">cdef <span class="keyword">class</span> <span class="title class_">PyMatrix</span>:</span><br><span class="line">    cdef matrix _matrix <span class="comment"># wrap a C++ class `matrix` in python class `PyMatrix`</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self._matrix = matrix()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">self, vector[vector[<span class="built_in">int</span>]] A, vector[vector[<span class="built_in">int</span>]] B</span>):</span><br><span class="line">        <span class="keyword">return</span> self._matrix.mul(A, B)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">transpose</span>(<span class="params">self, vector[vector[<span class="built_in">int</span>]] A</span>):</span><br><span class="line">        <span class="keyword">return</span> self._matrix.transpose(A)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Building-the-Extension"><a href="#Building-the-Extension" class="headerlink" title="Building the Extension"></a>Building the Extension</h2><p>Create a <code>setup.py</code> file to build the Cython extension:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"><span class="keyword">from</span> Cython.Build <span class="keyword">import</span> cythonize</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    ext_modules=cythonize(<span class="string">&quot;functions.pyx&quot;</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>To build the extension, run:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python setup.py build_ext --inplace</span><br></pre></td></tr></table></figure>
-
-<h2 id="Using-the-Python-Module"><a href="#Using-the-Python-Module" class="headerlink" title="Using the Python Module"></a>Using the Python Module</h2><p>After building, you can use the module in Python:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> functions <span class="keyword">import</span> getNPrimes, getNFibonacci, matMul, PyMatrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using functions</span></span><br><span class="line">primes = getNPrimes(<span class="number">10</span>)</span><br><span class="line">fibonacci = getNFibonacci(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Using the matrix class</span></span><br><span class="line">matrix = PyMatrix()</span><br><span class="line">A = [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">B = [[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]]</span><br><span class="line">result = matrix.mul(A, B)</span><br><span class="line">transposed = matrix.transpose(A)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h2><ol>
-<li><p><strong>Type Declarations</strong></p>
-<ul>
-<li>Use <code>cdef</code> for C-level declarations</li>
-<li>Use <code>cpdef</code> for functions that need to be called from both Python and C</li>
-<li>Use <code>def</code> for pure Python functions</li>
-</ul>
-</li>
-<li><p><strong>Memory Management</strong></p>
-<ul>
-<li>Cython handles most memory management automatically</li>
-<li>Use <code>cdef</code> classes for better performance</li>
-<li>Be careful with C++ objects that need explicit cleanup</li>
-</ul>
-</li>
-<li><p><strong>Error Handling</strong></p>
-<ul>
-<li>Use Python exceptions for error handling</li>
-<li>Convert C++ exceptions to Python exceptions when necessary</li>
-</ul>
-</li>
-<li><p><strong>Documentation</strong></p>
-<ul>
-<li>Add docstrings to Python-facing functions</li>
-<li>Document type requirements and constraints</li>
-<li>Include usage examples</li>
-</ul>
-</li>
-<li><p><strong>Performance Optimization</strong></p>
-<ul>
-<li>Use static typing where possible</li>
-<li>Minimize Python&#x2F;C++ boundary crossings</li>
-<li>Use <code>nogil</code> for CPU-bound operations</li>
-</ul>
-</li>
-<li><p><strong>Testing</strong></p>
-<ul>
-<li>Write unit tests for both C++ and Python interfaces</li>
-<li>Test edge cases and error conditions</li>
-<li>Verify memory management</li>
-</ul>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>Cython</tag>
-      </tags>
   </entry>
 </search>
