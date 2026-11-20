@@ -1,16 +1,41 @@
 ---
+import { formatSiteUptime } from '../siteUptime';
+
 const today = new Date();
+const uptime = formatSiteUptime(today);
 ---
 
 <footer>
-	&copy; {today.getFullYear()} BenkangPeng. All rights reserved.
+	<div>&copy; {today.getFullYear()} BenkangPeng. All rights reserved.</div>
+	<div class="uptime">
+		<span id="timeDate">{uptime.days}</span>
+		<span id="times">{uptime.clock}</span>
+	</div>
 </footer>
+<script>
+	import { formatSiteUptime } from '../siteUptime';
+
+	const timeDate = document.getElementById('timeDate');
+	const times = document.getElementById('times');
+
+	function renderUptime() {
+		const uptime = formatSiteUptime();
+		if (timeDate) timeDate.textContent = uptime.days;
+		if (times) times.textContent = uptime.clock;
+	}
+
+	renderUptime();
+	window.setInterval(renderUptime, 1000);
+</script>
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+	}
+	.uptime {
+		margin-top: 0.75em;
 	}
 	.social-links {
 		display: flex;
