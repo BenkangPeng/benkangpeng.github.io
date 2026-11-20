@@ -1,0 +1,62 @@
+---
+import TocList, { type TocEntry } from './TocList.astro';
+
+export interface TocHeading { depth: number; slug: string; text: string }
+interface Props { headings: TocHeading[] }
+const { headings } = Astro.props;
+const entries: TocEntry[] = [];
+const parents: TocEntry[] = [];
+for (const heading of headings) {
+	while (parents.length && parents[parents.length - 1].depth >= heading.depth) parents.pop();
+	const entry: TocEntry = { ...heading, children: [] };
+	(parents.length ? parents[parents.length - 1].children : entries).push(entry);
+	parents.push(entry);
+}
+---
+
+<aside class="toc" aria-label="Article contents">
+	<details open>
+		<summary>On this page</summary>
+		<nav aria-label="Table of contents">
+			<TocList entries={entries} />
+		</nav>
+	</details>
+</aside>
+
+<script>
+	const toc = document.querySelector<HTMLElement>('.toc');
+	if (toc) {
+		const details = toc.querySelector('details')!;
+		const compact = window.matchMedia('(max-width: 1200px)');
+		const setExpanded = () => { details.open = !compact.matches; };
+		setExpanded();
+		compact.addEventListener('change', setExpanded);
+		const links = [...toc.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+		const sections = links.map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1)))).filter((section): section is HTMLElement => !!section);
+		function highlight(id: string) {
+			links.forEach((link) => {
+				if (decodeURIComponent(link.hash.slice(1)) === id) link.setAttribute('aria-current', 'location');
+				else link.removeAttribute('aria-current');
+			});
+		}
+		if (window.location.hash) highlight(decodeURIComponent(window.location.hash.slice(1)));
+		const observer = new IntersectionObserver((entries) => {
+			const current = entries.find((entry) => entry.isIntersecting);
+			if (current) highlight(current.target.id);
+		}, { rootMargin: '0px 0px -65% 0px' });
+		sections.forEach((section) => observer.observe(section));
+		links.forEach((link) => link.addEventListener('click', () => highlight(decodeURIComponent(link.hash.slice(1)))));
+	}
+</script>
+
+<style>
+	.toc { position: sticky; top: 2rem; min-width: 0; padding-top: .3rem; font-size: .875rem; line-height: 1.6; }
+	summary { color: #424b57; font-weight: 700; cursor: pointer; margin-bottom: .85rem; }
+	nav { max-height: calc(100dvh - 8rem); overflow-y: auto; scrollbar-width: thin; padding: 0 .25rem .25rem 0; font-family: Georgia, 'Times New Roman', serif; font-size: 1rem; line-height: 1.55; }
+	summary:focus-visible { outline: 2px solid #16838a; outline-offset: 2px; }
+	@media (max-width: 1200px) {
+		.toc { position: static; grid-row: 1; padding: 1rem 1.25rem; margin-bottom: 1.5rem; border: 1px solid #e3e6eb; border-radius: 6px; background: #f8fafb; }
+		details:not([open]) summary { margin-bottom: 0; }
+		nav { max-height: 45dvh; }
+	}
+</style>

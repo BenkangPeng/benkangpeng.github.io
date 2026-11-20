@@ -1,0 +1,28 @@
+---
+export interface TocEntry {
+	depth: number;
+	slug: string;
+	text: string;
+	children: TocEntry[];
+}
+interface Props { entries: TocEntry[] }
+const { entries } = Astro.props;
+---
+
+<ul>
+	{entries.map((entry) => (
+		<li>
+			<a href={`#${entry.slug}`} data-toc-link>{entry.text}</a>
+			{entry.children.length > 0 && <Astro.self entries={entry.children} />}
+		</li>
+	))}
+</ul>
+
+<style>
+	ul { list-style: disc; padding: 0 0 0 1.25rem; margin: 0; }
+	li { margin: .25rem 0; padding: 0; }
+	li::marker { color: #424852; font-size: .75em; }
+	a { display: block; padding: .12rem 0; color: #424852; text-decoration: none; overflow-wrap: anywhere; }
+	a:hover, a[aria-current] { color: #169da5; }
+	a:focus-visible { outline: 2px solid #16838a; outline-offset: 2px; border-radius: 2px; }
+</style>

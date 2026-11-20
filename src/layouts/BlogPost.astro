@@ -5,80 +5,132 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import 'katex/dist/katex.min.css';
+import TableOfContents, { type TocHeading } from '../components/TableOfContents.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & {
+	readingTime?: number;
+	hideOpeningTitle?: boolean;
+	headings?: TocHeading[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, readingTime, hideOpeningTitle = false, headings = [] } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
 	</head>
-
 	<body>
 		<Header />
-		<main>
+		<main class:list={{ 'has-toc': headings.length > 0 }}>
 			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{updatedDate && (
-								<div class="last-updated-on">
-									Last updated on <FormattedDate date={updatedDate} />
-								</div>
-							)}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+				<header class="article-header">
+					<a class="back-link" href="/blog/">All posts</a>
+					<h1>{title}</h1>
+					<div class="article-meta">
+						<FormattedDate date={pubDate} />
+						{readingTime && <span>{readingTime} min read</span>}
+						{updatedDate && <span>Updated <FormattedDate date={updatedDate} /></span>}
 					</div>
+				</header>
+				{heroImage && <div class="hero-image"><Image width={1000} height={500} src={heroImage} alt="" /></div>}
+				<div class:list={['article-content', { 'has-opening-title': hideOpeningTitle }]}>
 					<slot />
 				</div>
 			</article>
+			{headings.length > 0 && <TableOfContents headings={headings} />}
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<script>
+	import '../scripts/code-copy';
+</script>
+
+<style>
+	:global(body) { background: #fff; }
+	main {
+		box-sizing: border-box;
+		width: 1000px;
+		max-width: calc(100% - 4rem);
+		margin: 0 auto;
+		padding: 2.75rem 0 5rem;
+	}
+	article { font-size: 1.125rem; line-height: 1.85; color: #343b45; }
+	main.has-toc { width: 1270px; display: grid; grid-template-columns: minmax(0, 1000px) 220px; gap: 3rem; align-items: start; }
+	article { min-width: 0; }
+	.article-header { padding-bottom: 1.75rem; margin-bottom: 2rem; border-bottom: 1px solid #e3e6eb; }
+	.back-link { display: inline-block; font-size: .875rem; line-height: 1.5; color: #6c7480; text-decoration: none; margin-bottom: 1.25rem; }
+	.back-link:hover { color: #16838a; }
+	.article-header h1 {
+		font-size: clamp(1.75rem, 2.4vw, 2.375rem);
+		font-weight: 700;
+		line-height: 1.4;
+		letter-spacing: -.02em;
+		margin: 0 0 1rem;
+		text-wrap: pretty;
+		color: #252b34;
+	}
+	.article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1.25rem; color: #78808b; font-size: .875rem; line-height: 1.6; }
+	.hero-image { margin-bottom: 2rem; }
+	.hero-image img { display: block; width: 100%; height: auto; border-radius: 8px; }
+	.article-content { min-width: 0; }
+	/* Imported notes often repeat their frontmatter title as the opening H1. */
+	.has-opening-title :global(> h1:first-child) { display: none; }
+	.article-content :global(h1),
+	.article-content :global(h2),
+	.article-content :global(h3),
+	.article-content :global(h4),
+	.article-content :global(h5),
+	.article-content :global(h6) { color: #2c333d; line-height: 1.5; margin: 2rem 0 .85rem; scroll-margin-top: 1.5rem; }
+	.article-content :global(h1) { font-size: 1.875rem; }
+	.article-content :global(h2) { font-size: 1.625rem; padding-bottom: .4rem; border-bottom: 1px solid #edf0f3; }
+	.article-content :global(h3) { font-size: 1.375rem; }
+	.article-content :global(h4) { font-size: 1.1875rem; }
+	.article-content :global(h5), .article-content :global(h6) { font-size: 1.125rem; }
+	.article-content :global(p) { margin: 0 0 1.2em; }
+	.article-content :global(ul), .article-content :global(ol) { padding-left: 1.5em; margin: 0 0 1.2em; }
+	.article-content :global(li) { margin: .25em 0; }
+	.article-content :global(li > ul), .article-content :global(li > ol) { margin-bottom: .4em; }
+	.article-content :global(a) { color: #167b89; text-underline-offset: .18em; }
+	.article-content :global(a:hover) { color: #105761; }
+	.article-content :global(code) { font-size: .875em; padding: .15em .35em; background: #f0f2f5; border-radius: 4px; overflow-wrap: anywhere; }
+	.article-content :global(pre) { box-sizing: border-box; max-width: 100%; overflow-x: auto; padding: 1.25rem 1.5rem; margin: 1.4rem 0; border-radius: 8px; font-size: .875rem; line-height: 1.75; tab-size: 4; }
+	.article-content :global(pre > code) { all: unset; }
+	.article-content :global(.code-block) { position: relative; margin: 1.4rem 0; }
+	.article-content :global(.code-block > pre) { margin: 0; padding-top: 3.25rem; }
+	.article-content :global(.copy-code) { position: absolute; top: .6rem; right: .65rem; min-height: 30px; padding: .25rem .65rem; border: 1px solid #64707e; border-radius: 5px; background: #343c45; color: #f0f3f6; font: inherit; font-size: .75rem; line-height: 1.5; cursor: pointer; }
+	.article-content :global(.copy-code:hover) { background: #46525f; }
+	.article-content :global(.copy-code:focus-visible) { outline: 2px solid #96d9de; outline-offset: 3px; }
+	.article-content :global(.copy-code:disabled) { cursor: wait; }
+	.article-content :global(.katex) { font-size: 1.05em; }
+	.article-content :global(.katex-display) { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .5rem 0; margin: 1.5rem 0; }
+	.article-content :global(blockquote) { margin: 1.4rem 0; padding: .8rem 1.25rem; border-left: 3px solid #b4cdd0; background: #f6f8f9; color: #5c6672; font-size: 1em; }
+	.article-content :global(blockquote > p:last-child) { margin-bottom: 0; }
+	.article-content :global(table) { display: block; width: max-content; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: .9375rem; margin: 1.5rem 0; }
+	.article-content :global(th), .article-content :global(td) { padding: .65rem 1rem; border: 1px solid #e1e5ea; }
+	.article-content :global(th) { background: #f5f7f9; text-align: left; }
+	.article-content :global(img), .article-content :global(video) { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+	.article-content :global(iframe) { max-width: 100%; }
+	.article-content :global(hr) { margin: 2rem 0; }
+	a:focus-visible { outline: 2px solid #16838a; outline-offset: 4px; }
+	@media (max-width: 1200px) {
+		main.has-toc { width: 1000px; grid-template-columns: minmax(0, 1fr); gap: 0; }
+	}
+	@media (max-width: 720px) {
+		main { max-width: calc(100% - 2rem); padding: 1.5rem 0 3rem; }
+		article { font-size: 1rem; line-height: 1.8; }
+		.article-header { padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
+		.article-header h1 { font-size: 1.75rem; line-height: 1.45; }
+		.back-link { margin-bottom: 1rem; }
+		.article-meta { gap: .35rem 1rem; }
+		.article-content :global(h1) { font-size: 1.625rem; }
+		.article-content :global(h2) { font-size: 1.375rem; margin-top: 1.75rem; }
+		.article-content :global(h3) { font-size: 1.1875rem; }
+		.article-content :global(h4), .article-content :global(h5), .article-content :global(h6) { font-size: 1rem; }
+		.article-content :global(pre) { padding: 1rem; font-size: .8125rem; }
+	}
+</style>
