@@ -1,112 +1,229 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
+import BlogIcon from '../../components/BlogIcon.astro';
 import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { excerpt, readingMinutes } from '../../utils/blog';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
+const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.data.tags.includes(tag)).length]));
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
+			<h1 class="sr-only">Blog</h1>
+			<div class="archive">
+				<section class="post-list" aria-label="Blog articles" tabindex="-1">
 					{posts.map((post) => (
-						<li>
-							<a href={`/blog/${post.id}/`}>
-								{post.data.heroImage && (
-									<Image width={720} height={360} src={post.data.heroImage} alt="" />
-								)}
-								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>
-						</li>
+						<article data-post data-tags={JSON.stringify(post.data.tags)}>
+							<div class="metadata">
+								<time datetime={post.data.pubDate.toISOString()}>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+								<span><BlogIcon name="clock" />{readingMinutes(post.body ?? '')} min read</span>
+							</div>
+							<div class="post-summary">
+								<h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
+								<p class="excerpt">{excerpt(post.body ?? '', post.data.description)}</p>
+							</div>
+						</article>
 					))}
-				</ul>
-			</section>
+					<p class="empty" hidden>No articles found for this tag. <a href="/blog/" data-filter="">View all posts</a></p>
+				</section>
+				<p class="sr-only" role="status" data-results></p>
+				<nav class="pagination" aria-label="Blog pagination" hidden></nav>
+				<noscript><p class="no-script">All articles are shown. Enable JavaScript to filter by tag and use pagination.</p></noscript>
+			</div>
+			<aside class="sidebar" aria-labelledby="tags-heading">
+				<div class="sidebar-heading">
+					<h2 id="tags-heading">Tags</h2>
+					<p>Explore by topic</p>
+				</div>
+				<nav class="tag-filter" aria-label="Filter articles by tag">
+					<a href="/blog/" data-filter="" aria-current="true"><span>All posts</span><span class="count">{posts.length}<span class="sr-only"> articles</span></span></a>
+					{tags.map((tag) => <a href={`/blog/?tag=${encodeURIComponent(tag)}`} data-filter={tag}><span>{tag}</span><span class="count">{tagCounts.get(tag)}<span class="sr-only"> {tagCounts.get(tag) === 1 ? 'article' : 'articles'}</span></span></a>)}
+				</nav>
+				<a class="rss-link" href="/rss.xml">Subscribe via RSS</a>
+			</aside>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<script>
+	const PAGE_SIZE = 4;
+	const articles = [...document.querySelectorAll<HTMLElement>('[data-post]')];
+	const filters = [...document.querySelectorAll<HTMLAnchorElement>('.tag-filter [data-filter]')];
+	const pagination = document.querySelector<HTMLElement>('.pagination')!;
+	const list = document.querySelector<HTMLElement>('.post-list')!;
+	const empty = document.querySelector<HTMLElement>('.empty')!;
+	const results = document.querySelector<HTMLElement>('[data-results]')!;
+	const articleTags = new Map(articles.map((article) => [article, JSON.parse(article.dataset.tags!) as string[]]));
+
+	function update(moveFocus = false) {
+		const url = new URL(window.location.href);
+		const tag = url.searchParams.get('tag') ?? '';
+		const matching = articles.filter((article) => !tag || articleTags.get(article)!.includes(tag));
+		const pages = Math.max(1, Math.ceil(matching.length / PAGE_SIZE));
+		const requested = Number(url.searchParams.get('page') ?? 1);
+		const page = Number.isSafeInteger(requested) ? Math.min(pages, Math.max(1, requested)) : 1;
+		if (page === 1) url.searchParams.delete('page');
+		else url.searchParams.set('page', String(page));
+		if (url.href !== window.location.href) window.history.replaceState(null, '', url);
+
+		const visible = new Set(matching.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE));
+		articles.forEach((article) => { article.hidden = !visible.has(article); });
+		empty.hidden = matching.length > 0;
+		filters.forEach((filter) => {
+			if (filter.dataset.filter === tag) filter.setAttribute('aria-current', 'true');
+			else filter.removeAttribute('aria-current');
+		});
+		results.textContent = `${matching.length} ${matching.length === 1 ? 'article' : 'articles'}${tag ? ` tagged ${tag}` : ''}. Page ${page} of ${pages}.`;
+		pagination.replaceChildren();
+		pagination.hidden = pages <= 1;
+
+		function addLink(label: string, target: number, ariaLabel: string, disabled = false) {
+			const link = document.createElement('a');
+			link.textContent = label;
+			link.setAttribute('aria-label', ariaLabel);
+			if (disabled) {
+				link.setAttribute('aria-disabled', 'true');
+			} else {
+				const next = new URL(url);
+				if (target === 1) next.searchParams.delete('page');
+				else next.searchParams.set('page', String(target));
+				link.href = `${next.pathname}${next.search}`;
+				link.dataset.page = String(target);
+				if (label === String(page)) link.setAttribute('aria-current', 'page');
+			}
+			pagination.append(link);
+		}
+		addLink('«', page - 1, 'Previous page', page === 1);
+		// Keep the control compact even as the archive grows.
+		const numbers = [...new Set([1, page - 1, page, page + 1, pages])].filter((n) => n >= 1 && n <= pages).sort((a, b) => a - b);
+		numbers.forEach((number, index) => {
+			if (index > 0 && number - numbers[index - 1] > 1) {
+				const gap = document.createElement('span');
+				gap.textContent = '…';
+				pagination.append(gap);
+			}
+			addLink(String(number), number, `Page ${number}`);
+		});
+		addLink('»', page + 1, 'Next page', page === pages);
+		if (moveFocus) {
+			list.focus({ preventScroll: true });
+			list.scrollIntoView({ block: 'start' });
+		}
+	}
+
+	document.querySelector('main')!.addEventListener('click', (event) => {
+		if (!(event instanceof MouseEvent) || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+		const link = (event.target as Element).closest<HTMLAnchorElement>('a[data-filter], a[data-page]');
+		if (!link) return;
+		event.preventDefault();
+		window.history.pushState(null, '', link.href);
+		update(true);
+	});
+	window.addEventListener('popstate', () => update());
+	update();
+</script>
+
+<style>
+	:global(body) { background: #f5f6f8; }
+	main {
+		width: 1200px;
+		max-width: calc(100% - 4rem);
+		padding: 0;
+		margin: 2.5rem auto 3.5rem;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 210px;
+		align-items: start;
+		gap: 2.5rem;
+		color: #424852;
+	}
+	.archive, .post-summary { min-width: 0; }
+	.post-list {
+		background: #fff;
+		border: 1px solid #dedfe3;
+		border-radius: 10px;
+		padding: 0 2rem;
+		scroll-margin-top: 1.5rem;
+	}
+	article {
+		display: grid;
+		grid-template-columns: 130px minmax(0, 1fr);
+		gap: 2rem;
+		padding: 2.7rem 0;
+		border-bottom: 1px solid #e1e4e8;
+	}
+	article:last-of-type { border-bottom: 0; }
+	h2 { font-family: Georgia, 'Times New Roman', serif; }
+	.post-summary h2 { font-size: 1.7rem; font-weight: 400; line-height: 1.35; margin: 0 0 .85rem; }
+	.post-summary h2 a { color: #4b515a; text-decoration: none; transition: color .15s; }
+	.post-summary h2 a:hover { color: #16838a; }
+	.excerpt {
+		font-size: 1.025rem;
+		line-height: 1.8;
+		margin: 0;
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.metadata { display: flex; flex-direction: column; align-items: flex-start; gap: .4rem; padding-top: .4rem; color: #787e87; font-size: .875rem; line-height: 1.6; }
+	.metadata time { font-family: Georgia, 'Times New Roman', serif; }
+	.metadata > span { display: inline-flex; align-items: center; gap: .35rem; }
+	.metadata :global(svg) { width: 13px; height: 13px; flex-shrink: 0; }
+	.sidebar { position: sticky; top: 2rem; padding-top: 1.5rem; }
+	.sidebar-heading { padding: 0 .75rem 1.2rem; border-bottom: 1px solid #dedfe3; margin-bottom: .75rem; }
+	.sidebar h2 { font-size: 1.15rem; font-weight: 700; line-height: 1.5; letter-spacing: .01em; margin: 0; color: #424852; }
+	.sidebar-heading p { font-size: .875rem; color: #787e87; margin: .25rem 0 0; }
+	.tag-filter { display: flex; flex-direction: column; gap: .25rem; }
+	.tag-filter a { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: #606670; text-decoration: none; padding: .55rem .75rem; border-radius: 5px; font-size: 1rem; line-height: 1.5; transition: background .15s, color .15s; }
+	.tag-filter a > span:first-child { min-width: 0; }
+	.tag-filter a:hover { color: #16838a; background: #eceff2; }
+	.tag-filter a[aria-current] { color: #147a80; background: #e7eff0; font-weight: 700; }
+	.count { flex-shrink: 0; font-size: .875rem; font-variant-numeric: tabular-nums; color: #787e87; }
+	.tag-filter a[aria-current] .count { color: #147a80; }
+	.rss-link { display: block; border-top: 1px solid #dedfe3; margin: 1.25rem .75rem 0; padding-top: 1.1rem; color: #787e87; text-decoration: none; font-size: .875rem; }
+	.rss-link:hover { color: #16838a; }
+	.pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .25rem; margin-top: 1.5rem; font-family: Georgia, 'Times New Roman', serif; font-size: 1rem; }
+	.pagination :global(a), .pagination :global(span) { display: inline-flex; align-items: center; justify-content: center; min-width: 2.25rem; min-height: 2.75rem; color: #424852; text-decoration: none; }
+	.pagination :global(a[aria-current='page']) { color: #16838a; }
+	.pagination :global(a[href]:hover) { color: #16838a; background: #e9edf0; border-radius: 4px; }
+	.pagination :global(a[aria-disabled]) { color: #aeb3bb; }
+	.empty { margin: 0; padding: 2rem 0; font-size: 1rem; }
+	.no-script { font-size: 1rem; }
+	[hidden] { display: none !important; }
+	a:focus-visible, .post-list:focus-visible { outline: 2px solid #16838a; outline-offset: 4px; }
+	@media (max-width: 1050px) {
+		main { max-width: calc(100% - 3rem); grid-template-columns: minmax(0, 1fr) 180px; gap: 1.5rem; }
+		.post-list { padding: 0 1.5rem; }
+		article { grid-template-columns: 105px minmax(0, 1fr); gap: 1.25rem; padding: 2rem 0; }
+		.post-summary h2 { font-size: 1.5rem; }
+	}
+	@media (max-width: 760px) {
+		main { max-width: calc(100% - 2rem); margin: 1.5rem auto 2.5rem; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+		.sidebar { grid-row: 1; position: static; padding: 0; }
+		.sidebar-heading { display: flex; align-items: baseline; gap: .75rem; border: 0; margin: 0 0 .6rem; padding: 0; }
+		.sidebar-heading p { margin: 0; }
+		.tag-filter { flex-direction: row; flex-wrap: wrap; gap: .4rem; }
+		.tag-filter a { gap: .65rem; padding: .4rem .7rem; border: 1px solid #dedfe3; font-size: .9rem; }
+		.tag-filter a[aria-current] { border-color: #cbdfe1; }
+		.rss-link { display: none; }
+		article { display: flex; flex-direction: column; gap: .7rem; padding: 1.75rem 0; }
+		.metadata { flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: 0; }
+		.post-summary h2 { font-size: 1.5rem; margin-bottom: .7rem; }
+		.excerpt { font-size: 1rem; line-height: 1.75; }
+	}
+	@media (prefers-reduced-motion: reduce) { a { transition: none; } }
+</style>
