@@ -3,11 +3,21 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import remarkMath from 'remark-math';
+import remarkBreaks from 'remark-breaks';
+import rehypeKatex from 'rehype-katex';
+import { unified } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
+	markdown: {
+		processor: unified({
+			remarkPlugins: [remarkMath, remarkBreaks],
+			rehypePlugins: [rehypeKatex],
+		}),
+	},
 	fonts: [
 		{
 			provider: fontProviders.local(),
