@@ -60,7 +60,7 @@ const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.da
 </html>
 
 <script>
-	const PAGE_SIZE = 4;
+	import { PAGE_SIZE } from '../../consts';
 	const articles = [...document.querySelectorAll<HTMLElement>('[data-post]')];
 	const filters = [...document.querySelectorAll<HTMLAnchorElement>('.tag-filter [data-filter]')];
 	const pagination = document.querySelector<HTMLElement>('.pagination')!;
