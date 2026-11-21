@@ -10,8 +10,9 @@ import { excerpt, readingMinutes } from '../../utils/blog';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.data.tags.includes(tag)).length]));
+tags.sort((a, b) => (tagCounts.get(b) ?? 0) - (tagCounts.get(a) ?? 0) || a.localeCompare(b, 'en'));
 ---
 
 <!doctype html>
@@ -48,7 +49,7 @@ const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.da
 					<h2 id="tags-heading">Tags</h2>
 					<p>Explore by topic</p>
 				</div>
-				<nav class="tag-filter" aria-label="Filter articles by tag">
+				<nav class="tag-filter" aria-label="Filter articles by tag" tabindex="0">
 					<a href="/blog/" data-filter="" aria-current="true"><span>All posts</span><span class="count">{posts.length}<span class="sr-only"> articles</span></span></a>
 					{tags.map((tag) => <a href={`/blog/?tag=${encodeURIComponent(tag)}`} data-filter={tag}><span>{tag}</span><span class="count">{tagCounts.get(tag)}<span class="sr-only"> {tagCounts.get(tag) === 1 ? 'article' : 'articles'}</span></span></a>)}
 				</nav>
@@ -187,8 +188,24 @@ const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.da
 	.sidebar-heading { padding: 0 .75rem 1.2rem; border-bottom: 1px solid #dedfe3; margin-bottom: .75rem; }
 	.sidebar h2 { font-size: 1.15rem; font-weight: 700; line-height: 1.5; letter-spacing: .01em; margin: 0; color: #424852; }
 	.sidebar-heading p { font-size: .875rem; color: #787e87; margin: .25rem 0 0; }
-	.tag-filter { display: flex; flex-direction: column; gap: .25rem; }
-	.tag-filter a { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; color: #606670; text-decoration: none; padding: .55rem .75rem; border-radius: 5px; font-size: 1rem; line-height: 1.5; transition: background .15s, color .15s; }
+	.tag-filter {
+		display: flex;
+		flex-direction: column;
+		gap: .25rem;
+		max-height: min(30rem, max(8rem, calc(100dvh - 15rem)));
+		overflow-y: auto;
+		overflow-x: hidden;
+		overscroll-behavior-y: contain;
+		scrollbar-width: thin;
+		scrollbar-color: #b5bec7 transparent;
+		scrollbar-gutter: stable;
+		padding: .25rem;
+	}
+	.tag-filter::-webkit-scrollbar { width: 6px; }
+	.tag-filter::-webkit-scrollbar-thumb { background: #b5bec7; border-radius: 6px; }
+	.tag-filter::-webkit-scrollbar-thumb:hover { background: #8795a3; }
+	.tag-filter:focus-visible { outline: 2px solid #16838a; outline-offset: 3px; border-radius: 5px; }
+	.tag-filter a { display: flex; flex-shrink: 0; justify-content: space-between; align-items: baseline; gap: 1rem; color: #606670; text-decoration: none; padding: .55rem .75rem; border-radius: 5px; font-size: 1rem; line-height: 1.5; transition: background .15s, color .15s; }
 	.tag-filter a > span:first-child { min-width: 0; }
 	.tag-filter a:hover { color: #16838a; background: #eceff2; }
 	.tag-filter a[aria-current] { color: #147a80; background: #e7eff0; font-weight: 700; }
@@ -216,7 +233,7 @@ const tagCounts = new Map(tags.map((tag) => [tag, posts.filter((post) => post.da
 		.sidebar { grid-row: 1; position: static; padding: 0; }
 		.sidebar-heading { display: flex; align-items: baseline; gap: .75rem; border: 0; margin: 0 0 .6rem; padding: 0; }
 		.sidebar-heading p { margin: 0; }
-		.tag-filter { flex-direction: row; flex-wrap: wrap; gap: .4rem; }
+		.tag-filter { flex-direction: row; flex-wrap: wrap; gap: .4rem; max-height: 12rem; }
 		.tag-filter a { gap: .65rem; padding: .4rem .7rem; border: 1px solid #dedfe3; font-size: .9rem; }
 		.tag-filter a[aria-current] { border-color: #cbdfe1; }
 		.rss-link { display: none; }
