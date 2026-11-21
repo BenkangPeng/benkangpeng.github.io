@@ -9,7 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "predev": "npm run check:content",
+    "prebuild": "npm run check:content",
+    "check:content": "node scripts/check-content.mjs",
+    "check:types": "astro check",
+    "check:site": "node scripts/check-site.mjs",
+    "test": "node --test scripts/site-checks.test.mjs",
+    "ci": "npm run check:content && npm test && npm run check:types && npm run build && npm run check:site"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.10",
@@ -22,5 +29,11 @@
     "remark-breaks": "^4.0.0",
     "remark-math": "^6.0.0",
     "sharp": "^0.35.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "github-slugger": "^2.0.0",
+    "parse5": "^8.1.1",
+    "typescript": "^6.0.3"
   }
 }

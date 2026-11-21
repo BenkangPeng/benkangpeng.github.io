@@ -1,63 +1,57 @@
-# Astro Starter Kit: Blog
+# Benkang Peng's blog
+
+A static blog built with Astro. Posts live in `src/content/blog/` and can use Markdown, MDX, math, code copying, and a nested table of contents.
+
+## Local development
+
+Use Node.js 24 (CI uses the same major version), then run:
 
 ```sh
-npm create astro@latest -- --template blog
+# Install the exact dependency versions in package-lock.json. This matches CI.
+npm ci
+# Start the dev server
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site is served at `http://localhost:4321`. These commands manage that background process: `npm run astro -- dev status` shows whether it is running and which address it uses, `npm run astro -- dev logs` prints its output, and `npm run astro -- dev stop` shuts it down.
 
-Features:
+## Writing a post
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+Every `.md` and `.mdx` file needs a non-empty `title`, a non-empty `description`, and a valid `pubDate`:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+```yaml
+---
+title: 'Post title'
+description: 'One or two sentences summarizing the post'
+pubDate: '2026-11-21'
+tags: [GPU, Cuda]
+---
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`updatedDate`, `heroImage`, and a custom `slug` are optional. Without a `slug`, the URL comes from the file path: Chinese characters are kept, text is lowercased, and spaces become hyphens. A `.md` and `.mdx` file at the same path, or files whose names differ only by case and produce the same URL, are treated as a conflict.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Put local images in an `images/` directory next to the post and reference them with a relative path. Wrap paths that contain spaces in angle brackets, for example `![Description](<images/example figure.png>)`. Do not reference paths on a personal machine.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Checks
 
-Any static assets, like images, can be placed in the `public/` directory.
+Before committing, run the same full check that GitHub Actions runs:
 
-## 🧞 Commands
+```sh
+npm run ci
+```
 
-All commands are run from the root of the project, from a terminal:
+The generated-site check follows each post from its **source Markdown to the article page, the blog index, and the RSS feed**, so a successful build cannot hide an unpublished post. It also checks that path casing matches. That catches asset paths which work on macOS but fail on Linux.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+`check:site` reads the current `dist/`, so build again after editing a post. Prefer `npm run ci`, which avoids checking a stale build. The checker ignores Markdown and TeX syntax inside code samples. Blog-index excerpts are plain text, so math in an excerpt is not expected to be typeset.
 
-## 👀 Want to learn more?
+## GitHub Actions
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The workflow in `.github/workflows/ci.yml` runs on push, pull request, and manual dispatch. It installs the locked dependencies with `npm ci`, then runs `npm run ci`. Any failing stage fails the check. Errors appear in the Actions log and as error annotations.
 
-## Credit
+This workflow only checks the site. It does not deploy or modify the repository. Changes run on GitHub only after they are committed and pushed.
 
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+When a Pages deployment is added later, make the deploy job depend on the check with `needs: check`, and require the `Site checks / check` status before merging to the main branch. Running checks and deployment as unrelated workflows does not stop a broken version from going live.
+
+## What is not checked
+
+The checks do not request external sites. Timeouts and rate limits on third-party sites could otherwise block ordinary commits. External links can later get their own scheduled check. Visual details such as color, spacing, and line breaks, along with in-browser behavior such as copying and pagination, still need a page preview. Desktop and mobile screenshot regression, and browser interaction tests, can be added later.
