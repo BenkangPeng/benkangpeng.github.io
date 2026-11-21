@@ -1,5 +1,5 @@
 ---
-title: '重学链表'
+title: 'Relearning Linked Lists'
 description: 'C++链表'
 pubDate: 'Aug 23 2021'
 tags: [C++]

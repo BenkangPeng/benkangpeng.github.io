@@ -1,11 +1,11 @@
 ---
-title: 'Linux 服务器 Mihomo 安装配置教程'
+title: 'Installing and Configuring Mihomo on a Linux Server'
 description: 'Linux 服务器 Mihomo 安装配置教程'
 pubDate: 'Oct 12 2026'
 tags: [tool]
 ---
 
-# Linux 服务器 Mihomo 安装配置教程
+# Installing and Configuring Mihomo on a Linux Server
 
 适用于 Linux x86_64、无 sudo/root 权限、Clash 订阅、SSH 服务器。
 

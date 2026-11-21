@@ -1,5 +1,5 @@
 ---
-title: 'Git学习笔记'
+title: 'Git Notes'
 description: 'Git学习笔记'
 pubDate: 'July 25 2023'
 tags: [tool]

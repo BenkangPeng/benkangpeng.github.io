@@ -1,5 +1,5 @@
 ---
-title: '流畅的Python书籍阅读笔记'
+title: 'Fluent Python Reading Notes'
 description: '流畅的Python书籍阅读笔记'
 pubDate: 'Dec 3 2024'
 tags: [C++]

@@ -1,5 +1,5 @@
 ---
-title: 'MLIR学习笔记'
+title: 'MLIR Notes'
 description: 'MLIR学习笔记'
 pubDate: 'Oct 14 2025'
 tags: [LLVM]

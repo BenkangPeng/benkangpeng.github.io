@@ -1,5 +1,5 @@
 ---
-title: 'CPU记分板'
+title: 'CPU Scoreboard'
 description: 'CPU记分板'
 pubDate: 'March 12 2025'
 tags: [Other]

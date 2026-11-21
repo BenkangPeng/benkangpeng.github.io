@@ -1,5 +1,5 @@
 ---
-title: 'Typora语法记录'
+title: 'Typora Syntax Notes'
 description: 'Typora语法记录'
 pubDate: 'Apr 13 2021'
 tags: [tool]

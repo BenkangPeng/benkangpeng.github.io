@@ -1,5 +1,5 @@
 ---
-title: 'CentOS 学习笔记'
+title: 'CentOS Notes'
 description: 'CentOS 学习笔记'
 pubDate: 'Apr 11 2021'
 tags: [linux]

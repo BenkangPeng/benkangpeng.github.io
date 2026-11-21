@@ -1,5 +1,5 @@
 ---
-title: 'Gda学习笔记'
+title: 'GDB Notes'
 description: 'Gda学习笔记'
 pubDate: 'Aug 20 2023'
 tags: [tool]

@@ -1,5 +1,5 @@
 ---
-title: '一次痛苦的clangd调试经历'
+title: 'A Painful clangd Debugging Experience'
 description: '一次痛苦的clangd调试经历'
 pubDate: 'Nov 1 2025'
 tags: [Debug]

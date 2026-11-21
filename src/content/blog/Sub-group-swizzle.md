@@ -1,10 +1,10 @@
 ---
-title: 'Sub-group Swizzle分块矩阵乘优化原理分析'
+title: 'How Sub-group Swizzle Speeds Up Blocked Matrix Multiplication'
 description: 'Sub-group Swizzle分块矩阵乘优化原理分析'
 pubDate: 'Jul 10 2025'
 tags: [Cuda, GPU]
 ---
-## Sub-group Swizzle分块矩阵乘优化原理分析
+## How Sub-group Swizzle Speeds Up Blocked Matrix Multiplication
 
 ### 摘要
 

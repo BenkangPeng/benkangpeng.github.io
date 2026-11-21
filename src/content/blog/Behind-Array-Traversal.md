@@ -1,5 +1,5 @@
 ---
-title: '遍历数组的背后'
+title: 'Behind Array Traversal'
 description: '分析数组访问方式之间的性能差异'
 pubDate: 'Jul 18 2022'
 tags: [C++]
