@@ -4,14 +4,6 @@ description: 'Typora语法记录'
 pubDate: 'Apr 13 2021'
 tags: [tool]
 ---
-[TOC]
-
-### 行文大致框架
-
-![img](https://picx.zhimg.com/v2-f2ad2c2af0a9842464c774afd8ab1db8_720w.jpg?source=d16d100b)
-
-
-
 ### Living preview
 
 Living preview(实时预览)这也算是Typora的一个特点吧相当于有道云笔记中的右窗口预览，**可自动隐去格式说明中的格式语句** 。 注意一定要在符号与正文之间**加空格**，目的在于区分内容与格式符。文字换行也与一般不同，要**先加空格再enter**。
