@@ -187,7 +187,7 @@ $ \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
 > 在markdown文件中按住Ctrl键同时点击网址即可直接打开
 > ```
 
-[知乎](www.zhihu.com)
+[知乎](https://www.zhihu.com)
 
 #### Insert Pictures
 
@@ -201,7 +201,6 @@ $ \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
 
 * 可将typora设置如下，可避免图片丢失导致markdown文件中图片无法查看（也可以使用网络图床存储）
 
-  ![1693142385073](D:\Software\Typora\Pictures\1693142385073.png)
 
 #### Text Process
 

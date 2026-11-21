@@ -258,7 +258,7 @@ int main(){
 
 ## Linked Linear List
 
-I write a new article about linked linear list [HERE](https://benkangpeng.github.io/posts/14fa845f/)
+I write a new article about linked linear list [HERE](/blog/重学链表/)
 
 # Stack and Queue
 
