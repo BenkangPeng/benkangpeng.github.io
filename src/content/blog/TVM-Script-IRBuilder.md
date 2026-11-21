@@ -169,11 +169,11 @@ prim_func_actual = ib.get()
 3. The frame itself is then popped and can be destroyed - **its job is done**
 4. `ib.get()` retrieves the `PrimFunc` from `IRBuilder.result`
 
-<img src="images/Inhere IRBuilder.jpg" alt="Inhere IRBuilder" style="zoom: 33%;" />
+![Inhere IRBuilder](<images/Inhere IRBuilder.jpg>)
 
 
 
 See also:
 
-* [TVM doc AST](./TVM doc AST)
-* [TVM PrimFunc decorator](./TVM PrimFunc decorator.md)
+* [TVM AST Notes](https://benkangpeng.github.io/blog/tvm-ast/)
+* [TVM PrimFunc Decorator](https://benkangpeng.github.io/blog/tvm-primfunc-decorator/)
